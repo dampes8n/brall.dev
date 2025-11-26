@@ -3,7 +3,7 @@
  * Loads and displays projects for a specific subdomain
  */
 
-class BSubdomainProjects extends HTMLElement {
+class BSubdomainProjects extends (window.BJsonLoader || HTMLElement) {
     constructor() {
         super();
         this.projects = [];
@@ -19,20 +19,14 @@ class BSubdomainProjects extends HTMLElement {
 
     async loadProjects() {
         try {
-            const response = await fetch('data/projects.json');
-            if (response.ok) {
-                const allProjects = await response.json();
-                // Filter projects by subdomain
-                this.projects = allProjects.filter(project => 
-                    project.subdomain && project.subdomain === this.subdomain
-                );
-                this.render();
-            } else {
-                this.innerHTML = '<p>Error loading projects.</p>';
-            }
+            const allProjects = await this.loadJson('data/projects.json', 'projects');
+            // Filter projects by subdomain
+            this.projects = allProjects.filter(project => 
+                project.subdomain && project.subdomain === this.subdomain
+            );
+            this.render();
         } catch (e) {
-            console.error('Error loading subdomain projects:', e);
-            this.innerHTML = '<p>Error loading projects.</p>';
+            this.showError('Error loading projects.');
         }
     }
 
@@ -63,13 +57,6 @@ class BSubdomainProjects extends HTMLElement {
         });
         
         this.innerHTML = html;
-    }
-
-    escapeHtml(text) {
-        if (!text) return '';
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
     }
 }
 

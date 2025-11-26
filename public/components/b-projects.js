@@ -3,35 +3,29 @@
  * Loads and displays projects from JSON data
  */
 
-class BProjects extends HTMLElement {
+class BProjects extends (window.BJsonLoader || HTMLElement) {
     constructor() {
         super();
         this.projects = [];
     }
 
     connectedCallback() {
-        this.innerHTML = '<p>Loading projects...</p>';
+        this.showLoading('Loading projects...');
         this.loadProjects();
     }
 
     async loadProjects() {
         try {
-            const response = await fetch('data/projects.json');
-            if (response.ok) {
-                this.projects = await response.json();
-                this.render();
-            } else {
-                this.innerHTML = '<p>Error loading projects.</p>';
-            }
+            this.projects = await this.loadJson('data/projects.json', 'projects');
+            this.render();
         } catch (e) {
-            console.error('Error loading projects:', e);
-            this.innerHTML = '<p>Error loading projects.</p>';
+            this.showError('Error loading projects.');
         }
     }
 
     render() {
         if (this.projects.length === 0) {
-            this.innerHTML = '<p>Loading projects...</p>';
+            this.showLoading('Loading projects...');
             return;
         }
 
@@ -40,10 +34,6 @@ class BProjects extends HTMLElement {
         this.projects.forEach(project => {
             html += `<article>`;
             html += `<h3><a href="#!/projects/${project.slug}">${this.escapeHtml(project.title)}</a></h3>`;
-            
-            if (project.description) {
-                html += `<p>${this.escapeHtml(project.description)}</p>`;
-            }
             
             // Format dates using BDate component
             const startDate = project.start ? BDate.formatDate(project.start) : 'Ongoing';
@@ -73,24 +63,7 @@ class BProjects extends HTMLElement {
         });
         
         this.innerHTML = html;
-        
-        // Ensure components in the new HTML are loaded
-        if (window.ComponentLoader) {
-            window.ComponentLoader.find(this).forEach(comp => {
-                window.ComponentLoader.load(comp).catch(() => {});
-            });
-        }
-    }
-
-    slugify(text) {
-        return text.toLowerCase().replace(/\s+/g, '-');
-    }
-
-    escapeHtml(text) {
-        if (!text) return '';
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
+        this.loadComponents();
     }
 
 }

@@ -770,17 +770,49 @@
 
         }
 
+        // Normalize a path for comparison
+        function normalizePathForComparison(path) {
+            let normalized = path;
+            if (normalized.startsWith('#!')) {
+                normalized = normalized.substring(2);
+            } else if (normalized.startsWith('/')) {
+                normalized = normalized.substring(1);
+            } else if (normalized.startsWith('#')) {
+                normalized = normalized.substring(1);
+            }
+            
+            // Clean up path: remove leading/trailing slashes and normalize
+            normalized = normalized.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
+            
+            // Ensure we have a valid path (default to Resume if empty)
+            if (!normalized || normalized === '/') {
+                normalized = 'Resume';
+            }
+            
+            return normalized;
+        }
+
         // Set up click handlers for #! links
         function setupLinkHandlers() {
             document.addEventListener('click', async (e) => {
                 const link = e.target.closest('a[href^="#!"]');
                 if (!link) return;
                 
-                e.preventDefault();
                 const href = link.getAttribute('href');
                 
+                // Normalize both paths for comparison
+                const targetPath = normalizePathForComparison(href);
+                const currentPath = normalizePathForComparison(getCurrentPath());
+                
+                // Don't navigate if we're already on this page
+                if (targetPath === currentPath) {
+                    e.preventDefault();
+                    return;
+                }
+                
+                e.preventDefault();
+                
                 // Save current scroll position before navigation
-                const currentPath = getCurrentPath();
                 const scrollY = window.scrollY;
                 saveScrollPosition(currentPath, scrollY);
                 

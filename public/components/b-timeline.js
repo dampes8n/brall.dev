@@ -3,7 +3,7 @@
  * Loads and displays timeline events from JSON data
  */
 
-class BTimeline extends HTMLElement {
+class BTimeline extends (window.BJsonLoader || HTMLElement) {
     constructor() {
         super();
         this.events = [];
@@ -37,16 +37,10 @@ class BTimeline extends HTMLElement {
 
     async loadEvents() {
         try {
-            const response = await fetch('data/timeline-events.json');
-            if (response.ok) {
-                this.events = await response.json();
-                this.render();
-            } else {
-                this.innerHTML = '<p>Error loading timeline events.</p>';
-            }
+            this.events = await this.loadJson('data/timeline-events.json', 'events');
+            this.render();
         } catch (e) {
-            console.error('Error loading timeline:', e);
-            this.innerHTML = '<p>Error loading timeline events.</p>';
+            this.showError('Error loading timeline events.');
         }
     }
 
@@ -127,8 +121,7 @@ class BTimeline extends HTMLElement {
         // Load projects once for all events
         let projects = [];
         try {
-            const projectsRes = await fetch('data/projects.json');
-            projects = await projectsRes.json();
+            projects = await this.loadJson('data/projects.json', 'projects');
         } catch (e) {
             console.warn('Failed to load projects for timeline:', e);
         }
@@ -194,16 +187,6 @@ class BTimeline extends HTMLElement {
     }
 
 
-    slugify(text) {
-        // Handle slashes by converting them to -slash- for URL safety
-        return text.toLowerCase().replace(/\//g, '-slash-').replace(/\s+/g, '-');
-    }
-
-    escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
 
     attachFilterListeners() {
         const checkboxes = this.querySelectorAll('input[type="checkbox"][data-domain]');

@@ -3,7 +3,7 @@
  * Loads and displays skillsets with their associated skills
  */
 
-class BSkillsets extends HTMLElement {
+class BSkillsets extends (window.BJsonLoader || HTMLElement) {
     constructor() {
         super();
         this.skills = [];
@@ -18,23 +18,18 @@ class BSkillsets extends HTMLElement {
 
     async loadData() {
         try {
-            const [skillsRes, projectsRes, timelineRes] = await Promise.all([
-                fetch('data/skills.json'),
-                fetch('data/projects.json'),
-                fetch('data/timeline-events.json')
-            ]);
-
-            if (skillsRes.ok && projectsRes.ok && timelineRes.ok) {
-                this.skills = await skillsRes.json();
-                this.projects = await projectsRes.json();
-                this.timelineEvents = await timelineRes.json();
-                this.render();
-            } else {
-                this.innerHTML = '<p>Error loading skillsets data.</p>';
-            }
+            const data = await this.loadMultipleJson({
+                skills: 'data/skills.json',
+                projects: 'data/projects.json',
+                timelineEvents: 'data/timeline-events.json'
+            });
+            
+            this.skills = data.skills;
+            this.projects = data.projects;
+            this.timelineEvents = data.timelineEvents;
+            this.render();
         } catch (e) {
-            console.error('Error loading skillsets:', e);
-            this.innerHTML = '<p>Error loading skillsets data.</p>';
+            this.showError('Error loading skillsets data.');
         }
     }
 
@@ -127,24 +122,7 @@ class BSkillsets extends HTMLElement {
         });
         
         this.innerHTML = html;
-        
-        // Ensure components in the new HTML are loaded
-        if (window.ComponentLoader) {
-            window.ComponentLoader.find(this).forEach(comp => {
-                window.ComponentLoader.load(comp).catch(() => {});
-            });
-        }
-    }
-
-    slugify(text) {
-        return text.toLowerCase().replace(/\s+/g, '-');
-    }
-
-    escapeHtml(text) {
-        if (!text) return '';
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
+        this.loadComponents();
     }
 }
 
