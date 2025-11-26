@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>brall.dev - Portfolio</title>
+    <link rel="stylesheet" href="css/core.css">
+    <style id="flavor-style"></style>
+    <style id="transition-style"></style>
+</head>
+<body>
+    <b-skip-link></b-skip-link>
+    
+    <div id="backgrounds"></div>
+    
+    <div id="layout-wrapper">
+        <button id="menu-toggle" class="menu-toggle-label" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        
+        <nav id="main-menu" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><b-anchor href="#!/Resume" no-hover-menu>Resume</b-anchor></li>
+                <li><b-anchor href="#!/Projects" no-hover-menu>Projects</b-anchor></li>
+                <li><b-anchor href="#!/History" no-hover-menu>History</b-anchor></li>
+                <li><b-anchor href="#!/About-Me" no-hover-menu>About Me</b-anchor></li>
+                <li><b-anchor href="#!/My-Stance-On-AI" no-hover-menu>My Stance On AI</b-anchor></li>
+                <li><b-anchor href="#!/Contact" no-hover-menu>Contact</b-anchor></li>
+            </ul>
+        </nav>
+
+        <main id="main-content" role="main">
+            <div id="content-pane"></div>
+        </main>
+
+        <aside id="situational-menu" aria-hidden="true" role="complementary">
+            <nav aria-label="Situational navigation">
+                <ul id="situational-links"></ul>
+            </nav>
+        </aside>
+    </div>
+    
+    <div id="foregrounds"></div>
+
+    <footer id="main-footer">
+        <b-flavor-selector></b-flavor-selector>
+        <p class="copyright">&copy; <b-year></b-year> Will Brall.</p>
+    </footer>
+
+    <script src="js/loader.js"></script>
+    <script>
+        // Hamburger menu toggle
+        (function() {
+            const menu = document.getElementById('main-menu');
+            const toggle = document.getElementById('menu-toggle');
+            const menuList = menu?.querySelector('ul');
+            
+            if (toggle && menu) {
+                toggle.addEventListener('click', function() {
+                    const isOpen = menu.classList.toggle('menu-open');
+                    toggle.setAttribute('aria-expanded', isOpen);
+                    toggle.textContent = isOpen ? '✕' : '☰';
+                });
+                
+                // Close menu when clicking a link
+                if (menuList) {
+                    menuList.addEventListener('click', function(e) {
+                        if (e.target.tagName === 'B-ANCHOR' || e.target.closest('b-anchor')) {
+                            menu.classList.remove('menu-open');
+                            toggle.setAttribute('aria-expanded', 'false');
+                            toggle.textContent = '☰';
+                        }
+                    });
+                }
+            }
+        })();
+    </script>
+</body>
+</html>
+

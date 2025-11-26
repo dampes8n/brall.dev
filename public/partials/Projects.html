@@ -1,0 +1,52 @@
+<article>
+    <header>
+        <h1>Projects</h1>
+    </header>
+
+    <section id="spotlight">
+        <h2>Spotlight</h2>
+        <div class="spotlight-projects">
+            <div class="spotlight-item">
+                <h3>Book</h3>
+                <p><b-anchor href="#!/projects/magitism">Magitism: The Force of Magic</b-anchor></p>
+            </div>
+            <div class="spotlight-item">
+                <h3>Obsidian Archipelago</h3>
+                <p>Project description coming soon.</p>
+            </div>
+            <div class="spotlight-item">
+                <h3>The Elder Scrolls Online</h3>
+                <p><b-anchor href="#!/projects/eso">View project details</b-anchor></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="all-projects">
+        <h2>All Projects</h2>
+        <div id="projects-list"></div>
+    </section>
+</article>
+
+<script>
+    fetch('data/projects.json')
+        .then(response => response.json())
+        .then(projects => {
+            const container = document.getElementById('projects-list');
+            projects.forEach(project => {
+                const div = document.createElement('div');
+                div.className = 'project-item';
+                const link = document.createElement('b-anchor');
+                link.setAttribute('href', `#!/projects/${project.text.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`);
+                link.textContent = project.text;
+                div.appendChild(link);
+                if (project.start || project.end) {
+                    const dates = document.createElement('p');
+                    dates.className = 'project-dates';
+                    dates.textContent = `${project.start || 'Ongoing'} - ${project.end || 'Present'}`;
+                    div.appendChild(dates);
+                }
+                container.appendChild(div);
+            });
+        });
+</script>
+

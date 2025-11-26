@@ -1,0 +1,802 @@
+[
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "1983-07-05",
+        "skillsets": [],
+        "skills": [],
+        "title": "Born"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "1983-10",
+        "skillsets": [],
+        "skills": [],
+        "title": "Adopted",
+        "description": "Moved to Columbia"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "1992",
+        "skillsets": [],
+        "skills": [],
+        "title": "Moved to Chambersburg"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "2001",
+        "skillsets": [],
+        "skills": [],
+        "title": "Graduated High School"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "2001",
+        "skillsets": [],
+        "skills": [],
+        "title": "Moved to Philly"
+    },
+    {
+        "domain": "Academic",
+        "subdomain": "UArts",
+        "project": null,
+        "date": "2001",
+        "skillsets": [
+            "Design"
+        ],
+        "skills": [
+            "Multimedia"
+        ],
+        "title": "Started at UArts",
+        "description": "Multimedia"
+    },
+    {
+        "domain": "Academic",
+        "subdomain": "UArts",
+        "project": null,
+        "date": "2002",
+        "skillsets": [
+            "Design"
+        ],
+        "skills": [
+            "Multimedia"
+        ],
+        "title": "Ended at UArts",
+        "description": "Multimedia"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "2002",
+        "skillsets": [],
+        "skills": [],
+        "title": "Moved to Williamsport"
+    },
+    {
+        "domain": "Academic",
+        "subdomain": "Penn College of Technology",
+        "project": null,
+        "date": "2003",
+        "skillsets": [
+            "Development"
+        ],
+        "skills": [
+            "Computer Science"
+        ],
+        "title": "Started at Penn College of Technology",
+        "description": "Computer Science"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "2004",
+        "skillsets": [],
+        "skills": [],
+        "title": "Moved back to Chambersburg"
+    },
+    {
+        "domain": "Academic",
+        "subdomain": "UAT",
+        "project": null,
+        "date": "2004",
+        "skillsets": [
+            "Design",
+            "Development"
+        ],
+        "skills": [
+            "Game Design"
+        ],
+        "title": "Started at UAT",
+        "description": "Game Design"
+    },
+    {
+        "domain": "Academic",
+        "subdomain": "UAT",
+        "project": null,
+        "date": "2006",
+        "skillsets": [
+            "Design",
+            "Development"
+        ],
+        "skills": [
+            "Game Design"
+        ],
+        "title": "Graduated from UAT",
+        "description": "Game Design degree"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "2005-2006",
+        "skillsets": [],
+        "skills": [],
+        "title": "Moved back to Columbia"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "NASA/Goddard Space Flight Center/Mantech",
+        "project": "SMA",
+        "date": "2007",
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "title": "Started at NASA/Goddard",
+        "description": "Safety and Mission Assurance"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "Engility/L3/MPRI",
+        "project": "Army.mil",
+        "date": "2008",
+        "skillsets": [
+            "Development",
+            "DevOps",
+            "Database"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "MySQL"
+        ],
+        "title": "Started at Engility/L3/MPRI",
+        "description": "Army.mil"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "Engility/L3/MPRI",
+        "project": "My.Army.mil",
+        "date": "2008",
+        "skillsets": [
+            "Development",
+            "DevOps",
+            "Database"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "MySQL"
+        ],
+        "title": "My.Army.mil",
+        "description": "Engility/L3/MPRI"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "2008-07",
+        "skillsets": [],
+        "skills": [],
+        "title": "Bought Condo"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "The Elder Scrolls Online",
+        "date": "2013-01",
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX",
+            "Leadership"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Photoshop"
+        ],
+        "title": "Started at ZeniMax Online Studios",
+        "description": "The Elder Scrolls Online"
+    },
+    {
+        "domain": "Independent",
+        "subdomain": "Life",
+        "project": "The Bronze Coin",
+        "date": "2013-07",
+        "skillsets": [
+            "Development",
+            "Design"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "title": "Opened The Bronze Coin"
+    },
+    {
+        "domain": "Independent",
+        "subdomain": "Life",
+        "project": "The Bronze Coin",
+        "date": "2014-early",
+        "skillsets": [
+            "Development",
+            "Design"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "title": "Closed The Bronze Coin"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Truugahn",
+        "date": "2011",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Started Truugahn",
+        "description": "D&D 4E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Truugahn",
+        "date": "2014",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Ended Truugahn",
+        "description": "D&D 4E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Bonewall",
+        "date": "2014-mid",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Started Bonewall",
+        "description": "D&D 5E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Comedy of Justice",
+        "date": "2015-07",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Started Comedy of Justice",
+        "description": "D&D 5E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Comedy of Justice",
+        "date": "2016-mid",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Ended Comedy of Justice",
+        "description": "D&D 5E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Isle of Glass Statues",
+        "date": "2016-10",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Started Isle of Glass Statues",
+        "description": "D&D 5E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Isle of Glass Statues",
+        "date": "2017-mid",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Ended Isle of Glass Statues",
+        "description": "D&D 5E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Bonewall",
+        "date": "2016-10",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Ended Bonewall",
+        "description": "D&D 5E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Truugahn II",
+        "date": "2018-04",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Started Truugahn II",
+        "description": "D&D 5E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "2018-late",
+        "skillsets": [],
+        "skills": [],
+        "title": "Bought Townhouse"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Papaku Vai",
+        "date": "2019-07",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Started Papaku Vai",
+        "description": "D&D 5E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "2019-08-28",
+        "skillsets": [],
+        "skills": [],
+        "title": "Married",
+        "description": "Elena Herron"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Truugahn II",
+        "date": "2019-10-12",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Ended Truugahn II",
+        "description": "D&D 5E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Papaku Vai",
+        "date": "2020-mid",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Ended Papaku Vai",
+        "description": "D&D 5E campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Crumblewood",
+        "date": "2021-07",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing",
+            "Humblewood"
+        ],
+        "title": "Started Crumblewood",
+        "description": "D&D 5E and Humblewood campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Crumblewood",
+        "date": "2021-08",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing",
+            "Humblewood"
+        ],
+        "title": "Ended Crumblewood",
+        "description": "D&D 5E and Humblewood campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Repocalypse (Comedy of Justice II)",
+        "date": "2021-07",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing",
+            "PbtA"
+        ],
+        "title": "Started Repocalypse (Comedy of Justice II)",
+        "description": "D&D 5E and PbtA campaign"
+    },
+    {
+        "domain": "Independent",
+        "subdomain": "Life",
+        "project": "Magitism: The Force of Magic",
+        "date": "2021-12",
+        "skillsets": [
+            "Writing"
+        ],
+        "skills": [
+            "Creative Writing"
+        ],
+        "title": "Began writing",
+        "description": "Magitism: The Force of Magic"
+    },
+    {
+        "domain": "Independent",
+        "subdomain": "Life",
+        "project": "Magitism: The Force of Magic",
+        "date": "2022-12-18",
+        "skillsets": [
+            "Writing"
+        ],
+        "skills": [
+            "Creative Writing"
+        ],
+        "title": "Published",
+        "description": "Magitism: The Force of Magic"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Repocalypse (Comedy of Justice II)",
+        "date": "2023-mid",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing",
+            "PbtA"
+        ],
+        "title": "Ended Repocalypse (Comedy of Justice II)",
+        "description": "D&D 5E and PbtA campaign"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Halfling Baked",
+        "date": "2023-03",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Started Halfling Baked",
+        "description": "D&D 5E campaign - Ongoing"
+    },
+    {
+        "domain": "Independent",
+        "subdomain": "Life",
+        "project": "Magitism: The Force of Magic",
+        "date": "2024-06-04",
+        "skillsets": [
+            "Writing"
+        ],
+        "skills": [
+            "Creative Writing"
+        ],
+        "title": "Dale Review",
+        "description": "Magitism: The Force of Magic"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Isle of Glass Statues II",
+        "date": "2024-07-21",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Started Isle of Glass Statues II",
+        "description": "D&D 5E at Dan Wells Game Night Getaway '24"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "project": "Isle of Glass Statues II",
+        "date": "2024-07-27",
+        "skillsets": [
+            "Writing",
+            "Leadership"
+        ],
+        "skills": [
+            "D&D",
+            "TTRPGs",
+            "GMing"
+        ],
+        "title": "Ended Isle of Glass Statues II",
+        "description": "D&D 5E campaign"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "Unannounced Game",
+        "date": "2025-07",
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX",
+            "Leadership"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "title": "Unannounced Game project ended"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "ZOSU",
+        "date": null,
+        "skillsets": [
+            "Leadership"
+        ],
+        "skills": [],
+        "title": "Holding everyone together during a project cancellation"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "ZOSU",
+        "date": null,
+        "skillsets": [
+            "Leadership"
+        ],
+        "skills": [],
+        "title": "Running for BC"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "ZOSU",
+        "date": null,
+        "skillsets": [
+            "Leadership"
+        ],
+        "skills": [],
+        "title": "Vote to Unionize"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "ZOSU",
+        "date": null,
+        "skillsets": [
+            "Leadership"
+        ],
+        "skills": [],
+        "title": "Joining the Organizing Committee"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "The Elder Scrolls Online - Patcher",
+        "date": "2025",
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "title": "Patcher Rebuild in 2025"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "The Elder Scrolls Online - Patcher",
+        "date": "2013",
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "title": "Patcher First build in 2013-2014"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "Keen",
+        "date": null,
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX",
+            "Leadership"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "title": "Keen"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "APE",
+        "date": null,
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Laravel"
+        ],
+        "title": "APE",
+        "description": "Laravel Years"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "APE",
+        "date": null,
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX"
+        ],
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "title": "APE",
+        "description": "Frameworkless Rebuild"
+    }
+]

@@ -1,0 +1,51 @@
+<article>
+    <header>
+        <h1>Resume</h1>
+        <p class="subtitle">Principal Creative Web Developer</p>
+        <p class="tagline"><em>Leading experience, architecture & aesthetics</em></p>
+    </header>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Contact information will be displayed here.</p>
+    </section>
+
+    <section id="resume-formats">
+        <h2>Resume Formats</h2>
+        <p>Different resume formats will be available here.</p>
+    </section>
+
+    <section id="objective">
+        <h2>Objective</h2>
+        <p>Professional objective statement will be displayed here.</p>
+    </section>
+
+    <section id="timeline">
+        <h2>Timeline</h2>
+        <p>Timeline events will be displayed here. Academic and Employed domains active by default.</p>
+        <b-timeline academic employed></b-timeline>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <p>Skills will be displayed here with links to individual skill pages.</p>
+        <div id="skills-list"></div>
+    </section>
+</article>
+
+<script>
+    // Load skills
+    fetch('data/skills.json')
+        .then(response => response.json())
+        .then(skills => {
+            const container = document.getElementById('skills-list');
+            skills.forEach(skill => {
+                const link = document.createElement('b-anchor');
+                link.setAttribute('href', `#!/skills/${skill.text.toLowerCase().replace(/\s+/g, '-')}`);
+                link.textContent = skill.text;
+                container.appendChild(link);
+                container.appendChild(document.createTextNode(' • '));
+            });
+        });
+</script>
+

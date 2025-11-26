@@ -1,0 +1,63 @@
+[
+    {
+        "skillsets": ["Leadership"],
+        "text": "Leading experience, architecture & aesthetics"
+    },
+    {
+        "skillsets": ["Writing"],
+        "text": "Creative Writing"
+    },
+    {
+        "skillsets": ["Writing", "Leadership"],
+        "text": "D&D"
+    },
+    {
+        "skillsets": ["Writing", "Leadership"],
+        "text": "TTRPGs"
+    },
+    {
+        "skillsets": ["Writing", "Leadership"],
+        "text": "GMing"
+    },
+    {
+        "skillsets": ["Development"],
+        "text": "HTML"
+    },
+    {
+        "skillsets": ["Development"],
+        "text": "CSS"
+    },
+    {
+        "skillsets": ["Development"],
+        "text": "JavaScript"
+    },
+    {
+        "skillsets": ["Design"],
+        "text": "Photoshop"
+    },
+    {
+        "skillsets": ["Database"],
+        "text": "MySQL"
+    },
+    {
+        "skillsets": ["Development"],
+        "text": "Laravel"
+    },
+    {
+        "skillsets": ["Development"],
+        "text": "Vanilla Web Components"
+    },
+    {
+        "skillsets": ["DevOps"],
+        "text": "Server Management"
+    },
+    {
+        "skillsets": ["UX"],
+        "text": "User Experience Design"
+    },
+    {
+        "skillsets": ["Design"],
+        "text": "Web Design"
+    }
+]
+
