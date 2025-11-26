@@ -111,6 +111,9 @@
                 
                 console.log('[Router] Loading content for path:', targetPath);
 
+                // Update title immediately so it shows right away
+                this.updateTitle(targetPath);
+
                 // Check if this is first load (no breadcrumb exists for this path)
                 const breadcrumbs = document.querySelector('b-breadcrumbs');
                 const isFirstLoad = breadcrumbs && breadcrumbs.breadcrumbs && !breadcrumbs.breadcrumbs.find(b => 
@@ -135,9 +138,6 @@
                 const newUrl = `#!${targetPath}`;
                 const scrollY = window.scrollY;
                 window.history.pushState({ path: targetPath, scrollY }, '', newUrl);
-
-                // Update title
-                this.updateTitle(targetPath);
 
                 // Update breadcrumbs (add new breadcrumb with current scroll position)
                 // Note: scroll position will be 0 if first load (we scrolled to top)
@@ -358,7 +358,8 @@
                         html += `<h2>Timeline Events</h2>`;
                         html += `<nav class="tag-list">`;
                         filteredEvents.forEach(event => {
-                            html += `<a href="#!/timeline-events/${event.slug}" class="tag">${this.escapeHtml(event.title)}</a>`;
+                            const eventDate = BDate.formatDate(event.date || 'Unknown');
+                            html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
                         });
                         html += `</nav>`;
                         html += `</section>`;
@@ -443,7 +444,8 @@
                         html += `<h2>Timeline Events</h2>`;
                         html += `<nav class="tag-list">`;
                         filteredEvents.forEach(event => {
-                            html += `<a href="#!/timeline-events/${event.slug}" class="tag">${this.escapeHtml(event.title)}</a>`;
+                            const eventDate = BDate.formatDate(event.date || 'Unknown');
+                            html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
                         });
                         html += `</nav>`;
                         html += `</section>`;
@@ -497,11 +499,13 @@
                 let html = '<article>';
                 
                 if (jsonFile === 'projects.json') {
-                    // Format dates
-                    const startDate = item.start ? this.formatDate(item.start) : 'Ongoing';
-                    const endDate = item.end ? this.formatDate(item.end) : 'Present';
+                    // Format dates using BDate component
+                    const startDate = item.start ? BDate.formatDate(item.start) : 'Ongoing';
+                    const endDate = item.end ? BDate.formatDate(item.end) : 'Present';
+                    const domain = item.domain || '';
+                    const domainLower = domain.toLowerCase();
                     
-                    html += `<div class="card">`;
+                    html += `<div class="card" data-domain="${domainLower}">`;
                     html += `<p><time>${startDate} - ${endDate}</time></p>`;
                     html += `<h1>${this.escapeHtml(item.title)}</h1>`;
                     if (item.description) {
@@ -532,7 +536,8 @@
                         html += `<h2>Related Timeline Events</h2>`;
                         html += `<nav class="tag-list">`;
                         relatedEvents.forEach(event => {
-                            html += `<a href="#!/timeline-events/${event.slug}" class="tag">${this.escapeHtml(event.title)}</a>`;
+                            const eventDate = BDate.formatDate(event.date || 'Unknown');
+                            html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
                         });
                         html += `</nav>`;
                         html += `</section>`;
@@ -578,7 +583,8 @@
                         html += `<h2>Related Timeline Events</h2>`;
                         html += `<nav class="tag-list">`;
                         relatedEvents.forEach(event => {
-                            html += `<a href="#!/timeline-events/${event.slug}" class="tag">${this.escapeHtml(event.title)}</a>`;
+                            const eventDate = BDate.formatDate(event.date || 'Unknown');
+                            html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
                         });
                         html += `</nav>`;
                         html += `</section>`;
@@ -594,8 +600,8 @@
                         `<a href="#!/subdomains/${subdomainLink}">${this.escapeHtml(subdomain)}</a>` : 
                         '';
                     
-                    // Format date
-                    const formattedDate = this.formatDate(item.date || 'Unknown');
+                    // Format date using BDate component
+                    const formattedDate = BDate.formatDate(item.date || 'Unknown');
                     
                     html += `<div class="timeline-event-detail" data-domain="${domain.toLowerCase()}">`;
                     html += `<div class="card">`;
@@ -671,54 +677,6 @@
                 return div.innerHTML;
             }
 
-            formatDate(dateStr) {
-                if (!dateStr || dateStr === 'Unknown' || dateStr === 'null') {
-                    return 'Unknown';
-                }
-                
-                // Handle various date formats: "YYYY-MM-DD", "YYYY-MM", "YYYY", "YYYY-early", "YYYY-mid", "YYYY-late"
-                const parts = dateStr.split('-');
-                const year = parts[0];
-                
-                if (parts.length === 3) {
-                    // YYYY-MM-DD -> July 5th, 2008
-                    const month = parseInt(parts[1]) - 1;
-                    const day = parseInt(parts[2]);
-                    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
-                                      'July', 'August', 'September', 'October', 'November', 'December'];
-                    const daySuffix = this.getDaySuffix(day);
-                    return `${monthNames[month]} ${day}${daySuffix}, ${year}`;
-                } else if (parts.length === 2) {
-                    if (parts[1] === 'early') {
-                        return `Early ${year}`;
-                    } else if (parts[1] === 'mid') {
-                        return `Mid ${year}`;
-                    } else if (parts[1] === 'late') {
-                        return `Late ${year}`;
-                    } else {
-                        // YYYY-MM -> July, 2008
-                        const month = parseInt(parts[1]) - 1;
-                        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
-                                          'July', 'August', 'September', 'October', 'November', 'December'];
-                        return `${monthNames[month]}, ${year}`;
-                    }
-                } else {
-                    // YYYY -> 2008
-                    return year;
-                }
-            }
-
-            getDaySuffix(day) {
-                if (day >= 11 && day <= 13) {
-                    return 'th';
-                }
-                switch (day % 10) {
-                    case 1: return 'st';
-                    case 2: return 'nd';
-                    case 3: return 'rd';
-                    default: return 'th';
-                }
-            }
 
             async createSectionFromHTML(html, sectionId, shouldScroll) {
                 const contentPane = document.getElementById('content-pane');
@@ -788,17 +746,26 @@
             updateTitle(path) {
                 // Handle data item routes (projects/skills/timeline-events)
                 const pathParts = path.split('/');
+                let newTitle;
+                
                 if (pathParts.length === 2) {
                     const [type, slug] = pathParts;
                     // Capitalize first letter of type and format slug
                     const typeName = type.charAt(0).toUpperCase() + type.slice(1).replace(/s$/, '');
-                    const slugTitle = slug.replace(/-/g, ' ');
-                    document.title = `${slugTitle} - ${typeName} - brall.dev`;
+                    const slugTitle = slug.split('-').map(word => 
+                        word.charAt(0).toUpperCase() + word.slice(1)
+                    ).join(' ');
+                    newTitle = `${slugTitle} - Will Brall's Portfolio`;
                 } else {
-                    // Generate title from filename: replace hyphens with spaces
-                    const pageTitle = path.replace(/-/g, ' ');
-                    document.title = `${pageTitle} - brall.dev`;
+                    // Generate title from filename: replace hyphens with spaces and capitalize
+                    const pageTitle = path.split('-').map(word => 
+                        word.charAt(0).toUpperCase() + word.slice(1)
+                    ).join(' ');
+                    newTitle = `${pageTitle} - Will Brall's Portfolio`;
                 }
+                
+                console.log('[Router] Updating title:', newTitle, 'for path:', path);
+                document.title = newTitle;
             }
 
         }
@@ -877,11 +844,25 @@
 
         // Handle back/forward buttons
         window.addEventListener('popstate', async (e) => {
-            const path = e.state?.path || getCurrentPath();
+            let path = e.state?.path || getCurrentPath();
             const savedScrollY = e.state?.scrollY;
             
+            // Normalize path (same logic as in loadContent)
+            if (path.startsWith('#!')) {
+                path = path.substring(2);
+            } else if (path.startsWith('/')) {
+                path = path.substring(1);
+            } else if (path.startsWith('#')) {
+                path = path.substring(1);
+            }
+            path = path.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
+            if (!path || path === '/') {
+                path = 'Resume';
+            }
+            
             // Load content without scrolling (we'll restore scroll position)
-            await Router.loadContentFromPath(path, false);
+            const router = new Router();
+            await router.loadContent(path, false);
             
             // Restore scroll position from history state or breadcrumbs
             const scrollY = savedScrollY !== undefined ? savedScrollY : 

@@ -45,20 +45,28 @@ class BProjects extends HTMLElement {
                 html += `<p>${this.escapeHtml(project.description)}</p>`;
             }
             
-            if (project.skillsets && project.skillsets.length > 0) {
-                html += `<p>`;
-                project.skillsets.forEach((skillset, index) => {
-                    const slug = this.slugify(skillset);
-                    html += `<a href="#!/skillsets/${slug}">${this.escapeHtml(skillset)}</a>`;
-                    if (index < project.skillsets.length - 1) {
-                        html += ', ';
-                    }
-                });
-                html += `</p>`;
-            }
+            // Format dates using BDate component
+            const startDate = project.start ? BDate.formatDate(project.start) : 'Ongoing';
+            const endDate = project.end ? BDate.formatDate(project.end) : 'Present';
+            html += `<p><time>${startDate} - ${endDate}</time></p>`;
             
-            if (project.start || project.end) {
-                html += `<p><time>${this.escapeHtml(project.start || 'Ongoing')} - ${this.escapeHtml(project.end || 'Present')}</time></p>`;
+            // Metadata section with domain, subdomain, and skillsets
+            if (project.domain || project.subdomain || (project.skillsets && project.skillsets.length > 0)) {
+                html += `<nav class="metadata">`;
+                if (project.domain) {
+                    html += `<span class="timeline-domain">${this.escapeHtml(project.domain)}</span>`;
+                }
+                if (project.subdomain) {
+                    const subdomainLink = this.slugify(project.subdomain);
+                    html += `<a href="#!/subdomains/${subdomainLink}">${this.escapeHtml(project.subdomain)}</a>`;
+                }
+                if (project.skillsets && project.skillsets.length > 0) {
+                    project.skillsets.forEach(skillset => {
+                        const slug = this.slugify(skillset);
+                        html += `<a href="#!/skillsets/${slug}">${this.escapeHtml(skillset)}</a>`;
+                    });
+                }
+                html += `</nav>`;
             }
             
             html += `</article>`;
@@ -84,6 +92,7 @@ class BProjects extends HTMLElement {
         div.textContent = text;
         return div.innerHTML;
     }
+
 }
 
 customElements.define('b-projects', BProjects);

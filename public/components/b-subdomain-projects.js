@@ -53,7 +53,10 @@ class BSubdomainProjects extends HTMLElement {
             }
             
             if (project.start || project.end) {
-                html += `<p class="project-dates">${this.escapeHtml(project.start || 'Ongoing')} - ${this.escapeHtml(project.end || 'Present')}</p>`;
+                // Format dates using BDate component
+                const startDate = project.start ? BDate.formatDate(project.start) : 'Ongoing';
+                const endDate = project.end ? BDate.formatDate(project.end) : 'Present';
+                html += `<p class="project-dates">${this.escapeHtml(startDate)} - ${this.escapeHtml(endDate)}</p>`;
             }
             
             html += `</div>`;

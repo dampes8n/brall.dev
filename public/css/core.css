@@ -199,10 +199,11 @@ a[href^="#!"]:visited {
     grid-column: 2;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    min-height: 100vh;
+    height: fit-content;
     margin: 0.5rem 0.25rem;
     border-radius: 8px;
     outline: none;
+    align-self: start;
 }
 
 #main-content:focus {
@@ -389,8 +390,7 @@ b-layer .layer-content {
     position: relative;
     z-index: 1;
     padding: 2rem;
-    padding-bottom: 100px;
-    min-height: 100%;
+    padding-bottom: 2rem;
     container-type: inline-size;
     container-name: content;
 }
@@ -579,6 +579,12 @@ a[href$=".docx"]::after {
     overflow-x: hidden;
 }
 
+/* Full height mode - no scrolling, expands to fit content */
+b-timeline.timeline-full-height .timeline-container {
+    max-height: none;
+    overflow-y: visible;
+}
+
 .timeline-container::-webkit-scrollbar {
     width: 8px;
 }
@@ -596,68 +602,114 @@ a[href$=".docx"]::after {
     background: rgba(0, 0, 0, 0.5);
 }
 
-.timeline-line {
-    position: absolute;
-    left: 19px;
-    top: 0;
-    width: 2px;
-    background: rgba(0, 0, 0, 0.2);
-    pointer-events: none;
-    height: 100%;
-    transition: top 0.2s ease, height 0.2s ease;
-}
-
 .timeline-event {
     position: relative;
     padding-left: 60px;
-    margin-bottom: 2rem;
+    margin-bottom: 0.67rem;
     min-height: 60px;
+    transition: opacity 0.3s ease, margin-bottom 0.3s ease, height 0.3s ease, padding-top 0.3s ease, padding-bottom 0.3s ease;
+    opacity: 1;
+    overflow: visible;
 }
 
+.timeline-event-hidden {
+    margin-bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    min-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+/* Marker with colored circle, white ring, and grey ring */
 .timeline-marker {
     position: absolute;
     left: 12px;
     top: 0;
+    width: 20px;
+    height: 20px;
+    z-index: 3;
+    transform: translateY(-50%);
+    margin-top: 8px;
+}
+
+.timeline-marker-outer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #808080;
+    z-index: 1;
+}
+
+.timeline-marker-inner {
+    position: absolute;
+    top: 2px;
+    left: 2px;
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: var(--accent, #007aff);
-    border: 3px solid white;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+    background: white;
     z-index: 2;
-    transform: translateY(-50%);
-    margin-top: 8px;
 }
 
-.timeline-event::before {
+.timeline-marker::after {
     content: '';
     position: absolute;
-    left: 10px;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    background: var(--secondary-bg, white);
+    top: 4px;
+    left: 4px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    z-index: 1;
-    transform: translateY(-50%);
-    margin-top: 8px;
+    background: var(--accent, #007aff);
+    z-index: 3;
 }
 
-.timeline-event[data-domain="academic"] .timeline-marker {
+/* Domain-specific marker colors */
+.timeline-event[data-domain="academic"] .timeline-marker::after {
     background: var(--timeline-academic);
 }
 
-.timeline-event[data-domain="employed"] .timeline-marker {
+.timeline-event[data-domain="employed"] .timeline-marker::after {
     background: var(--timeline-employed);
 }
 
-.timeline-event[data-domain="independent"] .timeline-marker {
+.timeline-event[data-domain="independent"] .timeline-marker::after {
     background: var(--timeline-independent);
 }
 
-.timeline-event[data-domain="personal"] .timeline-marker {
+.timeline-event[data-domain="personal"] .timeline-marker::after {
     background: var(--timeline-personal);
 }
+
+/* Line segment extending from marker to next marker using ::before */
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: 21px;
+    top: 8px;
+    width: 2px;
+    background: #808080;
+    pointer-events: none;
+    z-index: 0;
+    height: calc(100% + 0.67rem - 8px);
+    display: block;
+}
+
+/* Hide line on last child or last visible event */
+.timeline-event:last-child::before,
+.timeline-event.timeline-last-visible::before {
+    display: none;
+}
+
+/* Hide line when this event is hidden */
+.timeline-event-hidden::before {
+    display: none;
+}
+
 
 .timeline-content {
     background: rgba(255, 255, 255, 0.8);
@@ -698,6 +750,23 @@ a[href$=".docx"]::after {
     margin-bottom: 1rem;
     font-size: 0.85rem;
     display: block;
+}
+
+/* Domain-specific colors for card time */
+.card[data-domain="academic"] time {
+    color: var(--timeline-academic);
+}
+
+.card[data-domain="employed"] time {
+    color: var(--timeline-employed);
+}
+
+.card[data-domain="independent"] time {
+    color: var(--timeline-independent);
+}
+
+.card[data-domain="personal"] time {
+    color: var(--timeline-personal);
 }
 
 .timeline-event[data-domain="academic"] .timeline-content time {
@@ -758,19 +827,23 @@ a[href$=".docx"]::after {
     font-weight: 600;
 }
 
-.timeline-event[data-domain="academic"] .timeline-domain {
+.timeline-event[data-domain="academic"] .timeline-domain,
+.card[data-domain="academic"] .timeline-domain {
     color: var(--timeline-academic);
 }
 
-.timeline-event[data-domain="employed"] .timeline-domain {
+.timeline-event[data-domain="employed"] .timeline-domain,
+.card[data-domain="employed"] .timeline-domain {
     color: var(--timeline-employed);
 }
 
-.timeline-event[data-domain="independent"] .timeline-domain {
+.timeline-event[data-domain="independent"] .timeline-domain,
+.card[data-domain="independent"] .timeline-domain {
     color: var(--timeline-independent);
 }
 
-.timeline-event[data-domain="personal"] .timeline-domain {
+.timeline-event[data-domain="personal"] .timeline-domain,
+.card[data-domain="personal"] .timeline-domain {
     color: var(--timeline-personal);
 }
 
