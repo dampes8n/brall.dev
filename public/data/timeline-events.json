@@ -6,7 +6,8 @@
         "date": "1983-07-05",
         "skillsets": [],
         "skills": [],
-        "title": "Born"
+        "title": "Born",
+        "slug": "born"
     },
     {
         "domain": "Personal",
@@ -16,7 +17,8 @@
         "skillsets": [],
         "skills": [],
         "title": "Adopted",
-        "description": "Moved to Columbia"
+        "description": "Moved to Columbia",
+        "slug": "adopted"
     },
     {
         "domain": "Personal",
@@ -25,7 +27,8 @@
         "date": "1992",
         "skillsets": [],
         "skills": [],
-        "title": "Moved to Chambersburg"
+        "title": "Moved to Chambersburg",
+        "slug": "moved-to-chambersburg"
     },
     {
         "domain": "Personal",
@@ -34,7 +37,8 @@
         "date": "2001",
         "skillsets": [],
         "skills": [],
-        "title": "Graduated High School"
+        "title": "Graduated High School",
+        "slug": "graduated-high-school"
     },
     {
         "domain": "Personal",
@@ -43,7 +47,8 @@
         "date": "2001",
         "skillsets": [],
         "skills": [],
-        "title": "Moved to Philly"
+        "title": "Moved to Philly",
+        "slug": "moved-to-philly"
     },
     {
         "domain": "Academic",
@@ -57,7 +62,8 @@
             "Multimedia"
         ],
         "title": "Started at UArts",
-        "description": "Multimedia"
+        "description": "Multimedia",
+        "slug": "started-at-uarts"
     },
     {
         "domain": "Academic",
@@ -71,7 +77,8 @@
             "Multimedia"
         ],
         "title": "Ended at UArts",
-        "description": "Multimedia"
+        "description": "Multimedia",
+        "slug": "ended-at-uarts"
     },
     {
         "domain": "Personal",
@@ -80,7 +87,8 @@
         "date": "2002",
         "skillsets": [],
         "skills": [],
-        "title": "Moved to Williamsport"
+        "title": "Moved to Williamsport",
+        "slug": "moved-to-williamsport"
     },
     {
         "domain": "Academic",
@@ -94,7 +102,8 @@
             "Computer Science"
         ],
         "title": "Started at Penn College of Technology",
-        "description": "Computer Science"
+        "description": "Computer Science",
+        "slug": "started-at-penn-college-of-technology"
     },
     {
         "domain": "Personal",
@@ -103,7 +112,8 @@
         "date": "2004",
         "skillsets": [],
         "skills": [],
-        "title": "Moved back to Chambersburg"
+        "title": "Moved back to Chambersburg",
+        "slug": "moved-back-to-chambersburg"
     },
     {
         "domain": "Academic",
@@ -118,7 +128,8 @@
             "Game Design"
         ],
         "title": "Started at UAT",
-        "description": "Game Design"
+        "description": "Game Design",
+        "slug": "started-at-uat"
     },
     {
         "domain": "Academic",
@@ -133,7 +144,8 @@
             "Game Design"
         ],
         "title": "Graduated from UAT",
-        "description": "Game Design degree"
+        "description": "Game Design degree",
+        "slug": "graduated-from-uat"
     },
     {
         "domain": "Personal",
@@ -142,7 +154,8 @@
         "date": "2005-2006",
         "skillsets": [],
         "skills": [],
-        "title": "Moved back to Columbia"
+        "title": "Moved back to Columbia",
+        "slug": "moved-back-to-columbia"
     },
     {
         "domain": "Employed",
@@ -159,7 +172,8 @@
             "JavaScript"
         ],
         "title": "Started at NASA/Goddard",
-        "description": "Safety and Mission Assurance"
+        "description": "Safety and Mission Assurance",
+        "slug": "started-at-nasa-goddard"
     },
     {
         "domain": "Employed",
@@ -178,7 +192,8 @@
             "MySQL"
         ],
         "title": "Started at Engility/L3/MPRI",
-        "description": "Army.mil"
+        "description": "Army.mil",
+        "slug": "started-at-engility-l3-mpri"
     },
     {
         "domain": "Employed",
@@ -197,7 +212,8 @@
             "MySQL"
         ],
         "title": "My.Army.mil",
-        "description": "Engility/L3/MPRI"
+        "description": "Engility/L3/MPRI",
+        "slug": "my-army-mil"
     },
     {
         "domain": "Personal",
@@ -206,7 +222,8 @@
         "date": "2008-07",
         "skillsets": [],
         "skills": [],
-        "title": "Bought Condo"
+        "title": "Bought Condo",
+        "slug": "bought-condo"
     },
     {
         "domain": "Employed",
@@ -226,7 +243,8 @@
             "Photoshop"
         ],
         "title": "Started at ZeniMax Online Studios",
-        "description": "The Elder Scrolls Online"
+        "description": "The Elder Scrolls Online",
+        "slug": "started-at-zenimax-online-studios"
     },
     {
         "domain": "Independent",
@@ -242,7 +260,8 @@
             "CSS",
             "JavaScript"
         ],
-        "title": "Opened The Bronze Coin"
+        "title": "Opened The Bronze Coin",
+        "slug": "opened-the-bronze-coin"
     },
     {
         "domain": "Independent",
@@ -258,7 +277,8 @@
             "CSS",
             "JavaScript"
         ],
-        "title": "Closed The Bronze Coin"
+        "title": "Closed The Bronze Coin",
+        "slug": "closed-the-bronze-coin"
     },
     {
         "domain": "Personal",
@@ -275,7 +295,8 @@
             "GMing"
         ],
         "title": "Started Truugahn",
-        "description": "D&D 4E campaign"
+        "description": "D&D 4E campaign",
+        "slug": "started-truugahn"
     },
     {
         "domain": "Personal",
@@ -292,7 +313,8 @@
             "GMing"
         ],
         "title": "Ended Truugahn",
-        "description": "D&D 4E campaign"
+        "description": "D&D 4E campaign",
+        "slug": "ended-truugahn"
     },
     {
         "domain": "Personal",
@@ -309,7 +331,8 @@
             "GMing"
         ],
         "title": "Started Bonewall",
-        "description": "D&D 5E campaign"
+        "description": "D&D 5E campaign",
+        "slug": "started-bonewall"
     },
     {
         "domain": "Personal",
@@ -326,7 +349,8 @@
             "GMing"
         ],
         "title": "Started Comedy of Justice",
-        "description": "D&D 5E campaign"
+        "description": "D&D 5E campaign",
+        "slug": "started-comedy-of-justice"
     },
     {
         "domain": "Personal",
@@ -343,7 +367,8 @@
             "GMing"
         ],
         "title": "Ended Comedy of Justice",
-        "description": "D&D 5E campaign"
+        "description": "D&D 5E campaign",
+        "slug": "ended-comedy-of-justice"
     },
     {
         "domain": "Personal",
@@ -360,7 +385,8 @@
             "GMing"
         ],
         "title": "Started Isle of Glass Statues",
-        "description": "D&D 5E campaign"
+        "description": "D&D 5E campaign",
+        "slug": "started-isle-of-glass-statues"
     },
     {
         "domain": "Personal",
@@ -377,7 +403,8 @@
             "GMing"
         ],
         "title": "Ended Isle of Glass Statues",
-        "description": "D&D 5E campaign"
+        "description": "D&D 5E campaign",
+        "slug": "ended-isle-of-glass-statues"
     },
     {
         "domain": "Personal",
@@ -394,7 +421,8 @@
             "GMing"
         ],
         "title": "Ended Bonewall",
-        "description": "D&D 5E campaign"
+        "description": "D&D 5E campaign",
+        "slug": "ended-bonewall"
     },
     {
         "domain": "Personal",
@@ -411,7 +439,8 @@
             "GMing"
         ],
         "title": "Started Truugahn II",
-        "description": "D&D 5E campaign"
+        "description": "D&D 5E campaign",
+        "slug": "started-truugahn-ii"
     },
     {
         "domain": "Personal",
@@ -420,7 +449,8 @@
         "date": "2018-late",
         "skillsets": [],
         "skills": [],
-        "title": "Bought Townhouse"
+        "title": "Bought Townhouse",
+        "slug": "bought-townhouse"
     },
     {
         "domain": "Personal",
@@ -437,7 +467,8 @@
             "GMing"
         ],
         "title": "Started Papaku Vai",
-        "description": "D&D 5E campaign"
+        "description": "D&D 5E campaign",
+        "slug": "started-papaku-vai"
     },
     {
         "domain": "Personal",
@@ -447,7 +478,8 @@
         "skillsets": [],
         "skills": [],
         "title": "Married",
-        "description": "Elena Herron"
+        "description": "Elena Herron",
+        "slug": "married"
     },
     {
         "domain": "Personal",
@@ -464,7 +496,8 @@
             "GMing"
         ],
         "title": "Ended Truugahn II",
-        "description": "D&D 5E campaign"
+        "description": "D&D 5E campaign",
+        "slug": "ended-truugahn-ii"
     },
     {
         "domain": "Personal",
@@ -481,7 +514,8 @@
             "GMing"
         ],
         "title": "Ended Papaku Vai",
-        "description": "D&D 5E campaign"
+        "description": "D&D 5E campaign",
+        "slug": "ended-papaku-vai"
     },
     {
         "domain": "Personal",
@@ -499,7 +533,8 @@
             "Humblewood"
         ],
         "title": "Started Crumblewood",
-        "description": "D&D 5E and Humblewood campaign"
+        "description": "D&D 5E and Humblewood campaign",
+        "slug": "started-crumblewood"
     },
     {
         "domain": "Personal",
@@ -517,7 +552,8 @@
             "Humblewood"
         ],
         "title": "Ended Crumblewood",
-        "description": "D&D 5E and Humblewood campaign"
+        "description": "D&D 5E and Humblewood campaign",
+        "slug": "ended-crumblewood"
     },
     {
         "domain": "Personal",
@@ -535,7 +571,8 @@
             "PbtA"
         ],
         "title": "Started Repocalypse (Comedy of Justice II)",
-        "description": "D&D 5E and PbtA campaign"
+        "description": "D&D 5E and PbtA campaign",
+        "slug": "started-repocalypse-comedy-of-justice-ii"
     },
     {
         "domain": "Independent",
@@ -549,7 +586,8 @@
             "Creative Writing"
         ],
         "title": "Began writing",
-        "description": "Magitism: The Force of Magic"
+        "description": "Magitism: The Force of Magic",
+        "slug": "began-writing"
     },
     {
         "domain": "Independent",
@@ -563,7 +601,8 @@
             "Creative Writing"
         ],
         "title": "Published",
-        "description": "Magitism: The Force of Magic"
+        "description": "Magitism: The Force of Magic",
+        "slug": "published"
     },
     {
         "domain": "Personal",
@@ -581,7 +620,8 @@
             "PbtA"
         ],
         "title": "Ended Repocalypse (Comedy of Justice II)",
-        "description": "D&D 5E and PbtA campaign"
+        "description": "D&D 5E and PbtA campaign",
+        "slug": "ended-repocalypse-comedy-of-justice-ii"
     },
     {
         "domain": "Personal",
@@ -598,7 +638,8 @@
             "GMing"
         ],
         "title": "Started Halfling Baked",
-        "description": "D&D 5E campaign - Ongoing"
+        "description": "D&D 5E campaign - Ongoing",
+        "slug": "started-halfling-baked"
     },
     {
         "domain": "Independent",
@@ -612,7 +653,8 @@
             "Creative Writing"
         ],
         "title": "Dale Review",
-        "description": "Magitism: The Force of Magic"
+        "description": "Magitism: The Force of Magic",
+        "slug": "dale-review"
     },
     {
         "domain": "Personal",
@@ -629,7 +671,8 @@
             "GMing"
         ],
         "title": "Started Isle of Glass Statues II",
-        "description": "D&D 5E at Dan Wells Game Night Getaway '24"
+        "description": "D&D 5E at Dan Wells Game Night Getaway '24",
+        "slug": "started-isle-of-glass-statues-ii"
     },
     {
         "domain": "Personal",
@@ -646,7 +689,8 @@
             "GMing"
         ],
         "title": "Ended Isle of Glass Statues II",
-        "description": "D&D 5E campaign"
+        "description": "D&D 5E campaign",
+        "slug": "ended-isle-of-glass-statues-ii"
     },
     {
         "domain": "Employed",
@@ -664,7 +708,8 @@
             "CSS",
             "JavaScript"
         ],
-        "title": "Unannounced Game project ended"
+        "title": "Unannounced Game project ended",
+        "slug": "unannounced-game-project-ended"
     },
     {
         "domain": "Employed",
@@ -675,7 +720,8 @@
             "Leadership"
         ],
         "skills": [],
-        "title": "Holding everyone together during a project cancellation"
+        "title": "Holding everyone together during a project cancellation",
+        "slug": "holding-everyone-together-during-a-project-cancellation"
     },
     {
         "domain": "Employed",
@@ -686,7 +732,8 @@
             "Leadership"
         ],
         "skills": [],
-        "title": "Running for BC"
+        "title": "Running for BC",
+        "slug": "running-for-bc"
     },
     {
         "domain": "Employed",
@@ -697,7 +744,8 @@
             "Leadership"
         ],
         "skills": [],
-        "title": "Vote to Unionize"
+        "title": "Vote to Unionize",
+        "slug": "vote-to-unionize"
     },
     {
         "domain": "Employed",
@@ -708,7 +756,8 @@
             "Leadership"
         ],
         "skills": [],
-        "title": "Joining the Organizing Committee"
+        "title": "Joining the Organizing Committee",
+        "slug": "joining-the-organizing-committee"
     },
     {
         "domain": "Employed",
@@ -725,7 +774,8 @@
             "CSS",
             "JavaScript"
         ],
-        "title": "Patcher Rebuild in 2025"
+        "title": "Patcher Rebuild in 2025",
+        "slug": "patcher-rebuild-in-2025"
     },
     {
         "domain": "Employed",
@@ -742,7 +792,8 @@
             "CSS",
             "JavaScript"
         ],
-        "title": "Patcher First build in 2013-2014"
+        "title": "Patcher First build in 2013-2014",
+        "slug": "patcher-first-build-in-2013-2014"
     },
     {
         "domain": "Employed",
@@ -760,7 +811,8 @@
             "CSS",
             "JavaScript"
         ],
-        "title": "Keen"
+        "title": "Keen",
+        "slug": "keen"
     },
     {
         "domain": "Employed",
@@ -779,7 +831,8 @@
             "Laravel"
         ],
         "title": "APE",
-        "description": "Laravel Years"
+        "description": "Laravel Years",
+        "slug": "ape"
     },
     {
         "domain": "Employed",
@@ -797,6 +850,7 @@
             "JavaScript"
         ],
         "title": "APE",
-        "description": "Frameworkless Rebuild"
+        "description": "Frameworkless Rebuild",
+        "slug": "ape-1"
     }
 ]

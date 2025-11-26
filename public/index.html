@@ -18,12 +18,12 @@
         
         <nav id="main-menu" role="navigation" aria-label="Main navigation">
             <ul>
-                <li><b-anchor href="#!/Resume" no-hover-menu>Resume</b-anchor></li>
-                <li><b-anchor href="#!/Projects" no-hover-menu>Projects</b-anchor></li>
-                <li><b-anchor href="#!/History" no-hover-menu>History</b-anchor></li>
-                <li><b-anchor href="#!/About-Me" no-hover-menu>About Me</b-anchor></li>
-                <li><b-anchor href="#!/My-Stance-On-AI" no-hover-menu>My Stance On AI</b-anchor></li>
-                <li><b-anchor href="#!/Contact" no-hover-menu>Contact</b-anchor></li>
+                <li><a href="#!/Resume">Resume</a></li>
+                <li><a href="#!/Projects">Projects</a></li>
+                <li><a href="#!/History">History</a></li>
+                <li><a href="#!/About-Me">About Me</a></li>
+                <li><a href="#!/My-Stance-On-AI">My Stance On AI</a></li>
+                <li><a href="#!/Contact">Contact</a></li>
             </ul>
         </nav>
 
@@ -33,7 +33,10 @@
 
         <aside id="situational-menu" aria-hidden="true" role="complementary">
             <nav aria-label="Situational navigation">
-                <ul id="situational-links"></ul>
+                <h2>Breadcrumbs</h2>
+                <b-breadcrumbs>
+                    <ul></ul>
+                </b-breadcrumbs>
             </nav>
         </aside>
     </div>
@@ -63,7 +66,7 @@
                 // Close menu when clicking a link
                 if (menuList) {
                     menuList.addEventListener('click', function(e) {
-                        if (e.target.tagName === 'B-ANCHOR' || e.target.closest('b-anchor')) {
+                        if (e.target.tagName === 'A' || e.target.closest('a')) {
                             menu.classList.remove('menu-open');
                             toggle.setAttribute('aria-expanded', 'false');
                             toggle.textContent = '☰';

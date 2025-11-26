@@ -5,7 +5,7 @@
     --transition-duration: 0.3s;
     
     /* Timeline domain colors */
-    --timeline-academic: #4a90e2;
+    --timeline-academic: #9b59b6;
     --timeline-employed: #50c878;
     --timeline-independent: #ff6b6b;
     --timeline-personal: #f39c12;
@@ -27,7 +27,7 @@ body {
     background-color: #f5f5f5;
 }
 
-/* Basic typography for accessibility */
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
@@ -63,6 +63,27 @@ a:focus {
     border-radius: 2px;
 }
 
+/* Internal links (hashbang routing) */
+a[href^="#!"] {
+    display: inline-block;
+    color: var(--accent, #007aff);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a[href^="#!"]:hover {
+    color: var(--accent-hover, #0056b3);
+    text-decoration: underline;
+}
+
+a[href^="#!"]:focus {
+    outline: none;
+}
+
+a[href^="#!"]:visited {
+    color: var(--accent-visited, #551a8b);
+}
+
 .skip-link {
     position: absolute;
     top: -9999px;
@@ -84,7 +105,7 @@ a:focus {
     scroll-margin-top: 0;
 }
 
-/* Layout wrapper */
+/* Layout */
 #layout-wrapper {
     display: grid;
     grid-template-columns: 200px 1fr 200px;
@@ -109,17 +130,21 @@ a:focus {
     }
 }
 
-/* Main navigation */
+/* Navigation */
 #main-menu {
     grid-column: 1;
     background: rgba(255, 255, 255, 0.95);
-    padding: 1.5rem 0;
+    padding: 1rem;
+    margin: 0 0.25rem 0.5rem 0.5rem;
+    border-radius: 8px;
     position: sticky;
-    top: 0;
+    top: 0.5rem;
     align-self: start;
-    max-height: 100vh;
+    max-height: calc(100vh - 1rem);
     overflow-y: auto;
     backdrop-filter: blur(10px);
+    width: calc(200px - 0.75rem);
+    box-sizing: border-box;
 }
 
 #main-menu ul {
@@ -128,22 +153,26 @@ a:focus {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
 }
 
 #main-menu li {
     margin: 0;
 }
 
-#main-menu b-anchor {
+#main-menu a[href^="#!"] {
     display: block;
     padding: 0.75rem 1rem;
+    margin: 0.125rem 0;
     border-radius: 6px;
     transition: all 0.2s ease;
 }
 
-#main-menu b-anchor:hover {
-    background: rgba(0, 0, 0, 0.05);
+#main-menu a[href^="#!"]:hover,
+#main-menu a[href^="#!"]:focus {
+    background: rgba(0, 122, 255, 0.1);
+    color: var(--accent, #007aff);
+    outline: none;
 }
 
 @media (max-width: 799px) {
@@ -171,12 +200,13 @@ a:focus {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     min-height: 100vh;
+    margin: 0.5rem 0.25rem;
+    border-radius: 8px;
     outline: none;
 }
 
 #main-content:focus {
-    outline: 2px solid var(--accent, #007aff);
-    outline-offset: -2px;
+    outline: none;
 }
 
 @media (max-width: 799px) {
@@ -185,21 +215,32 @@ a:focus {
     }
 }
 
-/* Right navigation (situational menu) */
+/* Breadcrumbs navigation */
 #situational-menu {
     grid-column: 3;
     background: rgba(255, 255, 255, 0.95);
-    padding: 1.5rem 0;
+    padding: 1rem;
+    margin: 0 0.5rem 0.5rem 0.25rem;
+    border-radius: 8px;
     position: sticky;
-    top: 0;
+    top: 0.5rem;
     align-self: start;
-    max-height: 100vh;
+    max-height: calc(100vh - 1rem);
     overflow-y: auto;
     backdrop-filter: blur(10px);
+    width: calc(200px - 0.75rem);
+    box-sizing: border-box;
 }
 
 #situational-menu nav {
     margin: 0;
+}
+
+#situational-menu h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: var(--text-primary, #1a1a1a);
 }
 
 #situational-menu ul {
@@ -208,7 +249,7 @@ a:focus {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
 }
 
 #situational-menu li {
@@ -218,6 +259,7 @@ a:focus {
 #situational-menu a {
     display: block;
     padding: 0.5rem 0.75rem;
+    margin: 0.125rem 0;
     border-radius: 6px;
     font-size: 0.9rem;
     color: var(--text-secondary, #666666);
@@ -225,9 +267,18 @@ a:focus {
     transition: all 0.2s ease;
 }
 
-#situational-menu a:hover {
-    background: rgba(0, 0, 0, 0.05);
+#situational-menu a:hover,
+#situational-menu a:focus {
+    background: rgba(0, 122, 255, 0.1);
+    color: var(--accent, #007aff);
+    outline: none;
+}
+
+/* First breadcrumb (current page) */
+#situational-menu li:first-child a {
+    font-weight: 600;
     color: var(--text-primary, #1a1a1a);
+    background: rgba(0, 0, 0, 0.05);
 }
 
 @media (max-width: 999px) {
@@ -290,19 +341,20 @@ a:focus {
     z-index: 2;
 }
 
-b-background,
-b-foreground {
+b-layer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease;
 }
 
-b-section {
-    display: block;
+b-layer .layer-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* Resume foreground side divs */
@@ -343,16 +395,18 @@ b-section {
     container-name: content;
 }
 
-.content-section {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+/* Sections */
+section {
+    margin-bottom: 1.5rem;
 }
 
-.content-section:last-child {
-    border-bottom: none;
+/* Articles - remove border from nested articles */
+article article {
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background: transparent;
 }
-
 
 /* Footer */
 #main-footer {
@@ -371,7 +425,6 @@ b-section {
     z-index: 100;
     backdrop-filter: blur(10px);
 }
-
 
 #main-footer .copyright {
     margin: 0;
@@ -408,13 +461,122 @@ a[href$=".docx"]::after {
     content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Ctext%3EDOC%3C/text%3E%3C/svg%3E") / var(--filetype-alt);
 }
 
-/* Post-processing effects removed for minimal core styles */
+/* ============================================
+   STRUCTURAL CLASSES (Layout & Structure)
+   ============================================ */
 
-/* Timeline Styles */
+/* Card - Base structural container */
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+/* Card list - Container for multiple cards */
+.card-list {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    max-height: max(50vh, 500px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Tag list - Container for tags/badges */
+.tag-list {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* Link list - Navigation list of links */
+.link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+    max-height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.link-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.link-list li:last-child {
+    border-bottom: none;
+}
+
+/* ============================================
+   STYLISTIC CLASSES (Appearance & Theme)
+   ============================================ */
+
+/* Tag/Badge - Small labeled element */
+.tag {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.tag:hover {
+    background: rgba(0, 0, 0, 0.1);
+    text-decoration: underline;
+}
+
+/* Metadata - Container for tags and metadata */
+.metadata {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.metadata > span,
+.metadata > a {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.metadata > a:hover {
+    background: rgba(0, 0, 0, 0.1);
+    text-decoration: underline;
+}
+
+/* Related content section */
+.related {
+    margin-top: 2rem;
+}
+
+.related h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   TIMELINE SPECIFIC STYLES
+   ============================================ */
+
 .timeline-container {
     position: relative;
     padding: 2rem 0;
-    min-height: 100%;
+    min-height: 200px;
+    max-height: max(50vh, 500px);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .timeline-container::-webkit-scrollbar {
@@ -520,60 +682,76 @@ a[href$=".docx"]::after {
     border-left-color: var(--timeline-personal);
 }
 
-.timeline-date {
+/* Timeline typography */
+.timeline-content time {
     font-weight: 600;
     color: var(--accent, #007aff);
     margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    display: block;
 }
 
-.timeline-event[data-domain="academic"] .timeline-date {
+/* Time elements in cards */
+.card time {
+    font-weight: 600;
+    color: var(--accent, #007aff);
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    display: block;
+}
+
+.timeline-event[data-domain="academic"] .timeline-content time {
     color: var(--timeline-academic);
 }
 
-.timeline-event[data-domain="employed"] .timeline-date {
+.timeline-event[data-domain="employed"] .timeline-content time {
     color: var(--timeline-employed);
 }
 
-.timeline-event[data-domain="independent"] .timeline-date {
+.timeline-event[data-domain="independent"] .timeline-content time {
     color: var(--timeline-independent);
 }
 
-.timeline-event[data-domain="personal"] .timeline-date {
+.timeline-event[data-domain="personal"] .timeline-content time {
     color: var(--timeline-personal);
 }
 
-.timeline-title {
+.timeline-content h3 {
     margin-bottom: 0.5rem;
     margin-top: 0;
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     font-weight: 600;
     line-height: 1.3;
 }
 
-.timeline-description {
+.timeline-content p {
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
     color: rgba(0, 0, 0, 0.7);
     line-height: 1.5;
 }
 
-.timeline-text {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.timeline-meta {
+.timeline-content .metadata {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
     font-size: 0.85rem;
     color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 0;
 }
 
-.timeline-meta span {
+.timeline-content .metadata > span,
+.timeline-content .metadata > a {
     padding: 0.2rem 0.5rem;
     background: rgba(0, 0, 0, 0.05);
     border-radius: 3px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.timeline-content .metadata > a:hover {
+    background: rgba(0, 0, 0, 0.1);
+    text-decoration: underline;
 }
 
 .timeline-domain {
@@ -593,6 +771,104 @@ a[href$=".docx"]::after {
 }
 
 .timeline-event[data-domain="personal"] .timeline-domain {
+    color: var(--timeline-personal);
+}
+
+.timeline-skillset,
+.timeline-skill {
+    font-weight: 500;
+}
+
+/* Timeline Event Detail Page */
+.timeline-event-detail {
+    position: relative;
+    margin: 2rem auto;
+}
+
+.timeline-event-detail::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+}
+
+.timeline-event-detail .card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.timeline-event-detail time {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+    font-weight: 600;
+    color: var(--accent, #007aff);
+}
+
+.timeline-event-detail[data-domain="academic"] time {
+    color: var(--timeline-academic);
+}
+
+.timeline-event-detail[data-domain="employed"] time {
+    color: var(--timeline-employed);
+}
+
+.timeline-event-detail[data-domain="independent"] time {
+    color: var(--timeline-independent);
+}
+
+.timeline-event-detail[data-domain="personal"] time {
+    color: var(--timeline-personal);
+}
+
+.timeline-event-detail h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-event-detail p {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.timeline-event-detail .metadata {
+    font-size: 0.95rem;
+    gap: 0.75rem;
+}
+
+/* Prevent nested tags from getting double styling */
+.timeline-event-detail .metadata > a > span,
+.timeline-event-detail .metadata > span > a {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.timeline-event-detail .timeline-domain {
+    font-weight: 600;
+}
+
+.timeline-event-detail[data-domain="academic"] .timeline-domain {
+    color: var(--timeline-academic);
+}
+
+.timeline-event-detail[data-domain="employed"] .timeline-domain {
+    color: var(--timeline-employed);
+}
+
+.timeline-event-detail[data-domain="independent"] .timeline-domain {
+    color: var(--timeline-independent);
+}
+
+.timeline-event-detail[data-domain="personal"] .timeline-domain {
     color: var(--timeline-personal);
 }
 
@@ -641,7 +917,6 @@ a[href$=".docx"]::after {
     font-size: 0.95rem;
 }
 
-/* Hide checkboxes */
 .filter-controls input[type="checkbox"] {
     position: absolute;
     opacity: 0;
@@ -676,23 +951,19 @@ a[href$=".docx"]::after {
     background: var(--timeline-personal);
 }
 
-/* Darken border when checkbox is checked */
 .filter-controls input[type="checkbox"]:checked + .filter-color {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6);
 }
 
-/* Translucent border on hover */
 .filter-controls label:hover .filter-color,
 .filter-controls input[type="checkbox"]:focus + .filter-color {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
-/* Bolden text on hover */
 .filter-controls label:hover {
     font-weight: bold;
 }
 
-/* Timeline filters use container queries */
 @container timeline (max-width: 600px) {
     .timeline-filters {
         float: none;
@@ -707,6 +978,87 @@ a[href$=".docx"]::after {
     }
 }
 
+/* ============================================
+   PROJECTS, SKILLS, SKILLSETS
+   ============================================ */
+
+/* Project/Skillset items in lists */
+b-projects,
+b-skillsets {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    max-height: max(50vh, 500px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Article cards (projects, skillsets, spotlight items) */
+article {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+article h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+article p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* Skillset groups */
+.skillset-group {
+    margin-bottom: 1rem;
+}
+
+.skillset-group h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Tag cloud for skillsets */
+.skillset-tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.skill-tag {
+    display: inline-block;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.skill-tag a[href^="#!"] {
+    display: inline-block;
+    padding: 0.4rem 0.75rem;
+    font-size: inherit;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    text-decoration: none;
+    color: var(--accent, #007aff);
+    transition: background-color 0.2s ease;
+}
+
+.skill-tag a[href^="#!"]:hover {
+    background: rgba(0, 0, 0, 0.1);
+    text-decoration: underline;
+}
+
+/* Spotlight projects grid */
+.spotlight-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
 
 /* Mobile adjustments */
 @media (max-width: 799px) {
@@ -714,6 +1066,9 @@ a[href$=".docx"]::after {
         padding-bottom: 2rem;
     }
     
+    .spotlight-projects {
+        grid-template-columns: 1fr;
+    }
     
     #main-footer {
         position: relative;
@@ -723,5 +1078,3 @@ a[href$=".docx"]::after {
         right: auto;
     }
 }
-
-

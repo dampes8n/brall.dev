@@ -1,7 +1,6 @@
 <article>
     <header>
-        <h1>Resume</h1>
-        <p class="subtitle">Principal Creative Web Developer</p>
+        <h1>Principal Creative Web Developer</h1>
         <p class="tagline"><em>Leading experience, architecture & aesthetics</em></p>
     </header>
 
@@ -26,26 +25,10 @@
         <b-timeline academic employed></b-timeline>
     </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <p>Skills will be displayed here with links to individual skill pages.</p>
-        <div id="skills-list"></div>
+    <section id="skillsets">
+        <h2>Skillsets</h2>
+        <p>Skills organized by skillset.</p>
+        <b-skillsets></b-skillsets>
     </section>
 </article>
-
-<script>
-    // Load skills
-    fetch('data/skills.json')
-        .then(response => response.json())
-        .then(skills => {
-            const container = document.getElementById('skills-list');
-            skills.forEach(skill => {
-                const link = document.createElement('b-anchor');
-                link.setAttribute('href', `#!/skills/${skill.text.toLowerCase().replace(/\s+/g, '-')}`);
-                link.textContent = skill.text;
-                container.appendChild(link);
-                container.appendChild(document.createTextNode(' • '));
-            });
-        });
-</script>
 

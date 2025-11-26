@@ -1,63 +1,93 @@
 [
     {
+        "slug": "leading-experience-architecture-aesthetics",
         "skillsets": ["Leadership"],
-        "text": "Leading experience, architecture & aesthetics"
+        "title": "Leading experience, architecture & aesthetics",
+        "description": null
     },
     {
+        "slug": "creative-writing",
         "skillsets": ["Writing"],
-        "text": "Creative Writing"
+        "title": "Creative Writing",
+        "description": null
     },
     {
+        "slug": "dnd",
         "skillsets": ["Writing", "Leadership"],
-        "text": "D&D"
+        "title": "D&D",
+        "description": null
     },
     {
+        "slug": "ttrpgs",
         "skillsets": ["Writing", "Leadership"],
-        "text": "TTRPGs"
+        "title": "TTRPGs",
+        "description": null
     },
     {
+        "slug": "gming",
         "skillsets": ["Writing", "Leadership"],
-        "text": "GMing"
+        "title": "GMing",
+        "description": null
     },
     {
+        "slug": "html",
         "skillsets": ["Development"],
-        "text": "HTML"
+        "title": "HTML",
+        "description": null
     },
     {
+        "slug": "css",
         "skillsets": ["Development"],
-        "text": "CSS"
+        "title": "CSS",
+        "description": null
     },
     {
+        "slug": "javascript",
         "skillsets": ["Development"],
-        "text": "JavaScript"
+        "title": "JavaScript",
+        "description": null
     },
     {
+        "slug": "photoshop",
         "skillsets": ["Design"],
-        "text": "Photoshop"
+        "title": "Photoshop",
+        "description": null
     },
     {
+        "slug": "mysql",
         "skillsets": ["Database"],
-        "text": "MySQL"
+        "title": "MySQL",
+        "description": null
     },
     {
+        "slug": "laravel",
         "skillsets": ["Development"],
-        "text": "Laravel"
+        "title": "Laravel",
+        "description": null
     },
     {
+        "slug": "vanilla-web-components",
         "skillsets": ["Development"],
-        "text": "Vanilla Web Components"
+        "title": "Vanilla Web Components",
+        "description": null
     },
     {
+        "slug": "server-management",
         "skillsets": ["DevOps"],
-        "text": "Server Management"
+        "title": "Server Management",
+        "description": null
     },
     {
+        "slug": "user-experience-design",
         "skillsets": ["UX"],
-        "text": "User Experience Design"
+        "title": "User Experience Design",
+        "description": null
     },
     {
+        "slug": "web-design",
         "skillsets": ["Design"],
-        "text": "Web Design"
+        "title": "Web Design",
+        "description": null
     }
 ]
 

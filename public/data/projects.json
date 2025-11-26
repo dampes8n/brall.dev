@@ -1,83 +1,103 @@
 [
     {
+        "slug": "the-elder-scrolls-online",
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
         "start": "2013-01",
         "end": null,
         "skillsets": ["Development", "Design", "UX", "Leadership"],
-        "text": "The Elder Scrolls Online - Multiple redesigns and rebuilds, case studies on 3D backgrounds and hotloading, patcher rebuilds"
+        "title": "The Elder Scrolls Online",
+        "description": "Multiple redesigns and rebuilds, case studies on 3D backgrounds and hotloading, patcher rebuilds"
     },
     {
+        "slug": "unannounced-game",
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
         "start": null,
         "end": "2025-07",
         "skillsets": ["Development", "Design", "UX", "Leadership"],
-        "text": "Unannounced Game"
+        "title": "Unannounced Game",
+        "description": null
     },
     {
+        "slug": "keen",
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
         "start": null,
         "end": null,
         "skillsets": ["Development", "Design", "UX", "Leadership"],
-        "text": "Keen"
+        "title": "Keen",
+        "description": null
     },
     {
+        "slug": "ape",
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
         "start": null,
         "end": null,
         "skillsets": ["Development", "Design", "UX", "Leadership"],
-        "text": "APE - Laravel years and frameworkless rebuild"
+        "title": "APE",
+        "description": "Laravel years and frameworkless rebuild"
     },
     {
+        "slug": "army-mil",
         "domain": "Employed",
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
         "end": null,
         "skillsets": ["Development", "DevOps", "Database"],
-        "text": "Army.mil"
+        "title": "Army.mil",
+        "description": null
     },
     {
+        "slug": "my-army-mil",
         "domain": "Employed",
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
         "end": null,
         "skillsets": ["Development", "DevOps", "Database"],
-        "text": "My.Army.mil"
+        "title": "My.Army.mil",
+        "description": null
     },
     {
+        "slug": "sma",
         "domain": "Employed",
         "subdomain": "NASA/Goddard Space Flight Center/Mantech",
         "start": "2007",
         "end": null,
         "skillsets": ["Development", "DevOps"],
-        "text": "SMA - Safety and Mission Assurance"
+        "title": "SMA",
+        "description": "Safety and Mission Assurance"
     },
     {
+        "slug": "magitism",
         "domain": "Independent",
         "subdomain": "Life",
         "start": "2021-12",
         "end": "2022-12-18",
         "skillsets": ["Writing"],
-        "text": "Magitism: The Force of Magic - Published book"
+        "title": "Magitism: The Force of Magic",
+        "description": "Published book"
     },
     {
+        "slug": "the-bronze-coin",
         "domain": "Independent",
         "subdomain": "Life",
         "start": "2013-07",
         "end": "2014-early",
         "skillsets": ["Development", "Design"],
-        "text": "The Bronze Coin"
+        "title": "The Bronze Coin",
+        "description": null
     },
     {
+        "slug": "this-portfolio-site",
         "domain": "Independent",
         "subdomain": "Life",
         "start": null,
         "end": null,
         "skillsets": ["Development", "Design", "UX"],
-        "text": "This Portfolio Site"
+        "title": "This Portfolio Site",
+        "description": null
     }
 ]
 

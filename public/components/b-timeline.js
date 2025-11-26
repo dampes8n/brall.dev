@@ -27,7 +27,6 @@ class BTimeline extends HTMLElement {
             this.getAttribute('personal') !== 'false' : false;
         
         this.loadEvents();
-        this.render();
     }
 
     async loadEvents() {
@@ -66,16 +65,23 @@ class BTimeline extends HTMLElement {
                 </div>
                 <div class="timeline-content-area">
                     <div class="timeline-container">
-                        ${this.renderTimeline(filteredEvents)}
+                        <p>Loading timeline...</p>
                     </div>
                 </div>
             </div>
         `;
 
+        // Attach filter listeners immediately (they're on the wrapper, not the container)
         this.attachFilterListeners();
-        
-        // Update timeline line height after render
-        this.updateTimelineLineHeight();
+
+        // Render timeline asynchronously
+        this.renderTimeline(filteredEvents).then(html => {
+            const container = this.querySelector('.timeline-container');
+            if (container) {
+                container.innerHTML = html;
+                this.updateTimelineLineHeight();
+            }
+        });
     }
 
     getFilteredEvents() {
@@ -117,40 +123,124 @@ class BTimeline extends HTMLElement {
         }
     }
 
-    renderTimeline(events) {
+    async renderTimeline(events) {
         if (events.length === 0) {
             return '<p>No events match the selected filters.</p>';
         }
 
+        // Load projects once for all events
+        let projects = [];
+        try {
+            const projectsRes = await fetch('data/projects.json');
+            projects = await projectsRes.json();
+        } catch (e) {
+            console.warn('Failed to load projects for timeline:', e);
+        }
+
+        // Render events
+        const eventHtmls = events.map((event, index) => this.renderEvent(event, index, projects));
+
         return `
             <div class="timeline-line"></div>
-            ${events.map((event, index) => this.renderEvent(event, index)).join('')}
+            ${eventHtmls.join('')}
         `;
     }
 
-    renderEvent(event, index) {
-        const date = event.date || 'Unknown';
+    renderEvent(event, index, projects = []) {
+        const date = this.formatDate(event.date || 'Unknown');
         const domain = event.domain || '';
         const subdomain = event.subdomain || '';
         const project = event.project || '';
         const title = event.title || '';
-        const description = event.description || '';
+        const slug = event.slug || '';
+        
+        // Create subdomain link
+        const subdomainLink = subdomain ? this.slugify(subdomain) : '';
+        const subdomainHtml = subdomain ? 
+            `<a href="#!/subdomains/${subdomainLink}" class="timeline-subdomain">${this.escapeHtml(subdomain)}</a>` : 
+            '';
+        
+        // Find project link if it exists
+        let projectHtml = '';
+        if (project) {
+            const relatedProject = projects.find(p => 
+                p.title && p.title.toLowerCase() === project.toLowerCase()
+            );
+            if (relatedProject) {
+                projectHtml = `<a href="#!/projects/${relatedProject.slug}" class="timeline-project">${this.escapeHtml(project)}</a>`;
+            } else {
+                projectHtml = `<span class="timeline-project">${this.escapeHtml(project)}</span>`;
+            }
+        }
         
         return `
             <div class="timeline-event" data-domain="${domain.toLowerCase()}">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <div class="timeline-date">${date}</div>
-                    ${title ? `<h3 class="timeline-title">${this.escapeHtml(title)}</h3>` : ''}
-                    ${description ? `<div class="timeline-description">${this.escapeHtml(description)}</div>` : ''}
-                    <div class="timeline-meta">
+                    <time>${date}</time>
+                    ${title ? `<h3>${slug ? `<a href="#!/timeline-events/${slug}">${this.escapeHtml(title)}</a>` : this.escapeHtml(title)}</h3>` : ''}
+                    <nav class="metadata">
                         ${domain ? `<span class="timeline-domain">${this.escapeHtml(domain)}</span>` : ''}
-                        ${subdomain ? `<span class="timeline-subdomain">${this.escapeHtml(subdomain)}</span>` : ''}
-                        ${project ? `<span class="timeline-project">${this.escapeHtml(project)}</span>` : ''}
-                    </div>
+                        ${subdomainHtml}
+                        ${projectHtml}
+                    </nav>
                 </div>
             </div>
         `;
+    }
+
+    formatDate(dateStr) {
+        if (!dateStr || dateStr === 'Unknown' || dateStr === 'null') {
+            return 'Unknown';
+        }
+        
+        // Handle various date formats: "YYYY-MM-DD", "YYYY-MM", "YYYY", "YYYY-early", "YYYY-mid", "YYYY-late"
+        const parts = dateStr.split('-');
+        const year = parts[0];
+        
+        if (parts.length === 3) {
+            // YYYY-MM-DD -> July 5th, 2008
+            const month = parseInt(parts[1]) - 1;
+            const day = parseInt(parts[2]);
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+            const daySuffix = this.getDaySuffix(day);
+            return `${monthNames[month]} ${day}${daySuffix}, ${year}`;
+        } else if (parts.length === 2) {
+            if (parts[1] === 'early') {
+                return `Early ${year}`;
+            } else if (parts[1] === 'mid') {
+                return `Mid ${year}`;
+            } else if (parts[1] === 'late') {
+                return `Late ${year}`;
+            } else {
+                // YYYY-MM -> July, 2008
+                const month = parseInt(parts[1]) - 1;
+                const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                                  'July', 'August', 'September', 'October', 'November', 'December'];
+                return `${monthNames[month]}, ${year}`;
+            }
+        } else {
+            // YYYY -> 2008
+            return year;
+        }
+    }
+
+    getDaySuffix(day) {
+        if (day >= 11 && day <= 13) {
+            return 'th';
+        }
+        switch (day % 10) {
+            case 1: return 'st';
+            case 2: return 'nd';
+            case 3: return 'rd';
+            default: return 'th';
+        }
+    }
+
+    slugify(text) {
+        // Handle slashes by converting them to -slash- for URL safety
+        return text.toLowerCase().replace(/\//g, '-slash-').replace(/\s+/g, '-');
     }
 
     escapeHtml(text) {
