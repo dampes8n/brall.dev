@@ -1,1 +1,858 @@
 /* Terminally Ill - Pure CLI white on black in monospace */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik+Pixels&family=Rubik+Glitch&display=swap');
+
+/* ============================================
+   COLOR SYSTEM & VARIABLES
+   ============================================ */
+
+:root {
+    /* CLI colors */
+    --ti-black: #000000;
+    --ti-white: #ffffff;
+    --ti-green: #00ff00;
+    --ti-cyan: #00ffff;
+    --ti-yellow: #ffff00;
+    --ti-red: #ff0000;
+    --ti-magenta: #ff00ff;
+    --ti-blue: #0000ff;
+    --ti-blue-dark: #000080;
+    
+    /* Background colors */
+    --primary-bg: var(--ti-black);
+    --secondary-bg: #0a0a0a;
+    --text-primary: var(--ti-white);
+    --text-secondary: #cccccc;
+    
+    /* Link colors - teal for CLI feel */
+    --accent: var(--ti-cyan);
+    --accent-hover: var(--ti-green);
+    --accent-visited: var(--ti-yellow);
+    
+    /* Timeline domain colors - bright CLI colors */
+    --timeline-academic: var(--ti-magenta);
+    --timeline-employed: var(--ti-green);
+    --timeline-independent: var(--ti-red);
+    --timeline-personal: var(--ti-yellow);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+body {
+    font-family: 'Courier New', 'Courier', 'Monaco', 'Consolas', 'Lucida Console', monospace;
+    color: var(--text-primary);
+    background: var(--primary-bg);
+    line-height: 1.4;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+/* Selection color - dark VGA blue */
+::selection {
+    background: var(--ti-blue-dark);
+    color: var(--ti-white);
+}
+
+::-moz-selection {
+    background: var(--ti-blue-dark);
+    color: var(--ti-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rubik Dirt', 'Courier New', 'Courier', 'Monaco', 'Consolas', 'Lucida Console', monospace;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Single animation for all headings */
+h1 {
+    font-size: 2.25rem; /* 50% bigger than 1.5rem */
+    color: var(--ti-blue);
+    animation: glitch-simple 15s infinite;
+}
+
+h2 {
+    animation: glitch-simple 15s infinite;
+}
+
+/* Simple, smaller glitch animation - 2 glitch sequences */
+@keyframes glitch-simple {
+    /* Base font - most of the time */
+    0%, 40% { 
+        font-family: 'Rubik Dirt', 'Courier New', monospace;
+    }
+    
+    /* First glitch - Rubik Pixels: 1 flash */
+    40.5%, 42% { 
+        font-family: 'Rubik Pixels', 'Rubik Dirt', 'Courier New', monospace;
+    }
+    42.2%, 80% { 
+        font-family: 'Rubik Dirt', 'Courier New', monospace;
+    }
+    
+    /* Second glitch - Rubik Glitch: 2 flashes */
+    80.5%, 80.8% { 
+        font-family: 'Rubik Glitch', 'Rubik Dirt', 'Courier New', monospace;
+    }
+    81%, 81.2% { 
+        font-family: 'Rubik Dirt', 'Courier New', monospace;
+    }
+    81.5%, 82.5% { 
+        font-family: 'Rubik Glitch', 'Rubik Dirt', 'Courier New', monospace;
+    }
+    82.8%, 100% { 
+        font-family: 'Rubik Dirt', 'Courier New', monospace;
+    }
+}
+
+h2 {
+    font-size: 1.25rem;
+    color: var(--ti-white);
+}
+
+h3 {
+    font-size: 1.125rem;
+    color: var(--ti-white);
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+h5 {
+    font-size: 0.9375rem;
+}
+
+h6 {
+    font-size: 0.875rem;
+}
+
+p {
+    margin-bottom: 0.75em;
+    color: var(--text-primary);
+}
+
+a {
+    color: var(--ti-cyan);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* Headings inside links should be font-weight 400 */
+a h1, a h2, a h3, a h4, a h5, a h6 {
+    font-weight: 400;
+}
+
+/* Links inside headings should be font-weight 400 */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    font-weight: 400;
+}
+
+a:hover {
+    color: var(--ti-green);
+    text-decoration: none;
+    background: var(--ti-cyan);
+    color: var(--ti-black);
+}
+
+a:focus {
+    outline: 1px solid var(--ti-cyan);
+    outline-offset: 1px;
+    background: var(--ti-cyan);
+    color: var(--ti-black);
+}
+
+a:visited {
+    color: var(--accent-visited);
+}
+
+a[href^="#!"] {
+    color: var(--ti-cyan);
+}
+
+a[href^="#!"]:hover {
+    color: var(--ti-green);
+    background: var(--ti-cyan);
+    color: var(--ti-black);
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+#main-menu,
+#situational-menu {
+    background: hsla(0, 0%, 0%, 0.8);
+    border: 1px dashed var(--ti-white);
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: blur(10px);
+}
+
+#main-menu {
+    padding: 1rem;
+}
+
+#main-menu ul {
+    gap: 0.25rem;
+}
+
+#main-menu a[href^="#!"] {
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--ti-cyan);
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.1s ease;
+}
+
+#main-menu a[href^="#!"]:hover,
+#main-menu a[href^="#!"]:focus {
+    background: transparent;
+    border: 1px solid var(--ti-cyan);
+    color: var(--ti-cyan);
+    outline: none;
+}
+
+#situational-menu {
+    padding: 1rem;
+}
+
+#situational-menu h2 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--ti-white);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    padding: 0;
+}
+
+#situational-menu ul {
+    gap: 0.25rem;
+}
+
+#situational-menu a {
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: all 0.1s ease;
+}
+
+#situational-menu a:hover,
+#situational-menu a:focus {
+    background: transparent;
+    border: 1px solid var(--ti-cyan);
+    color: var(--ti-cyan);
+    outline: none;
+}
+
+#situational-menu li:first-child a {
+    font-weight: 700;
+    color: var(--ti-white);
+    border: 1px solid var(--ti-white);
+}
+
+/* Hamburger menu button */
+.menu-toggle-label {
+    background: var(--ti-black);
+    color: var(--ti-green);
+    border: 1px solid var(--ti-green);
+    border-radius: 0;
+    box-shadow: none;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+}
+
+.menu-toggle-label:hover {
+    background: var(--ti-green);
+    color: var(--ti-black);
+}
+
+.menu-toggle-label:focus {
+    outline: 1px solid var(--ti-green);
+    outline-offset: 1px;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+#main-content {
+    background: hsla(0, 0%, 0%, 0.8);
+    border: 1px dashed var(--ti-white);
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: blur(10px);
+}
+
+#content-pane {
+    padding: 1.5rem;
+}
+
+/* ============================================
+   CARDS & ARTICLES
+   ============================================ */
+
+.card {
+    background: var(--primary-bg);
+    border: 1px dashed var(--ti-white);
+    border-radius: 0;
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+    box-shadow: none;
+    max-width: 800px;
+}
+
+/* Remove border and extra margins from article inside main and all articles in content */
+#main-content article,
+#content-pane article,
+article {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+article h3 {
+    margin-top: 0;
+    color: var(--ti-white);
+}
+
+/* ============================================
+   TAGS & METADATA
+   ============================================ */
+
+/* Unified tag styling - based on skillset style */
+.tag {
+    padding: 0.25rem 0.5rem;
+    font-size: inherit;
+    background: transparent;
+    border: 1px solid var(--ti-white);
+    border-radius: 0;
+    color: var(--ti-white);
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.1s ease;
+    display: inline-block;
+}
+
+/* Tag links should be cyan */
+a.tag {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Tag links hover - accent background, black text */
+a.tag:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ti-black);
+    text-decoration: none;
+}
+
+/* Non-link tags (spans) should not have hover effects */
+
+/* Legacy metadata selectors - should use .tag class */
+.metadata > span,
+.metadata > a {
+    /* Fallback for legacy - should use .tag class */
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    background: transparent;
+    border: 1px solid var(--ti-white);
+    border-radius: 0;
+    font-weight: 400;
+    color: var(--ti-white);
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.1s ease;
+}
+
+.metadata > a {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.metadata > a:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ti-black);
+    text-decoration: none;
+}
+
+.metadata {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   TIMELINE
+   ============================================ */
+
+.timeline-container {
+    padding: 1.5rem 0;
+}
+
+.timeline-content {
+    background: var(--primary-bg);
+    border: 1px solid var(--ti-white);
+    border-left: 3px solid var(--accent);
+    border-radius: 0;
+    padding: 1.5rem;
+    box-shadow: none;
+}
+
+.timeline-event[data-domain="academic"] .timeline-content {
+    border-left-color: var(--timeline-academic);
+}
+
+.timeline-event[data-domain="employed"] .timeline-content {
+    border-left-color: var(--timeline-employed);
+}
+
+.timeline-event[data-domain="independent"] .timeline-content {
+    border-left-color: var(--timeline-independent);
+}
+
+.timeline-event[data-domain="personal"] .timeline-content {
+    border-left-color: var(--timeline-personal);
+}
+
+/* Timeline markers - reset to core structure with color changes: grey → white, white borders → black */
+.timeline-marker-outer {
+    background: hsl(0, 0%, 100%); /* grey → white */
+}
+
+.timeline-marker-inner {
+    background: hsl(0, 0%, 0%); /* white → black */
+}
+
+.timeline-marker::after {
+    background: var(--accent);
+}
+
+.timeline-event[data-domain="academic"] .timeline-marker::after {
+    background: var(--timeline-academic);
+}
+
+.timeline-event[data-domain="employed"] .timeline-marker::after {
+    background: var(--timeline-employed);
+}
+
+.timeline-event[data-domain="independent"] .timeline-marker::after {
+    background: var(--timeline-independent);
+}
+
+.timeline-event[data-domain="personal"] .timeline-marker::after {
+    background: var(--timeline-personal);
+}
+
+/* Timeline line - grey → white */
+.timeline-event::before {
+    background: hsl(0, 0%, 100%); /* grey → white */
+}
+
+.timeline-content time {
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.timeline-event[data-domain="academic"] .timeline-content time {
+    color: var(--timeline-academic);
+}
+
+.timeline-event[data-domain="employed"] .timeline-content time {
+    color: var(--timeline-employed);
+}
+
+.timeline-event[data-domain="independent"] .timeline-content time {
+    color: var(--timeline-independent);
+}
+
+.timeline-event[data-domain="personal"] .timeline-content time {
+    color: var(--timeline-personal);
+}
+
+.timeline-content h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.125rem;
+    color: var(--ti-yellow);
+    font-weight: 400;
+}
+
+.timeline-content p {
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.timeline-content .metadata {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+/* Timeline metadata - all should use .tag class and match skillset style exactly */
+.timeline-content .metadata > span,
+.timeline-content .metadata > a {
+    /* Fallback for legacy - should use .tag class */
+    padding: 0.25rem 0.5rem;
+    font-size: inherit;
+    background: transparent;
+    border: 1px solid var(--ti-white);
+    border-radius: 0;
+    color: var(--ti-white);
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.1s ease;
+    display: inline-block;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+
+.timeline-content .metadata > a {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.timeline-content .metadata > a:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ti-black);
+    text-decoration: none;
+}
+
+/* Non-link tags (spans) in timeline should not have hover effects */
+
+/* Domain tags get domain-specific colors but match skillset style structure */
+.timeline-domain {
+    font-weight: 700;
+    border-color: var(--accent);
+    color: var(--accent);
+    line-height: 1.5;
+    vertical-align: middle;
+    /* Inherit all other properties from .tag / timeline-content .metadata styles */
+}
+
+.timeline-event[data-domain="academic"] .timeline-domain,
+.card[data-domain="academic"] .timeline-domain {
+    border-color: var(--timeline-academic);
+    color: var(--timeline-academic);
+}
+
+.timeline-event[data-domain="employed"] .timeline-domain,
+.card[data-domain="employed"] .timeline-domain {
+    border-color: var(--timeline-employed);
+    color: var(--timeline-employed);
+}
+
+.timeline-event[data-domain="independent"] .timeline-domain,
+.card[data-domain="independent"] .timeline-domain {
+    border-color: var(--timeline-independent);
+    color: var(--timeline-independent);
+}
+
+.timeline-event[data-domain="personal"] .timeline-domain,
+.card[data-domain="personal"] .timeline-domain {
+    border-color: var(--timeline-personal);
+    color: var(--timeline-personal);
+}
+
+.timeline-filters {
+    background: var(--primary-bg);
+    border: 1px solid var(--ti-white);
+    border-radius: 0;
+    padding: 1.5rem;
+    box-shadow: none;
+}
+
+.timeline-filters h2 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--ti-white);
+}
+
+/* Filter circles - inner border black, outer border white */
+.filter-color {
+    border-color: hsl(0, 0%, 0%); /* white → black */
+}
+
+/* Show white outline when checked (instead of black) */
+.filter-controls input[type="checkbox"]:checked + .filter-color {
+    box-shadow: 0 0 0 3px hsl(0, 0%, 100%); /* black → white */
+}
+
+/* Turn outline grey on hover (same as core) */
+.filter-controls label:hover .filter-color {
+    box-shadow: 0 0 0 3px hsl(0, 0%, 50%);
+}
+
+/* ============================================
+   PROJECTS & SKILLSETS
+   ============================================ */
+
+b-projects,
+b-skillsets {
+    gap: 1.5rem;
+}
+
+.skillset-group {
+    margin-bottom: 2rem;
+}
+
+.skillset-group h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--ti-yellow);
+}
+
+.skillset-tag-cloud {
+    gap: 0.75rem;
+}
+
+/* Legacy skill-tag - should use .tag class now */
+.skill-tag a[href^="#!"] {
+    /* Fallback for legacy - should use .tag class */
+    padding: 0.25rem 0.5rem;
+    font-size: inherit;
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 0;
+    color: var(--accent);
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.1s ease;
+}
+
+.skill-tag a[href^="#!"]:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ti-black);
+    text-decoration: none;
+}
+
+.spotlight-projects {
+    gap: 1.5rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+#main-footer {
+    background: var(--primary-bg);
+    border-top: 1px dashed var(--ti-white);
+    padding: 1.5rem 2rem;
+    box-shadow: none;
+    backdrop-filter: blur(10px);
+}
+
+#main-footer .copyright {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+b-flavor-selector {
+    gap: 0.75rem;
+}
+
+b-flavor-selector label {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+b-flavor-selector select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--ti-white);
+    border-radius: 0;
+    background: var(--ti-black);
+    font-size: 0.875rem;
+    color: var(--ti-white);
+    font-weight: 400;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    transition: all 0.1s ease;
+}
+
+b-flavor-selector select:hover {
+    border-color: var(--ti-green);
+    color: var(--ti-green);
+}
+
+b-flavor-selector select:focus {
+    outline: 1px solid var(--ti-green);
+    outline-offset: 1px;
+    border-color: var(--ti-green);
+    color: var(--ti-green);
+}
+
+/* ============================================
+   LINK LISTS
+   ============================================ */
+
+.link-list {
+    gap: 0.5rem;
+}
+
+.link-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--ti-white);
+}
+
+.link-list li:last-child {
+    border-bottom: none;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 799px) {
+    #content-pane {
+        padding: 1rem;
+    }
+    
+    .card,
+    article {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+    
+    h1 {
+        font-size: 1.25rem;
+    }
+    
+    h2 {
+        font-size: 1.125rem;
+    }
+    
+    h3 {
+        font-size: 1rem;
+    }
+    
+    #main-footer {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--ti-black);
+    border: 1px solid var(--ti-white);
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--ti-white);
+    border: 1px solid var(--ti-white);
+    border-radius: 0;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--ti-green);
+    border-color: var(--ti-green);
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--ti-white) var(--ti-black);
+}
+
+/* ============================================
+   SKIP LINK
+   ============================================ */
+
+.skip-link {
+    background: var(--ti-black);
+    color: var(--ti-green);
+    border: 1px solid var(--ti-green);
+}
+
+.skip-link:focus {
+    outline: 1px solid var(--ti-green);
+    outline-offset: 1px;
+}
+
+/* ============================================
+   BACKGROUND VIDEO & LAYOUT BLEND MODE
+   ============================================ */
+
+#backgrounds video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+#backgrounds .vignette-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 1;
+}
+
+#layout-wrapper {
+    mix-blend-mode: screen;
+}
+
+#main-footer {
+    mix-blend-mode: screen;
+}
+
+/* ============================================
+   TRANSITION VIDEO
+   ============================================ */
+
+#foregrounds .transition-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 3;
+}
+
+#foregrounds .transition-video.active {
+    opacity: 1;
+}

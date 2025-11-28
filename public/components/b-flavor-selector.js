@@ -1,20 +1,21 @@
 /**
  * b-flavor-selector Web Component
  * Manages CSS flavors and provides UI for switching
- * Flavors: None, Applebutter, Millennial Great, Wickedpedia, LitRPG, Offices and Overseers, Terminally Ill
+ * Flavors: Core, Applebutter, Millennial Great, Wickedpedia, LitRPG, Offices and Overseers, Terminally Ill, VHScary
  */
 
 class BFlavorSelector extends HTMLElement {
     constructor() {
         super();
         this.flavorNames = {
-            'none': 'None',
+            'core': 'Core',
             'applebutter': 'Applebutter',
             'millennial-great': 'Millennial Great',
             'wickedpedia': 'Wickedpedia',
             'litrpg': 'LitRPG',
             'offices-overseers': 'Offices and Overseers',
-            'terminally-ill': 'Terminally Ill'
+            'terminally-ill': 'Terminally Ill',
+            'vhscary': 'VHScary'
         };
         this.flavorPaths = {
             'applebutter': 'css/flavors/applebutter.css',
@@ -22,10 +23,16 @@ class BFlavorSelector extends HTMLElement {
             'wickedpedia': 'css/flavors/wickedpedia.css',
             'litrpg': 'css/flavors/litrpg.css',
             'offices-overseers': 'css/flavors/offices-overseers.css',
-            'terminally-ill': 'css/flavors/terminally-ill.css'
+            'terminally-ill': 'css/flavors/terminally-ill.css',
+            'vhscary': 'css/flavors/vhscary.css'
+        };
+        this.flavorScriptPaths = {
+            'terminally-ill': 'js/flavors/terminally-ill.js'
+            // Add more flavor JS files here as they are created
         };
         this.currentFlavor = null;
         this.isInitialLoad = true;
+        this.currentFlavorScript = null;
     }
 
     // Cookie helper functions
@@ -45,7 +52,7 @@ class BFlavorSelector extends HTMLElement {
 
     connectedCallback() {
         // Load current flavor from cookie
-        this.currentFlavor = this.getCookie('flavor') || 'none';
+        this.currentFlavor = this.getCookie('flavor') || 'core';
         
         // Load initial flavor
         this.switchFlavor(this.currentFlavor, true);
@@ -56,8 +63,8 @@ class BFlavorSelector extends HTMLElement {
     }
 
     switchFlavor(newFlavor, isInitial = false) {
-        // Handle "None" flavor - just clear the flavor style
-        if (newFlavor === 'none') {
+        // Handle "Core" flavor - just clear the flavor style
+        if (newFlavor === 'core') {
             const transitionStyle = document.getElementById('transition-style');
             const flavorStyle = document.getElementById('flavor-style');
 
@@ -66,7 +73,7 @@ class BFlavorSelector extends HTMLElement {
                 return;
             }
 
-            // Skip transition on initial load for "none"
+            // Skip transition on initial load for "core"
             if (!(isInitial && this.isInitialLoad)) {
                 // Add transition
                 transitionStyle.textContent = '* { transition: all 0.3s ease; }';
@@ -78,11 +85,17 @@ class BFlavorSelector extends HTMLElement {
             this.setCookie('flavor', newFlavor);
             this.isInitialLoad = false;
 
+            // Clear flavor script for 'core'
+            this.unloadFlavorScript();
+
             // Update select if rendered
             const select = this.querySelector('select');
             if (select) {
                 select.value = newFlavor;
             }
+
+                // Reload backgrounds and foregrounds (clear them for 'core' flavor)
+            this.reloadLayers().catch(() => {});
 
             // Remove transition after animation (if it was added)
             if (!(isInitial && this.isInitialLoad)) {
@@ -137,6 +150,12 @@ class BFlavorSelector extends HTMLElement {
                     select.value = newFlavor;
                 }
 
+                // Reload backgrounds and foregrounds for new flavor
+                this.reloadLayers().catch(() => {});
+
+                // Load flavor JS if it exists
+                this.loadFlavorScript(newFlavor);
+
                 // Remove transition after animation
                 setTimeout(() => {
                     transitionStyle.textContent = '';
@@ -160,6 +179,149 @@ class BFlavorSelector extends HTMLElement {
                 ).join('')}
             </select>
         `;
+    }
+
+    async loadBackground() {
+        // Check if we're in file:// protocol
+        if (window.location.protocol === 'file:') {
+            return;
+        }
+        
+        const bgContainer = document.getElementById('backgrounds');
+        let bgLayer = bgContainer.querySelector('b-layer[type="background"]');
+        
+        const bgPath = `partials/flavors/${this.currentFlavor}.background.html`;
+        try {
+            const response = await fetch(bgPath);
+            if (response.ok) {
+                const html = await response.text();
+                
+                // Get or create b-layer for backgrounds
+                if (!bgLayer) {
+                    bgLayer = document.createElement('b-layer');
+                    bgLayer.setAttribute('type', 'background');
+                    bgLayer.setAttribute('aria-hidden', 'true');
+                    bgContainer.appendChild(bgLayer);
+                    
+                    // Ensure component is loaded
+                    if (window.ComponentLoader) {
+                        await window.ComponentLoader.load('b-layer').catch(() => {});
+                    }
+                }
+                
+                // Add new layer with crossfading
+                await bgLayer.addLayer(html);
+            } else {
+                // No background file exists - clear old layer if it exists
+                if (bgLayer) {
+                    bgLayer.clear();
+                }
+            }
+        } catch (e) {
+            // No background file exists - clear old layer if it exists
+            if (bgLayer) {
+                bgLayer.clear();
+            }
+        }
+    }
+
+    async loadForeground() {
+        // Check if we're in file:// protocol
+        if (window.location.protocol === 'file:') {
+            return;
+        }
+        
+        const fgContainer = document.getElementById('foregrounds');
+        let fgLayer = fgContainer.querySelector('b-layer[type="foreground"]');
+        
+        const fgPath = `partials/flavors/${this.currentFlavor}.foreground.html`;
+        try {
+            const response = await fetch(fgPath);
+            if (response.ok) {
+                const html = await response.text();
+                
+                // Get or create b-layer for foregrounds
+                if (!fgLayer) {
+                    fgLayer = document.createElement('b-layer');
+                    fgLayer.setAttribute('type', 'foreground');
+                    fgLayer.setAttribute('aria-hidden', 'true');
+                    fgContainer.appendChild(fgLayer);
+                    
+                    // Ensure component is loaded
+                    if (window.ComponentLoader) {
+                        await window.ComponentLoader.load('b-layer').catch(() => {});
+                    }
+                }
+                
+                // Add new layer with crossfading
+                await fgLayer.addLayer(html);
+            } else {
+                // No foreground file exists - clear old layer if it exists
+                if (fgLayer) {
+                    fgLayer.clear();
+                }
+            }
+        } catch (e) {
+            // No foreground file exists - clear old layer if it exists
+            if (fgLayer) {
+                fgLayer.clear();
+            }
+        }
+    }
+
+    async reloadLayers() {
+        // Load background and foreground for current flavor
+        await this.loadBackground();
+        await this.loadForeground();
+    }
+
+    loadFlavorScript(flavor) {
+        // Unload previous script first
+        this.unloadFlavorScript();
+
+        // Check if this flavor has a JS file
+        if (!this.flavorScriptPaths[flavor]) {
+            return;
+        }
+
+        // Check if we're in file:// protocol
+        if (window.location.protocol === 'file:') {
+            console.warn('File:// protocol detected. Please use a web server to load flavor scripts.');
+            return;
+        }
+
+        const scriptPath = this.flavorScriptPaths[flavor];
+        const placeholder = document.getElementById('flavor-script');
+        
+        if (!placeholder) {
+            console.warn('flavor-script placeholder element not found');
+            return;
+        }
+
+        // Create new script element
+        const script = document.createElement('script');
+        script.id = 'flavor-script';
+        script.src = scriptPath;
+        
+        script.onerror = () => {
+            console.warn(`Failed to load flavor script: ${scriptPath}`);
+        };
+
+        // Replace placeholder with new script
+        placeholder.parentNode.replaceChild(script, placeholder);
+        this.currentFlavorScript = scriptPath;
+    }
+
+    unloadFlavorScript() {
+        const scriptElement = document.getElementById('flavor-script');
+        if (scriptElement && scriptElement.src) {
+            // Create new empty placeholder script
+            const placeholder = document.createElement('script');
+            placeholder.id = 'flavor-script';
+            placeholder.src = '';
+            scriptElement.parentNode.replaceChild(placeholder, scriptElement);
+        }
+        this.currentFlavorScript = null;
     }
 
     attachEventListeners() {

@@ -113,7 +113,7 @@ class BSkillsets extends (window.BJsonLoader || HTMLElement) {
                         const ratio = (count - minCount) / (maxCount - minCount);
                         fontSize = minSize + (ratio * (maxSize - minSize));
                     }
-                    html += `<span class="skill-tag" style="font-size: ${fontSize}rem;"><a href="#!/skills/${skill.slug}">${this.escapeHtml(skill.title)}</a></span>`;
+                    html += `<a href="#!/skills/${skill.slug}" class="tag" style="font-size: ${fontSize}rem;">${this.escapeHtml(skill.title)}</a>`;
                 });
                 html += `</div>`;
             }

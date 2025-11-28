@@ -1,2 +1,195 @@
-/* Millennial Great */
+/* Millennial Great - Reduced saturation for domain and link colors */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Bebas+Neue&family=Love+Light&display=swap');
+
+:root {
+    /* Domain colors - using core colors */
+    --timeline-academic: hsl(283, 39%, 53%);
+    --timeline-employed: hsl(140, 49%, 54%);
+    --timeline-independent: hsl(0, 100%, 71%);
+    --timeline-personal: hsl(32, 89%, 51%);
+    
+    /* Reduced saturation link colors (more conservative) - lighter for dark background */
+    --accent: hsl(210, 72%, 75%);               /* boosted lightness from 70% to 75% */
+    --accent-hover: hsl(210, 72%, 88%);         /* boosted lightness from 85% to 88% */
+    
+    /* Text colors for light mode */
+    --text-primary: hsl(0, 0%, 100%);
+    --text-secondary: hsl(0, 0%, 90%);
+    
+    --panel-bg: hsla(0, 0%, 0%, 0.4);
+    --panel-blur: blur(10px);
+}
+
+body {
+    font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(0, 0%, 15%);
+}
+
+/* Headings - mostly white */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: hsl(0, 0%, 100%);
+}
+
+/* H1 uses Love Light for elegant millennial style */
+h1 {
+    font-family: 'Love Light', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+}
+
+/* Paragraphs - slightly off-white for contrast */
+p {
+    color: hsl(0, 0%, 95%);
+}
+
+/* Also reduce saturation for regular links - lighter for dark background */
+a {
+    color: hsl(210, 72%, 75%);                  /* boosted lightness for accessibility */
+}
+
+a:hover, a:focus {
+    color: hsl(210, 72%, 88%);                  /* boosted lightness for accessibility */
+}
+
+a:focus {
+    outline-color: hsl(210, 72%, 75%);          /* boosted lightness for accessibility */
+}
+
+/* Internal links (hashbang routing) - use accent colors */
+a[href^="#!"] {
+    color: var(--accent, hsl(210, 72%, 70%));
+}
+
+a[href^="#!"]:hover {
+    color: var(--accent-hover, hsl(210, 72%, 85%));
+}
+
+/* Timeline content text - mostly white */
+.timeline-content,
+.timeline-event-detail {
+    color: hsl(0, 0%, 95%);
+}
+
+/* Metadata and secondary text */
+.metadata,
+.metadata time {
+    color: hsl(0, 0%, 85%);
+}
+
+/* Timeline filters - dark mode */
+.timeline-filters {
+    background: hsla(0, 0%, 25%, 0.9);
+    color: hsl(0, 0%, 95%);
+}
+
+.timeline-filters h2 {
+    color: hsl(0, 0%, 100%);
+}
+
+.filter-controls label {
+    color: hsl(0, 0%, 90%);
+}
+
+.filter-color {
+    border-color: hsl(0, 0%, 15%);
+}
+
+/* Timeline marker border - darken only the inner border ring, not the outline */
+.timeline-marker-inner {
+    background: hsl(0, 0%, 15%);
+}
+
+.filter-controls input[type="checkbox"]:checked + .filter-color {
+    box-shadow: 0 0 0 1px hsl(0, 0%, 70%);
+}
+
+.filter-controls label:hover .filter-color,
+.filter-controls input[type="checkbox"]:focus + .filter-color {
+    box-shadow: 0 0 0 1px hsl(0, 0%, 50%);
+}
+
+/* Timeline content (event plates) - dark mode */
+.timeline-content {
+    background: hsla(0, 0%, 25%, 0.9);
+}
+
+/* Tags (metadata) - dark mode */
+.tag {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+    background: hsla(0, 0%, 0%, 0.3);
+    border-radius: 3px;
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;
+}
+
+a.tag {
+    color: var(--accent, hsl(210, 100%, 50%));
+}
+
+.tag:hover {
+    background: hsla(0, 0%, 0%, 0.5);
+    text-decoration: none;
+}
+
+a.tag:hover {
+    background: hsla(0, 0%, 0%, 0.5);
+    text-decoration: underline;
+}
+
+/* Legacy metadata selectors - should use .tag class */
+.metadata > span,
+.metadata > a {
+    /* Fallback for legacy - should use .tag class */
+    background: hsla(0, 0%, 0%, 0.3);
+}
+
+.metadata > span {
+    color: hsl(0, 0%, 100%);
+}
+
+.metadata > a:hover {
+    background: hsla(0, 0%, 0%, 0.5);
+}
+
+/* Timeline metadata - all should use .tag class */
+.timeline-content .metadata > span,
+.timeline-content .metadata > a {
+    /* Fallback for legacy - should use .tag class */
+    background: hsla(0, 0%, 0%, 0.3);
+}
+
+.timeline-content .metadata > span {
+    color: hsl(0, 0%, 100%);
+}
+
+.timeline-content .metadata > a:hover {
+    background: hsla(0, 0%, 0%, 0.5);
+}
+
+/* Cards (plates on other sub pages) - dark mode */
+.card {
+    background: hsla(0, 0%, 25%, 0.9);
+}
+
+.timeline-event-detail .card {
+    background: hsla(0, 0%, 25%, 0.9);
+}
+
+/* Footer - dark mode */
+#main-footer {
+    background: hsla(0, 0%, 10%, 0.9);
+    color: hsl(0, 0%, 90%);
+}
+
+#main-footer .copyright {
+    color: hsl(0, 0%, 80%);
+}
 

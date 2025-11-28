@@ -1,2 +1,655 @@
-/* Wickedpedia */
+/* Wickedpedia - Styled like a fancy Wikipedia */
 
+/* ============================================
+   COLOR SYSTEM & VARIABLES
+   ============================================ */
+
+:root {
+    /* Wikipedia-inspired colors */
+    --wp-white: #ffffff;
+    --wp-off-white: #f8f9fa;
+    --wp-light-grey: #eaecf0;
+    --wp-grey: #a7a7a7;
+    --wp-dark-grey: #54595d;
+    --wp-blue: #0645ad;
+    --wp-blue-hover: #0b0080;
+    --wp-blue-visited: #0b0080;
+    --wp-blue-light: #a7d5f2;
+    --wp-red: #cc0000;
+    --wp-yellow: #fef6e7;
+    
+    /* Background colors */
+    --primary-bg: var(--wp-white);
+    --secondary-bg: var(--wp-off-white);
+    --text-primary: #202122;
+    --text-secondary: var(--wp-dark-grey);
+    
+    /* Link colors */
+    --accent: var(--wp-blue);
+    --accent-hover: var(--wp-blue-hover);
+    --accent-visited: var(--wp-blue-visited);
+    
+    /* Timeline domain colors */
+    --timeline-academic: #6b46c1;
+    --timeline-employed: #059669;
+    --timeline-independent: #dc2626;
+    --timeline-personal: #d97706;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Liberation Sans', sans-serif;
+    color: var(--text-primary);
+    background: var(--wp-off-white);
+    line-height: 1.6;
+    font-size: 0.875rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid var(--wp-light-grey);
+    padding-bottom: 0.25em;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 400;
+    border-bottom: 1px solid var(--wp-grey);
+    padding-bottom: 0.25em;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-top: 1em;
+}
+
+h3 {
+    font-size: 1.17em;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 0.83em;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 0.5em;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 1px solid var(--accent);
+    outline-offset: 1px;
+}
+
+a:visited {
+    color: var(--accent-visited);
+}
+
+a[href^="#!"] {
+    color: var(--accent);
+}
+
+a[href^="#!"]:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+#main-menu,
+#situational-menu {
+    background: var(--wp-white);
+    border: 1px solid var(--wp-light-grey);
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+#main-menu {
+    padding: 1rem;
+}
+
+#main-menu ul {
+    gap: 0.25rem;
+}
+
+#main-menu a[href^="#!"] {
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    border-radius: 2px;
+    background: transparent;
+    color: var(--text-primary);
+    font-weight: 400;
+    transition: background-color 0.1s ease;
+}
+
+#main-menu a[href^="#!"]:hover,
+#main-menu a[href^="#!"]:focus {
+    background: var(--wp-light-grey);
+    color: var(--text-primary);
+    outline: none;
+    text-decoration: none;
+}
+
+#situational-menu {
+    padding: 1rem;
+}
+
+#situational-menu h2 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--wp-light-grey);
+    padding-bottom: 0.5rem;
+}
+
+#situational-menu ul {
+    gap: 0.25rem;
+}
+
+#situational-menu a {
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    border-radius: 2px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    transition: background-color 0.1s ease;
+}
+
+#situational-menu a:hover,
+#situational-menu a:focus {
+    background: var(--wp-light-grey);
+    color: var(--text-primary);
+    outline: none;
+}
+
+#situational-menu li:first-child a {
+    font-weight: 500;
+    color: var(--text-primary);
+    background: var(--wp-light-grey);
+}
+
+/* Hamburger menu button */
+.menu-toggle-label {
+    background: var(--wp-white);
+    color: var(--text-primary);
+    border: 1px solid var(--wp-light-grey);
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.menu-toggle-label:hover {
+    background: var(--wp-light-grey);
+}
+
+.menu-toggle-label:focus {
+    outline: 1px solid var(--accent);
+    outline-offset: 1px;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+#main-content {
+    background: var(--wp-white);
+    border: 1px solid var(--wp-light-grey);
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+#content-pane {
+    padding: 1.5em;
+}
+
+/* ============================================
+   CARDS & ARTICLES
+   ============================================ */
+
+.card,
+article {
+    background: var(--wp-white);
+    border: 1px solid var(--wp-light-grey);
+    border-radius: 2px;
+    padding: 1.5em;
+    margin: 1em auto;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.card {
+    max-width: 800px;
+}
+
+article {
+    margin-bottom: 1em;
+}
+
+article h3 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--wp-light-grey);
+}
+
+/* ============================================
+   TAGS & METADATA
+   ============================================ */
+
+.tag,
+.metadata > span,
+.metadata > a {
+    padding: 0.25em 0.5em;
+    font-size: 0.875em;
+    background: var(--wp-light-grey);
+    border: 1px solid var(--wp-grey);
+    border-radius: 2px;
+    font-weight: 400;
+    color: var(--text-primary);
+    display: inline-block;
+}
+
+.metadata > a {
+    color: var(--accent);
+}
+
+.tag:hover,
+.metadata > a:hover {
+    background: var(--wp-grey);
+    border-color: var(--wp-dark-grey);
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.metadata {
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+
+/* ============================================
+   TIMELINE
+   ============================================ */
+
+.timeline-container {
+    padding: 1em 0;
+}
+
+.timeline-content {
+    background: var(--wp-white);
+    border: 1px solid var(--wp-light-grey);
+    border-left: 3px solid var(--accent);
+    border-radius: 2px;
+    padding: 1em;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-event[data-domain="academic"] .timeline-content {
+    border-left-color: var(--timeline-academic);
+}
+
+.timeline-event[data-domain="employed"] .timeline-content {
+    border-left-color: var(--timeline-employed);
+}
+
+.timeline-event[data-domain="independent"] .timeline-content {
+    border-left-color: var(--timeline-independent);
+}
+
+.timeline-event[data-domain="personal"] .timeline-content {
+    border-left-color: var(--timeline-personal);
+}
+
+.timeline-marker-outer {
+    background: var(--wp-grey);
+    border: 2px solid var(--wp-white);
+}
+
+.timeline-marker-inner {
+    background: var(--wp-white);
+}
+
+.timeline-marker::after {
+    background: var(--accent);
+    border: 1px solid var(--wp-grey);
+}
+
+.timeline-event[data-domain="academic"] .timeline-marker::after {
+    background: var(--timeline-academic);
+}
+
+.timeline-event[data-domain="employed"] .timeline-marker::after {
+    background: var(--timeline-employed);
+}
+
+.timeline-event[data-domain="independent"] .timeline-marker::after {
+    background: var(--timeline-independent);
+}
+
+.timeline-event[data-domain="personal"] .timeline-marker::after {
+    background: var(--timeline-personal);
+}
+
+.timeline-event::before {
+    background: var(--wp-grey);
+}
+
+.timeline-content time {
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.5em;
+    font-size: 0.875em;
+}
+
+.timeline-event[data-domain="academic"] .timeline-content time {
+    color: var(--timeline-academic);
+}
+
+.timeline-event[data-domain="employed"] .timeline-content time {
+    color: var(--timeline-employed);
+}
+
+.timeline-event[data-domain="independent"] .timeline-content time {
+    color: var(--timeline-independent);
+}
+
+.timeline-event[data-domain="personal"] .timeline-content time {
+    color: var(--timeline-personal);
+}
+
+.timeline-content h3 {
+    margin-bottom: 0.5em;
+    font-size: 1.17em;
+    border-bottom: 1px solid var(--wp-light-grey);
+}
+
+.timeline-content p {
+    margin-bottom: 0.5em;
+    color: var(--text-primary);
+}
+
+.timeline-content .metadata {
+    font-size: 0.875em;
+    margin-bottom: 0;
+}
+
+.timeline-content .metadata > span,
+.timeline-content .metadata > a {
+    padding: 0.25em 0.5em;
+    font-size: 0.875em;
+}
+
+.timeline-domain {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.timeline-event[data-domain="academic"] .timeline-domain,
+.card[data-domain="academic"] .timeline-domain {
+    color: var(--timeline-academic);
+}
+
+.timeline-event[data-domain="employed"] .timeline-domain,
+.card[data-domain="employed"] .timeline-domain {
+    color: var(--timeline-employed);
+}
+
+.timeline-event[data-domain="independent"] .timeline-domain,
+.card[data-domain="independent"] .timeline-domain {
+    color: var(--timeline-independent);
+}
+
+.timeline-event[data-domain="personal"] .timeline-domain,
+.card[data-domain="personal"] .timeline-domain {
+    color: var(--timeline-personal);
+}
+
+.timeline-filters {
+    background: var(--wp-white);
+    border: 1px solid var(--wp-light-grey);
+    border-radius: 2px;
+    padding: 1em;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-filters h2 {
+    font-size: 1em;
+    margin-bottom: 0.75em;
+    border-bottom: 1px solid var(--wp-light-grey);
+}
+
+.filter-controls label {
+    font-size: 0.875em;
+    color: var(--text-primary);
+}
+
+.filter-color {
+    border: 2px solid var(--wp-white);
+    box-shadow: 0 0 0 1px var(--wp-grey);
+}
+
+.filter-controls input[type="checkbox"]:checked + .filter-color {
+    box-shadow: 0 0 0 2px var(--wp-dark-grey);
+}
+
+/* ============================================
+   PROJECTS & SKILLSETS
+   ============================================ */
+
+b-projects,
+b-skillsets {
+    gap: 1em;
+}
+
+.skillset-group {
+    margin-bottom: 1.5em;
+}
+
+.skillset-group h3 {
+    margin-top: 0;
+    margin-bottom: 0.75em;
+    border-bottom: 1px solid var(--wp-light-grey);
+}
+
+.skillset-tag-cloud {
+    gap: 0.5em;
+}
+
+.skill-tag a[href^="#!"] {
+    padding: 0.25em 0.5em;
+    font-size: inherit;
+    background: var(--wp-light-grey);
+    border: 1px solid var(--wp-grey);
+    border-radius: 2px;
+    color: var(--accent);
+    font-weight: 400;
+    transition: all 0.1s ease;
+}
+
+.skill-tag a[href^="#!"]:hover {
+    background: var(--wp-grey);
+    border-color: var(--wp-dark-grey);
+    color: var(--accent-hover);
+    text-decoration: none;
+}
+
+.spotlight-projects {
+    gap: 1em;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+#main-footer {
+    background: var(--wp-white);
+    border-top: 1px solid var(--wp-light-grey);
+    padding: 1em 1.5em;
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.05);
+}
+
+#main-footer .copyright {
+    font-size: 0.875em;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+b-flavor-selector {
+    gap: 0.5em;
+}
+
+b-flavor-selector label {
+    font-size: 0.875em;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+b-flavor-selector select {
+    padding: 0.25em 0.5em;
+    border: 1px solid var(--wp-grey);
+    border-radius: 2px;
+    background: var(--wp-white);
+    font-size: 0.875em;
+    color: var(--text-primary);
+    font-weight: 400;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.1s ease;
+}
+
+b-flavor-selector select:hover {
+    border-color: var(--wp-dark-grey);
+    background: var(--wp-light-grey);
+}
+
+b-flavor-selector select:focus {
+    outline: 1px solid var(--accent);
+    outline-offset: 1px;
+    border-color: var(--accent);
+}
+
+/* ============================================
+   LINK LISTS
+   ============================================ */
+
+.link-list {
+    gap: 0.25em;
+}
+
+.link-list li {
+    padding: 0.5em 0;
+    border-bottom: 1px solid var(--wp-light-grey);
+}
+
+.link-list li:last-child {
+    border-bottom: none;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 799px) {
+    #content-pane {
+        padding: 1em;
+    }
+    
+    .card,
+    article {
+        padding: 1em;
+        margin: 1em auto;
+    }
+    
+    h1 {
+        font-size: 1.75em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    h3 {
+        font-size: 1.17em;
+    }
+    
+    #main-footer {
+        padding: 1em;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75em;
+    }
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--wp-off-white);
+    border: 1px solid var(--wp-light-grey);
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--wp-grey);
+    border: 1px solid var(--wp-dark-grey);
+    border-radius: 2px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--wp-dark-grey);
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--wp-grey) var(--wp-off-white);
+}
+
+/* ============================================
+   SKIP LINK
+   ============================================ */
+
+.skip-link {
+    background: var(--wp-dark-grey);
+    color: var(--wp-white);
+    border: 1px solid var(--wp-grey);
+}
+
+.skip-link:focus {
+    outline: 1px solid var(--accent);
+    outline-offset: 1px;
+}

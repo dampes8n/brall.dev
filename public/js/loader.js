@@ -7,25 +7,57 @@
     'use strict';
 
     const componentCache = new Map();
+    const pendingLoads = new Map();
 
     function loadComponent(componentName) {
+        // If already loaded, return immediately
         if (componentCache.has(componentName)) {
             return Promise.resolve(componentCache.get(componentName));
         }
 
-        return new Promise((resolve, reject) => {
+        // If already loading, return the existing promise
+        if (pendingLoads.has(componentName)) {
+            return pendingLoads.get(componentName);
+        }
+
+        // Check if script tag already exists in DOM
+        const existingScript = document.querySelector(`script[src="components/${componentName}.js"]`);
+        if (existingScript) {
+            // Script exists but not in cache yet - wait for it to load
+            const loadPromise = new Promise((resolve, reject) => {
+                const checkLoaded = () => {
+                    if (componentCache.has(componentName)) {
+                        resolve(componentCache.get(componentName));
+                    } else {
+                        // Wait a bit and check again
+                        setTimeout(checkLoaded, 50);
+                    }
+                };
+                checkLoaded();
+            });
+            pendingLoads.set(componentName, loadPromise);
+            return loadPromise;
+        }
+
+        // Create new load promise
+        const loadPromise = new Promise((resolve, reject) => {
             const script = document.createElement('script');
             script.src = `components/${componentName}.js`;
             script.onload = () => {
                 componentCache.set(componentName, true);
+                pendingLoads.delete(componentName);
                 resolve();
             };
             script.onerror = () => {
                 console.warn(`Failed to load component: ${componentName}`);
+                pendingLoads.delete(componentName);
                 reject(new Error(`Failed to load component: ${componentName}`));
             };
             document.head.appendChild(script);
         });
+
+        pendingLoads.set(componentName, loadPromise);
+        return loadPromise;
     }
 
     function findComponents(element = document) {
@@ -34,7 +66,8 @@
         
         customElements.forEach(el => {
             const tagName = el.tagName.toLowerCase();
-            if (tagName.includes('-') && !componentCache.has(tagName)) {
+            // Only add if not in cache and not already pending
+            if (tagName.includes('-') && !componentCache.has(tagName) && !pendingLoads.has(tagName)) {
                 components.add(tagName);
             }
         });
@@ -123,16 +156,16 @@
                 // Generate section ID using timestamp
                 const sectionId = `section-${Date.now()}`;
 
-                // Load background if exists
-                await this.loadBackground(targetPath, sectionId);
+                // Trigger transition video fade in and wait for it to complete
+                await this.showTransitionVideo();
 
-                // Load foreground if exists
-                await this.loadForeground(targetPath, sectionId);
+                // Load main content (video is at full opacity during this)
+                // Scroll to top on first load, otherwise don't scroll (breadcrumbs will handle it)
+                const shouldScrollToTop = isFirstLoad;
+                await this.loadMainContent(targetPath, shouldScrollToTop, sectionId);
 
-                // Load main content
-                // Always jump to top on first load, otherwise use shouldScroll
-                const scrollToTop = isFirstLoad;
-                await this.loadMainContent(targetPath, scrollToTop ? true : shouldScroll, sectionId);
+                // Trigger transition video fade out after content loads and wait for it to complete
+                await this.hideTransitionVideo();
 
                 // Update history with path and scroll position
                 const newUrl = `#!${targetPath}`;
@@ -148,93 +181,6 @@
                 }
             }
 
-            async loadBackground(path, sectionId) {
-                // Check if we're in file:// protocol
-                if (window.location.protocol === 'file:') {
-                    return;
-                }
-                
-                const bgContainer = document.getElementById('backgrounds');
-                let bgLayer = bgContainer.querySelector('b-layer[type="background"]');
-                
-                const bgPath = `partials/${path}.background.html`;
-                try {
-                    const response = await fetch(bgPath);
-                    if (response.ok) {
-                        const html = await response.text();
-                        
-                        // Get or create b-layer for backgrounds
-                        if (!bgLayer) {
-                            bgLayer = document.createElement('b-layer');
-                            bgLayer.setAttribute('type', 'background');
-                            bgLayer.setAttribute('aria-hidden', 'true');
-                            bgContainer.appendChild(bgLayer);
-                            
-                            // Ensure component is loaded
-                            if (window.ComponentLoader) {
-                                await window.ComponentLoader.load('b-layer').catch(() => {});
-                            }
-                        }
-                        
-                        // Add new layer with crossfading
-                        await bgLayer.addLayer(html);
-                    } else {
-                        // No background file exists - clear old layer if it exists
-                        if (bgLayer) {
-                            bgLayer.clear();
-                        }
-                    }
-                } catch (e) {
-                    // No background file exists - clear old layer if it exists
-                    if (bgLayer) {
-                        bgLayer.clear();
-                    }
-                }
-            }
-
-            async loadForeground(path, sectionId) {
-                // Check if we're in file:// protocol
-                if (window.location.protocol === 'file:') {
-                    return;
-                }
-                
-                const fgContainer = document.getElementById('foregrounds');
-                let fgLayer = fgContainer.querySelector('b-layer[type="foreground"]');
-                
-                const fgPath = `partials/${path}.foreground.html`;
-                try {
-                    const response = await fetch(fgPath);
-                    if (response.ok) {
-                        const html = await response.text();
-                        
-                        // Get or create b-layer for foregrounds
-                        if (!fgLayer) {
-                            fgLayer = document.createElement('b-layer');
-                            fgLayer.setAttribute('type', 'foreground');
-                            fgLayer.setAttribute('aria-hidden', 'true');
-                            fgContainer.appendChild(fgLayer);
-                            
-                            // Ensure component is loaded
-                            if (window.ComponentLoader) {
-                                await window.ComponentLoader.load('b-layer').catch(() => {});
-                            }
-                        }
-                        
-                        // Add new layer with crossfading
-                        await fgLayer.addLayer(html);
-                    } else {
-                        // No foreground file exists - clear old layer if it exists
-                        if (fgLayer) {
-                            fgLayer.clear();
-                        }
-                    }
-                } catch (e) {
-                    // No foreground file exists - clear old layer if it exists
-                    if (fgLayer) {
-                        fgLayer.clear();
-                    }
-                }
-            }
 
             async loadMainContent(path, shouldScroll, sectionId) {
                 // Check if we're in file:// protocol
@@ -332,7 +278,7 @@
                     );
                     
                     // Create HTML for subdomain page
-                    let html = `<article><div class="card">`;
+                    let html = `<article>`;
                     html += `<h1>${this.escapeHtml(subdomainName)}</h1>`;
                     
                     // Load projects for this subdomain
@@ -365,7 +311,7 @@
                         html += `</section>`;
                     }
                     
-                    html += `</div></article>`;
+                    html += `</article>`;
                     
                     await this.createSectionFromHTML(html, sectionId, shouldScroll);
                 } catch (e) {
@@ -414,7 +360,7 @@
                     );
                     
                     // Create HTML for skillset page
-                    let html = `<article><div class="card">`;
+                    let html = `<article>`;
                     html += `<h1>${this.escapeHtml(skillsetName)}</h1>`;
                     
                     if (filteredSkills.length > 0) {
@@ -451,7 +397,7 @@
                         html += `</section>`;
                     }
                     
-                    html += `</div></article>`;
+                    html += `</article>`;
                     
                     await this.createSectionFromHTML(html, sectionId, shouldScroll);
                 } catch (e) {
@@ -503,9 +449,7 @@
                     const startDate = item.start ? BDate.formatDate(item.start) : 'Ongoing';
                     const endDate = item.end ? BDate.formatDate(item.end) : 'Present';
                     const domain = item.domain || '';
-                    const domainLower = domain.toLowerCase();
                     
-                    html += `<div class="card" data-domain="${domainLower}">`;
                     html += `<p><time>${startDate} - ${endDate}</time></p>`;
                     html += `<h1>${this.escapeHtml(item.title)}</h1>`;
                     if (item.description) {
@@ -513,11 +457,11 @@
                     }
                     html += `<nav class="metadata">`;
                     if (item.domain) {
-                        html += `<span class="timeline-domain">${this.escapeHtml(item.domain)}</span>`;
+                        html += `<span class="tag timeline-domain">${this.escapeHtml(item.domain)}</span>`;
                     }
                     if (item.subdomain) {
                         const subdomainLink = this.slugify(item.subdomain);
-                        html += `<a href="#!/subdomains/${subdomainLink}">${this.escapeHtml(item.subdomain)}</a>`;
+                        html += `<a href="#!/subdomains/${subdomainLink}" class="tag">${this.escapeHtml(item.subdomain)}</a>`;
                     }
                     if (item.skillsets && item.skillsets.length > 0) {
                         item.skillsets.forEach(skillset => {
@@ -542,9 +486,7 @@
                         html += `</nav>`;
                         html += `</section>`;
                     }
-                    html += `</div>`;
                 } else if (jsonFile === 'skills.json') {
-                    html += `<div class="card">`;
                     html += `<h1>${this.escapeHtml(item.title)}</h1>`;
                     if (item.description) {
                         html += `<p>${this.escapeHtml(item.description)}</p>`;
@@ -553,7 +495,7 @@
                     if (item.skillsets && item.skillsets.length > 0) {
                         item.skillsets.forEach(skillset => {
                             const slug = skillset.toLowerCase().replace(/\s+/g, '-');
-                            html += `<a href="#!/skillsets/${slug}">${this.escapeHtml(skillset)}</a>`;
+                            html += `<a href="#!/skillsets/${slug}" class="tag">${this.escapeHtml(skillset)}</a>`;
                         });
                     }
                     html += `</nav>`;
@@ -589,7 +531,6 @@
                         html += `</nav>`;
                         html += `</section>`;
                     }
-                    html += `</div>`;
                 } else if (jsonFile === 'timeline-events.json') {
                     // Render as a bigger version of the timeline plate
                     const domain = item.domain || '';
@@ -603,8 +544,6 @@
                     // Format date using BDate component
                     const formattedDate = BDate.formatDate(item.date || 'Unknown');
                     
-                    html += `<div class="timeline-event-detail" data-domain="${domain.toLowerCase()}">`;
-                    html += `<div class="card">`;
                     html += `<time>${this.escapeHtml(formattedDate)}</time>`;
                     html += `<h1>${this.escapeHtml(item.title)}</h1>`;
                     if (item.description) {
@@ -612,7 +551,7 @@
                     }
                     html += `<nav class="metadata">`;
                     if (domain) {
-                        html += `<span class="timeline-domain">${this.escapeHtml(domain)}</span>`;
+                        html += `<span class="tag timeline-domain">${this.escapeHtml(domain)}</span>`;
                     }
                     if (subdomainHtml) {
                         html += subdomainHtml;
@@ -623,30 +562,28 @@
                             p.title && p.title.toLowerCase() === item.project.toLowerCase()
                         );
                         if (relatedProject) {
-                            html += `<a href="#!/projects/${relatedProject.slug}" class="timeline-project">${this.escapeHtml(item.project)}</a>`;
+                            html += `<a href="#!/projects/${relatedProject.slug}" class="tag">${this.escapeHtml(item.project)}</a>`;
                         } else {
-                            html += `<span class="timeline-project">${this.escapeHtml(item.project)}</span>`;
+                            html += `<span class="tag">${this.escapeHtml(item.project)}</span>`;
                         }
                     }
                     if (item.skillsets && item.skillsets.length > 0) {
                         item.skillsets.forEach(skillset => {
                             const slug = skillset.toLowerCase().replace(/\s+/g, '-');
-                            html += `<a href="#!/skillsets/${slug}" class="timeline-skillset">${this.escapeHtml(skillset)}</a>`;
+                            html += `<a href="#!/skillsets/${slug}" class="tag">${this.escapeHtml(skillset)}</a>`;
                         });
                     }
                     if (item.skills && item.skills.length > 0) {
                         item.skills.forEach(skillName => {
                             const skill = skills.find(s => s.title === skillName);
                             if (skill) {
-                                html += `<a href="#!/skills/${skill.slug}" class="timeline-skill">${this.escapeHtml(skillName)}</a>`;
+                                html += `<a href="#!/skills/${skill.slug}" class="tag">${this.escapeHtml(skillName)}</a>`;
                             } else {
-                                html += `<span class="timeline-skill">${this.escapeHtml(skillName)}</span>`;
+                                html += `<span class="tag">${this.escapeHtml(skillName)}</span>`;
                             }
                         });
                     }
                     html += `</nav>`;
-                    html += `</div>`;
-                    html += `</div>`;
                 }
                 
                 html += '</article>';
@@ -716,8 +653,13 @@
                     contentPane.appendChild(wrapper);
                 }
 
+                // Get the section element (either article or wrapper)
+                const section = contentPane.querySelector(`#${sectionId}`) || 
+                                contentPane.querySelector('article') || 
+                                contentPane.firstElementChild;
+
                 // Reload any components in the new content
-                if (window.ComponentLoader) {
+                if (window.ComponentLoader && section) {
                     window.ComponentLoader.find(section).forEach(comp => {
                         window.ComponentLoader.load(comp).catch(() => {});
                     });
@@ -735,11 +677,27 @@
                 });
 
                 if (shouldScroll) {
-                    // Scroll to center the section in viewport
-                    section.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else {
-                    // Keep scroll at top (we already set it to 0)
-                    // This prevents the page from jumping when long content loads
+                    // For first load, scroll to top of window
+                    // For subsequent loads, breadcrumbs will handle scroll position
+                    window.scrollTo(0, 0);
+                }
+            }
+
+            async showTransitionVideo() {
+                const transitionVideo = document.querySelector('#foregrounds .transition-video');
+                if (transitionVideo) {
+                    transitionVideo.classList.add('active');
+                    // Wait for fade in to complete (200ms)
+                    await new Promise(resolve => setTimeout(resolve, 200));
+                }
+            }
+
+            async hideTransitionVideo() {
+                const transitionVideo = document.querySelector('#foregrounds .transition-video');
+                if (transitionVideo) {
+                    transitionVideo.classList.remove('active');
+                    // Wait for fade out to complete (200ms)
+                    await new Promise(resolve => setTimeout(resolve, 200));
                 }
             }
 

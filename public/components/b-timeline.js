@@ -151,7 +151,7 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
         // Create subdomain link
         const subdomainLink = subdomain ? this.slugify(subdomain) : '';
         const subdomainHtml = subdomain ? 
-            `<a href="#!/subdomains/${subdomainLink}" class="timeline-subdomain">${this.escapeHtml(subdomain)}</a>` : 
+            `<a href="#!/subdomains/${subdomainLink}" class="tag">${this.escapeHtml(subdomain)}</a>` : 
             '';
         
         // Find project link if it exists
@@ -161,9 +161,9 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
                 p.title && p.title.toLowerCase() === project.toLowerCase()
             );
             if (relatedProject) {
-                projectHtml = `<a href="#!/projects/${relatedProject.slug}" class="timeline-project">${this.escapeHtml(project)}</a>`;
+                projectHtml = `<a href="#!/projects/${relatedProject.slug}" class="tag">${this.escapeHtml(project)}</a>`;
             } else {
-                projectHtml = `<span class="timeline-project">${this.escapeHtml(project)}</span>`;
+                projectHtml = `<span class="tag">${this.escapeHtml(project)}</span>`;
             }
         }
         
@@ -177,7 +177,7 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
                     <time>${date}</time>
                     ${title ? `<h3>${slug ? `<a href="#!/timeline-events/${slug}">${this.escapeHtml(title)}</a>` : this.escapeHtml(title)}</h3>` : ''}
                     <nav class="metadata">
-                        ${domain ? `<span class="timeline-domain">${this.escapeHtml(domain)}</span>` : ''}
+                        ${domain ? `<span class="tag timeline-domain">${this.escapeHtml(domain)}</span>` : ''}
                         ${subdomainHtml}
                         ${projectHtml}
                     </nav>
@@ -208,29 +208,11 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
             const isVisible = this.filters[domain] || false;
             
             if (isVisible) {
-                // Remove hidden class and restore height
+                // Remove hidden class
                 event.classList.remove('timeline-event-hidden');
-                // Set explicit height for smooth transition
-                if (!event.style.height || event.style.height === '0px') {
-                    event.style.height = '';
-                    // Force reflow to get natural height
-                    void event.offsetHeight;
-                    const naturalHeight = event.scrollHeight;
-                    event.style.height = `${naturalHeight}px`;
-                }
             } else {
-                // Store current height before hiding
-                if (!event.classList.contains('timeline-event-hidden')) {
-                    const currentHeight = event.scrollHeight;
-                    event.style.height = `${currentHeight}px`;
-                    // Force reflow
-                    void event.offsetHeight;
-                }
+                // Add hidden class
                 event.classList.add('timeline-event-hidden');
-                // Set to 0 after a brief moment to allow transition
-                requestAnimationFrame(() => {
-                    event.style.height = '0px';
-                });
             }
         });
 

@@ -40,6 +40,7 @@ All public-facing files are located in the `public/` folder.
 - `public/css/flavors/litrpg.css` - Styled like a D&D Character Sheet (to be created)
 - `public/css/flavors/offices-overseers.css` - Traditional corporate website (to be created)
 - `public/css/flavors/terminally-ill.css` - Pure CLI white on black monospace (to be created)
+- `public/css/flavors/vhscary.css` - VHS inspired lo-fi horror vibe
 
 ## Features
 
