@@ -1,93 +1,429 @@
 [
     {
-        "slug": "leading-experience-architecture-aesthetics",
-        "skillsets": ["Leadership"],
-        "title": "Leading experience, architecture & aesthetics",
-        "description": null
-    },
-    {
         "slug": "creative-writing",
         "skillsets": ["Writing"],
         "title": "Creative Writing",
-        "description": null
-    },
-    {
-        "slug": "dnd",
-        "skillsets": ["Writing", "Leadership"],
-        "title": "D&D",
-        "description": null
-    },
-    {
-        "slug": "ttrpgs",
-        "skillsets": ["Writing", "Leadership"],
-        "title": "TTRPGs",
-        "description": null
-    },
-    {
-        "slug": "gming",
-        "skillsets": ["Writing", "Leadership"],
-        "title": "GMing",
-        "description": null
+        "description": "Writing original fiction, stories, and creative content."
     },
     {
         "slug": "html",
-        "skillsets": ["Development"],
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "HTML",
-        "description": null
+        "description": "HyperText Markup Language for structuring web content."
+    },
+    {
+        "slug": "html5",
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "title": "HTML5",
+        "description": "Modern HTML standard with enhanced semantic elements, multimedia support, and APIs."
+    },
+    {
+        "slug": "xhtml",
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "title": "XHTML",
+        "description": "Extensible HyperText Markup Language, an XML-based version of HTML with stricter syntax rules."
     },
     {
         "slug": "css",
-        "skillsets": ["Development"],
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "CSS",
-        "description": null
+        "description": "Cascading Style Sheets for styling and layout of web pages."
+    },
+    {
+        "slug": "sass",
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "title": "Sass",
+        "description": "Syntactically Awesome Style Sheets, a CSS preprocessor with variables, nesting, and mixins."
     },
     {
         "slug": "javascript",
-        "skillsets": ["Development"],
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "JavaScript",
-        "description": null
+        "description": "Dynamic programming language for web development, enabling interactive and responsive user interfaces."
+    },
+    {
+        "slug": "typescript",
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "title": "TypeScript",
+        "description": "Typed superset of JavaScript that compiles to plain JavaScript, adding static type checking."
+    },
+    {
+        "slug": "jquery",
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "title": "jQuery",
+        "description": "JavaScript library that simplifies DOM manipulation, event handling, and AJAX interactions."
+    },
+    {
+        "slug": "lit",
+        "skillsets": ["Development"],
+        "title": "Lit",
+        "description": "Lightweight web components library for building fast, reusable UI components."
+    },
+    {
+        "slug": "php",
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "title": "PHP",
+        "description": "Server-side scripting language designed for web development, particularly suited for dynamic web pages."
+    },
+    {
+        "slug": "ruby",
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "title": "Ruby",
+        "description": "Dynamic, object-oriented programming language known for its elegant syntax and developer productivity."
+    },
+    {
+        "slug": "java",
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "title": "Java",
+        "description": "Object-oriented programming language designed for cross-platform application development."
     },
     {
         "slug": "photoshop",
-        "skillsets": ["Design"],
+        "skillsets": ["Design", "Software", "Multimedia"],
         "title": "Photoshop",
-        "description": null
+        "description": "Adobe image editing and graphic design software for creating and manipulating digital images."
     },
     {
         "slug": "mysql",
-        "skillsets": ["Database"],
+        "skillsets": ["Databases", "Software"],
         "title": "MySQL",
-        "description": null
+        "description": "Open-source relational database management system for storing and managing structured data."
+    },
+    {
+        "slug": "memcached",
+        "skillsets": ["Databases", "DevOps", "Software"],
+        "title": "Memcached",
+        "description": "Distributed memory caching system for improving application performance by caching frequently accessed data."
     },
     {
         "slug": "laravel",
-        "skillsets": ["Development"],
+        "skillsets": ["Development", "Software"],
         "title": "Laravel",
-        "description": null
+        "description": "PHP web application framework with elegant syntax and tools for building modern web applications."
+    },
+    {
+        "slug": "git",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Git",
+        "description": "Distributed version control system for tracking changes in source code and coordinating collaborative development."
+    },
+    {
+        "slug": "perforce",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Perforce",
+        "description": "Version control system designed for large-scale software development and asset management."
+    },
+    {
+        "slug": "subversion",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Subversion",
+        "description": "Centralized version control system for managing file and directory versions over time."
+    },
+    {
+        "slug": "cvs",
+        "skillsets": ["DevOps", "Software"],
+        "title": "CVS",
+        "description": "Concurrent Versions System, an early version control system for tracking file revisions."
+    },
+    {
+        "slug": "jira",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Jira",
+        "description": "Project management and issue tracking tool for agile software development teams."
+    },
+    {
+        "slug": "confluence",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Confluence",
+        "description": "Collaboration and documentation platform for teams to create, share, and organize knowledge."
+    },
+    {
+        "slug": "akamai",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Akamai",
+        "description": "Content delivery network and cloud services platform for improving web performance and security."
+    },
+    {
+        "slug": "limelight",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Limelight",
+        "description": "Content delivery network service for accelerating web content and media delivery globally."
+    },
+    {
+        "slug": "rss",
+        "skillsets": ["Development"],
+        "title": "RSS",
+        "description": "Really Simple Syndication, a web feed format for publishing frequently updated content."
+    },
+    {
+        "slug": "xml",
+        "skillsets": ["Development"],
+        "title": "XML",
+        "description": "Extensible Markup Language for storing and transporting structured data in a human-readable format."
+    },
+    {
+        "slug": "ajax",
+        "skillsets": ["Development"],
+        "title": "AJAX",
+        "description": "Asynchronous JavaScript and XML, a technique for creating dynamic web applications without full page reloads."
+    },
+    {
+        "slug": "json",
+        "skillsets": ["Development"],
+        "title": "JSON",
+        "description": "JavaScript Object Notation, a lightweight data interchange format for storing and transmitting structured data."
     },
     {
         "slug": "vanilla-web-components",
         "skillsets": ["Development"],
         "title": "Vanilla Web Components",
-        "description": null
+        "description": "Native browser APIs for creating reusable, encapsulated custom HTML elements without frameworks."
     },
     {
         "slug": "server-management",
         "skillsets": ["DevOps"],
         "title": "Server Management",
-        "description": null
+        "description": "Administration and maintenance of server infrastructure, including configuration, monitoring, and optimization."
     },
     {
         "slug": "user-experience-design",
         "skillsets": ["UX"],
         "title": "User Experience Design",
-        "description": null
+        "description": "Designing user-centered interfaces and interactions to create meaningful and enjoyable user experiences."
     },
     {
         "slug": "web-design",
-        "skillsets": ["Design"],
+        "skillsets": ["Design", "UX"],
         "title": "Web Design",
-        "description": null
+        "description": "Creating visual designs and layouts for websites, focusing on aesthetics, usability, and user experience."
+    },
+    {
+        "slug": "iphone",
+        "skillsets": ["Development"],
+        "title": "iPhone",
+        "description": "iOS development for iPhone applications, including native app design and implementation."
+    },
+    {
+        "slug": "multimedia",
+        "skillsets": ["Design", "Multimedia"],
+        "title": "Multimedia",
+        "description": "Creating and integrating multiple forms of media including graphics, audio, video, and interactive content."
+    },
+    {
+        "slug": "computer-science",
+        "skillsets": ["Development", "Computer Science"],
+        "title": "Computer Science",
+        "description": "Academic discipline covering algorithms, data structures, software engineering, and computational theory."
+    },
+    {
+        "slug": "game-design",
+        "skillsets": ["Design", "Development", "Game Design"],
+        "title": "Game Design",
+        "description": "Designing game mechanics, systems, and player experiences to create engaging and enjoyable games."
+    },
+    {
+        "slug": "dnd",
+        "skillsets": ["TTRPGs", "Game Design"],
+        "title": "D&D",
+        "description": "Dungeons & Dragons, the classic tabletop role-playing game system."
+    },
+    {
+        "slug": "gming",
+        "skillsets": ["Writing", "Leadership", "TTRPGs", "Game Design"],
+        "title": "GMing",
+        "description": "Game Mastering, the practice of running tabletop role-playing games by narrating stories and managing game sessions."
+    },
+    {
+        "slug": "pbta",
+        "skillsets": ["TTRPGs", "Game Design"],
+        "title": "PbtA",
+        "description": "Powered by the Apocalypse"
+    },
+    {
+        "slug": "humblewood",
+        "skillsets": ["TTRPGs", "Game Design"],
+        "title": "Humblewood",
+        "description": "Tabletop role-playing game setting featuring anthropomorphic animals in a fantasy woodland world."
+    },
+    {
+        "slug": "vibe-coding",
+        "skillsets": ["AI"],
+        "title": "Vibe Coding",
+        "description": "An intuitive approach to programming that emphasizes natural language communication with AI coding assistants."
+    },
+    {
+        "slug": "cursor",
+        "skillsets": ["AI", "Software"],
+        "title": "Cursor",
+        "description": "AI-powered code editor designed for pair programming with AI assistants."
+    },
+    {
+        "slug": "github-copilot",
+        "skillsets": ["AI", "Software"],
+        "title": "GitHub Copilot",
+        "description": "AI pair programmer that suggests code completions and entire functions based on context."
+    },
+    {
+        "slug": "chatgpt",
+        "skillsets": ["AI"],
+        "title": "ChatGPT",
+        "description": "Large language model chatbot developed by OpenAI for conversational AI interactions and assistance."
+    },
+    {
+        "slug": "openai",
+        "skillsets": ["AI"],
+        "title": "OpenAI",
+        "description": "AI research company and platform providing advanced artificial intelligence models and services."
+    },
+    {
+        "slug": "openai-api",
+        "skillsets": ["AI", "Development"],
+        "title": "OpenAI API",
+        "description": "Application programming interface for integrating OpenAI's language models and AI capabilities into applications."
+    },
+    {
+        "slug": "azure-ai-foundry",
+        "skillsets": ["AI", "Software"],
+        "title": "Azure AI Foundry",
+        "description": "Microsoft Azure platform for building, deploying, and managing AI applications and models."
+    },
+    {
+        "slug": "claude",
+        "skillsets": ["AI"],
+        "title": "Claude",
+        "description": "AI assistant developed by Anthropic, designed for helpful, harmless, and honest interactions."
+    },
+    {
+        "slug": "github",
+        "skillsets": ["Software", "DevOps"],
+        "title": "GitHub",
+        "description": "Web-based platform for version control and collaboration using Git repositories."
+    },
+    {
+        "slug": "azure-active-directory",
+        "skillsets": ["Software", "DevOps"],
+        "title": "Azure Active Directory",
+        "description": "Microsoft's cloud-based identity and access management service for authentication and authorization."
+    },
+    {
+        "slug": "azure",
+        "skillsets": ["Software", "DevOps"],
+        "title": "Azure",
+        "description": "Microsoft's cloud computing platform providing a wide range of services including hosting, storage, and AI."
+    },
+    {
+        "slug": "gimp",
+        "skillsets": ["Software", "Design", "Multimedia"],
+        "title": "Gimp",
+        "description": "GNU Image Manipulation Program, a free and open-source raster graphics editor for image editing and creation."
+    },
+    {
+        "slug": "davinci-resolve",
+        "skillsets": ["Software", "Multimedia"],
+        "title": "Davinci Resolve",
+        "description": "Professional video editing, color correction, and post-production software for film and video projects."
+    },
+    {
+        "slug": "obs",
+        "skillsets": ["Software", "Multimedia"],
+        "title": "OBS",
+        "description": "Open Broadcaster Software, free and open-source software for video recording and live streaming."
+    },
+    {
+        "slug": "vs-code",
+        "skillsets": ["Software"],
+        "title": "VS Code",
+        "description": "Visual Studio Code, a lightweight but powerful source code editor with extensive extension support."
+    },
+    {
+        "slug": "gitlens",
+        "skillsets": ["Software"],
+        "title": "GitLens",
+        "description": "Git extension for VS Code that enhances Git capabilities with advanced visualization and insights."
+    },
+    {
+        "slug": "python",
+        "skillsets": ["Programming Languages", "Development", "Computer Science"],
+        "title": "Python",
+        "description": "High-level programming language known for its simplicity and versatility in web development, data science, and automation."
+    },
+    {
+        "slug": "brainfuck",
+        "skillsets": ["Programming Languages", "Computer Science"],
+        "title": "Brainfuck",
+        "description": "Esoteric programming language designed to challenge and amuse programmers with its minimal instruction set."
+    },
+    {
+        "slug": "graphic-design",
+        "skillsets": ["Design"],
+        "title": "Graphic Design",
+        "description": "Creating visual content using typography, imagery, and layout to communicate ideas and messages effectively."
+    },
+    {
+        "slug": "typography",
+        "skillsets": ["Design"],
+        "title": "Typography",
+        "description": "The art and technique of arranging type to make written language legible, readable, and visually appealing."
+    },
+    {
+        "slug": "photography",
+        "skillsets": ["Multimedia"],
+        "title": "Photography",
+        "description": "The art and practice of capturing images using cameras, focusing on composition, lighting, and visual storytelling."
+    },
+    {
+        "slug": "three-js",
+        "skillsets": ["Development", "Programming Languages"],
+        "title": "Three.js",
+        "description": "JavaScript library for creating and displaying 3D graphics and animations in web browsers using WebGL."
+    },
+    {
+        "slug": "perlin-noise",
+        "skillsets": ["Development", "Computer Science"],
+        "title": "Perlin Noise",
+        "description": "A gradient noise function algorithm used for generating natural-looking random patterns in procedural generation."
+    },
+    {
+        "slug": "a-star",
+        "skillsets": ["Development", "Computer Science"],
+        "title": "A*",
+        "description": "A* search algorithm, a pathfinding and graph traversal algorithm used to find optimal paths between nodes."
+    },
+    {
+        "slug": "godot",
+        "skillsets": ["Software", "Game Design", "Development"],
+        "title": "Godot",
+        "description": "Free and open-source game engine for creating 2D and 3D games with a flexible scene system."
+    },
+    {
+        "slug": "command-line",
+        "skillsets": ["DevOps", "Software"],
+        "title": "CL",
+        "description": "Command Line interface for interacting with operating systems and executing programs through text-based commands."
+    },
+    {
+        "slug": "terminal",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Terminal",
+        "description": "Text-based interface for executing commands and managing system operations in various operating systems."
+    },
+    {
+        "slug": "regex",
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "title": "Regex",
+        "description": "Regular expressions, pattern matching syntax used for searching, validating, and manipulating text strings."
+    },
+    {
+        "slug": "fetch",
+        "skillsets": ["Development", "Programming Languages"],
+        "title": "Fetch",
+        "description": "Web API for making HTTP requests to fetch resources asynchronously from servers in web applications."
+    },
+    {
+        "slug": "node",
+        "skillsets": ["Development", "Programming Languages", "Software", "DevOps"],
+        "title": "Node",
+        "description": "Node.js, JavaScript runtime environment for building server-side applications and command-line tools."
     }
 ]
 

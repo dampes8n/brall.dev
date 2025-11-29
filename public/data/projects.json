@@ -13,21 +13,31 @@
         "slug": "unannounced-game",
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
-        "start": null,
-        "end": "2025-07",
+        "start": "2020-mid",
+        "end": "2025-07-02",
         "skillsets": ["Development", "Design", "UX", "Leadership"],
         "title": "Unannounced Game",
-        "description": null
+        "description": "Greenlit mid-2020, canceled July 2nd, 2025"
     },
     {
-        "slug": "keen",
+        "slug": "commander-keen",
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
-        "start": null,
-        "end": null,
+        "start": "2018",
+        "end": "2019-late",
         "skillsets": ["Development", "Design", "UX", "Leadership"],
-        "title": "Keen",
-        "description": null
+        "title": "Commander Keen",
+        "description": "Announced June 9th, 2019, canceled late 2019"
+    },
+    {
+        "slug": "zosu",
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "start": "2024-05-29",
+        "end": null,
+        "skillsets": ["Leadership"],
+        "title": "ZOSU",
+        "description": "ZeniMax Online Studios United (ZOSU) is a Communications Workers of America (CWA) union chapter representing workers at ZeniMax Online Studios. As one of the first video game unions in the United States, ZOSU will be instrumental in organizing efforts to improve working conditions, secure fair compensation, and establish collective bargaining rights for game industry workers."
     },
     {
         "slug": "ape",
@@ -44,20 +54,50 @@
         "domain": "Employed",
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
-        "end": null,
-        "skillsets": ["Development", "DevOps", "Database"],
+        "end": "2013",
+        "skillsets": ["Development", "DevOps", "Databases", "Leadership"],
         "title": "Army.mil",
-        "description": null
+        "description": "Led the technological vision for Army.mil"
+    },
+    {
+        "slug": "core-cms",
+        "domain": "Employed",
+        "subdomain": "Engility/L3/MPRI",
+        "start": "2008",
+        "end": "2013",
+        "skillsets": ["Development", "DevOps", "Databases", "Leadership"],
+        "title": "CORE CMS",
+        "description": "Content Management System complete with community tools that enabled Public Affairs Officers to coordinate efforts, and a widgetized page management tool"
     },
     {
         "slug": "my-army-mil",
         "domain": "Employed",
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
-        "end": null,
-        "skillsets": ["Development", "DevOps", "Database"],
+        "end": "2013",
+        "skillsets": ["Development", "DevOps", "Databases"],
         "title": "My.Army.mil",
-        "description": null
+        "description": "iGoogle-like customizable homepage that allows users to pick and choose what Army content they are interested in seeing"
+    },
+    {
+        "slug": "army-app",
+        "domain": "Employed",
+        "subdomain": "Engility/L3/MPRI",
+        "start": "2008",
+        "end": "2013",
+        "skillsets": ["Development", "Design"],
+        "title": "Army App",
+        "description": "US Army News & Information iPhone app, one of the first government apps. Powered by CORE and also with a game I designed"
+    },
+    {
+        "slug": "medal-of-honor-petry",
+        "domain": "Employed",
+        "subdomain": "Engility/L3/MPRI",
+        "start": "2008",
+        "end": "2013",
+        "skillsets": ["Development"],
+        "title": "Medal of Honor: Petry",
+        "description": "Medal of Honor series site dedicated to our nation's greatest heroes. The CORE CMS powers the news and image feeds on this site"
     },
     {
         "slug": "sma",
@@ -77,7 +117,7 @@
         "end": "2022-12-18",
         "skillsets": ["Writing"],
         "title": "Magitism: The Force of Magic",
-        "description": "Published book"
+        "description": "<a href=\"https://magitism.com\">Magitism.com</a><br>An exploration of the non-binary aliens trope – an attempt to deconstruct what makes it harmful and to reimagine it as supportive instead. Explores themes such as: what it means to be intelligent; how sufficiently explained magic is indistinguishable from science; and how history is not created by great men, but by systemic forces that dominate culture.</a>"
     },
     {
         "slug": "the-bronze-coin",
@@ -98,6 +138,106 @@
         "skillsets": ["Development", "Design", "UX"],
         "title": "This Portfolio Site",
         "description": null
+    },
+    {
+        "slug": "truugahn",
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "start": "2011",
+        "end": "2014",
+        "skillsets": ["Writing", "Leadership"],
+        "title": "Truugahn",
+        "description": "D&D 4E campaign. My first campaign in adulthood after a long gap since childhood. Standard fantasy on a version of Earth in the deep future where some god had cut Earth in half"
+    },
+    {
+        "slug": "bonewall",
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "start": "2014-mid",
+        "end": "2016-10",
+        "skillsets": ["Writing", "Leadership"],
+        "title": "Bonewall",
+        "description": "D&D 5E campaign. What happens if the party kills a purple worm on day one, one that had a bellyache from eating through a vault filled with the thieves' guild's fortune?"
+    },
+    {
+        "slug": "comedy-of-justice",
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "start": "2015-07",
+        "end": "2016-mid",
+        "skillsets": ["Writing", "Leadership"],
+        "title": "Comedy of Justice",
+        "description": "D&D 5E campaign. We all showed up to play D&D, but the apocalypse happened instead. The DM was grabbed by a demon and dragged to Hell, monsters are flying around shooting lasers, and the only weapon anyone can find is a book. The BBEG was Ceres from Evoland 2"
+    },
+    {
+        "slug": "isle-of-glass-statues",
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "start": "2016-10",
+        "end": "2017-mid",
+        "skillsets": ["Writing", "Leadership"],
+        "title": "Isle of Glass Statues",
+        "description": "D&D 5E campaign. Ultimately had 15 players across four groups. Washed up on a deserted island, shifting between obsidian statues and corporal form, players have to survive extreme hostility on an ever-changing landscape"
+    },
+    {
+        "slug": "truugahn-ii",
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "start": "2018-04",
+        "end": "2019-10-12",
+        "skillsets": ["Writing", "Leadership"],
+        "title": "Truugahn II",
+        "description": "D&D 5E campaign. A continuation of my first campaign, Truugahn turned out to secretly be the old god of death, trying to reclaim his domain"
+    },
+    {
+        "slug": "papaku-vai",
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "start": "2019-07",
+        "end": "2020-mid",
+        "skillsets": ["Writing", "Leadership"],
+        "title": "Papaku Vai",
+        "description": "D&D 5E campaign. A vacation island paradise with a dark undercurrent"
+    },
+    {
+        "slug": "crumblewood",
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "start": "2021-07",
+        "end": "2021-08",
+        "skillsets": ["Writing", "Leadership"],
+        "title": "Crumblewood",
+        "description": "D&D 5E and Humblewood campaign. A zombie apocalypse in the world of Humblewood. Played outside in a wedding tent in a field"
+    },
+    {
+        "slug": "repocalypse-comedy-of-justice-ii",
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "start": "2021-07",
+        "end": "2023-mid",
+        "skillsets": ["Writing", "Leadership"],
+        "title": "Repocalypse (Comedy of Justice II)",
+        "description": "D&D 5E and PbtA campaign. A continuation of Comedy of Justice I with new players - still all playing themselves. Ceres survived the first campaign by living inside me"
+    },
+    {
+        "slug": "halfling-baked",
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "start": "2023-03",
+        "end": null,
+        "skillsets": ["Writing", "Leadership"],
+        "title": "Halfling Baked",
+        "description": "D&D 5E campaign. Cherry Grass-seed left his band, the Warlocks, over 100 years ago. He's now 270 years old and resolved to go on one last hurrah. The Halfling Bard has hired a half-dozen hale and hearty music lovers as his road crew"
+    },
+    {
+        "slug": "isle-of-glass-statues-ii",
+        "domain": "Personal",
+        "subdomain": "TTRPGs",
+        "start": "2024-07-21",
+        "end": "2024-07-27",
+        "skillsets": ["Writing", "Leadership"],
+        "title": "Isle of Glass Statues II",
+        "description": "D&D 5E campaign at Dan Wells, Game Night Getaway '24. The game went exceptionally well with 16 players in total over the course of the week, and around 50 hours of play time. They solved the island on the final day"
     }
 ]
 

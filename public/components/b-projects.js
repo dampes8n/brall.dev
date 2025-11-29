@@ -10,6 +10,12 @@ class BProjects extends (window.BJsonLoader || HTMLElement) {
     }
 
     connectedCallback() {
+        // Check if full-height mode is enabled
+        this.fullHeight = this.hasAttribute('full-height');
+        if (this.fullHeight) {
+            this.classList.add('projects-full-height');
+        }
+        
         this.showLoading('Loading projects...');
         this.loadProjects();
     }
@@ -32,7 +38,9 @@ class BProjects extends (window.BJsonLoader || HTMLElement) {
         let html = '';
         
         this.projects.forEach(project => {
-            html += `<article>`;
+            const domainLower = project.domain ? project.domain.toLowerCase() : '';
+            const dataDomainAttr = domainLower ? ` data-domain="${domainLower}"` : '';
+            html += `<article${dataDomainAttr}>`;
             html += `<h3><a href="#!/projects/${project.slug}">${this.escapeHtml(project.title)}</a></h3>`;
             
             // Format dates using BDate component

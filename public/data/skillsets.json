@@ -1,0 +1,73 @@
+[
+    {
+        "slug": "computer-science",
+        "title": "Computer Science",
+        "description": "Academic discipline covering algorithms, data structures, software engineering, and computational theory."
+    },
+    {
+        "slug": "databases",
+        "title": "Databases",
+        "description": "Systems and technologies for storing, managing, and retrieving structured data efficiently."
+    },
+    {
+        "slug": "design",
+        "title": "Design",
+        "description": "Creating visual and interactive designs for digital products, focusing on aesthetics and user experience."
+    },
+    {
+        "slug": "devops",
+        "title": "DevOps",
+        "description": "Practices combining software development and IT operations to shorten development cycles and improve deployment reliability."
+    },
+    {
+        "slug": "development",
+        "title": "Development",
+        "description": "Building and creating software applications, websites, and digital solutions through programming and technical implementation."
+    },
+    {
+        "slug": "game-design",
+        "title": "Game Design",
+        "description": "Designing game mechanics, systems, and player experiences to create engaging and enjoyable games."
+    },
+    {
+        "slug": "leadership",
+        "title": "Leadership",
+        "description": "Guiding teams, making strategic decisions, and fostering collaboration to achieve organizational goals."
+    },
+    {
+        "slug": "multimedia",
+        "title": "Multimedia",
+        "description": "Creating and integrating multiple forms of media including graphics, audio, video, and interactive content."
+    },
+    {
+        "slug": "programming-languages",
+        "title": "Programming Languages",
+        "description": "Languages and syntaxes used to write code and create software applications across various platforms."
+    },
+    {
+        "slug": "software",
+        "title": "Software",
+        "description": "Tools, applications, and platforms used for development, design, collaboration, and system management."
+    },
+    {
+        "slug": "ttrpgs",
+        "title": "TTRPGs",
+        "description": "Tabletop role-playing games, collaborative storytelling experiences played with dice, rules, and imagination."
+    },
+    {
+        "slug": "ux",
+        "title": "UX",
+        "description": "User Experience design, focusing on creating intuitive, accessible, and enjoyable interactions between users and products."
+    },
+    {
+        "slug": "writing",
+        "title": "Writing",
+        "description": "Creating written content including creative writing, technical documentation, and narrative storytelling."
+    },
+    {
+        "slug": "ai",
+        "title": "AI",
+        "description": "Artificial intelligence tools, platforms, and APIs for enhancing development workflows and creating intelligent applications. <a href=\"#!/My-Stance-On-AI\">My Stance On AI</a>"
+    }
+]
+

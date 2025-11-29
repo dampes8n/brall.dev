@@ -13,6 +13,12 @@ class BSkillsets extends (window.BJsonLoader || HTMLElement) {
     }
 
     connectedCallback() {
+        // Check if full-height mode is enabled
+        this.fullHeight = this.hasAttribute('full-height');
+        if (this.fullHeight) {
+            this.classList.add('skillsets-full-height');
+        }
+        
         this.loadData();
     }
 

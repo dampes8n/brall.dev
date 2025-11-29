@@ -7,33 +7,26 @@
    ============================================ */
 
 :root {
-    /* CLI colors */
-    --ti-black: #000000;
-    --ti-white: #ffffff;
-    --ti-green: #00ff00;
-    --ti-cyan: #00ffff;
-    --ti-yellow: #ffff00;
-    --ti-red: #ff0000;
-    --ti-magenta: #ff00ff;
-    --ti-blue: #0000ff;
-    --ti-blue-dark: #000080;
-    
     /* Background colors */
-    --primary-bg: var(--ti-black);
+    --primary-bg: #000000;
     --secondary-bg: #0a0a0a;
-    --text-primary: var(--ti-white);
+    --text-primary: #ffffff;
     --text-secondary: #cccccc;
     
     /* Link colors - teal for CLI feel */
-    --accent: var(--ti-cyan);
-    --accent-hover: var(--ti-green);
-    --accent-visited: var(--ti-yellow);
+    --accent: #00ffff;
+    --accent-hover: #00ff00;
+    --accent-visited: #ffff00;
     
     /* Timeline domain colors - bright CLI colors */
-    --timeline-academic: var(--ti-magenta);
-    --timeline-employed: var(--ti-green);
-    --timeline-independent: var(--ti-red);
-    --timeline-personal: var(--ti-yellow);
+    --timeline-academic: #0000ff;
+    --timeline-employed: #ff00ff;
+    --timeline-independent: #ff0000;
+    --timeline-personal: #ffff00;
+    
+    /* Panel styling */
+    --panel-bg: hsla(0, 0%, 0%, 0.8);
+    --panel-blur: blur(10px);
 }
 
 /* ============================================
@@ -51,13 +44,13 @@ body {
 
 /* Selection color - dark VGA blue */
 ::selection {
-    background: var(--ti-blue-dark);
-    color: var(--ti-white);
+    background: #000080;
+    color: var(--text-primary);
 }
 
 ::-moz-selection {
-    background: var(--ti-blue-dark);
-    color: var(--ti-white);
+    background: #000080;
+    color: var(--text-primary);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -65,15 +58,14 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     line-height: 1.2;
     color: var(--text-primary);
-    margin-bottom: 0.5em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 1px;
 }
 
 /* Single animation for all headings */
 h1 {
     font-size: 2.25rem; /* 50% bigger than 1.5rem */
-    color: var(--ti-blue);
+    color: var(--accent-hover);
     animation: glitch-simple 15s infinite;
 }
 
@@ -113,12 +105,12 @@ h2 {
 
 h2 {
     font-size: 1.25rem;
-    color: var(--ti-white);
+    color: var(--text-primary);
 }
 
 h3 {
     font-size: 1.125rem;
-    color: var(--ti-white);
+    color: var(--text-primary);
 }
 
 h4 {
@@ -139,7 +131,7 @@ p {
 }
 
 a {
-    color: var(--ti-cyan);
+    color: var(--accent);
     text-decoration: underline;
     font-weight: 700;
 }
@@ -155,31 +147,28 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 a:hover {
-    color: var(--ti-green);
+    color: var(--accent-hover);
     text-decoration: none;
-    background: var(--ti-cyan);
-    color: var(--ti-black);
+    background: var(--accent);
+    color: var(--primary-bg);
 }
 
 a:focus {
-    outline: 1px solid var(--ti-cyan);
+    outline: 1px solid var(--accent);
     outline-offset: 1px;
-    background: var(--ti-cyan);
-    color: var(--ti-black);
+    background: var(--accent);
+    color: var(--primary-bg);
 }
 
 a:visited {
     color: var(--accent-visited);
 }
 
-a[href^="#!"] {
-    color: var(--ti-cyan);
-}
-
+/* Internal links (hashbang routing) - color inherits from core.css */
 a[href^="#!"]:hover {
-    color: var(--ti-green);
-    background: var(--ti-cyan);
-    color: var(--ti-black);
+    color: var(--accent-hover);
+    background: var(--accent);
+    color: var(--primary-bg);
 }
 
 /* ============================================
@@ -189,7 +178,7 @@ a[href^="#!"]:hover {
 #main-menu,
 #situational-menu {
     background: hsla(0, 0%, 0%, 0.8);
-    border: 1px dashed var(--ti-white);
+    border: 1px dashed var(--text-primary);
     border-radius: 0;
     box-shadow: none;
     backdrop-filter: blur(10px);
@@ -209,7 +198,7 @@ a[href^="#!"]:hover {
     border-radius: 0;
     background: transparent;
     border: 1px solid transparent;
-    color: var(--ti-cyan);
+    color: var(--accent);
     font-weight: 400;
     text-decoration: none;
     transition: all 0.1s ease;
@@ -218,8 +207,8 @@ a[href^="#!"]:hover {
 #main-menu a[href^="#!"]:hover,
 #main-menu a[href^="#!"]:focus {
     background: transparent;
-    border: 1px solid var(--ti-cyan);
-    color: var(--ti-cyan);
+    border: 1px solid var(--accent);
+    color: var(--accent);
     outline: none;
 }
 
@@ -231,7 +220,7 @@ a[href^="#!"]:hover {
     font-size: 0.875rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
-    color: var(--ti-white);
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     border: none;
@@ -248,7 +237,7 @@ a[href^="#!"]:hover {
     border-radius: 0;
     background: transparent;
     border: 1px solid transparent;
-    color: var(--text-secondary);
+    /* color inherits from a rule (link color) */
     font-size: 0.875rem;
     text-decoration: none;
     transition: all 0.1s ease;
@@ -257,22 +246,22 @@ a[href^="#!"]:hover {
 #situational-menu a:hover,
 #situational-menu a:focus {
     background: transparent;
-    border: 1px solid var(--ti-cyan);
-    color: var(--ti-cyan);
+    border: 1px solid var(--accent);
+    color: var(--accent);
     outline: none;
 }
 
 #situational-menu li:first-child a {
     font-weight: 700;
-    color: var(--ti-white);
-    border: 1px solid var(--ti-white);
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
 }
 
 /* Hamburger menu button */
 .menu-toggle-label {
-    background: var(--ti-black);
-    color: var(--ti-green);
-    border: 1px solid var(--ti-green);
+    background: var(--primary-bg);
+    color: var(--accent-hover);
+    border: 1px solid var(--accent-hover);
     border-radius: 0;
     box-shadow: none;
     font-family: 'Courier New', monospace;
@@ -280,12 +269,12 @@ a[href^="#!"]:hover {
 }
 
 .menu-toggle-label:hover {
-    background: var(--ti-green);
-    color: var(--ti-black);
+    background: var(--accent-hover);
+    color: var(--primary-bg);
 }
 
 .menu-toggle-label:focus {
-    outline: 1px solid var(--ti-green);
+    outline: 1px solid var(--accent-hover);
     outline-offset: 1px;
 }
 
@@ -295,7 +284,7 @@ a[href^="#!"]:hover {
 
 #main-content {
     background: hsla(0, 0%, 0%, 0.8);
-    border: 1px dashed var(--ti-white);
+    border: 1px dashed var(--text-primary);
     border-radius: 0;
     box-shadow: none;
     backdrop-filter: blur(10px);
@@ -311,7 +300,7 @@ a[href^="#!"]:hover {
 
 .card {
     background: var(--primary-bg);
-    border: 1px dashed var(--ti-white);
+    border: 1px dashed var(--text-primary);
     border-radius: 0;
     padding: 1.5rem;
     margin: 1.5rem auto;
@@ -333,7 +322,7 @@ article {
 
 article h3 {
     margin-top: 0;
-    color: var(--ti-white);
+    color: var(--text-primary);
 }
 
 /* ============================================
@@ -345,9 +334,9 @@ article h3 {
     padding: 0.25rem 0.5rem;
     font-size: inherit;
     background: transparent;
-    border: 1px solid var(--ti-white);
+    border: 1px solid var(--text-primary);
     border-radius: 0;
-    color: var(--ti-white);
+    color: var(--text-primary);
     font-weight: 400;
     text-decoration: none;
     transition: all 0.1s ease;
@@ -364,7 +353,7 @@ a.tag {
 a.tag:hover {
     background: var(--accent);
     border-color: var(--accent);
-    color: var(--ti-black);
+    color: var(--primary-bg);
     text-decoration: none;
 }
 
@@ -377,10 +366,10 @@ a.tag:hover {
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
     background: transparent;
-    border: 1px solid var(--ti-white);
+    border: 1px solid var(--text-primary);
     border-radius: 0;
     font-weight: 400;
-    color: var(--ti-white);
+    color: var(--text-primary);
     display: inline-block;
     text-decoration: none;
     transition: all 0.1s ease;
@@ -394,7 +383,7 @@ a.tag:hover {
 .metadata > a:hover {
     background: var(--accent);
     border-color: var(--accent);
-    color: var(--ti-black);
+    color: var(--primary-bg);
     text-decoration: none;
 }
 
@@ -408,33 +397,19 @@ a.tag:hover {
    ============================================ */
 
 .timeline-container {
-    padding: 1.5rem 0;
+    padding: 0 10px 0 0;
 }
 
 .timeline-content {
     background: var(--primary-bg);
-    border: 1px solid var(--ti-white);
+    border: 1px solid var(--text-primary);
     border-left: 3px solid var(--accent);
     border-radius: 0;
     padding: 1.5rem;
     box-shadow: none;
 }
 
-.timeline-event[data-domain="academic"] .timeline-content {
-    border-left-color: var(--timeline-academic);
-}
-
-.timeline-event[data-domain="employed"] .timeline-content {
-    border-left-color: var(--timeline-employed);
-}
-
-.timeline-event[data-domain="independent"] .timeline-content {
-    border-left-color: var(--timeline-independent);
-}
-
-.timeline-event[data-domain="personal"] .timeline-content {
-    border-left-color: var(--timeline-personal);
-}
+/* timeline-content border-left-color inherits from core.css via --domain-color */
 
 /* Timeline markers - reset to core structure with color changes: grey → white, white borders → black */
 .timeline-marker-outer {
@@ -496,7 +471,7 @@ a.tag:hover {
 .timeline-content h3 {
     margin-bottom: 0.75rem;
     font-size: 1.125rem;
-    color: var(--ti-yellow);
+    color: var(--accent-visited);
     font-weight: 400;
 }
 
@@ -517,9 +492,9 @@ a.tag:hover {
     padding: 0.25rem 0.5rem;
     font-size: inherit;
     background: transparent;
-    border: 1px solid var(--ti-white);
+    border: 1px solid var(--text-primary);
     border-radius: 0;
-    color: var(--ti-white);
+    color: var(--text-primary);
     font-weight: 400;
     text-decoration: none;
     transition: all 0.1s ease;
@@ -536,7 +511,7 @@ a.tag:hover {
 .timeline-content .metadata > a:hover {
     background: var(--accent);
     border-color: var(--accent);
-    color: var(--ti-black);
+    color: var(--primary-bg);
     text-decoration: none;
 }
 
@@ -578,7 +553,7 @@ a.tag:hover {
 
 .timeline-filters {
     background: var(--primary-bg);
-    border: 1px solid var(--ti-white);
+    border: 1px solid var(--text-primary);
     border-radius: 0;
     padding: 1.5rem;
     box-shadow: none;
@@ -587,7 +562,7 @@ a.tag:hover {
 .timeline-filters h2 {
     font-size: 1.125rem;
     margin-bottom: 1rem;
-    color: var(--ti-white);
+    color: var(--text-primary);
 }
 
 /* Filter circles - inner border black, outer border white */
@@ -600,9 +575,23 @@ a.tag:hover {
     box-shadow: 0 0 0 3px hsl(0, 0%, 100%); /* black → white */
 }
 
-/* Turn outline grey on hover (same as core) */
-.filter-controls label:hover .filter-color {
-    box-shadow: 0 0 0 3px hsl(0, 0%, 50%);
+/* filter-controls label:hover .filter-color inherits from core.css */
+
+/* Filter separator - white dotted line on black background */
+.filter-separator {
+    background: transparent;
+    border-top: 1px dotted var(--text-primary);
+    height: 0;
+}
+
+/* Major filter star - use personal domain yellow */
+.filter-major {
+    color: var(--timeline-personal);
+}
+
+/* White underline when checkbox is checked */
+.filter-controls input[type="checkbox"]:checked + .filter-major {
+    text-decoration-color: hsl(0, 0%, 100%);
 }
 
 /* ============================================
@@ -621,7 +610,7 @@ b-skillsets {
 .skillset-group h3 {
     margin-top: 0;
     margin-bottom: 1rem;
-    color: var(--ti-yellow);
+    color: var(--accent-visited);
 }
 
 .skillset-tag-cloud {
@@ -645,7 +634,7 @@ b-skillsets {
 .skill-tag a[href^="#!"]:hover {
     background: var(--accent);
     border-color: var(--accent);
-    color: var(--ti-black);
+    color: var(--primary-bg);
     text-decoration: none;
 }
 
@@ -659,8 +648,7 @@ b-skillsets {
 
 #main-footer {
     background: var(--primary-bg);
-    border-top: 1px dashed var(--ti-white);
-    padding: 1.5rem 2rem;
+    border-top: 1px dashed var(--text-primary);
     box-shadow: none;
     backdrop-filter: blur(10px);
 }
@@ -683,11 +671,11 @@ b-flavor-selector label {
 
 b-flavor-selector select {
     padding: 0.5rem 0.75rem;
-    border: 1px solid var(--ti-white);
+    border: 1px solid var(--text-primary);
     border-radius: 0;
-    background: var(--ti-black);
+    background: var(--primary-bg);
     font-size: 0.875rem;
-    color: var(--ti-white);
+    color: var(--text-primary);
     font-weight: 400;
     cursor: pointer;
     font-family: 'Courier New', monospace;
@@ -695,15 +683,15 @@ b-flavor-selector select {
 }
 
 b-flavor-selector select:hover {
-    border-color: var(--ti-green);
-    color: var(--ti-green);
+    border-color: var(--accent-hover);
+    color: var(--accent-hover);
 }
 
 b-flavor-selector select:focus {
-    outline: 1px solid var(--ti-green);
+    outline: 1px solid var(--accent-hover);
     outline-offset: 1px;
-    border-color: var(--ti-green);
-    color: var(--ti-green);
+    border-color: var(--accent-hover);
+    color: var(--accent-hover);
 }
 
 /* ============================================
@@ -716,7 +704,7 @@ b-flavor-selector select:focus {
 
 .link-list li {
     padding: 0.75rem 0;
-    border-bottom: 1px solid var(--ti-white);
+    border-bottom: 1px solid var(--text-primary);
 }
 
 .link-list li:last-child {
@@ -751,7 +739,6 @@ b-flavor-selector select:focus {
     }
     
     #main-footer {
-        padding: 1rem 1.5rem;
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
@@ -768,24 +755,24 @@ b-flavor-selector select:focus {
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--ti-black);
-    border: 1px solid var(--ti-white);
+    background: var(--primary-bg);
+    border: 1px solid var(--text-primary);
 }
 
 *::-webkit-scrollbar-thumb {
-    background: var(--ti-white);
-    border: 1px solid var(--ti-white);
+    background: var(--text-primary);
+    border: 1px solid var(--text-primary);
     border-radius: 0;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-    background: var(--ti-green);
-    border-color: var(--ti-green);
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
 }
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--ti-white) var(--ti-black);
+    scrollbar-color: var(--text-primary) var(--primary-bg);
 }
 
 /* ============================================
@@ -793,13 +780,13 @@ b-flavor-selector select:focus {
    ============================================ */
 
 .skip-link {
-    background: var(--ti-black);
-    color: var(--ti-green);
-    border: 1px solid var(--ti-green);
+    background: var(--primary-bg);
+    color: var(--accent-hover);
+    border: 1px solid var(--accent-hover);
 }
 
 .skip-link:focus {
-    outline: 1px solid var(--ti-green);
+    outline: 1px solid var(--accent-hover);
     outline-offset: 1px;
 }
 

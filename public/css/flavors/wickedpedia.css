@@ -5,35 +5,30 @@
    ============================================ */
 
 :root {
-    /* Wikipedia-inspired colors */
-    --wp-white: #ffffff;
-    --wp-off-white: #f8f9fa;
-    --wp-light-grey: #eaecf0;
-    --wp-grey: #a7a7a7;
-    --wp-dark-grey: #54595d;
-    --wp-blue: #0645ad;
-    --wp-blue-hover: #0b0080;
-    --wp-blue-visited: #0b0080;
-    --wp-blue-light: #a7d5f2;
-    --wp-red: #cc0000;
-    --wp-yellow: #fef6e7;
-    
     /* Background colors */
-    --primary-bg: var(--wp-white);
-    --secondary-bg: var(--wp-off-white);
+    --primary-bg: #ffffff;
+    --secondary-bg: #f8f9fa;
     --text-primary: #202122;
-    --text-secondary: var(--wp-dark-grey);
+    --text-secondary: #54595d;
     
     /* Link colors */
-    --accent: var(--wp-blue);
-    --accent-hover: var(--wp-blue-hover);
-    --accent-visited: var(--wp-blue-visited);
+    --accent: #0645ad;
+    --accent-hover: #0b0080;
+    --accent-visited: #0b0080;
     
     /* Timeline domain colors */
     --timeline-academic: #6b46c1;
     --timeline-employed: #059669;
     --timeline-independent: #dc2626;
     --timeline-personal: #d97706;
+    
+    /* Panel styling */
+    --panel-bg: hsla(0, 0%, 100%, 0.95);
+    --panel-blur: blur(5px);
+    
+    /* Tag background colors */
+    --tag-bg: #eaecf0;
+    --tag-bg-hover: #a7a7a7;
 }
 
 /* ============================================
@@ -43,7 +38,7 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Liberation Sans', sans-serif;
     color: var(--text-primary);
-    background: var(--wp-off-white);
+    background: var(--secondary-bg);
     line-height: 1.6;
     font-size: 0.875rem;
 }
@@ -54,16 +49,29 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.3;
     color: var(--text-primary);
     margin-bottom: 0.5em;
-    border-bottom: 1px solid var(--wp-light-grey);
+    border-bottom: 1px solid #eaecf0;
     padding-bottom: 0.25em;
 }
 
 h1 {
     font-size: 2em;
     font-weight: 400;
-    border-bottom: 1px solid var(--wp-grey);
+    border-bottom: 1px solid #a7a7a7;
     padding-bottom: 0.25em;
     margin-bottom: 0.5em;
+}
+
+/* When H1 is followed by tagline, remove border from H1 and add it to tagline */
+h1:has(+ .tagline) {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+h1 + .tagline {
+    border-bottom: 1px solid #a7a7a7;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.5em;
+    margin-top: -10px;
 }
 
 h2 {
@@ -116,10 +124,7 @@ a:visited {
     color: var(--accent-visited);
 }
 
-a[href^="#!"] {
-    color: var(--accent);
-}
-
+/* Internal links (hashbang routing) - color inherits from core.css */
 a[href^="#!"]:hover {
     color: var(--accent-hover);
     text-decoration: underline;
@@ -131,8 +136,8 @@ a[href^="#!"]:hover {
 
 #main-menu,
 #situational-menu {
-    background: var(--wp-white);
-    border: 1px solid var(--wp-light-grey);
+    background: var(--primary-bg);
+    border: 1px solid #eaecf0;
     border-radius: 2px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -157,7 +162,7 @@ a[href^="#!"]:hover {
 
 #main-menu a[href^="#!"]:hover,
 #main-menu a[href^="#!"]:focus {
-    background: var(--wp-light-grey);
+    background: #eaecf0;
     color: var(--text-primary);
     outline: none;
     text-decoration: none;
@@ -172,7 +177,7 @@ a[href^="#!"]:hover {
     font-weight: 600;
     margin-bottom: 0.75rem;
     color: var(--text-primary);
-    border-bottom: 1px solid var(--wp-light-grey);
+    border-bottom: 1px solid #eaecf0;
     padding-bottom: 0.5rem;
 }
 
@@ -185,14 +190,14 @@ a[href^="#!"]:hover {
     margin: 0;
     border-radius: 2px;
     background: transparent;
-    color: var(--text-secondary);
+    /* color inherits from a rule (link color) */
     font-size: 0.875rem;
     transition: background-color 0.1s ease;
 }
 
 #situational-menu a:hover,
 #situational-menu a:focus {
-    background: var(--wp-light-grey);
+    background: #eaecf0;
     color: var(--text-primary);
     outline: none;
 }
@@ -200,20 +205,20 @@ a[href^="#!"]:hover {
 #situational-menu li:first-child a {
     font-weight: 500;
     color: var(--text-primary);
-    background: var(--wp-light-grey);
+    background: #eaecf0;
 }
 
 /* Hamburger menu button */
 .menu-toggle-label {
-    background: var(--wp-white);
+    background: var(--primary-bg);
     color: var(--text-primary);
-    border: 1px solid var(--wp-light-grey);
+    border: 1px solid #eaecf0;
     border-radius: 2px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .menu-toggle-label:hover {
-    background: var(--wp-light-grey);
+    background: #eaecf0;
 }
 
 .menu-toggle-label:focus {
@@ -226,8 +231,8 @@ a[href^="#!"]:hover {
    ============================================ */
 
 #main-content {
-    background: var(--wp-white);
-    border: 1px solid var(--wp-light-grey);
+    background: var(--primary-bg);
+    border: 1px solid #eaecf0;
     border-radius: 2px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
@@ -242,8 +247,8 @@ a[href^="#!"]:hover {
 
 .card,
 article {
-    background: var(--wp-white);
-    border: 1px solid var(--wp-light-grey);
+    background: var(--primary-bg);
+    border: 1px solid #eaecf0;
     border-radius: 2px;
     padding: 1.5em;
     margin: 1em auto;
@@ -260,7 +265,7 @@ article {
 
 article h3 {
     margin-top: 0;
-    border-bottom: 1px solid var(--wp-light-grey);
+    border-bottom: 1px solid #eaecf0;
 }
 
 /* ============================================
@@ -272,8 +277,8 @@ article h3 {
 .metadata > a {
     padding: 0.25em 0.5em;
     font-size: 0.875em;
-    background: var(--wp-light-grey);
-    border: 1px solid var(--wp-grey);
+    background: var(--tag-bg);
+    border: 1px solid #a7a7a7;
     border-radius: 2px;
     font-weight: 400;
     color: var(--text-primary);
@@ -284,10 +289,10 @@ article h3 {
     color: var(--accent);
 }
 
-.tag:hover,
+a.tag:hover,
 .metadata > a:hover {
-    background: var(--wp-grey);
-    border-color: var(--wp-dark-grey);
+    background: var(--tag-bg-hover);
+    border-color: var(--text-secondary);
     color: var(--text-primary);
     text-decoration: none;
 }
@@ -302,46 +307,32 @@ article h3 {
    ============================================ */
 
 .timeline-container {
-    padding: 1em 0;
+    padding: 0 10px 0 0;
 }
 
 .timeline-content {
-    background: var(--wp-white);
-    border: 1px solid var(--wp-light-grey);
+    background: var(--primary-bg);
+    border: 1px solid #eaecf0;
     border-left: 3px solid var(--accent);
     border-radius: 2px;
     padding: 1em;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-.timeline-event[data-domain="academic"] .timeline-content {
-    border-left-color: var(--timeline-academic);
-}
-
-.timeline-event[data-domain="employed"] .timeline-content {
-    border-left-color: var(--timeline-employed);
-}
-
-.timeline-event[data-domain="independent"] .timeline-content {
-    border-left-color: var(--timeline-independent);
-}
-
-.timeline-event[data-domain="personal"] .timeline-content {
-    border-left-color: var(--timeline-personal);
-}
+/* timeline-content border-left-color inherits from core.css via --domain-color */
 
 .timeline-marker-outer {
-    background: var(--wp-grey);
-    border: 2px solid var(--wp-white);
+    background: #a7a7a7;
+    border: 2px solid var(--primary-bg);
 }
 
 .timeline-marker-inner {
-    background: var(--wp-white);
+    background: var(--primary-bg);
 }
 
 .timeline-marker::after {
     background: var(--accent);
-    border: 1px solid var(--wp-grey);
+    border: 1px solid #a7a7a7;
 }
 
 .timeline-event[data-domain="academic"] .timeline-marker::after {
@@ -361,7 +352,7 @@ article h3 {
 }
 
 .timeline-event::before {
-    background: var(--wp-grey);
+    background: #a7a7a7;
 }
 
 .timeline-content time {
@@ -390,7 +381,7 @@ article h3 {
 .timeline-content h3 {
     margin-bottom: 0.5em;
     font-size: 1.17em;
-    border-bottom: 1px solid var(--wp-light-grey);
+    border-bottom: 1px solid #eaecf0;
 }
 
 .timeline-content p {
@@ -435,8 +426,8 @@ article h3 {
 }
 
 .timeline-filters {
-    background: var(--wp-white);
-    border: 1px solid var(--wp-light-grey);
+    background: var(--primary-bg);
+    border: 1px solid #eaecf0;
     border-radius: 2px;
     padding: 1em;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -445,7 +436,7 @@ article h3 {
 .timeline-filters h2 {
     font-size: 1em;
     margin-bottom: 0.75em;
-    border-bottom: 1px solid var(--wp-light-grey);
+    border-bottom: 1px solid #eaecf0;
 }
 
 .filter-controls label {
@@ -454,12 +445,12 @@ article h3 {
 }
 
 .filter-color {
-    border: 2px solid var(--wp-white);
-    box-shadow: 0 0 0 1px var(--wp-grey);
+    border: 2px solid var(--primary-bg);
+    box-shadow: 0 0 0 1px #a7a7a7;
 }
 
 .filter-controls input[type="checkbox"]:checked + .filter-color {
-    box-shadow: 0 0 0 2px var(--wp-dark-grey);
+    box-shadow: 0 0 0 2px var(--text-secondary);
 }
 
 /* ============================================
@@ -478,7 +469,7 @@ b-skillsets {
 .skillset-group h3 {
     margin-top: 0;
     margin-bottom: 0.75em;
-    border-bottom: 1px solid var(--wp-light-grey);
+    border-bottom: 1px solid #eaecf0;
 }
 
 .skillset-tag-cloud {
@@ -488,8 +479,8 @@ b-skillsets {
 .skill-tag a[href^="#!"] {
     padding: 0.25em 0.5em;
     font-size: inherit;
-    background: var(--wp-light-grey);
-    border: 1px solid var(--wp-grey);
+    background: var(--tag-bg);
+    border: 1px solid #a7a7a7;
     border-radius: 2px;
     color: var(--accent);
     font-weight: 400;
@@ -497,8 +488,8 @@ b-skillsets {
 }
 
 .skill-tag a[href^="#!"]:hover {
-    background: var(--wp-grey);
-    border-color: var(--wp-dark-grey);
+    background: var(--tag-bg-hover);
+    border-color: var(--text-secondary);
     color: var(--accent-hover);
     text-decoration: none;
 }
@@ -512,9 +503,8 @@ b-skillsets {
    ============================================ */
 
 #main-footer {
-    background: var(--wp-white);
-    border-top: 1px solid var(--wp-light-grey);
-    padding: 1em 1.5em;
+    background: var(--primary-bg);
+    border-top: 1px solid #eaecf0;
     box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.05);
 }
 
@@ -536,9 +526,9 @@ b-flavor-selector label {
 
 b-flavor-selector select {
     padding: 0.25em 0.5em;
-    border: 1px solid var(--wp-grey);
+    border: 1px solid #a7a7a7;
     border-radius: 2px;
-    background: var(--wp-white);
+    background: var(--primary-bg);
     font-size: 0.875em;
     color: var(--text-primary);
     font-weight: 400;
@@ -548,8 +538,8 @@ b-flavor-selector select {
 }
 
 b-flavor-selector select:hover {
-    border-color: var(--wp-dark-grey);
-    background: var(--wp-light-grey);
+    border-color: var(--text-secondary);
+    background: #eaecf0;
 }
 
 b-flavor-selector select:focus {
@@ -568,7 +558,7 @@ b-flavor-selector select:focus {
 
 .link-list li {
     padding: 0.5em 0;
-    border-bottom: 1px solid var(--wp-light-grey);
+    border-bottom: 1px solid #eaecf0;
 }
 
 .link-list li:last-child {
@@ -603,7 +593,6 @@ b-flavor-selector select:focus {
     }
     
     #main-footer {
-        padding: 1em;
         flex-direction: column;
         align-items: flex-start;
         gap: 0.75em;
@@ -620,23 +609,23 @@ b-flavor-selector select:focus {
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--wp-off-white);
-    border: 1px solid var(--wp-light-grey);
+    background: var(--secondary-bg);
+    border: 1px solid #eaecf0;
 }
 
 *::-webkit-scrollbar-thumb {
-    background: var(--wp-grey);
-    border: 1px solid var(--wp-dark-grey);
+    background: #a7a7a7;
+    border: 1px solid var(--text-secondary);
     border-radius: 2px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-    background: var(--wp-dark-grey);
+    background: var(--text-secondary);
 }
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--wp-grey) var(--wp-off-white);
+    scrollbar-color: #a7a7a7 var(--secondary-bg);
 }
 
 /* ============================================
@@ -644,9 +633,9 @@ b-flavor-selector select:focus {
    ============================================ */
 
 .skip-link {
-    background: var(--wp-dark-grey);
-    color: var(--wp-white);
-    border: 1px solid var(--wp-grey);
+    background: var(--text-secondary);
+    color: var(--primary-bg);
+    border: 1px solid #a7a7a7;
 }
 
 .skip-link:focus {

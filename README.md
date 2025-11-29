@@ -1,6 +1,6 @@
 # brall.dev
 
-Portfolio website built according to Plan.md specifications.
+Portfolio website for Will Brall.
 
 ## Structure
 
@@ -9,70 +9,66 @@ All public-facing files are located in the `public/` folder.
 ### Core Files
 - `public/index.html` - Main HTML structure with semantic markup
 - `public/css/core.css` - Core CSS with layout and base styles
-- `public/js/loader.js` - Auto-loads web components from HTML
-- `public/js/router.js` - Handles hashbang routing (#!)
-- `public/js/flavor-switcher.js` - Manages CSS flavor themes
+- `public/js/loader.js` - Auto-loads web components, handles routing, and manages flavors
 
 ### Components
-- `public/components/b-anchor.js` - Enhanced anchor component for internal navigation with hoverable menu
+- `public/components/` - Custom web components:
+  - `b-3d-scene.js` - 3D scene rendering
+  - `b-breadcrumbs.js` - Navigation breadcrumbs
+  - `b-date.js` - Dynamic date display
+  - `b-flavor-selector.js` - Theme selector
+  - `b-hamburger.js` - Mobile menu toggle
+  - `b-layer.js` - Layered content component
+  - `b-projects.js` - Project listings
+  - `b-skillsets.js` - Skillset display
+  - `b-skip-link.js` - Accessibility skip link
+  - `b-subdomain-projects.js` - Subdomain project navigation
+  - `b-timeline.js` - Timeline visualization
+  - `b-yt.js` - YouTube video embedding
 
 ### Data
 - `public/data/timeline-events.json` - Timeline events with domains, subdomains, projects, dates, skillsets, and skills
 - `public/data/projects.json` - Project listings
 - `public/data/skills.json` - Skills database
+- `public/data/skillsets.json` - Skillset definitions
 
 ### Content Partials
-- `public/partials/resume.html` - Resume page
-- `public/partials/projects.html` - Projects listing
-- `public/partials/timeline.html` - Timeline view
-- `public/partials/about.html` - About me page
-- `public/partials/ai-stance.html` - AI stance page
-- `public/partials/contact.html` - Contact page
+- `public/partials/Resume.html` - Resume page
+- `public/partials/Projects.html` - Projects listing
+- `public/partials/History.html` - Timeline view
+- `public/partials/About-Me.html` - About me page
+- `public/partials/My-Stance-On-AI.html` - AI stance page
+- `public/partials/Contact.html` - Contact page
+- `public/partials/Skillsets.html` - Skillsets page
 
-### Backgrounds & Foregrounds
-- `public/partials/backgrounds/` - Background HTML files (images, videos, canvases)
-- `public/partials/foregrounds/` - Foreground HTML files (slide-in elements)
+### Flavors (Themes)
+The site features multiple visual themes that can be switched dynamically:
+- `core.css` - Core styling (default)
+- `millennial-great.css` - Grey, lots of furniture textures
+- `wickedpedia.css` - Styled like a fancy Wikipedia
+- `litrpg.css` - Styled like a D&D Character Sheet
+- `offices-overseers.css` - Traditional corporate website
+- `terminally-ill.css` - Pure CLI white on black monospace
+- `vhscary.css` - VHS inspired lo-fi horror vibe
 
-### Flavors
-- `public/css/flavors/applebutter.css` - Buttery smooth ultraminimalism (default)
-- `public/css/flavors/millennial-great.css` - Grey, lots of furniture textures (to be created)
-- `public/css/flavors/wickedpedia.css` - Styled like a fancy Wikipedia (to be created)
-- `public/css/flavors/litrpg.css` - Styled like a D&D Character Sheet (to be created)
-- `public/css/flavors/offices-overseers.css` - Traditional corporate website (to be created)
-- `public/css/flavors/terminally-ill.css` - Pure CLI white on black monospace (to be created)
-- `public/css/flavors/vhscary.css` - VHS inspired lo-fi horror vibe
+Each flavor has corresponding background and foreground HTML files in `public/partials/flavors/`.
+
+### Assets
+- `public/video/` - Optimized video files for flavor backgrounds/foregrounds
+- `public/img/` - Image assets (texture maps, etc.)
+- `public/files/` - Downloadable files
 
 ## Features
 
 - **Semantic HTML** with proper ARIA roles
 - **Hashbang routing** (#!) for SEO-friendly URLs
-- **Web Components** with auto-loading via Loader.js
+- **Web Components** with auto-loading
 - **Flavor system** for theme switching with smooth transitions
 - **Background/Foreground system** for rich visual experiences
 - **Responsive design** with mobile support
 - **Accessibility** features including skip links and screen reader support
+- **Dynamic content loading** from JSON data files
 
 ## Usage
 
-**Important:** This site must be run through a web server due to CORS restrictions. Opening `index.html` directly via `file://` will not work.
-
-### Running a Development Server
-
-**Python:**
-```bash
-cd public
-python -m http.server 8000
-```
-
-**PHP:**
-```bash
-cd public
-php -S localhost:8000
-```
-
-**VS Code Live Server:**
-Install the "Live Server" extension and right-click `public/index.html` → "Open with Live Server"
-
-Then open `http://localhost:8000` in your browser.
-
-The `public/` folder contains all public-facing assets and should be served as the web root.
+Open `public/index.html` in a web browser. The site uses vanilla JavaScript and works as a static site - no build process required.

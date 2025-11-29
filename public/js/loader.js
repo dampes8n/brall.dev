@@ -118,6 +118,25 @@
 
         // Router class to handle content loading
         class Router {
+            // Helper to get main content element
+            static getMainContent() {
+                return document.getElementById('main-content');
+            }
+
+            // Helper to get scroll position (from main-content instead of window)
+            static getScrollPosition() {
+                const mainContent = Router.getMainContent();
+                return mainContent ? mainContent.scrollTop : 0;
+            }
+
+            // Helper to set scroll position (on main-content instead of window)
+            static setScrollPosition(scrollY) {
+                const mainContent = Router.getMainContent();
+                if (mainContent) {
+                    mainContent.scrollTop = scrollY;
+                }
+            }
+
             static async loadContentFromPath(path, shouldScroll = true) {
                 const router = new Router();
                 await router.loadContent(path, shouldScroll);
@@ -137,7 +156,7 @@
                 // Clean up path: remove leading/trailing slashes and normalize
                 targetPath = targetPath.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
                 
-                // Ensure we have a valid path (default to Resume if empty)
+                // Ensure we have a valid path (default to Résumé if empty)
                 if (!targetPath || targetPath === '/') {
                     targetPath = 'Resume';
                 }
@@ -169,12 +188,12 @@
 
                 // Update history with path and scroll position
                 const newUrl = `#!${targetPath}`;
-                const scrollY = window.scrollY;
+                const scrollY = Router.getScrollPosition();
                 window.history.pushState({ path: targetPath, scrollY }, '', newUrl);
 
                 // Update breadcrumbs (add new breadcrumb with current scroll position)
                 // Note: scroll position will be 0 if first load (we scrolled to top)
-                const currentScrollY = window.scrollY;
+                const currentScrollY = Router.getScrollPosition();
                 if (breadcrumbs) {
                     const title = breadcrumbs.generateTitle(targetPath);
                     breadcrumbs.add(targetPath, title, currentScrollY);
@@ -204,7 +223,7 @@
                         basePartial = 'Projects';
                         jsonFile = 'projects.json';
                     } else if (type === 'skills') {
-                        basePartial = 'Resume'; // Skills are shown on Resume page
+                        basePartial = 'Resume'; // Skills are shown on Résumé page
                         jsonFile = 'skills.json';
                     } else if (type === 'timeline-events') {
                         basePartial = 'History';
@@ -243,7 +262,9 @@
             }
 
             slugify(text) {
-                return text.toLowerCase().replace(/\s+/g, '-');
+                if (!text) return '';
+                // Handle slashes by converting them to -slash- for URL safety
+                return text.toLowerCase().replace(/\//g, '-slash-').replace(/\s+/g, '-');
             }
 
             async loadSubdomain(slug, sectionId, shouldScroll) {
@@ -321,32 +342,29 @@
 
             async loadSkillset(slug, sectionId, shouldScroll) {
                 try {
-                    // Convert slug back to skillset name - handle special cases
-                    const skillsetMap = {
-                        'ux': 'UX',
-                        'devops': 'DevOps'
-                    };
-                    
-                    let skillsetName = skillsetMap[slug.toLowerCase()];
-                    if (!skillsetName) {
-                        // Convert slug to title case
-                        skillsetName = slug.split('-').map(word => 
-                            word.charAt(0).toUpperCase() + word.slice(1)
-                        ).join(' ');
-                    }
-                    
-                    // Load all data files
-                    const [skillsRes, projectsRes, timelineRes] = await Promise.all([
+                    // Load all data files including skillsets.json
+                    const [skillsetsRes, skillsRes, projectsRes, timelineRes] = await Promise.all([
+                        fetch('data/skillsets.json'),
                         fetch('data/skills.json'),
                         fetch('data/projects.json'),
                         fetch('data/timeline-events.json')
                     ]);
                     
-                    const [skills, projects, timelineEvents] = await Promise.all([
+                    const [skillsets, skills, projects, timelineEvents] = await Promise.all([
+                        skillsetsRes.json(),
                         skillsRes.json(),
                         projectsRes.json(),
                         timelineRes.json()
                     ]);
+                    
+                    // Find the skillset by slug
+                    const skillset = skillsets.find(s => s.slug === slug);
+                    if (!skillset) {
+                        console.warn(`Skillset with slug "${slug}" not found`);
+                        return;
+                    }
+                    
+                    const skillsetName = skillset.title;
                     
                     // Filter items by skillset
                     const filteredSkills = skills.filter(s => 
@@ -362,6 +380,10 @@
                     // Create HTML for skillset page
                     let html = `<article>`;
                     html += `<h1>${this.escapeHtml(skillsetName)}</h1>`;
+                    
+                    if (skillset.description) {
+                        html += `<p>${skillset.description}</p>`;
+                    }
                     
                     if (filteredSkills.length > 0) {
                         html += `<section class="related">`;
@@ -449,11 +471,16 @@
                     const startDate = item.start ? BDate.formatDate(item.start) : 'Ongoing';
                     const endDate = item.end ? BDate.formatDate(item.end) : 'Present';
                     const domain = item.domain || '';
+                    const domainLower = domain ? domain.toLowerCase() : '';
+                    const dataDomainAttr = domainLower ? ` data-domain="${domainLower}"` : '';
+                    
+                    // Rebuild article tag with data-domain attribute
+                    html = `<article${dataDomainAttr}>`;
                     
                     html += `<p><time>${startDate} - ${endDate}</time></p>`;
                     html += `<h1>${this.escapeHtml(item.title)}</h1>`;
                     if (item.description) {
-                        html += `<p>${this.escapeHtml(item.description)}</p>`;
+                        html += `<p>${item.description}</p>`;
                     }
                     html += `<nav class="metadata">`;
                     if (item.domain) {
@@ -489,7 +516,7 @@
                 } else if (jsonFile === 'skills.json') {
                     html += `<h1>${this.escapeHtml(item.title)}</h1>`;
                     if (item.description) {
-                        html += `<p>${this.escapeHtml(item.description)}</p>`;
+                        html += `<p>${item.description}</p>`;
                     }
                     html += `<nav class="metadata">`;
                     if (item.skillsets && item.skillsets.length > 0) {
@@ -500,7 +527,7 @@
                     }
                     html += `</nav>`;
                     
-                    // Cross-links: Related projects and timeline events
+                    // Cross-links: Projects using the same skillsets and timeline events with this skill
                     const relatedProjects = projects.filter(p => 
                         p.skillsets && item.skillsets && 
                         p.skillsets.some(ps => item.skillsets.includes(ps))
@@ -511,7 +538,7 @@
                     
                     if (relatedProjects.length > 0) {
                         html += `<section class="related">`;
-                        html += `<h2>Related Projects</h2>`;
+                        html += `<h2>Projects using the same Skillsets</h2>`;
                         html += `<nav class="tag-list">`;
                         relatedProjects.forEach(project => {
                             html += `<a href="#!/projects/${project.slug}" class="tag">${this.escapeHtml(project.title)}</a>`;
@@ -522,7 +549,7 @@
                     
                     if (relatedEvents.length > 0) {
                         html += `<section class="related">`;
-                        html += `<h2>Related Timeline Events</h2>`;
+                        html += `<h2>Timeline Events</h2>`;
                         html += `<nav class="tag-list">`;
                         relatedEvents.forEach(event => {
                             const eventDate = BDate.formatDate(event.date || 'Unknown');
@@ -534,6 +561,8 @@
                 } else if (jsonFile === 'timeline-events.json') {
                     // Render as a bigger version of the timeline plate
                     const domain = item.domain || '';
+                    const domainLower = domain ? domain.toLowerCase() : '';
+                    const dataDomainAttr = domainLower ? ` data-domain="${domainLower}"` : '';
                     const subdomain = item.subdomain || '';
                     // Handle slashes in subdomain names
                     const subdomainLink = subdomain ? this.slugify(subdomain) : '';
@@ -541,13 +570,16 @@
                         `<a href="#!/subdomains/${subdomainLink}">${this.escapeHtml(subdomain)}</a>` : 
                         '';
                     
+                    // Rebuild article tag with data-domain attribute
+                    html = `<article${dataDomainAttr}>`;
+                    
                     // Format date using BDate component
                     const formattedDate = BDate.formatDate(item.date || 'Unknown');
                     
                     html += `<time>${this.escapeHtml(formattedDate)}</time>`;
                     html += `<h1>${this.escapeHtml(item.title)}</h1>`;
                     if (item.description) {
-                        html += `<p>${this.escapeHtml(item.description)}</p>`;
+                        html += `<p>${item.description}</p>`;
                     }
                     html += `<nav class="metadata">`;
                     if (domain) {
@@ -624,13 +656,13 @@
                 }
                 
                 // Save current scroll position to prevent unwanted scrolling during content swap
-                const scrollY = window.scrollY;
+                const scrollY = Router.getScrollPosition();
                 
                 // Clear existing content
                 contentPane.innerHTML = '';
                 
                 // Temporarily set scroll position to top to prevent browser from trying to maintain position
-                window.scrollTo(0, 0);
+                Router.setScrollPosition(0);
                         
                 // Check if HTML already starts with an article tag
                 const trimmedHtml = html.trim();
@@ -677,9 +709,9 @@
                 });
 
                 if (shouldScroll) {
-                    // For first load, scroll to top of window
+                    // For first load, scroll to top of main content
                     // For subsequent loads, breadcrumbs will handle scroll position
-                    window.scrollTo(0, 0);
+                    Router.setScrollPosition(0);
                 }
             }
 
@@ -742,7 +774,7 @@
             // Clean up path: remove leading/trailing slashes and normalize
             normalized = normalized.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
             
-            // Ensure we have a valid path (default to Resume if empty)
+            // Ensure we have a valid path (default to Résumé if empty)
             if (!normalized || normalized === '/') {
                 normalized = 'Resume';
             }
@@ -771,7 +803,7 @@
                 e.preventDefault();
                 
                 // Save current scroll position before navigation
-                const scrollY = window.scrollY;
+                const scrollY = Router.getScrollPosition();
                 saveScrollPosition(currentPath, scrollY);
                 
                 const router = new Router();
@@ -794,7 +826,7 @@
             if (hash.startsWith('#!')) {
                 return hash.substring(2);
             }
-            return 'Resume'; // Default to Resume
+            return 'Resume'; // Default to Résumé
         }
 
         async function loadInitialContent() {
@@ -809,9 +841,9 @@
                 
                 let path = getCurrentPath();
                 
-                // If no hash exists, default to Resume
+                // If no hash exists, default to Résumé
                 if (!window.location.hash || !window.location.hash.startsWith('#!')) {
-                    path = 'Resume';
+                    path = 'Resume'; // Path stays as 'Resume' to match filename
                 }
                 
                 console.log('[Router] Initial load, path:', path);
@@ -847,7 +879,7 @@
             }
             path = path.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
             if (!path || path === '/') {
-                path = 'Resume';
+                path = 'Resume'; // Path stays as 'Resume' to match filename
             }
             
             // Load content without scrolling (we'll restore scroll position)
@@ -870,7 +902,7 @@
                 });
             });
             
-            window.scrollTo(0, scrollY);
+            Router.setScrollPosition(scrollY);
         });
 
         // Set up link handlers and load initial content
@@ -886,6 +918,87 @@
 
         // Export Router for use elsewhere
         window.Router = Router;
+    })();
+
+    // Scroll main content when scrolling outside of it
+    (function() {
+        'use strict';
+
+        function initScrollDelegation() {
+            const mainContent = document.getElementById('main-content');
+            if (!mainContent) {
+                // Retry if main-content isn't ready yet
+                setTimeout(initScrollDelegation, 100);
+                return;
+            }
+
+            // List of scrollable elements that should handle their own scrolling
+            const scrollableSelectors = [
+                '#main-menu',
+                '#situational-menu',
+                '.card-list',
+                '.link-list',
+                '.timeline-container',
+                'b-projects',
+                'b-skillsets'
+            ];
+
+            function isInsideScrollableElement(element) {
+                if (!element) return false;
+                // Check if element or any ancestor is a scrollable element (excluding main-content)
+                for (const selector of scrollableSelectors) {
+                    const closest = element.closest ? element.closest(selector) : null;
+                    if (closest) {
+                        // Check if this element can actually scroll
+                        const canScroll = closest.scrollHeight > closest.clientHeight;
+                        if (canScroll) {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
+            function isInsideMainContent(element) {
+                if (!element) return false;
+                return element === mainContent || (element.closest && element.closest('#main-content'));
+            }
+
+            document.addEventListener('wheel', function(e) {
+                const target = e.target;
+                
+                // If we're inside a scrollable element (other than main-content), let it handle scrolling
+                if (isInsideScrollableElement(target)) {
+                    return; // Let the scrollable element handle it
+                }
+                
+                // If we're inside main-content, let it handle its own scrolling naturally
+                if (isInsideMainContent(target)) {
+                    return; // Main-content will handle its own scroll
+                }
+                
+                // Otherwise, we're outside any scrollable area - scroll main-content
+                if (mainContent.scrollHeight > mainContent.clientHeight) {
+                    e.preventDefault();
+                    const deltaY = e.deltaY;
+                    const currentScroll = mainContent.scrollTop;
+                    const maxScroll = mainContent.scrollHeight - mainContent.clientHeight;
+                    
+                    // Calculate new scroll position
+                    let newScroll = currentScroll + deltaY;
+                    newScroll = Math.max(0, Math.min(newScroll, maxScroll));
+                    
+                    mainContent.scrollTop = newScroll;
+                }
+            }, { passive: false });
+        }
+
+        // Initialize scroll delegation when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initScrollDelegation);
+        } else {
+            initScrollDelegation();
+        }
     })();
 })();
 

@@ -1,7 +1,7 @@
 /**
  * b-flavor-selector Web Component
  * Manages CSS flavors and provides UI for switching
- * Flavors: Core, Applebutter, Millennial Great, Wickedpedia, LitRPG, Offices and Overseers, Terminally Ill, VHScary
+ * Flavors: Core, Millennial Great, Wickedpedia, LitRPG, Offices and Overseers, Terminally Ill, VHScary
  */
 
 class BFlavorSelector extends HTMLElement {
@@ -9,7 +9,6 @@ class BFlavorSelector extends HTMLElement {
         super();
         this.flavorNames = {
             'core': 'Core',
-            'applebutter': 'Applebutter',
             'millennial-great': 'Millennial Great',
             'wickedpedia': 'Wickedpedia',
             'litrpg': 'LitRPG',
@@ -18,7 +17,6 @@ class BFlavorSelector extends HTMLElement {
             'vhscary': 'VHScary'
         };
         this.flavorPaths = {
-            'applebutter': 'css/flavors/applebutter.css',
             'millennial-great': 'css/flavors/millennial-great.css',
             'wickedpedia': 'css/flavors/wickedpedia.css',
             'litrpg': 'css/flavors/litrpg.css',
@@ -171,11 +169,21 @@ class BFlavorSelector extends HTMLElement {
     render() {
         const uniqueId = `flavor-select-${Math.random().toString(36).substr(2, 9)}`;
         
+        const flavorIcons = {
+            'core': 'fa-palette',
+            'millennial-great': 'fa-couch',
+            'wickedpedia': 'fa-book',
+            'litrpg': 'fa-dice-d20',
+            'offices-overseers': 'fa-briefcase',
+            'terminally-ill': 'fa-terminal',
+            'vhscary': 'fa-video'
+        };
+        
         this.innerHTML = `
-            <label for="${uniqueId}">Flavor: </label>
+            <label for="${uniqueId}"><i class="fa-solid fa-palette" aria-hidden="true"></i> Flavor: </label>
             <select id="${uniqueId}" aria-label="Select flavor">
                 ${Object.entries(this.flavorNames).map(([key, name]) => 
-                    `<option value="${key}" ${key === this.currentFlavor ? 'selected' : ''}>${name}</option>`
+                    `<option value="${key}" ${key === this.currentFlavor ? 'selected' : ''} data-icon="${flavorIcons[key] || 'fa-palette'}">${name}</option>`
                 ).join('')}
             </select>
         `;

@@ -11,7 +11,8 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
             academic: true,
             employed: true,
             independent: false,
-            personal: false
+            personal: false,
+            major: false
         };
     }
 
@@ -25,6 +26,11 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
             this.getAttribute('independent') !== 'false' : false;
         this.filters.personal = this.hasAttribute('personal') ? 
             this.getAttribute('personal') !== 'false' : false;
+        
+        // Check if major should be default selected
+        const defaultMajor = this.hasAttribute('default-major');
+        this.filters.major = defaultMajor || (this.hasAttribute('major') ? 
+            this.getAttribute('major') !== 'false' : false);
         
         // Check if full-height mode is enabled
         this.fullHeight = this.hasAttribute('full-height');
@@ -64,6 +70,10 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
                             <label><input type="checkbox" data-domain="independent" ${this.filters.independent ? 'checked' : ''}> <span class="filter-color independent"></span> Independent</label>
                             <label><input type="checkbox" data-domain="personal" ${this.filters.personal ? 'checked' : ''}> <span class="filter-color personal"></span> Personal</label>
                         </div>
+                        <div class="filter-separator"></div>
+                        <div class="filter-controls">
+                            <label><input type="checkbox" data-domain="major" ${this.filters.major ? 'checked' : ''}> <span class="filter-major">★</span> Major</label>
+                        </div>
                     </div>
                     <div class="timeline-content-area">
                         <div class="timeline-container">
@@ -98,19 +108,34 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
             return new Date(0);
         }
         
-        // Handle "YYYY-MM-DD", "YYYY-MM", "YYYY", "YYYY-early", "YYYY-mid", "YYYY-late"
+        // Handle "YYYY-MM-DD", "YYYY-MM", "YYYY", "YYYY-early", "YYYY-mid", "YYYY-late", "YYYY-spring", "YYYY-summer", "YYYY-fall", "YYYY-winter"
         const parts = dateStr.split('-');
         if (parts.length === 3) {
             return new Date(parts[0], parseInt(parts[1]) - 1, parseInt(parts[2]));
         } else if (parts.length === 2) {
-            if (parts[1] === 'early') {
+            const part2 = parts[1].toLowerCase();
+            if (part2 === 'early') {
                 return new Date(parts[0], 0, 1);
-            } else if (parts[1] === 'mid') {
+            } else if (part2 === 'mid') {
                 return new Date(parts[0], 5, 15);
-            } else if (parts[1] === 'late') {
+            } else if (part2 === 'late') {
                 return new Date(parts[0], 11, 15);
+            } else if (part2 === 'spring') {
+                return new Date(parts[0], 2, 15); // March 15
+            } else if (part2 === 'summer') {
+                return new Date(parts[0], 5, 15); // June 15
+            } else if (part2 === 'fall') {
+                return new Date(parts[0], 8, 15); // September 15
+            } else if (part2 === 'winter') {
+                return new Date(parts[0], 11, 15); // December 15
             } else {
-                return new Date(parts[0], parseInt(parts[1]) - 1, 1);
+                // Try to parse as month number
+                const month = parseInt(parts[1]);
+                if (!isNaN(month)) {
+                    return new Date(parts[0], month - 1, 1);
+                }
+                // Fallback to start of year
+                return new Date(parts[0], 0, 1);
             }
         } else {
             return new Date(parts[0], 0, 1);
@@ -147,6 +172,7 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
         const project = event.project || '';
         const title = event.title || '';
         const slug = event.slug || '';
+        const isMajor = event.major === true;
         
         // Create subdomain link
         const subdomainLink = subdomain ? this.slugify(subdomain) : '';
@@ -167,20 +193,33 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
             }
         }
         
+        // Create skillsets links (smaller than other tags)
+        let skillsetsHtml = '';
+        if (event.skillsets && event.skillsets.length > 0) {
+            skillsetsHtml = event.skillsets.map(skillset => {
+                const skillsetSlug = this.slugify(skillset);
+                return `<a href="#!/skillsets/${skillsetSlug}" class="tag" style="font-size: 0.75rem;">${this.escapeHtml(skillset)}</a>`;
+            }).join('');
+        }
+        
+        const majorClass = isMajor ? ' timeline-event-major' : '';
+        const markerContent = '<div class="timeline-marker-outer"></div><div class="timeline-marker-inner"></div>';
+        const starPrefix = isMajor ? '<span class="timeline-title-star">★</span> ' : '';
+        
         return `
-            <div class="timeline-event domain-${domainLower}" data-domain="${domainLower}">
+            <div class="timeline-event domain-${domainLower}${majorClass}" data-domain="${domainLower}" data-major="${isMajor}">
                 <div class="timeline-marker">
-                    <div class="timeline-marker-outer"></div>
-                    <div class="timeline-marker-inner"></div>
+                    ${markerContent}
                 </div>
                 <div class="timeline-content">
                     <time>${date}</time>
-                    ${title ? `<h3>${slug ? `<a href="#!/timeline-events/${slug}">${this.escapeHtml(title)}</a>` : this.escapeHtml(title)}</h3>` : ''}
+                    ${title ? `<h3>${starPrefix}${slug ? `<a href="#!/timeline-events/${slug}">${this.escapeHtml(title)}</a>` : this.escapeHtml(title)}</h3>` : ''}
                     <nav class="metadata">
                         ${domain ? `<span class="tag timeline-domain">${this.escapeHtml(domain)}</span>` : ''}
                         ${subdomainHtml}
                         ${projectHtml}
                     </nav>
+                    ${skillsetsHtml ? `<nav class="metadata metadata-skillsets">${skillsetsHtml}</nav>` : ''}
                 </div>
             </div>
         `;
@@ -205,7 +244,14 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
         const events = this.querySelectorAll('.timeline-event');
         events.forEach(event => {
             const domain = event.getAttribute('data-domain');
-            const isVisible = this.filters[domain] || false;
+            const isMajor = event.getAttribute('data-major') === 'true';
+            const domainVisible = this.filters[domain] || false;
+            const majorFilterActive = this.filters.major;
+            
+            // Event is visible if:
+            // 1. Domain filter matches AND
+            // 2. Either major filter is off, OR major filter is on and event is major
+            const isVisible = domainVisible && (!majorFilterActive || isMajor);
             
             if (isVisible) {
                 // Remove hidden class

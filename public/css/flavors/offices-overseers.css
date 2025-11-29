@@ -5,27 +5,15 @@
    ============================================ */
 
 :root {
-    /* Corporate blue palette */
-    --oo-blue-dark: #003366;
-    --oo-blue: #004488;
-    --oo-blue-light: #0055aa;
-    --oo-blue-lighter: #e6f0f8;
-    --oo-grey-dark: #333333;
-    --oo-grey: #666666;
-    --oo-grey-light: #cccccc;
-    --oo-grey-lighter: #f5f5f5;
-    --oo-white: #ffffff;
-    --oo-accent: #0066cc;
-    
     /* Background colors */
-    --primary-bg: var(--oo-white);
-    --secondary-bg: var(--oo-grey-lighter);
-    --text-primary: var(--oo-grey-dark);
-    --text-secondary: var(--oo-grey);
+    --primary-bg: #ffffff;
+    --secondary-bg: #f5f5f5;
+    --text-primary: #333333;
+    --text-secondary: #666666;
     
     /* Link colors */
-    --accent: var(--oo-accent);
-    --accent-hover: var(--oo-blue-dark);
+    --accent: #0066cc;
+    --accent-hover: #003366;
     --accent-visited: #551a8b;
     
     /* Timeline domain colors - corporate */
@@ -33,6 +21,14 @@
     --timeline-employed: #059669;
     --timeline-independent: #dc2626;
     --timeline-personal: #d97706;
+    
+    /* Panel styling */
+    --panel-bg: hsla(0, 0%, 100%, 0.95);
+    --panel-blur: blur(5px);
+    
+    /* Tag background colors */
+    --tag-bg: #e6f0f8;
+    --tag-bg-hover: #004488;
 }
 
 /* ============================================
@@ -51,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Arial', 'Helvetica', sans-serif;
     font-weight: 600;
     line-height: 1.3;
-    color: var(--oo-blue-dark);
+    color: var(--accent-hover);
     margin-bottom: 0.75em;
 }
 
@@ -104,10 +100,7 @@ a:visited {
     color: var(--accent-visited);
 }
 
-a[href^="#!"] {
-    color: var(--accent);
-}
-
+/* Internal links (hashbang routing) - color inherits from core.css */
 a[href^="#!"]:hover {
     color: var(--accent-hover);
 }
@@ -131,8 +124,8 @@ a[href^="#!"]:hover {
     margin: 0;
     border-radius: 0;
     border: none;
-    border-bottom: 3px solid var(--oo-blue-dark);
-    background: var(--oo-blue-dark);
+    border-bottom: 3px solid var(--accent-hover);
+    background: var(--accent-hover);
     padding: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -156,7 +149,7 @@ a[href^="#!"]:hover {
     margin: 0;
     border-radius: 0;
     background: transparent;
-    color: var(--oo-white);
+    color: var(--primary-bg);
     font-weight: 500;
     text-decoration: none;
     transition: background-color 0.2s ease;
@@ -165,8 +158,8 @@ a[href^="#!"]:hover {
 
 #main-menu a[href^="#!"]:hover,
 #main-menu a[href^="#!"]:focus {
-    background: var(--oo-blue);
-    color: var(--oo-white);
+    background: #004488;
+    color: var(--primary-bg);
     outline: none;
 }
 
@@ -191,9 +184,9 @@ a[href^="#!"]:hover {
     border-radius: 4px;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1050px) {
     #layout-wrapper {
-        grid-template-columns: 200px 1fr 200px;
+        grid-template-columns: 250px 1fr 250px;
         grid-template-rows: auto 1fr;
     }
     
@@ -214,12 +207,12 @@ a[href^="#!"]:hover {
         align-self: start;
         max-height: calc(100vh - 2rem);
         overflow-y: auto;
-        width: calc(200px - 0.75rem);
+        width: calc(250px - 0.75rem);
         margin: 0 0.5rem 0.5rem 0.25rem;
     }
 }
 
-@media (max-width: 999px) {
+@media (max-width: 1049px) {
     #layout-wrapper {
         grid-template-columns: 1fr;
     }
@@ -235,7 +228,7 @@ a[href^="#!"]:hover {
 
 #situational-menu {
     background: var(--secondary-bg);
-    border: 1px solid var(--oo-grey-light);
+    border: 1px solid #cccccc;
     padding: 1rem;
 }
 
@@ -243,8 +236,8 @@ a[href^="#!"]:hover {
     font-size: 1em;
     font-weight: 600;
     margin-bottom: 0.75rem;
-    color: var(--oo-blue-dark);
-    border-bottom: 2px solid var(--oo-blue);
+    color: var(--accent-hover);
+    border-bottom: 2px solid #004488;
     padding-bottom: 0.5rem;
 }
 
@@ -257,22 +250,22 @@ a[href^="#!"]:hover {
     margin: 0;
     border-radius: 2px;
     background: transparent;
-    color: var(--text-secondary);
+    /* color inherits from a rule (link color) */
     font-size: 0.875rem;
     transition: all 0.2s ease;
 }
 
 #situational-menu a:hover,
 #situational-menu a:focus {
-    background: var(--oo-blue-lighter);
-    color: var(--oo-blue-dark);
+    background: #e6f0f8;
+    color: var(--accent-hover);
     outline: none;
 }
 
 #situational-menu li:first-child a {
     font-weight: 600;
-    color: var(--oo-blue-dark);
-    background: var(--oo-blue-lighter);
+    color: var(--accent-hover);
+    background: #e6f0f8;
 }
 
 /* Hamburger menu button - hide on desktop */
@@ -287,8 +280,8 @@ a[href^="#!"]:hover {
         bottom: 1rem;
         left: 1rem;
         z-index: 1001;
-        background: var(--oo-blue-dark);
-        color: var(--oo-white);
+        background: var(--accent-hover);
+        color: var(--primary-bg);
         border: none;
         border-radius: 4px;
         width: 3rem;
@@ -299,11 +292,11 @@ a[href^="#!"]:hover {
     }
     
     .menu-toggle-label:hover {
-        background: var(--oo-blue);
+        background: #004488;
     }
     
     .menu-toggle-label:focus {
-        outline: 2px solid var(--oo-white);
+        outline: 2px solid var(--primary-bg);
         outline-offset: 2px;
     }
     
@@ -339,7 +332,7 @@ a[href^="#!"]:hover {
 
 #main-content {
     background: var(--primary-bg);
-    border: 1px solid var(--oo-grey-light);
+    border: 1px solid #cccccc;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -354,7 +347,7 @@ a[href^="#!"]:hover {
 .card,
 article {
     background: var(--primary-bg);
-    border: 1px solid var(--oo-grey-light);
+    border: 1px solid #cccccc;
     border-radius: 4px;
     padding: 1.5rem;
     margin: 1.5rem auto;
@@ -371,7 +364,7 @@ article {
 
 article h3 {
     margin-top: 0;
-    color: var(--oo-blue-dark);
+    color: var(--accent-hover);
 }
 
 /* ============================================
@@ -383,11 +376,11 @@ article h3 {
 .metadata > a {
     padding: 0.375rem 0.75rem;
     font-size: 0.875rem;
-    background: var(--oo-blue-lighter);
-    border: 1px solid var(--oo-blue);
+    background: var(--tag-bg);
+    border: 1px solid #004488;
     border-radius: 3px;
     font-weight: 500;
-    color: var(--oo-blue-dark);
+    color: var(--accent-hover);
     display: inline-block;
 }
 
@@ -395,11 +388,11 @@ article h3 {
     color: var(--accent);
 }
 
-.tag:hover,
+a.tag:hover,
 .metadata > a:hover {
-    background: var(--oo-blue);
-    border-color: var(--oo-blue-dark);
-    color: var(--oo-white);
+    background: var(--tag-bg-hover);
+    border-color: var(--accent-hover);
+    color: var(--primary-bg);
     text-decoration: none;
 }
 
@@ -413,66 +406,38 @@ article h3 {
    ============================================ */
 
 .timeline-container {
-    padding: 1.5rem 0;
+    padding: 0 10px 0 0;
 }
 
 .timeline-content {
     background: var(--primary-bg);
-    border: 1px solid var(--oo-grey-light);
+    border: 1px solid #cccccc;
     border-left: 4px solid var(--accent);
     border-radius: 4px;
     padding: 1.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.timeline-event[data-domain="academic"] .timeline-content {
-    border-left-color: var(--timeline-academic);
-}
-
-.timeline-event[data-domain="employed"] .timeline-content {
-    border-left-color: var(--timeline-employed);
-}
-
-.timeline-event[data-domain="independent"] .timeline-content {
-    border-left-color: var(--timeline-independent);
-}
-
-.timeline-event[data-domain="personal"] .timeline-content {
-    border-left-color: var(--timeline-personal);
-}
+/* timeline-content border-left-color inherits from core.css via --domain-color */
 
 .timeline-marker-outer {
-    background: var(--oo-grey);
-    border: 2px solid var(--oo-white);
+    background: var(--text-secondary);
+    border: 2px solid var(--primary-bg);
 }
 
 .timeline-marker-inner {
-    background: var(--oo-white);
+    background: var(--primary-bg);
 }
 
 .timeline-marker::after {
     background: var(--accent);
-    border: 1px solid var(--oo-grey-light);
+    border: 1px solid #cccccc;
 }
 
-.timeline-event[data-domain="academic"] .timeline-marker::after {
-    background: var(--timeline-academic);
-}
-
-.timeline-event[data-domain="employed"] .timeline-marker::after {
-    background: var(--timeline-employed);
-}
-
-.timeline-event[data-domain="independent"] .timeline-marker::after {
-    background: var(--timeline-independent);
-}
-
-.timeline-event[data-domain="personal"] .timeline-marker::after {
-    background: var(--timeline-personal);
-}
+/* timeline-marker::after background colors inherit from core.css */
 
 .timeline-event::before {
-    background: var(--oo-grey-light);
+    background: #cccccc;
 }
 
 .timeline-content time {
@@ -482,26 +447,12 @@ article h3 {
     font-size: 0.875rem;
 }
 
-.timeline-event[data-domain="academic"] .timeline-content time {
-    color: var(--timeline-academic);
-}
-
-.timeline-event[data-domain="employed"] .timeline-content time {
-    color: var(--timeline-employed);
-}
-
-.timeline-event[data-domain="independent"] .timeline-content time {
-    color: var(--timeline-independent);
-}
-
-.timeline-event[data-domain="personal"] .timeline-content time {
-    color: var(--timeline-personal);
-}
+/* timeline-content time color inherits from core.css via --domain-color */
 
 .timeline-content h3 {
     margin-bottom: 0.75rem;
     font-size: 1.5em;
-    color: var(--oo-blue-dark);
+    color: var(--accent-hover);
 }
 
 .timeline-content p {
@@ -525,29 +476,11 @@ article h3 {
     color: var(--accent);
 }
 
-.timeline-event[data-domain="academic"] .timeline-domain,
-.card[data-domain="academic"] .timeline-domain {
-    color: var(--timeline-academic);
-}
-
-.timeline-event[data-domain="employed"] .timeline-domain,
-.card[data-domain="employed"] .timeline-domain {
-    color: var(--timeline-employed);
-}
-
-.timeline-event[data-domain="independent"] .timeline-domain,
-.card[data-domain="independent"] .timeline-domain {
-    color: var(--timeline-independent);
-}
-
-.timeline-event[data-domain="personal"] .timeline-domain,
-.card[data-domain="personal"] .timeline-domain {
-    color: var(--timeline-personal);
-}
+/* timeline-domain color inherits from core.css via --domain-color */
 
 .timeline-filters {
     background: var(--secondary-bg);
-    border: 1px solid var(--oo-grey-light);
+    border: 1px solid #cccccc;
     border-radius: 4px;
     padding: 1.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -556,7 +489,7 @@ article h3 {
 .timeline-filters h2 {
     font-size: 1.25em;
     margin-bottom: 1rem;
-    color: var(--oo-blue-dark);
+    color: var(--accent-hover);
 }
 
 .filter-controls label {
@@ -565,12 +498,12 @@ article h3 {
 }
 
 .filter-color {
-    border: 2px solid var(--oo-white);
-    box-shadow: 0 0 0 1px var(--oo-grey-light);
+    border: 2px solid var(--primary-bg);
+    box-shadow: 0 0 0 1px #cccccc;
 }
 
 .filter-controls input[type="checkbox"]:checked + .filter-color {
-    box-shadow: 0 0 0 2px var(--oo-blue-dark);
+    box-shadow: 0 0 0 2px var(--accent-hover);
 }
 
 /* ============================================
@@ -589,7 +522,7 @@ b-skillsets {
 .skillset-group h3 {
     margin-top: 0;
     margin-bottom: 1rem;
-    color: var(--oo-blue-dark);
+    color: var(--accent-hover);
 }
 
 .skillset-tag-cloud {
@@ -599,8 +532,8 @@ b-skillsets {
 .skill-tag a[href^="#!"] {
     padding: 0.375rem 0.75rem;
     font-size: inherit;
-    background: var(--oo-blue-lighter);
-    border: 1px solid var(--oo-blue);
+    background: var(--tag-bg);
+    border: 1px solid #004488;
     border-radius: 3px;
     color: var(--accent);
     font-weight: 500;
@@ -608,9 +541,9 @@ b-skillsets {
 }
 
 .skill-tag a[href^="#!"]:hover {
-    background: var(--oo-blue);
-    border-color: var(--oo-blue-dark);
-    color: var(--oo-white);
+    background: var(--tag-bg-hover);
+    border-color: var(--accent-hover);
+    color: var(--primary-bg);
     text-decoration: none;
 }
 
@@ -623,16 +556,15 @@ b-skillsets {
    ============================================ */
 
 #main-footer {
-    background: var(--oo-blue-dark);
-    color: var(--oo-white);
-    border-top: 3px solid var(--oo-blue);
-    padding: 1.5rem 2rem;
+    background: var(--accent-hover);
+    color: var(--primary-bg);
+    border-top: 3px solid #004488;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #main-footer .copyright {
     font-size: 0.875rem;
-    color: var(--oo-white);
+    color: var(--primary-bg);
     font-weight: 400;
 }
 
@@ -642,15 +574,15 @@ b-flavor-selector {
 
 b-flavor-selector label {
     font-size: 0.875rem;
-    color: var(--oo-white);
+    color: var(--primary-bg);
     font-weight: 400;
 }
 
 b-flavor-selector select {
     padding: 0.5rem 0.75rem;
-    border: 1px solid var(--oo-blue);
+    border: 1px solid #004488;
     border-radius: 4px;
-    background: var(--oo-white);
+    background: var(--primary-bg);
     font-size: 0.875rem;
     color: var(--text-primary);
     font-weight: 400;
@@ -660,14 +592,14 @@ b-flavor-selector select {
 }
 
 b-flavor-selector select:hover {
-    border-color: var(--oo-blue-light);
-    background: var(--oo-blue-lighter);
+    border-color: #0055aa;
+    background: #e6f0f8;
 }
 
 b-flavor-selector select:focus {
-    outline: 2px solid var(--oo-white);
+    outline: 2px solid var(--primary-bg);
     outline-offset: 2px;
-    border-color: var(--oo-white);
+    border-color: var(--primary-bg);
 }
 
 /* ============================================
@@ -680,7 +612,7 @@ b-flavor-selector select:focus {
 
 .link-list li {
     padding: 0.75rem 0;
-    border-bottom: 1px solid var(--oo-grey-light);
+    border-bottom: 1px solid #cccccc;
 }
 
 .link-list li:last-child {
@@ -715,7 +647,6 @@ b-flavor-selector select:focus {
     }
     
     #main-footer {
-        padding: 1.25rem 1.5rem;
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
@@ -732,23 +663,23 @@ b-flavor-selector select:focus {
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--oo-grey-lighter);
-    border: 1px solid var(--oo-grey-light);
+    background: var(--secondary-bg);
+    border: 1px solid #cccccc;
 }
 
 *::-webkit-scrollbar-thumb {
-    background: var(--oo-grey);
-    border: 1px solid var(--oo-grey-dark);
+    background: var(--text-secondary);
+    border: 1px solid var(--text-primary);
     border-radius: 2px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-    background: var(--oo-blue);
+    background: #004488;
 }
 
 * {
     scrollbar-width: auto;
-    scrollbar-color: var(--oo-grey) var(--oo-grey-lighter);
+    scrollbar-color: var(--text-secondary) var(--secondary-bg);
 }
 
 /* ============================================
@@ -756,12 +687,12 @@ b-flavor-selector select:focus {
    ============================================ */
 
 .skip-link {
-    background: var(--oo-blue-dark);
-    color: var(--oo-white);
-    border: 2px solid var(--oo-blue);
+    background: var(--accent-hover);
+    color: var(--primary-bg);
+    border: 2px solid #004488;
 }
 
 .skip-link:focus {
-    outline: 2px solid var(--oo-white);
+    outline: 2px solid var(--primary-bg);
     outline-offset: 2px;
 }

@@ -75,15 +75,15 @@ class BBreadcrumbs extends HTMLElement {
         } else if (path.startsWith('#')) {
             path = path.substring(1);
         }
-        return path.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/') || 'Resume';
+        return path.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/') || 'Resume'; // Path stays as 'Resume' to match filename
     }
 
     /**
      * Generate title from path
      */
     generateTitle(path) {
-        // Replace hyphens with spaces
-        let title = path.replace(/-/g, ' ');
+        // First, restore slashes from -slash- encoding
+        let title = path.replace(/-slash-/g, '/');
         
         // Handle paths with slashes (e.g., "projects/something" -> "Projects: Something")
         if (title.includes('/')) {
@@ -91,7 +91,12 @@ class BBreadcrumbs extends HTMLElement {
             // Capitalize first letter of each part
             const formattedParts = parts.map((part, index) => {
                 if (part.length === 0) return part;
-                return part.charAt(0).toUpperCase() + part.slice(1);
+                // Replace hyphens with spaces and capitalize
+                const words = part.replace(/-/g, ' ').split(' ');
+                const capitalized = words.map(word => 
+                    word.length > 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word
+                ).join(' ');
+                return capitalized;
             });
             // Join with ": " for first two parts, " / " for subsequent parts
             if (formattedParts.length === 2) {
@@ -100,7 +105,8 @@ class BBreadcrumbs extends HTMLElement {
                 title = formattedParts.join(' / ');
             }
         } else {
-            // Capitalize first letter if no slashes
+            // Replace hyphens with spaces and capitalize first letter
+            title = title.replace(/-/g, ' ');
             if (title.length > 0) {
                 title = title.charAt(0).toUpperCase() + title.slice(1);
             }
@@ -122,7 +128,37 @@ class BBreadcrumbs extends HTMLElement {
             const li = document.createElement('li');
             const a = document.createElement('a');
             a.href = `#!${breadcrumb.path}`;
-            a.textContent = breadcrumb.title;
+            
+            // Determine icon based on path
+            let icon = '';
+            const path = breadcrumb.path.toLowerCase();
+            if (path.startsWith('projects/')) {
+                icon = '<i class="fa-solid fa-rocket" aria-hidden="true"></i> ';
+            } else if (path.startsWith('skillsets/')) {
+                icon = '<i class="fa-solid fa-layer-group" aria-hidden="true"></i> ';
+            } else if (path.startsWith('skills/')) {
+                icon = '<i class="fa-solid fa-wrench" aria-hidden="true"></i> ';
+            } else if (path.startsWith('timeline-events/')) {
+                icon = '<i class="fa-solid fa-clock" aria-hidden="true"></i> ';
+            } else if (path.startsWith('subdomains/')) {
+                icon = '<i class="fa-solid fa-sitemap" aria-hidden="true"></i> ';
+            } else if (path === 'resume') {
+                icon = '<i class="fa-solid fa-file-lines" aria-hidden="true"></i> ';
+            } else if (path === 'projects') {
+                icon = '<i class="fa-solid fa-folder-open" aria-hidden="true"></i> ';
+            } else if (path === 'history') {
+                icon = '<i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> ';
+            } else if (path === 'skillsets') {
+                icon = '<i class="fa-solid fa-tags" aria-hidden="true"></i> ';
+            } else if (path === 'about-me') {
+                icon = '<i class="fa-solid fa-user" aria-hidden="true"></i> ';
+            } else if (path === 'my-stance-on-ai') {
+                icon = '<i class="fa-solid fa-robot" aria-hidden="true"></i> ';
+            } else if (path === 'contact') {
+                icon = '<i class="fa-solid fa-envelope" aria-hidden="true"></i> ';
+            }
+            
+            a.innerHTML = icon + breadcrumb.title;
             a.setAttribute('tabindex', '-1');
             a.setAttribute('aria-hidden', 'true');
             
@@ -137,8 +173,8 @@ class BBreadcrumbs extends HTMLElement {
                 
                 // Save current scroll position before navigation
                 const hash = window.location.hash;
-                const currentPath = hash.startsWith('#!') ? hash.substring(2) : 'Resume';
-                const currentScrollY = window.scrollY;
+                const currentPath = hash.startsWith('#!') ? hash.substring(2) : 'Resume'; // Path stays as 'Resume' to match filename
+                const currentScrollY = window.Router ? window.Router.getScrollPosition() : 0;
                 const currentBreadcrumb = this.breadcrumbs.find(b => 
                     this.normalizePath(b.path) === this.normalizePath(currentPath)
                 );
@@ -166,7 +202,7 @@ class BBreadcrumbs extends HTMLElement {
                         });
                     });
                 });
-                window.scrollTo(0, scrollY);
+                window.Router.setScrollPosition(scrollY);
             });
             
             li.appendChild(a);

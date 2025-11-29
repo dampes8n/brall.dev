@@ -7,28 +7,48 @@
         "skillsets": [],
         "skills": [],
         "title": "Born",
-        "slug": "born"
+        "slug": "born",
+        "major": true
     },
     {
         "domain": "Personal",
         "subdomain": "Life",
         "project": null,
-        "date": "1983-10",
+        "date": "1983-10-07",
         "skillsets": [],
         "skills": [],
         "title": "Adopted",
-        "description": "Moved to Columbia",
         "slug": "adopted"
     },
     {
         "domain": "Personal",
         "subdomain": "Life",
         "project": null,
-        "date": "1992",
+        "date": "1983-10-07",
         "skillsets": [],
         "skills": [],
-        "title": "Moved to Chambersburg",
+        "title": "Moved to Columbia, MD",
+        "slug": "moved-to-columbia-md"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "1992-09",
+        "skillsets": [],
+        "skills": [],
+        "title": "Moved to Chambersburg, PA",
         "slug": "moved-to-chambersburg"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "1996-06-01",
+        "skillsets": [],
+        "skills": [],
+        "title": "Bar Mitzvah",
+        "slug": "bar-mitzvah"
     },
     {
         "domain": "Personal",
@@ -38,40 +58,44 @@
         "skillsets": [],
         "skills": [],
         "title": "Graduated High School",
-        "slug": "graduated-high-school"
+        "slug": "graduated-high-school",
+        "major": true
     },
     {
         "domain": "Personal",
         "subdomain": "Life",
         "project": null,
-        "date": "2001",
+        "date": "2001-fall",
         "skillsets": [],
         "skills": [],
-        "title": "Moved to Philly",
+        "title": "Moved to Philadelphia, PA",
         "slug": "moved-to-philly"
     },
     {
         "domain": "Academic",
-        "subdomain": "UArts",
+        "subdomain": "The University of the Arts",
         "project": null,
         "date": "2001",
         "skillsets": [
-            "Design"
+            "Design",
+            "Multimedia"
         ],
         "skills": [
             "Multimedia"
         ],
         "title": "Started at UArts",
         "description": "Multimedia",
-        "slug": "started-at-uarts"
+        "slug": "started-at-uarts",
+        "major": true
     },
     {
         "domain": "Academic",
-        "subdomain": "UArts",
+        "subdomain": "The University of the Arts",
         "project": null,
         "date": "2002",
         "skillsets": [
-            "Design"
+            "Design",
+            "Multimedia"
         ],
         "skills": [
             "Multimedia"
@@ -84,96 +108,140 @@
         "domain": "Personal",
         "subdomain": "Life",
         "project": null,
-        "date": "2002",
+        "date": "2003-spring",
         "skillsets": [],
         "skills": [],
-        "title": "Moved to Williamsport",
+        "title": "Moved to Williamsport, PA",
         "slug": "moved-to-williamsport"
     },
     {
         "domain": "Academic",
-        "subdomain": "Penn College of Technology",
+        "subdomain": "Pennsylvania College of Technology",
         "project": null,
-        "date": "2003",
+        "date": "2003-spring",
         "skillsets": [
-            "Development"
+            "Development",
+            "Computer Science"
         ],
         "skills": [
             "Computer Science"
         ],
-        "title": "Started at Penn College of Technology",
+        "title": "Started at PCT",
         "description": "Computer Science",
-        "slug": "started-at-penn-college-of-technology"
+        "slug": "started-at-penn-college-of-technology",
+        "major": true
+    },
+    {
+        "domain": "Academic",
+        "subdomain": "Pennsylvania College of Technology",
+        "project": null,
+        "date": "2004-summer",
+        "skillsets": [
+            "Development",
+            "Computer Science"
+        ],
+        "skills": [
+            "Computer Science"
+        ],
+        "title": "Ended at PCT",
+        "description": "Computer Science",
+        "slug": "ended-at-penn-college-of-technology"
     },
     {
         "domain": "Personal",
         "subdomain": "Life",
         "project": null,
-        "date": "2004",
+        "date": "2004-summer",
         "skillsets": [],
         "skills": [],
-        "title": "Moved back to Chambersburg",
+        "title": "Moved back to Chambersburg, PA",
         "slug": "moved-back-to-chambersburg"
     },
     {
         "domain": "Academic",
-        "subdomain": "UAT",
+        "subdomain": "The University of Advancing Technology",
         "project": null,
-        "date": "2004",
+        "date": "2004-fall",
         "skillsets": [
             "Design",
-            "Development"
+            "Development",
+            "Game Design"
         ],
         "skills": [
             "Game Design"
         ],
         "title": "Started at UAT",
-        "description": "Game Design",
+        "description": "Multimedia Game Design",
         "slug": "started-at-uat"
     },
     {
         "domain": "Academic",
-        "subdomain": "UAT",
+        "subdomain": "The University of Advancing Technology",
         "project": null,
-        "date": "2006",
+        "date": "2007-early",
         "skillsets": [
             "Design",
-            "Development"
+            "Development",
+            "Game Design"
         ],
         "skills": [
             "Game Design"
         ],
         "title": "Graduated from UAT",
-        "description": "Game Design degree",
-        "slug": "graduated-from-uat"
+        "description": "Multimedia Game Design degree",
+        "slug": "graduated-from-uat",
+        "major": true
     },
     {
         "domain": "Personal",
         "subdomain": "Life",
         "project": null,
-        "date": "2005-2006",
+        "date": "2005-08",
         "skillsets": [],
         "skills": [],
-        "title": "Moved back to Columbia",
+        "title": "Moved back to Columbia, MD",
         "slug": "moved-back-to-columbia"
     },
     {
         "domain": "Employed",
         "subdomain": "NASA/Goddard Space Flight Center/Mantech",
         "project": "SMA",
-        "date": "2007",
+        "date": "2007-late",
         "skillsets": [
             "Development",
             "DevOps"
         ],
         "skills": [
-            "HTML",
+            "PHP",
+            "MySQL",
+            "XHTML",
             "CSS",
-            "JavaScript"
+            "CVS"
         ],
         "title": "Started at NASA/Goddard",
         "description": "Safety and Mission Assurance",
-        "slug": "started-at-nasa-goddard"
+        "slug": "started-at-nasa-goddard",
+        "major": true
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "NASA/Goddard Space Flight Center/Mantech",
+        "project": "SMA",
+        "date": "2008",
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
+        "skills": [
+            "PHP",
+            "MySQL",
+            "XHTML",
+            "CSS",
+            "CVS"
+        ],
+        "title": "Ended at NASA/Goddard",
+        "description": "Safety and Mission Assurance",
+        "slug": "ended-at-nasa-goddard"
     },
     {
         "domain": "Employed",
@@ -183,17 +251,97 @@
         "skillsets": [
             "Development",
             "DevOps",
-            "Database"
+            "Databases",
+            "Leadership"
         ],
         "skills": [
-            "HTML",
-            "CSS",
+            "PHP",
+            "MySQL",
             "JavaScript",
-            "MySQL"
+            "XHTML",
+            "CSS",
+            "jQuery",
+            "RSS",
+            "XML",
+            "Photoshop",
+            "Subversion",
+            "Memcached",
+            "Limelight"
         ],
         "title": "Started at Engility/L3/MPRI",
-        "description": "Army.mil",
-        "slug": "started-at-engility-l3-mpri"
+        "description": "Led technological vision for Army.mil",
+        "slug": "started-at-engility-l3-mpri",
+        "major": true
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "Engility/L3/MPRI",
+        "project": "CORE CMS",
+        "date": "2008",
+        "skillsets": [
+            "Development",
+            "DevOps",
+            "Databases",
+            "Leadership"
+        ],
+        "skills": [
+            "PHP",
+            "MySQL",
+            "JavaScript",
+            "XHTML",
+            "CSS"
+        ],
+        "title": "CORE CMS",
+        "description": "Content Management System with community tools and widgetized page management",
+        "slug": "core-cms"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "Engility/L3/MPRI",
+        "project": "Army App",
+        "date": "2008",
+        "skillsets": [
+            "Development",
+            "Design"
+        ],
+        "skills": [
+            "iPhone",
+            "Game Design"
+        ],
+        "title": "Army App",
+        "description": "US Army News & Information iPhone app, one of the first government apps",
+        "slug": "army-app"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "Engility/L3/MPRI",
+        "project": "Medal of Honor: Petry",
+        "date": "2008",
+        "skillsets": [
+            "Development"
+        ],
+        "skills": [
+            "CORE CMS"
+        ],
+        "title": "Medal of Honor: Petry",
+        "description": "Medal of Honor series site powered by CORE CMS",
+        "slug": "medal-of-honor-petry"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "Engility/L3/MPRI",
+        "project": null,
+        "date": "2013",
+        "skillsets": [
+            "Development",
+            "DevOps",
+            "Databases",
+            "Leadership"
+        ],
+        "skills": [],
+        "title": "Ended at Engility/L3/MPRI",
+        "description": "Led technological vision for Army.mil, My.Army.mil, and CORE CMS",
+        "slug": "ended-at-engility-l3-mpri"
     },
     {
         "domain": "Employed",
@@ -203,7 +351,7 @@
         "skillsets": [
             "Development",
             "DevOps",
-            "Database"
+            "Databases"
         ],
         "skills": [
             "HTML",
@@ -223,6 +371,7 @@
         "skillsets": [],
         "skills": [],
         "title": "Bought Condo",
+        "description": "I bought the condo one month before the housing crisis. It lost 33% of its value. When I sold the condo, it had only just regained its value. I bought and sold it for basically the same price a decade apart.",
         "slug": "bought-condo"
     },
     {
@@ -237,14 +386,46 @@
             "Leadership"
         ],
         "skills": [
-            "HTML",
-            "CSS",
             "JavaScript",
-            "Photoshop"
+            "HTML5",
+            "PHP",
+            "CSS",
+            "TypeScript",
+            "Lit",
+            "RSS",
+            "MySQL",
+            "Ruby",
+            "Sass",
+            "Git",
+            "Perforce",
+            "Jira",
+            "XML",
+            "AJAX",
+            "JSON",
+            "Confluence",
+            "Photoshop",
+            "Java",
+            "Memcached",
+            "Akamai"
         ],
         "title": "Started at ZeniMax Online Studios",
         "description": "The Elder Scrolls Online",
-        "slug": "started-at-zenimax-online-studios"
+        "slug": "started-at-zenimax-online-studios",
+        "major": true
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "The Elder Scrolls Online",
+        "date": "2013-06-20",
+        "skillsets": [
+            "Development",
+            "Leadership"
+        ],
+        "skills": [],
+        "title": "Developer Question of the Week",
+        "description": "<b-yt slug=\"4LsEtZdxlLs\"></b-yt>",
+        "slug": "developer-question-of-the-week"
     },
     {
         "domain": "Independent",
@@ -260,7 +441,8 @@
             "CSS",
             "JavaScript"
         ],
-        "title": "Opened The Bronze Coin",
+        "title": "Opened",
+        "description": "I opened The Bronze Coin, a role-playing guildhall, after a lot of market research. Pro-DMing was just starting, but had not blossomed as it would during the pandemic. The year+ it operated was tons of fun and work. I met a lot of people who would go on to be part of my life to this day, and many who drifted in pleasantly for years before moving on.",
         "slug": "opened-the-bronze-coin"
     },
     {
@@ -277,7 +459,8 @@
             "CSS",
             "JavaScript"
         ],
-        "title": "Closed The Bronze Coin",
+        "title": "Closed",
+        "description": "It turned out that my research was flawed. I'd expected one level of engagement from the people I had interviewed outside game stores, but the reality was 1/10th of what the study indicated. This made the project unsustainable. If I'd opened The Bronze Coin 6-7 years later than I did, I would have missed the pandemic and landed right in the sweet spot of explosive growth in Pro-DMing. Live and learn. Expensive mistake, though.",
         "slug": "closed-the-bronze-coin"
     },
     {
@@ -291,7 +474,6 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Started Truugahn",
@@ -309,7 +491,6 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Ended Truugahn",
@@ -327,7 +508,6 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Started Bonewall",
@@ -345,11 +525,10 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Started Comedy of Justice",
-        "description": "D&D 5E campaign",
+        "description": "We all showed up to play D&D, but the apocalypse happened instead. The DM was grabbed by a demon and dragged to Hell, monsters are flying around shooting lasers, and the only weapon anyone can find is a book. This campaign started big and got universal. By the end, one of the players had inherited godhood from Yahweh, another was a Jewish Disney Princess, and another went and learned to fight from Goku. The final battle featured Galactus and Unicron doing the DBZ fusion dance. You had to be there.<br>The BBEG was Ceres from Evoland 2; why yes, this campaign *did* start before that game came out, and yes, she already was the BBEG before it came out – no, I don't know how, it just happened that way. I played Evoland II and discovered that my BBEG was in it. I don't know how she got there. She *can* open portals between universes. It doesn't seem like it, but I'm being completely serious. Here are my notes about her when she reveals herself as the BBEG to the group. She first met them in session 2, as the Mythomancer, a month before Evoland 2 was released.<br>\"The ceiling tiles melt away, the rails glowing, and a red-hot hole opens in the concrete above. Wreathed in fire, Mytha descends from the floor above, her clothes burned away and her naked body ice blue and covered in black-lined etchings. She has two small black horns on either side of her bald head.\" Ice-blue-skinned portal-diving universe-hopping demon-girl.<br>I even named her Mytha when I played Evoland 2 for the first time. I just thought she looked similar; I didn't know who she was yet. When you name her in the game, you wouldn't know she can open portals in time and space.",
         "slug": "started-comedy-of-justice"
     },
     {
@@ -363,7 +542,6 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Ended Comedy of Justice",
@@ -381,11 +559,10 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Started Isle of Glass Statues",
-        "description": "D&D 5E campaign",
+        "description": "Ultimately, this game had 15 players across four groups. This is the foundation for things to come. Washed up on a deserted island, shifting between obsidian statues and corporal form, players have to survive extreme hostility on an ever-changing landscape.<br><a href=\"https://www.reddit.com/r/dndnext/comments/65krnk/isle_of_glass_statues_free_hardcore_multigroup_5e/\">https://www.reddit.com/r/dndnext/comments/65krnk/isle_of_glass_statues_free_hardcore_multigroup_5e/</a>",
         "slug": "started-isle-of-glass-statues"
     },
     {
@@ -399,7 +576,6 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Ended Isle of Glass Statues",
@@ -417,7 +593,6 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Ended Bonewall",
@@ -435,12 +610,21 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Started Truugahn II",
-        "description": "D&D 5E campaign",
+        "description": "A continuation of my first campaign, Truugahn turned out to secretly be the old god of death, trying to reclaim his domain.",
         "slug": "started-truugahn-ii"
+    },
+    {
+        "domain": "Personal",
+        "subdomain": "Life",
+        "project": null,
+        "date": "2018-late",
+        "skillsets": [],
+        "skills": [],
+        "title": "Moved to Catonsville, MD",
+        "slug": "moved-to-catonsville"
     },
     {
         "domain": "Personal",
@@ -463,11 +647,10 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Started Papaku Vai",
-        "description": "D&D 5E campaign",
+        "description": "A vacation island paradise with a dark undercurrent.",
         "slug": "started-papaku-vai"
     },
     {
@@ -477,9 +660,9 @@
         "date": "2019-08-28",
         "skillsets": [],
         "skills": [],
-        "title": "Married",
-        "description": "Elena Herron",
-        "slug": "married"
+        "title": "Got married to Elena Herron",
+        "slug": "married",
+        "major": true
     },
     {
         "domain": "Personal",
@@ -492,7 +675,6 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Ended Truugahn II",
@@ -510,7 +692,6 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Ended Papaku Vai",
@@ -528,12 +709,11 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing",
             "Humblewood"
         ],
         "title": "Started Crumblewood",
-        "description": "D&D 5E and Humblewood campaign",
+        "description": "A zombie apocalypse in the world of Humblewood. Played outside in a wedding tent in a field.",
         "slug": "started-crumblewood"
     },
     {
@@ -547,7 +727,6 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing",
             "Humblewood"
         ],
@@ -566,12 +745,11 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing",
             "PbtA"
         ],
         "title": "Started Repocalypse (Comedy of Justice II)",
-        "description": "D&D 5E and PbtA campaign",
+        "description": "A continuation of Comedy of Justice I with new players - still all playing themselves. Ceres survived the first campaign by living inside me.<br>If you'd like rules for making universe-hopping games manageable, you can start with my <a href=\"files/Universe%20Hopping%20Rules.docx\">Universe Hopping Rules.docx</a>.",
         "slug": "started-repocalypse-comedy-of-justice-ii"
     },
     {
@@ -585,8 +763,8 @@
         "skills": [
             "Creative Writing"
         ],
-        "title": "Began writing",
-        "description": "Magitism: The Force of Magic",
+        "title": "Began",
+        "description": "Elevator Pitches:<br>• Magical aliens crash-land on Earth; Humanity has to science the shit out of the magic to get them back into space.<br>• Hail Mary meets Mistborn, crash-landing in Philadelphia.",
         "slug": "began-writing"
     },
     {
@@ -601,8 +779,9 @@
             "Creative Writing"
         ],
         "title": "Published",
-        "description": "Magitism: The Force of Magic",
-        "slug": "published"
+        "description": "For the book's release, I did a 24-hour Twitch stream. I don't expect you to watch the VODs.<br><strong>Opening Interviews</strong><br><b-yt slug=\"yfIo22Eow-Q\"></b-yt><br><strong>Dwarf Fortress</strong><br><b-yt slug=\"PDhqJZpUF14\"></b-yt><br><b-yt slug=\"cNZlJ2ZFH8o\"></b-yt><br><strong>Satisfactory</strong><br><b-yt slug=\"CYb535NfQwc\"></b-yt><br><b-yt slug=\"eR7DF_-Occ0\"></b-yt>",
+        "slug": "published",
+        "major": true
     },
     {
         "domain": "Personal",
@@ -615,7 +794,6 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing",
             "PbtA"
         ],
@@ -634,11 +812,10 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Started Halfling Baked",
-        "description": "D&D 5E campaign - Ongoing",
+        "description": "Cherry Grass-seed left his band, the Warlocks, over 100 years ago. He's now 270 years old and resolved to go on one last hurrah. The Halfling Bard has hired a half-dozen hale and hearty music lovers (you) as his road crew and loaded up the wagons for the final time.",
         "slug": "started-halfling-baked"
     },
     {
@@ -652,8 +829,8 @@
         "skills": [
             "Creative Writing"
         ],
-        "title": "Dale Review",
-        "description": "Magitism: The Force of Magic",
+        "title": "Dale Arnold Review",
+        "description": "⭐⭐⭐⭐⭐ Bought this expecting modest - Loved it<br>\"I bought this at the dealers room at Balticon because I always try to support new authors. I expected a decent work of course but <strong>I enjoyed reading this book more than I have enjoyed Hugo winners in the past.</strong> Magic as rules driven physics played as hard science fiction, the human spirit winning out in the end in a clever way. I read all the way through and it did not lag. The author's voice is good. Hope he writes more.\"<br>— Dale Arnold, President of the Baltimore Science Fiction Society",
         "slug": "dale-review"
     },
     {
@@ -667,11 +844,10 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Started Isle of Glass Statues II",
-        "description": "D&D 5E at Dan Wells Game Night Getaway '24",
+        "description": "This game was at Dan Wells, Game Night Getaway '24. Dan is the other author on Brandon Sanderson's Intentionally Blank podcast.<br>The game went exceptionally well. There were 16 players in total over the course of the week, and I got in around 50 hours of play time. They solved the island on the final day.",
         "slug": "started-isle-of-glass-statues-ii"
     },
     {
@@ -685,7 +861,6 @@
         ],
         "skills": [
             "D&D",
-            "TTRPGs",
             "GMing"
         ],
         "title": "Ended Isle of Glass Statues II",
@@ -696,68 +871,97 @@
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
         "project": "Unannounced Game",
-        "date": "2025-07",
+        "date": "2020-mid",
         "skillsets": [
             "Development",
             "Design",
             "UX",
             "Leadership"
         ],
-        "skills": [
-            "HTML",
-            "CSS",
-            "JavaScript"
+        "skills": [],
+        "title": "Greenlit",
+        "slug": "unannounced-game-greenlit"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "Unannounced Game",
+        "date": "2025-07-02",
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX",
+            "Leadership"
         ],
-        "title": "Unannounced Game project ended",
-        "slug": "unannounced-game-project-ended"
+        "skills": [],
+        "title": "Unannounced Game Cancellation",
+        "description": "Holding everyone together during a project cancellation",
+        "slug": "unannounced-game-canceled"
     },
     {
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
         "project": "ZOSU",
-        "date": null,
+        "date": "2025-07-02",
         "skillsets": [
             "Leadership"
         ],
         "skills": [],
         "title": "Holding everyone together during a project cancellation",
+        "description": "ZOSU",
         "slug": "holding-everyone-together-during-a-project-cancellation"
     },
     {
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
         "project": "ZOSU",
-        "date": null,
-        "skillsets": [
-            "Leadership"
-        ],
-        "skills": [],
-        "title": "Running for BC",
-        "slug": "running-for-bc"
-    },
-    {
-        "domain": "Employed",
-        "subdomain": "ZeniMax Online Studios",
-        "project": "ZOSU",
-        "date": null,
+        "date": "2025-01",
         "skillsets": [
             "Leadership"
         ],
         "skills": [],
         "title": "Vote to Unionize",
+        "description": "ZOSU",
         "slug": "vote-to-unionize"
     },
     {
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
         "project": "ZOSU",
-        "date": null,
+        "date": "2025-03",
+        "skillsets": [
+            "Leadership"
+        ],
+        "skills": [],
+        "title": "Running for BC",
+        "description": "ZOSU",
+        "slug": "running-for-bc"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "ZOSU",
+        "date": "2024-05-29",
         "skillsets": [
             "Leadership"
         ],
         "skills": [],
         "title": "Joining the Organizing Committee",
+        "description": "ZOSU",
         "slug": "joining-the-organizing-committee"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "ZOSU",
+        "date": "2024-10",
+        "skillsets": [
+            "Leadership"
+        ],
+        "skills": [],
+        "title": "Campaign to Unionize",
+        "description": "ZOSU",
+        "slug": "campaign-to-unionize"
     },
     {
         "domain": "Employed",
@@ -798,21 +1002,48 @@
     {
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
-        "project": "Keen",
-        "date": null,
+        "project": "Commander Keen",
+        "date": "2018",
         "skillsets": [
             "Development",
             "Design",
             "UX",
             "Leadership"
         ],
-        "skills": [
-            "HTML",
-            "CSS",
-            "JavaScript"
+        "skills": [],
+        "title": "Started Commander Keen",
+        "slug": "started-commander-keen"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "Commander Keen",
+        "date": "2019-06-09",
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX",
+            "Leadership"
         ],
-        "title": "Keen",
-        "slug": "keen"
+        "skills": [],
+        "title": "Announced",
+        "description": "<a href=\"https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home\">https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home</a>",
+        "slug": "commander-keen-announced"
+    },
+    {
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "project": "Commander Keen",
+        "date": "2019-late",
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX",
+            "Leadership"
+        ],
+        "skills": [],
+        "title": "Canceled",
+        "slug": "commander-keen-canceled"
     },
     {
         "domain": "Employed",
@@ -831,26 +1062,7 @@
             "Laravel"
         ],
         "title": "APE",
-        "description": "Laravel Years",
+        "description": "Laravel years and frameworkless rebuild",
         "slug": "ape"
-    },
-    {
-        "domain": "Employed",
-        "subdomain": "ZeniMax Online Studios",
-        "project": "APE",
-        "date": null,
-        "skillsets": [
-            "Development",
-            "Design",
-            "UX"
-        ],
-        "skills": [
-            "HTML",
-            "CSS",
-            "JavaScript"
-        ],
-        "title": "APE",
-        "description": "Frameworkless Rebuild",
-        "slug": "ape-1"
     }
 ]

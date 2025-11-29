@@ -375,18 +375,30 @@ class B3DScene extends HTMLElement {
 
     const geometry = new THREE.PlaneBufferGeometry(60, 60, 20, 20);
     const material = new THREE.MeshPhongMaterial();
-
-    material.specular = new THREE.Color(0x111111);
-    material.combine = THREE.MixOperation;
+    
+    // Configure for softer, less contrasty lighting
+    material.specular = new THREE.Color(0x000000); // Remove specular highlights
+    material.shininess = 0; // No shininess for smoother shading
 
     var repeat = 10;
 
     const manager = new THREE.LoadingManager();
     manager.onLoad = () => {
+        // Mark textures as loaded
+        this.texturesLoaded = true;
+        
+        // Render initial frame once textures are loaded (use requestAnimationFrame to ensure renderer is ready)
+        requestAnimationFrame(() => {
+            if (!this.hasRenderedInitialFrame && this.renderer && this.scene && this.camera) {
+                this.renderer.render(this.scene, this.camera);
+                this.hasRenderedInitialFrame = true;
+            }
+        });
+        
         if (!this.backgroundRendering) {
             this.stopRendering();
         }
-        // Textures loaded, but render loop already started
+        // Textures loaded, render loop already started
     };
 
     // Get texture folder from attribute, default to 'obsidian'
@@ -397,34 +409,57 @@ class B3DScene extends HTMLElement {
     this.textureScrollX = parseFloat(this.getAttribute('texture-scroll-x') || '0');
     this.textureScrollY = parseFloat(this.getAttribute('texture-scroll-y') || '0');
     
+    // Parse texture scale from attribute (divisor for repeat value - higher scale = bigger texture)
+    this.textureScale = parseFloat(this.getAttribute('texture-scale') || '1');
+    this.baseRepeat = repeat;
+    
     // Store all textures in an array for scrolling
     this.textures = [];
+    
+    // Function to calculate compensated repeat value based on window width (1920px is baseline)
+    this.getCompensatedRepeat = () => {
+        const baseScaledRepeat = this.baseRepeat / this.textureScale;
+        const widthCompensation = 1920 / window.innerWidth;
+        return baseScaledRepeat * widthCompensation;
+    };
+    
+    // Function to update all texture repeats
+    this.updateTextureRepeats = () => {
+        const compensatedRepeat = this.getCompensatedRepeat();
+        this.textures.forEach(texture => {
+            if (texture) {
+                texture.repeat.set(compensatedRepeat, compensatedRepeat);
+            }
+        });
+    };
+
+    const compensatedRepeat = this.getCompensatedRepeat();
 
     const texture = new THREE.TextureLoader(manager).load(`${textureBase}/albedo.jpg`);
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(repeat, repeat);
+    texture.repeat.set(compensatedRepeat, compensatedRepeat);
     material.map = texture;
     this.textures.push(texture);
 
     const heightTexture = new THREE.TextureLoader(manager).load(`${textureBase}/height.jpg`);
     heightTexture.wrapS = THREE.RepeatWrapping;
     heightTexture.wrapT = THREE.RepeatWrapping;
-    heightTexture.repeat.set(repeat, repeat);
+    heightTexture.repeat.set(compensatedRepeat, compensatedRepeat);
     material.heightMap = heightTexture;
     this.textures.push(heightTexture);
 
     const normal = new THREE.TextureLoader(manager).load(`${textureBase}/normal.jpg`);
     normal.wrapS = THREE.RepeatWrapping;
     normal.wrapT = THREE.RepeatWrapping;
-    normal.repeat.set(repeat, repeat);
+    normal.repeat.set(compensatedRepeat, compensatedRepeat);
     material.normalMap = normal;
     this.textures.push(normal);
 
     const roughness = new THREE.TextureLoader(manager).load(`${textureBase}/roughness.jpg`);
     roughness.wrapS = THREE.RepeatWrapping;
     roughness.wrapT = THREE.RepeatWrapping;
-    roughness.repeat.set(repeat, repeat);
+    roughness.repeat.set(compensatedRepeat, compensatedRepeat);
     material.roughnessMap = roughness;
     this.textures.push(roughness);
 
@@ -435,7 +470,8 @@ class B3DScene extends HTMLElement {
         (metalness) => {
             metalness.wrapS = THREE.RepeatWrapping; 
             metalness.wrapT = THREE.RepeatWrapping;
-            metalness.repeat.set(repeat, repeat);
+            const currentCompensatedRepeat = this.getCompensatedRepeat();
+            metalness.repeat.set(currentCompensatedRepeat, currentCompensatedRepeat);
             material.metalnessMap = metalness;
             this.textures.push(metalness);
         },
@@ -452,7 +488,8 @@ class B3DScene extends HTMLElement {
         (ao) => {
             ao.wrapS = THREE.RepeatWrapping; 
             ao.wrapT = THREE.RepeatWrapping;
-            ao.repeat.set(repeat, repeat);
+            const currentCompensatedRepeat = this.getCompensatedRepeat();
+            ao.repeat.set(currentCompensatedRepeat, currentCompensatedRepeat);
             material.aoMap = ao;
             this.textures.push(ao);
         },
@@ -465,9 +502,9 @@ class B3DScene extends HTMLElement {
     this.plane = new THREE.Mesh(geometry, material);
     this.plane.rotation.z = 30 * (Math.PI / 180);
 
-    // Apply plane shape based on attribute
-    const planeShape = this.getAttribute('plane-shape') || 'ragged';
-    if (planeShape === 'ragged') {
+    // Apply plane displacement based on attribute (0 = flat, >0 = ragged/displaced)
+    const planeDisplacement = parseFloat(this.getAttribute('plane-displacement') || '0');
+    if (planeDisplacement !== 0) {
         window.noise.seed(0.4);
         const vs = this.plane.geometry.attributes.position;
         for (var i = 0; i < vs.count; i++) {
@@ -475,12 +512,15 @@ class B3DScene extends HTMLElement {
             let y = vs.getY(i);
             let z = vs.getZ(i);
 
-            z = (window.noise.perlin2(x / 3.05, y / 3.05) * -3);
+            z = (window.noise.perlin2(x / 3.05, y / 3.05) * -planeDisplacement);
 
             vs.setXYZ(i, x, y, z);
         }
+        // Mark position attribute as needing update
+        vs.needsUpdate = true;
+        // Recalculate normals so lighting reflects the vertex changes
+        this.plane.geometry.computeVertexNormals();
     }
-    // If 'flat', don't modify vertices
 
     this.scene.add(this.plane);
 
@@ -536,13 +576,16 @@ class B3DScene extends HTMLElement {
         
         const minIntensity = parseFloatAttr(getAttr(`light-${num}-intensity-min`, defaults.min.toString()), defaults.min);
         const maxIntensity = parseFloatAttr(getAttr(`light-${num}-intensity-max`, defaults.max.toString()), defaults.max);
-        const defaultIntensity = parseFloatAttr(getAttr(`light-${num}-intensity-default`, defaults.default.toString()), defaults.default);
+        
+        // Parse flicker rate from attribute (default based on light number: 250 for 1-3, 200 for 4-5)
+        const defaultFlickerRate = num <= 3 ? 250 : 200;
+        const flickerRate = parseFloatAttr(getAttr(`light-${num}-flicker-rate`, defaultFlickerRate.toString()), defaultFlickerRate);
 
         const light = new THREE.PointLight(color, intensity);
         light.position.set(finalX, y, z);
         light.minIntensity = minIntensity;
         light.maxIntensity = maxIntensity;
-        light.defaultIntensity = defaultIntensity;
+        light.flickerRate = flickerRate;
         light.castShadow = true;
         light.lightNumber = num; // Store light number for reference
         
@@ -553,8 +596,14 @@ class B3DScene extends HTMLElement {
         }
     }
 
-    // const alight = new THREE.AmbientLight( 0x5cd7e5, 0.12 );
-    // this.scene.add( alight );
+    // Add ambient light to brighten shadows (configurable via attribute, only if intensity > 0)
+    const ambientIntensity = parseFloat(this.getAttribute('ambient-light-intensity') || '0.15');
+    if (ambientIntensity > 0) {
+        const ambientColorStr = this.getAttribute('ambient-light-color') || '0xffffff';
+        const ambientColor = parseColor(ambientColorStr);
+        const ambientLight = new THREE.AmbientLight(ambientColor, ambientIntensity);
+        this.scene.add(ambientLight);
+    }
 
     this.camera.position.z = 5 * this.wr;
 
@@ -562,6 +611,14 @@ class B3DScene extends HTMLElement {
     this.lightFlicker = (light, frame, offset, rate) => {
         light.intensity = window.noise.perlin2(offset, frame / rate) * (light.maxIntensity - light.minIntensity) + light.minIntensity;
     };
+    
+    // Initialize all lights with randomized flicker values
+    this.lights.forEach((light) => {
+        const offset = 3000 + (light.lightNumber * 1000);
+        const rate = light.flickerRate || (light.lightNumber <= 3 ? 250 : 200);
+        // Use frame 0 to get an initial randomized value
+        this.lightFlicker(light, 0, offset, rate);
+    });
 
     const reportWindowSize = () => {
         this.setWr();
@@ -586,6 +643,11 @@ class B3DScene extends HTMLElement {
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(width, height);
         this.screenResized = true;
+        
+        // Update texture repeats to compensate for width changes
+        if (this.updateTextureRepeats) {
+            this.updateTextureRepeats();
+        }
     };
     this.handleResize = reportWindowSize.bind(this);
     window.addEventListener('resize', this.handleResize, false);
@@ -604,6 +666,8 @@ class B3DScene extends HTMLElement {
     this.frame = 0;
     this.backgroundRendering = true;
     this.screenResized = false;
+    this.hasRenderedInitialFrame = false; // Track if we've rendered the initial frame on load
+    this.texturesLoaded = false; // Track if textures have finished loading
 
     this.handleVisibilityChange = () => {
         if (document.visibilityState === 'visible') {
@@ -613,48 +677,64 @@ class B3DScene extends HTMLElement {
     };
     document.addEventListener('visibilitychange', this.handleVisibilityChange);
     this.render = () => {
-        this.frame++;
-
-        // Always render, but only update lights/particles when focused
+        // Check focus state
         const hasFocus = document.hasFocus();
+        const isInitialFrame = !this.hasRenderedInitialFrame;
         
-        // Get delta time once per frame
-        const deltaTime = this.clock.getDelta();
+        // Always render the very first frame (even if backgroundRendering is false), but only after textures load
+        // Then check focus for subsequent frames
+        const shouldRender = (isInitialFrame && this.texturesLoaded) || (this.backgroundRendering && hasFocus);
         
-        // Update texture scrolling (always, regardless of focus)
-        if ((this.textureScrollX !== 0 || this.textureScrollY !== 0) && this.textures) {
-            this.textures.forEach((tex) => {
-                if (tex) {
-                    tex.offset.x += this.textureScrollX * deltaTime;
-                    tex.offset.y += this.textureScrollY * deltaTime;
+        if (shouldRender) {
+            // Get delta time once per frame (only when actually updating)
+            const deltaTime = this.clock.getDelta();
+            
+            if (hasFocus || isInitialFrame) {
+                // Update frame counter and animations only when focused or on initial frame
+                this.frame++;
+                
+                // Update texture scrolling
+                if ((this.textureScrollX !== 0 || this.textureScrollY !== 0) && this.textures) {
+                    this.textures.forEach((tex) => {
+                        if (tex) {
+                            tex.offset.x += this.textureScrollX * deltaTime;
+                            tex.offset.y += this.textureScrollY * deltaTime;
+                        }
+                    });
                 }
-            });
-        }
-        
-        if (this.backgroundRendering) {
-            if (hasFocus) {
+                
                 // Flicker all active lights based on their light number
                 this.lights.forEach((light) => {
                     const offset = 3000 + (light.lightNumber * 1000);
-                    const rate = light.lightNumber <= 3 ? 250 : 200;
+                    const rate = light.flickerRate || (light.lightNumber <= 3 ? 250 : 200);
                     this.lightFlicker(light, this.frame, offset, rate);
                 });
+                
+                // Update performance tracking only when focused
+                if (hasFocus) {
+                    this.currDelta += deltaTime;
+                    this.currDeltaCount++;
+                }
             }
             
-            if (this.currFrameSkips === 0) {
-                this.currFrameSkips = this.frameSkips;
+            // Render the scene - always render initial frame, otherwise respect frame skipping
+            if (isInitialFrame || this.currFrameSkips === 0) {
+                if (!isInitialFrame) {
+                    this.currFrameSkips = this.frameSkips;
+                }
                 this.renderer.render(this.scene, this.camera);
+                
+                // Mark that we've rendered the initial frame immediately after first render
+                // Only set the flag if textures are loaded (ensures initial frame has textures)
+                if (isInitialFrame && this.texturesLoaded) {
+                    this.hasRenderedInitialFrame = true;
+                }
             } else {
                 this.currFrameSkips--;
             }
         }
-
-
-        if (hasFocus) {
-            this.currDelta += deltaTime;
-            this.currDeltaCount++;
-        }
-
+        
+        // Always schedule next frame to check for focus changes
         requestAnimationFrame(() => this.render());
     };
 
@@ -697,16 +777,19 @@ class B3DScene extends HTMLElement {
     this.stopRendering = () => {
         this.backgroundRendering = false;
 
-        // Adjust Lights to Standard Levels
+        // Set lights to randomized values when stopping
         this.lights.forEach(light => {
-            light.intensity = light.defaultIntensity
+            const offset = 3000 + (light.lightNumber * 1000);
+            const rate = light.flickerRate || (light.lightNumber <= 3 ? 250 : 200);
+            // Use current frame to get a randomized value
+            this.lightFlicker(light, this.frame, offset, rate);
         });
 
         // Final Render
         this.renderer.render(this.scene, this.camera);
     };
 
-    // Start rendering
+    // Start rendering loop (initial frame will render after textures load)
     this.render();
     }
 

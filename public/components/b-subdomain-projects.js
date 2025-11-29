@@ -43,7 +43,7 @@ class BSubdomainProjects extends (window.BJsonLoader || HTMLElement) {
             html += `<a href="#!/projects/${project.slug}">${this.escapeHtml(project.title)}</a>`;
             
             if (project.description) {
-                html += `<p class="project-description">${this.escapeHtml(project.description)}</p>`;
+                html += `<p class="project-description">${project.description}</p>`;
             }
             
             if (project.start || project.end) {
