@@ -2,6 +2,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik+Pixels&family=Rubik+Glitch&display=swap');
 
+:root {
+    /* Font sizes - smaller base and custom heading sizes */
+    --font-size-base: 0.875rem;
+    --font-size-h1: 2.25rem;
+    --font-size-h2: 1.25rem;
+    --font-size-h3: 1.125rem;
+    --font-size-h4: 1rem;
+    --font-size-h5: 0.9375rem;
+    --font-size-h6: 0.875rem;
+}
+
 /* ============================================
    COLOR SYSTEM & VARIABLES
    ============================================ */
@@ -27,6 +38,19 @@
     /* Panel styling */
     --panel-bg: hsla(0, 0%, 0%, 0.8);
     --panel-blur: blur(10px);
+    
+    /* Font families */
+    --font-family-base: 'Courier New', 'Courier', 'Monaco', 'Consolas', 'Lucida Console', monospace;
+    --font-family-headings: 'Rubik Dirt', 'Courier New', 'Courier', 'Monaco', 'Consolas', 'Lucida Console', monospace;
+    --font-family-h1: var(--font-family-headings);
+    
+    /* Heading colors */
+    --text-h1: var(--accent-hover);
+    --text-h2: var(--text-primary);
+    --text-h3: var(--text-primary);
+    --text-h4: var(--text-primary);
+    --text-h5: var(--text-primary);
+    --text-h6: var(--text-primary);
 }
 
 /* ============================================
@@ -34,11 +58,8 @@
    ============================================ */
 
 body {
-    font-family: 'Courier New', 'Courier', 'Monaco', 'Consolas', 'Lucida Console', monospace;
-    color: var(--text-primary);
     background: var(--primary-bg);
     line-height: 1.4;
-    font-size: 0.875rem;
     font-weight: 400;
 }
 
@@ -54,18 +75,14 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Rubik Dirt', 'Courier New', 'Courier', 'Monaco', 'Consolas', 'Lucida Console', monospace;
     font-weight: 400;
     line-height: 1.2;
-    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 /* Single animation for all headings */
 h1 {
-    font-size: 2.25rem; /* 50% bigger than 1.5rem */
-    color: var(--accent-hover);
     animation: glitch-simple 15s infinite;
 }
 
@@ -103,31 +120,8 @@ h2 {
     }
 }
 
-h2 {
-    font-size: 1.25rem;
-    color: var(--text-primary);
-}
-
-h3 {
-    font-size: 1.125rem;
-    color: var(--text-primary);
-}
-
-h4 {
-    font-size: 1rem;
-}
-
-h5 {
-    font-size: 0.9375rem;
-}
-
-h6 {
-    font-size: 0.875rem;
-}
-
 p {
     margin-bottom: 0.75em;
-    color: var(--text-primary);
 }
 
 a {
@@ -166,7 +160,6 @@ a:visited {
 
 /* Internal links (hashbang routing) - color inherits from core.css */
 a[href^="#!"]:hover {
-    color: var(--accent-hover);
     background: var(--accent);
     color: var(--primary-bg);
 }
@@ -182,10 +175,6 @@ a[href^="#!"]:hover {
     border-radius: 0;
     box-shadow: none;
     backdrop-filter: blur(10px);
-}
-
-#main-menu {
-    padding: 1rem;
 }
 
 #main-menu ul {
@@ -212,12 +201,7 @@ a[href^="#!"]:hover {
     outline: none;
 }
 
-#situational-menu {
-    padding: 1rem;
-}
-
 #situational-menu h2 {
-    font-size: 0.875rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
     color: var(--text-primary);
@@ -238,7 +222,6 @@ a[href^="#!"]:hover {
     background: transparent;
     border: 1px solid transparent;
     /* color inherits from a rule (link color) */
-    font-size: 0.875rem;
     text-decoration: none;
     transition: all 0.1s ease;
 }
@@ -291,7 +274,7 @@ a[href^="#!"]:hover {
 }
 
 #content-pane {
-    padding: 1.5rem;
+    padding: var(--spacing-triple);
 }
 
 /* ============================================
@@ -302,8 +285,8 @@ a[href^="#!"]:hover {
     background: var(--primary-bg);
     border: 1px dashed var(--text-primary);
     border-radius: 0;
-    padding: 1.5rem;
-    margin: 1.5rem auto;
+    padding: var(--spacing-triple);
+    margin: var(--spacing-triple) auto;
     box-shadow: none;
     max-width: 800px;
 }
@@ -359,9 +342,9 @@ a.tag:hover {
 
 /* Non-link tags (spans) should not have hover effects */
 
-/* Legacy metadata selectors - should use .tag class */
-.metadata > span,
-.metadata > a {
+/* Legacy tags selectors - should use .tag class */
+.tags > span,
+.tags > a {
     /* Fallback for legacy - should use .tag class */
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
@@ -375,21 +358,21 @@ a.tag:hover {
     transition: all 0.1s ease;
 }
 
-.metadata > a {
+.tags > a {
     color: var(--accent);
     border-color: var(--accent);
 }
 
-.metadata > a:hover {
+.tags > a:hover {
     background: var(--accent);
     border-color: var(--accent);
     color: var(--primary-bg);
     text-decoration: none;
 }
 
-.metadata {
+.tags {
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-triple);
 }
 
 /* ============================================
@@ -405,7 +388,7 @@ a.tag:hover {
     border: 1px solid var(--text-primary);
     border-left: 3px solid var(--accent);
     border-radius: 0;
-    padding: 1.5rem;
+    padding: var(--spacing-triple);
     box-shadow: none;
 }
 
@@ -449,7 +432,6 @@ a.tag:hover {
     font-weight: 700;
     color: var(--accent);
     margin-bottom: 0.75rem;
-    font-size: 0.875rem;
 }
 
 .timeline-event[data-domain="academic"] .timeline-content time {
@@ -470,7 +452,6 @@ a.tag:hover {
 
 .timeline-content h3 {
     margin-bottom: 0.75rem;
-    font-size: 1.125rem;
     color: var(--accent-visited);
     font-weight: 400;
 }
@@ -480,14 +461,10 @@ a.tag:hover {
     color: var(--text-primary);
 }
 
-.timeline-content .metadata {
-    font-size: 0.875rem;
-    margin-bottom: 0;
-}
 
-/* Timeline metadata - all should use .tag class and match skillset style exactly */
-.timeline-content .metadata > span,
-.timeline-content .metadata > a {
+/* Timeline tags - all should use .tag class and match skillset style exactly */
+.timeline-content .tags > span,
+.timeline-content .tags > a {
     /* Fallback for legacy - should use .tag class */
     padding: 0.25rem 0.5rem;
     font-size: inherit;
@@ -503,12 +480,12 @@ a.tag:hover {
     vertical-align: middle;
 }
 
-.timeline-content .metadata > a {
+.timeline-content .tags > a {
     color: var(--accent);
     border-color: var(--accent);
 }
 
-.timeline-content .metadata > a:hover {
+.timeline-content .tags > a:hover {
     background: var(--accent);
     border-color: var(--accent);
     color: var(--primary-bg);
@@ -524,7 +501,7 @@ a.tag:hover {
     color: var(--accent);
     line-height: 1.5;
     vertical-align: middle;
-    /* Inherit all other properties from .tag / timeline-content .metadata styles */
+    /* Inherit all other properties from .tag / timeline-content .tags styles */
 }
 
 .timeline-event[data-domain="academic"] .timeline-domain,
@@ -555,12 +532,11 @@ a.tag:hover {
     background: var(--primary-bg);
     border: 1px solid var(--text-primary);
     border-radius: 0;
-    padding: 1.5rem;
+    padding: var(--spacing-triple);
     box-shadow: none;
 }
 
 .timeline-filters h2 {
-    font-size: 1.125rem;
     margin-bottom: 1rem;
     color: var(--text-primary);
 }
@@ -613,30 +589,10 @@ b-skillsets {
     color: var(--accent-visited);
 }
 
-.skillset-tag-cloud {
+.tags {
     gap: 0.75rem;
 }
 
-/* Legacy skill-tag - should use .tag class now */
-.skill-tag a[href^="#!"] {
-    /* Fallback for legacy - should use .tag class */
-    padding: 0.25rem 0.5rem;
-    font-size: inherit;
-    background: transparent;
-    border: 1px solid var(--accent);
-    border-radius: 0;
-    color: var(--accent);
-    font-weight: 400;
-    text-decoration: none;
-    transition: all 0.1s ease;
-}
-
-.skill-tag a[href^="#!"]:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--primary-bg);
-    text-decoration: none;
-}
 
 .spotlight-projects {
     gap: 1.5rem;
@@ -654,7 +610,6 @@ b-skillsets {
 }
 
 #main-footer .copyright {
-    font-size: 0.875rem;
     color: var(--text-primary);
     font-weight: 400;
 }
@@ -664,7 +619,6 @@ b-flavor-selector {
 }
 
 b-flavor-selector label {
-    font-size: 0.875rem;
     color: var(--text-primary);
     font-weight: 400;
 }
@@ -674,7 +628,6 @@ b-flavor-selector select {
     border: 1px solid var(--text-primary);
     border-radius: 0;
     background: var(--primary-bg);
-    font-size: 0.875rem;
     color: var(--text-primary);
     font-weight: 400;
     cursor: pointer;
@@ -698,18 +651,6 @@ b-flavor-selector select:focus {
    LINK LISTS
    ============================================ */
 
-.link-list {
-    gap: 0.5rem;
-}
-
-.link-list li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--text-primary);
-}
-
-.link-list li:last-child {
-    border-bottom: none;
-}
 
 /* ============================================
    RESPONSIVE DESIGN
@@ -726,17 +667,6 @@ b-flavor-selector select:focus {
         margin: 1rem auto;
     }
     
-    h1 {
-        font-size: 1.25rem;
-    }
-    
-    h2 {
-        font-size: 1.125rem;
-    }
-    
-    h3 {
-        font-size: 1rem;
-    }
     
     #main-footer {
         flex-direction: column;

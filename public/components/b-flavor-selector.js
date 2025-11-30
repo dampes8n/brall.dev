@@ -48,9 +48,31 @@ class BFlavorSelector extends HTMLElement {
         document.cookie = `${name}=${value};${expires};path=/`;
     }
 
+    getDefaultFlavor() {
+        // Check if user has reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        // If reduced motion is on, use Millennial Great regardless of color scheme
+        if (prefersReducedMotion) {
+            return 'millennial-great';
+        }
+        
+        // Check if user prefers dark mode
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // If dark mode and no reduced motion, use Terminally Ill
+        if (prefersDark) {
+            return 'terminally-ill';
+        }
+        
+        // Otherwise (light mode or no preference), use core
+        return 'core';
+    }
+
     connectedCallback() {
-        // Load current flavor from cookie
-        this.currentFlavor = this.getCookie('flavor') || 'core';
+        // Load current flavor from cookie, or use default based on preferences
+        const cookieFlavor = this.getCookie('flavor');
+        this.currentFlavor = cookieFlavor || this.getDefaultFlavor();
         
         // Load initial flavor
         this.switchFlavor(this.currentFlavor, true);

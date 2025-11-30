@@ -75,7 +75,7 @@
         "domain": "Academic",
         "subdomain": "The University of the Arts",
         "project": null,
-        "date": "2001",
+        "date": "2001-spring",
         "skillsets": [
             "Design",
             "Multimedia"
@@ -83,9 +83,9 @@
         "skills": [
             "Multimedia"
         ],
-        "title": "Started at UArts",
+        "title": "Enrolled at UArts",
         "description": "Multimedia",
-        "slug": "started-at-uarts",
+        "slug": "enrolled-at-uarts",
         "major": true
     },
     {
@@ -126,9 +126,9 @@
         "skills": [
             "Computer Science"
         ],
-        "title": "Started at PCT",
+        "title": "Enrolled at PCT",
         "description": "Computer Science",
-        "slug": "started-at-penn-college-of-technology",
+        "slug": "enrolled-at-penn-college-of-technology",
         "major": true
     },
     {
@@ -170,15 +170,15 @@
         "skills": [
             "Game Design"
         ],
-        "title": "Started at UAT",
+        "title": "Enrolled at UAT",
         "description": "Multimedia Game Design",
-        "slug": "started-at-uat"
+        "slug": "enrolled-at-uat"
     },
     {
         "domain": "Academic",
         "subdomain": "The University of Advancing Technology",
         "project": null,
-        "date": "2007-early",
+        "date": "2007-spring",
         "skillsets": [
             "Design",
             "Development",
@@ -218,9 +218,9 @@
             "CSS",
             "CVS"
         ],
-        "title": "Started at NASA/Goddard",
+        "title": "Employed at NASA/Goddard",
         "description": "Safety and Mission Assurance",
-        "slug": "started-at-nasa-goddard",
+        "slug": "employed-at-nasa-goddard",
         "major": true
     },
     {
@@ -247,7 +247,7 @@
         "domain": "Employed",
         "subdomain": "Engility/L3/MPRI",
         "project": "Army.mil",
-        "date": "2008",
+        "date": "2008-late",
         "skillsets": [
             "Development",
             "DevOps",
@@ -268,9 +268,9 @@
             "Memcached",
             "Limelight"
         ],
-        "title": "Started at Engility/L3/MPRI",
+        "title": "Employed at Engility/L3/MPRI",
         "description": "Led technological vision for Army.mil",
-        "slug": "started-at-engility-l3-mpri",
+        "slug": "employed-at-engility-l3-mpri",
         "major": true
     },
     {
@@ -408,9 +408,9 @@
             "Memcached",
             "Akamai"
         ],
-        "title": "Started at ZeniMax Online Studios",
+        "title": "Employed at ZeniMax Online Studios",
         "description": "The Elder Scrolls Online",
-        "slug": "started-at-zenimax-online-studios",
+        "slug": "employed-at-zenimax-online-studios",
         "major": true
     },
     {

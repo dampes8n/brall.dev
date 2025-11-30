@@ -1,0 +1,186 @@
+/* LitRPG flavor styles - D&D 5E style fonts */
+/* Official 5E fonts: Bookmania (body), Mrs Eaves Small Caps (headings), FF Scala Sans (tables) */
+/* Using Solbera free versions: Bookinsanity, Mr Eaves Small Caps, Scaly Sans */
+/* Note: These fonts need to be downloaded from https://jonathonf.github.io/solbera-dnd-fonts/ and hosted locally */
+
+@font-face {
+    font-family: 'Bookinsanity';
+    src: url('fonts/Bookinsanity.woff2') format('woff2'),
+         url('fonts/Bookinsanity.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mr Eaves Small Caps';
+    src: url('fonts/MrEavesSmallCaps.woff2') format('woff2'),
+         url('fonts/MrEavesSmallCaps.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Fallback to Google Fonts alternatives if Solbera fonts not available */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Increase font sizes for LitRPG - 18px base (1.125rem) instead of 16px (1rem) */
+    --font-size-base: 1.125rem;
+    --font-size-h1: 2.25rem;
+    --font-size-h2: 1.96875rem;
+    --font-size-h3: 1.6875rem;
+    --font-size-h4: 1.40625rem;
+    --font-size-h5: 1.2375rem;
+    --font-size-h6: 1.125rem;
+    
+    /* Font families */
+    --font-family-base: 'Bookinsanity', 'Crimson Text', 'Times New Roman', 'Times', serif;
+    --font-family-headings: 'Mr Eaves Small Caps', 'Cinzel', 'Times New Roman', serif;
+    --font-family-h1: var(--font-family-headings);
+    
+    /* Override heading colors for h1 and h2 only */
+    --text-h1: #922610;
+    --text-h2: #922610;
+    
+    /* Darken domain colors significantly */
+    --timeline-academic: hsl(283, 39%, 30%);
+    --timeline-employed: hsl(140, 49%, 30%);
+    --timeline-independent: hsl(0, 100%, 35%);
+    --timeline-personal: hsl(32, 89%, 30%);
+    
+    /* Darken link colors significantly */
+    --accent: hsl(210, 100%, 25%);
+    --accent-hover: hsl(210, 100%, 20%);
+    --accent-visited: hsl(271, 68%, 20%);
+}
+
+/* Darken regular link colors */
+a {
+    color: hsl(210, 100%, 20%);
+}
+
+a:hover, a:focus {
+    color: hsl(210, 100%, 15%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-variant: small-caps;
+    letter-spacing: 0.05em;
+}
+
+h1, h2 {
+    font-weight: bold;
+    text-shadow: 
+        0 -1px 0 hsla(45, 100%, 50%, 0.8),
+        -0.383px -0.924px 0 hsla(43, 100%, 50%, 0.5),
+        0.383px -0.924px 0 hsla(40, 100%, 50%, 0.5),
+        -0.707px -0.707px 0 hsla(38, 100%, 50%, 0.5),
+        0.707px -0.707px 0 hsla(36, 100%, 50%, 0.5),
+        -0.924px -0.383px 0 hsla(33, 100%, 50%, 0.5),
+        0.924px -0.383px 0 hsla(31, 100%, 50%, 0.5),
+        -1px 0 0 hsla(29, 100%, 50%, 0.5),
+        1px 0 0 hsla(26, 100%, 50%, 0.5),
+        -0.924px 0.383px 0 hsla(24, 100%, 50%, 0.5),
+        0.924px 0.383px 0 hsla(22, 100%, 50%, 0.5),
+        -0.707px 0.707px 0 hsla(19, 100%, 50%, 0.5),
+        0.707px 0.707px 0 hsla(17, 100%, 50%, 0.5),
+        -0.383px 0.924px 0 hsla(15, 100%, 50%, 0.5),
+        0.383px 0.924px 0 hsla(12, 100%, 50%, 0.5),
+        0 1px 0 hsla(10, 100%, 50%, 0.5),
+        2px 2px 3px #000000;
+}
+
+/* H1 followed by tagline - set line-height to 1 and add margin-top */
+h1:has(+ .tagline) {
+    line-height: 1;
+    margin-top: var(--spacing-single);
+}
+
+#main-menu,
+#situational-menu,
+#main-footer {
+    position: relative;
+}
+
+#main-menu,
+#situational-menu,
+#main-footer,
+#main-content {
+    background-image: url('img/paper.jpg');
+    background-repeat: repeat;
+    background-size: auto;
+}
+
+#main-menu::before,
+#situational-menu::before,
+#main-footer::before,
+#content-pane::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsla(33, 33%, 75%, 0.3);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Remove all rounded corners */
+#main-menu,
+#main-content,
+#situational-menu,
+#main-footer,
+.timeline-filters,
+.timeline-content,
+.timeline-event,
+.card,
+article,
+.tag,
+.tags > span,
+.tags > a,
+#main-menu a[href^="#!"],
+#situational-menu a,
+b-flavor-selector select {
+    border-radius: 0;
+}
+
+/* Add drop shadows to nav, main, aside, footer, timeline filter, timeline events, and tags */
+#main-menu,
+#main-content,
+#situational-menu,
+#main-footer,
+.timeline-filters,
+.timeline-content,
+.tag,
+.tags > span,
+.tags > a {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 1px;
+}
+
+/* Make timeline filter and timeline events slightly transparent */
+.timeline-filters,
+.timeline-content {
+    background: hsla(0, 0%, 100%, 0.7);
+}
+
+/* Set timeline filters width */
+.timeline-filters {
+    width: 206px;
+}
+
+
+/* Tapered rule SVG after H1 (without tagline), H1+tagline, and H2 */
+h1:not(:has(+ .tagline))::after,
+h1 + .tagline::after,
+h2::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    margin-bottom: var(--spacing-single);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 5' preserveAspectRatio='none'%3E%3Cpolygon points='0,0 400,2.5 0,5' fill='%23922610'%3E%3C/polygon%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

@@ -29,32 +29,42 @@
     /* Tag background colors */
     --tag-bg: #eaecf0;
     --tag-bg-hover: #a7a7a7;
+    
+    /* Font families */
+    --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Liberation Sans', sans-serif;
+    --font-family-headings: 'Linux Libertine', 'Georgia', 'Times', serif;
+    --font-family-h1: var(--font-family-headings);
 }
 
 /* ============================================
    TYPOGRAPHY
    ============================================ */
 
+:root {
+    /* Font sizes - body is 0.875rem, headings use em relative to that */
+    --font-size-base: 0.875rem;
+    --font-size-h1: 1.75rem; /* 2em of 0.875rem */
+    --font-size-h2: 1.3125rem; /* 1.5em of 0.875rem */
+    --font-size-h3: 1.02375rem; /* 1.17em of 0.875rem */
+    --font-size-h4: 0.875rem; /* 1em of 0.875rem */
+    --font-size-h5: 0.72625rem; /* 0.83em of 0.875rem */
+    --font-size-h6: 0.65625rem; /* 0.75em of 0.875rem */
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Liberation Sans', sans-serif;
-    color: var(--text-primary);
     background: var(--secondary-bg);
     line-height: 1.6;
-    font-size: 0.875rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
     font-weight: 400;
     line-height: 1.3;
-    color: var(--text-primary);
     margin-bottom: 0.5em;
     border-bottom: 1px solid #eaecf0;
     padding-bottom: 0.25em;
 }
 
 h1 {
-    font-size: 2em;
     font-weight: 400;
     border-bottom: 1px solid #a7a7a7;
     padding-bottom: 0.25em;
@@ -75,39 +85,32 @@ h1 + .tagline {
 }
 
 h2 {
-    font-size: 1.5em;
     font-weight: 400;
     margin-top: 1em;
 }
 
 h3 {
-    font-size: 1.17em;
     font-weight: 600;
 }
 
 h4 {
-    font-size: 1em;
     font-weight: 600;
 }
 
 h5 {
-    font-size: 0.83em;
     font-weight: 600;
 }
 
 h6 {
-    font-size: 0.75em;
     font-weight: 600;
 }
 
 p {
     margin-bottom: 0.5em;
-    color: var(--text-primary);
     line-height: 1.6;
 }
 
 a {
-    color: var(--accent);
     text-decoration: none;
 }
 
@@ -126,7 +129,6 @@ a:visited {
 
 /* Internal links (hashbang routing) - color inherits from core.css */
 a[href^="#!"]:hover {
-    color: var(--accent-hover);
     text-decoration: underline;
 }
 
@@ -142,16 +144,12 @@ a[href^="#!"]:hover {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-#main-menu {
-    padding: 1rem;
-}
-
 #main-menu ul {
     gap: 0.25rem;
 }
 
 #main-menu a[href^="#!"] {
-    padding: 0.5rem 0.75rem;
+    padding: var(--spacing-single) calc(var(--spacing-single) * 1.5);
     margin: 0;
     border-radius: 2px;
     background: transparent;
@@ -168,12 +166,7 @@ a[href^="#!"]:hover {
     text-decoration: none;
 }
 
-#situational-menu {
-    padding: 1rem;
-}
-
 #situational-menu h2 {
-    font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
     color: var(--text-primary);
@@ -186,12 +179,11 @@ a[href^="#!"]:hover {
 }
 
 #situational-menu a {
-    padding: 0.5rem 0.75rem;
+    padding: var(--spacing-single) calc(var(--spacing-single) * 1.5);
     margin: 0;
     border-radius: 2px;
     background: transparent;
     /* color inherits from a rule (link color) */
-    font-size: 0.875rem;
     transition: background-color 0.1s ease;
 }
 
@@ -252,6 +244,9 @@ article {
     border-radius: 2px;
     padding: 1.5em;
     margin: 1em auto;
+}
+
+.card {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
@@ -261,6 +256,12 @@ article {
 
 article {
     margin-bottom: 1em;
+}
+
+/* Remove centering for projects */
+b-projects article {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 article h3 {
@@ -273,8 +274,8 @@ article h3 {
    ============================================ */
 
 .tag,
-.metadata > span,
-.metadata > a {
+.tags > span,
+.tags > a {
     padding: 0.25em 0.5em;
     font-size: 0.875em;
     background: var(--tag-bg);
@@ -285,19 +286,19 @@ article h3 {
     display: inline-block;
 }
 
-.metadata > a {
+.tags > a {
     color: var(--accent);
 }
 
 a.tag:hover,
-.metadata > a:hover {
+.tags > a:hover {
     background: var(--tag-bg-hover);
     border-color: var(--text-secondary);
     color: var(--text-primary);
     text-decoration: none;
 }
 
-.metadata {
+.tags {
     gap: 0.5em;
     margin-bottom: 1em;
 }
@@ -311,7 +312,7 @@ a.tag:hover,
 }
 
 .timeline-content {
-    background: var(--primary-bg);
+    background: hsla(0, 0%, 97%, 0.7);
     border: 1px solid #eaecf0;
     border-left: 3px solid var(--accent);
     border-radius: 2px;
@@ -380,7 +381,6 @@ a.tag:hover,
 
 .timeline-content h3 {
     margin-bottom: 0.5em;
-    font-size: 1.17em;
     border-bottom: 1px solid #eaecf0;
 }
 
@@ -389,13 +389,9 @@ a.tag:hover,
     color: var(--text-primary);
 }
 
-.timeline-content .metadata {
-    font-size: 0.875em;
-    margin-bottom: 0;
-}
 
-.timeline-content .metadata > span,
-.timeline-content .metadata > a {
+.timeline-content .tags > span,
+.timeline-content .tags > a {
     padding: 0.25em 0.5em;
     font-size: 0.875em;
 }
@@ -426,7 +422,7 @@ a.tag:hover,
 }
 
 .timeline-filters {
-    background: var(--primary-bg);
+    background: hsla(0, 0%, 97%, 0.7);
     border: 1px solid #eaecf0;
     border-radius: 2px;
     padding: 1em;
@@ -434,7 +430,6 @@ a.tag:hover,
 }
 
 .timeline-filters h2 {
-    font-size: 1em;
     margin-bottom: 0.75em;
     border-bottom: 1px solid #eaecf0;
 }
@@ -472,27 +467,10 @@ b-skillsets {
     border-bottom: 1px solid #eaecf0;
 }
 
-.skillset-tag-cloud {
+.tags {
     gap: 0.5em;
 }
 
-.skill-tag a[href^="#!"] {
-    padding: 0.25em 0.5em;
-    font-size: inherit;
-    background: var(--tag-bg);
-    border: 1px solid #a7a7a7;
-    border-radius: 2px;
-    color: var(--accent);
-    font-weight: 400;
-    transition: all 0.1s ease;
-}
-
-.skill-tag a[href^="#!"]:hover {
-    background: var(--tag-bg-hover);
-    border-color: var(--text-secondary);
-    color: var(--accent-hover);
-    text-decoration: none;
-}
 
 .spotlight-projects {
     gap: 1em;
@@ -509,7 +487,6 @@ b-skillsets {
 }
 
 #main-footer .copyright {
-    font-size: 0.875em;
     color: var(--text-secondary);
     font-weight: 400;
 }
@@ -519,7 +496,6 @@ b-flavor-selector {
 }
 
 b-flavor-selector label {
-    font-size: 0.875em;
     color: var(--text-secondary);
     font-weight: 400;
 }
@@ -529,7 +505,6 @@ b-flavor-selector select {
     border: 1px solid #a7a7a7;
     border-radius: 2px;
     background: var(--primary-bg);
-    font-size: 0.875em;
     color: var(--text-primary);
     font-weight: 400;
     cursor: pointer;
@@ -552,18 +527,6 @@ b-flavor-selector select:focus {
    LINK LISTS
    ============================================ */
 
-.link-list {
-    gap: 0.25em;
-}
-
-.link-list li {
-    padding: 0.5em 0;
-    border-bottom: 1px solid #eaecf0;
-}
-
-.link-list li:last-child {
-    border-bottom: none;
-}
 
 /* ============================================
    RESPONSIVE DESIGN
@@ -580,16 +543,10 @@ b-flavor-selector select:focus {
         margin: 1em auto;
     }
     
-    h1 {
-        font-size: 1.75em;
-    }
-    
-    h2 {
-        font-size: 1.5em;
-    }
-    
-    h3 {
-        font-size: 1.17em;
+    /* Remove centering for projects in responsive view */
+    b-projects article {
+        margin-left: 0;
+        margin-right: 0;
     }
     
     #main-footer {

@@ -45,12 +45,21 @@ class BDate extends HTMLElement {
             const daySuffix = BDate.getDaySuffix(day);
             return `${monthNames[month]} ${day}${daySuffix}, ${year}`;
         } else if (parts.length === 2) {
-            if (parts[1] === 'early') {
+            const part2 = parts[1].toLowerCase();
+            if (part2 === 'early') {
                 return `Early ${year}`;
-            } else if (parts[1] === 'mid') {
+            } else if (part2 === 'mid') {
                 return `Mid ${year}`;
-            } else if (parts[1] === 'late') {
+            } else if (part2 === 'late') {
                 return `Late ${year}`;
+            } else if (part2 === 'spring') {
+                return `Spring ${year}`;
+            } else if (part2 === 'summer') {
+                return `Summer ${year}`;
+            } else if (part2 === 'fall') {
+                return `Fall ${year}`;
+            } else if (part2 === 'winter') {
+                return `Winter ${year}`;
             } else {
                 // Check if parts[1] is a year (4 digits) - date range format YYYY-YYYY
                 const secondPart = parts[1];

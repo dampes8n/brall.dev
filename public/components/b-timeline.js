@@ -121,13 +121,13 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
             } else if (part2 === 'late') {
                 return new Date(parts[0], 11, 15);
             } else if (part2 === 'spring') {
-                return new Date(parts[0], 2, 15); // March 15
+                return new Date(parts[0], 2, 21); // March 21 (vernal equinox)
             } else if (part2 === 'summer') {
-                return new Date(parts[0], 5, 15); // June 15
+                return new Date(parts[0], 5, 21); // June 21 (summer solstice)
             } else if (part2 === 'fall') {
-                return new Date(parts[0], 8, 15); // September 15
+                return new Date(parts[0], 8, 22); // September 22 (autumnal equinox)
             } else if (part2 === 'winter') {
-                return new Date(parts[0], 11, 15); // December 15
+                return new Date(parts[0], 11, 21); // December 21 (winter solstice)
             } else {
                 // Try to parse as month number
                 const month = parseInt(parts[1]);
@@ -214,12 +214,12 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
                 <div class="timeline-content">
                     <time>${date}</time>
                     ${title ? `<h3>${starPrefix}${slug ? `<a href="#!/timeline-events/${slug}">${this.escapeHtml(title)}</a>` : this.escapeHtml(title)}</h3>` : ''}
-                    <nav class="metadata">
+                    <nav class="tags">
                         ${domain ? `<span class="tag timeline-domain">${this.escapeHtml(domain)}</span>` : ''}
                         ${subdomainHtml}
                         ${projectHtml}
                     </nav>
-                    ${skillsetsHtml ? `<nav class="metadata metadata-skillsets">${skillsetsHtml}</nav>` : ''}
+                    ${skillsetsHtml ? `<nav class="tags">${skillsetsHtml}</nav>` : ''}
                 </div>
             </div>
         `;

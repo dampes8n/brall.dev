@@ -409,6 +409,12 @@ class B3DScene extends HTMLElement {
     this.textureScrollX = parseFloat(this.getAttribute('texture-scroll-x') || '0');
     this.textureScrollY = parseFloat(this.getAttribute('texture-scroll-y') || '0');
     
+    // Parse element selector for scroll-based texture scrolling
+    this.textureScrollXElement = this.getAttribute('texture-scroll-x-element') || null;
+    this.textureScrollXScale = parseFloat(this.getAttribute('texture-scroll-x-scale') || '0.0005'); // Scale factor for scroll pixels to texture offset
+    this.textureScrollYElement = this.getAttribute('texture-scroll-y-element') || null;
+    this.textureScrollYScale = parseFloat(this.getAttribute('texture-scroll-y-scale') || '0.0005'); // Scale factor for scroll pixels to texture offset
+    
     // Parse texture scale from attribute (divisor for repeat value - higher scale = bigger texture)
     this.textureScale = parseFloat(this.getAttribute('texture-scale') || '1');
     this.baseRepeat = repeat;
@@ -500,7 +506,11 @@ class B3DScene extends HTMLElement {
     );
 
     this.plane = new THREE.Mesh(geometry, material);
-    this.plane.rotation.z = 30 * (Math.PI / 180);
+    // Get initial rotation from attribute (in degrees), default to 0
+    const planeRotationInitial = parseFloat(this.getAttribute('plane-rotation-initial') || '0');
+    // Get rotation speed from attribute (degrees per second), default to 0
+    this.planeRotationSpeed = parseFloat(this.getAttribute('plane-rotation') || '0');
+    this.plane.rotation.z = planeRotationInitial * (Math.PI / 180); // Set initial rotation
 
     // Apply plane displacement based on attribute (0 = flat, >0 = ragged/displaced)
     const planeDisplacement = parseFloat(this.getAttribute('plane-displacement') || '0');
@@ -694,13 +704,69 @@ class B3DScene extends HTMLElement {
                 this.frame++;
                 
                 // Update texture scrolling
-                if ((this.textureScrollX !== 0 || this.textureScrollY !== 0) && this.textures) {
-                    this.textures.forEach((tex) => {
-                        if (tex) {
-                            tex.offset.x += this.textureScrollX * deltaTime;
-                            tex.offset.y += this.textureScrollY * deltaTime;
+                if (this.textures) {
+                    // Check if we're using element-based scrolling
+                    const hasElementScrolling = this.textureScrollXElement || this.textureScrollYElement;
+                    
+                    if (hasElementScrolling) {
+                        // Handle X element-based scrolling
+                        let textureOffsetX = null;
+                        if (this.textureScrollXElement) {
+                            const scrollElementX = document.querySelector(this.textureScrollXElement);
+                            if (scrollElementX) {
+                                const scrollTopX = scrollElementX.scrollTop;
+                                // Use actual scroll position in pixels, scaled to texture offset
+                                // Negative to scroll down as we scroll down
+                                textureOffsetX = -scrollTopX * this.textureScrollXScale;
+                            }
                         }
-                    });
+                        
+                        // Handle Y element-based scrolling
+                        let textureOffsetY = null;
+                        if (this.textureScrollYElement) {
+                            const scrollElementY = document.querySelector(this.textureScrollYElement);
+                            if (scrollElementY) {
+                                const scrollTopY = scrollElementY.scrollTop;
+                                // Use actual scroll position in pixels, scaled to texture offset
+                                // Negative to scroll down as we scroll down
+                                textureOffsetY = -scrollTopY * this.textureScrollYScale;
+                            }
+                        }
+                        
+                        // Apply scroll-based offsets
+                        this.textures.forEach((tex) => {
+                            if (tex) {
+                                if (textureOffsetX !== null) {
+                                    tex.offset.x = textureOffsetX;
+                                } else if (this.textureScrollX !== 0) {
+                                    // Fall back to time-based X scrolling if no element-based X
+                                    tex.offset.x += this.textureScrollX * deltaTime;
+                                }
+                                
+                                if (textureOffsetY !== null) {
+                                    tex.offset.y = textureOffsetY;
+                                } else if (this.textureScrollY !== 0) {
+                                    // Fall back to time-based Y scrolling if no element-based Y
+                                    tex.offset.y += this.textureScrollY * deltaTime;
+                                }
+                            }
+                        });
+                    } else if (this.textureScrollX !== 0 || this.textureScrollY !== 0) {
+                        // Use time-based scrolling
+                        this.textures.forEach((tex) => {
+                            if (tex) {
+                                tex.offset.x += this.textureScrollX * deltaTime;
+                                tex.offset.y += this.textureScrollY * deltaTime;
+                            }
+                        });
+                    }
+                }
+                // Update frame counter and animations only when focused or on initial frame
+                this.frame++;
+                
+                // Update plane rotation (degrees per second)
+                if (this.planeRotationSpeed !== 0) {
+                    this.plane.rotation.z += (this.planeRotationSpeed * (Math.PI / 180)) * deltaTime;
                 }
                 
                 // Flicker all active lights based on their light number

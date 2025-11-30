@@ -3,259 +3,953 @@
         "slug": "creative-writing",
         "skillsets": ["Writing"],
         "title": "Creative Writing",
-        "description": "Writing original fiction, stories, and creative content."
+        "description": "Writing original fiction, stories, and creative content.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "technical-writing",
+        "skillsets": ["Writing", "Development"],
+        "title": "Technical Writing",
+        "description": "Creating clear, concise documentation for technical audiences, including specifications, guides, and technical content.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "api-documentation",
+        "skillsets": ["Writing", "Development"],
+        "title": "API Documentation",
+        "description": "Writing comprehensive documentation for APIs, including endpoints, parameters, examples, and integration guides.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "code-documentation",
+        "skillsets": ["Writing", "Development"],
+        "title": "Code Documentation",
+        "description": "Writing inline comments, function documentation, and code explanations to make codebase maintainable and understandable.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "user-documentation",
+        "skillsets": ["Writing", "UX"],
+        "title": "User Documentation",
+        "description": "Creating user guides, tutorials, and help documentation to assist end users in understanding and using software.",
+        "type": "professional",
+        "experience": 4
     },
     {
         "slug": "html",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "HTML",
-        "description": "HyperText Markup Language for structuring web content."
+        "description": "HyperText Markup Language for structuring web content.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "html5",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "HTML5",
-        "description": "Modern HTML standard with enhanced semantic elements, multimedia support, and APIs."
+        "description": "Modern HTML standard with enhanced semantic elements, multimedia support, and APIs.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "xhtml",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "XHTML",
-        "description": "Extensible HyperText Markup Language, an XML-based version of HTML with stricter syntax rules."
+        "description": "Extensible HyperText Markup Language, an XML-based version of HTML with stricter syntax rules.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "css",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "CSS",
-        "description": "Cascading Style Sheets for styling and layout of web pages."
+        "description": "Cascading Style Sheets for styling and layout of web pages.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "sass",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "Sass",
-        "description": "Syntactically Awesome Style Sheets, a CSS preprocessor with variables, nesting, and mixins."
+        "description": "Syntactically Awesome Style Sheets, a CSS preprocessor with variables, nesting, and mixins.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "bootstrap",
+        "skillsets": ["Development", "Design"],
+        "title": "Bootstrap",
+        "description": "Popular CSS framework for building responsive, mobile-first websites with pre-built components and utilities.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "javascript",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "JavaScript",
-        "description": "Dynamic programming language for web development, enabling interactive and responsive user interfaces."
+        "description": "Dynamic programming language for web development, enabling interactive and responsive user interfaces.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "typescript",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "TypeScript",
-        "description": "Typed superset of JavaScript that compiles to plain JavaScript, adding static type checking."
+        "description": "Typed superset of JavaScript that compiles to plain JavaScript, adding static type checking.",
+        "type": "professional",
+        "experience": 4
     },
     {
         "slug": "jquery",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "jQuery",
-        "description": "JavaScript library that simplifies DOM manipulation, event handling, and AJAX interactions."
+        "description": "JavaScript library that simplifies DOM manipulation, event handling, and AJAX interactions.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "lit",
         "skillsets": ["Development"],
         "title": "Lit",
-        "description": "Lightweight web components library for building fast, reusable UI components."
+        "description": "Lightweight web components library for building fast, reusable UI components.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "php",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "PHP",
-        "description": "Server-side scripting language designed for web development, particularly suited for dynamic web pages."
+        "description": "Server-side scripting language designed for web development, particularly suited for dynamic web pages.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "ruby",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "Ruby",
-        "description": "Dynamic, object-oriented programming language known for its elegant syntax and developer productivity."
+        "description": "Dynamic, object-oriented programming language known for its elegant syntax and developer productivity.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "ruby-on-rails",
+        "skillsets": ["Development", "Software"],
+        "title": "Ruby on Rails",
+        "description": "Full-stack web application framework written in Ruby, emphasizing convention over configuration and rapid development.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "java",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "Java",
-        "description": "Object-oriented programming language designed for cross-platform application development."
+        "description": "Object-oriented programming language designed for cross-platform application development.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "c-sharp",
+        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "title": "C#",
+        "description": "Microsoft's object-oriented programming language for building applications on the .NET framework.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "photoshop",
         "skillsets": ["Design", "Software", "Multimedia"],
         "title": "Photoshop",
-        "description": "Adobe image editing and graphic design software for creating and manipulating digital images."
+        "description": "Adobe image editing and graphic design software for creating and manipulating digital images.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "illustrator",
+        "skillsets": ["Design", "Software", "Multimedia"],
+        "title": "Illustrator",
+        "description": "Adobe vector graphics editor for creating illustrations, logos, icons, and scalable graphics.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "adobe-creative-cloud",
+        "skillsets": ["Design", "Software", "Multimedia"],
+        "title": "Adobe Creative Cloud",
+        "description": "Subscription-based suite of Adobe creative applications including Photoshop, Illustrator, Premiere Pro, After Effects, and more.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "mysql",
         "skillsets": ["Databases", "Software"],
         "title": "MySQL",
-        "description": "Open-source relational database management system for storing and managing structured data."
+        "description": "Open-source relational database management system for storing and managing structured data.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "phpmyadmin",
+        "skillsets": ["Databases", "Software"],
+        "title": "phpMyAdmin",
+        "description": "Web-based administration tool for managing MySQL and MariaDB databases through a graphical interface.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "mysql-workbench",
+        "skillsets": ["Databases", "Software"],
+        "title": "MySQL Workbench",
+        "description": "Official MySQL database design, administration, and development tool with visual database design capabilities.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "heidisql",
+        "skillsets": ["Databases", "Software"],
+        "title": "HeidiSQL",
+        "description": "Lightweight database management tool for MySQL, MariaDB, PostgreSQL, and SQL Server with a user-friendly interface.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "sql",
+        "skillsets": ["Databases", "Development"],
+        "title": "SQL",
+        "description": "Structured Query Language, standard programming language for managing and querying relational databases.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "nosql",
+        "skillsets": ["Databases", "Development"],
+        "title": "NoSQL",
+        "description": "Non-relational database systems designed for flexible data models, scalability, and high-performance applications.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "memcached",
         "skillsets": ["Databases", "DevOps", "Software"],
         "title": "Memcached",
-        "description": "Distributed memory caching system for improving application performance by caching frequently accessed data."
+        "description": "Distributed memory caching system for improving application performance by caching frequently accessed data.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "redis",
+        "skillsets": ["Databases", "DevOps", "Software"],
+        "title": "Redis",
+        "description": "In-memory data structure store used as a database, cache, and message broker for high-performance applications.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "laravel",
         "skillsets": ["Development", "Software"],
         "title": "Laravel",
-        "description": "PHP web application framework with elegant syntax and tools for building modern web applications."
+        "description": "PHP web application framework with elegant syntax and tools for building modern web applications.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "git",
         "skillsets": ["DevOps", "Software"],
         "title": "Git",
-        "description": "Distributed version control system for tracking changes in source code and coordinating collaborative development."
+        "description": "Distributed version control system for tracking changes in source code and coordinating collaborative development.",
+        "type": "professional",
+        "experience": 4
     },
     {
         "slug": "perforce",
         "skillsets": ["DevOps", "Software"],
         "title": "Perforce",
-        "description": "Version control system designed for large-scale software development and asset management."
+        "description": "Version control system designed for large-scale software development and asset management.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "subversion",
         "skillsets": ["DevOps", "Software"],
         "title": "Subversion",
-        "description": "Centralized version control system for managing file and directory versions over time."
+        "description": "Centralized version control system for managing file and directory versions over time.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "cvs",
         "skillsets": ["DevOps", "Software"],
         "title": "CVS",
-        "description": "Concurrent Versions System, an early version control system for tracking file revisions."
+        "description": "Concurrent Versions System, an early version control system for tracking file revisions.",
+        "type": "professional",
+        "experience": 1
     },
     {
         "slug": "jira",
         "skillsets": ["DevOps", "Software"],
         "title": "Jira",
-        "description": "Project management and issue tracking tool for agile software development teams."
+        "description": "Project management and issue tracking tool for agile software development teams.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "jenkins",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Jenkins",
+        "description": "Open-source automation server for building, testing, and deploying software through continuous integration.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "confluence",
         "skillsets": ["DevOps", "Software"],
         "title": "Confluence",
-        "description": "Collaboration and documentation platform for teams to create, share, and organize knowledge."
+        "description": "Collaboration and documentation platform for teams to create, share, and organize knowledge.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "slack",
+        "skillsets": ["Software", "DevOps"],
+        "title": "Slack",
+        "description": "Team communication and collaboration platform with channels, direct messaging, and integrations.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "microsoft-teams",
+        "skillsets": ["Software", "DevOps"],
+        "title": "Microsoft Teams",
+        "description": "Collaboration platform for chat, video meetings, file sharing, and team collaboration within Microsoft 365.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "zoom",
+        "skillsets": ["Software"],
+        "title": "Zoom",
+        "description": "Video conferencing and online meeting platform for remote collaboration, webinars, and virtual events.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "notion",
+        "skillsets": ["Software"],
+        "title": "Notion",
+        "description": "All-in-one workspace for notes, documentation, project management, and collaboration with database capabilities.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "obsidian",
+        "skillsets": ["Software"],
+        "title": "Obsidian",
+        "description": "Knowledge base and note-taking application that uses markdown files and creates connections between notes.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "evernote",
+        "skillsets": ["Software"],
+        "title": "Evernote",
+        "description": "Note-taking and organization application for capturing ideas, documents, and web clippings across devices.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "onenote",
+        "skillsets": ["Software"],
+        "title": "OneNote",
+        "description": "Microsoft's digital note-taking application for organizing notes, drawings, and multimedia content.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "microsoft-office-suite",
+        "skillsets": ["Software"],
+        "title": "Microsoft Office Suite",
+        "description": "Productivity software suite including Word, Excel, PowerPoint, Outlook, and other Microsoft applications.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "google-workspace",
+        "skillsets": ["Software", "DevOps"],
+        "title": "Google Workspace",
+        "description": "Cloud-based productivity suite including Gmail, Docs, Sheets, Slides, Drive, and collaboration tools.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "dropbox",
+        "skillsets": ["Software"],
+        "title": "Dropbox",
+        "description": "Cloud storage and file synchronization service for storing and sharing files across devices and teams.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "google-drive",
+        "skillsets": ["Software"],
+        "title": "Google Drive",
+        "description": "Cloud storage and file synchronization service from Google for storing, sharing, and collaborating on files.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "password-managers",
+        "skillsets": ["Software", "DevOps"],
+        "title": "Password Managers",
+        "description": "Tools like LastPass, 1Password, and Bitwarden for securely storing and managing passwords and credentials.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "akamai",
         "skillsets": ["DevOps", "Software"],
         "title": "Akamai",
-        "description": "Content delivery network and cloud services platform for improving web performance and security."
+        "description": "Content delivery network and cloud services platform for improving web performance and security.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "limelight",
         "skillsets": ["DevOps", "Software"],
         "title": "Limelight",
-        "description": "Content delivery network service for accelerating web content and media delivery globally."
+        "description": "Content delivery network service for accelerating web content and media delivery globally.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "cdn",
+        "skillsets": ["DevOps", "Software"],
+        "title": "CDN",
+        "description": "Content Delivery Network, distributed network of servers that deliver web content to users based on geographic location.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "rss",
         "skillsets": ["Development"],
         "title": "RSS",
-        "description": "Really Simple Syndication, a web feed format for publishing frequently updated content."
+        "description": "Really Simple Syndication, a web feed format for publishing frequently updated content.",
+        "type": "professional",
+        "experience": 4
     },
     {
         "slug": "xml",
         "skillsets": ["Development"],
         "title": "XML",
-        "description": "Extensible Markup Language for storing and transporting structured data in a human-readable format."
+        "description": "Extensible Markup Language for storing and transporting structured data in a human-readable format.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "ajax",
         "skillsets": ["Development"],
         "title": "AJAX",
-        "description": "Asynchronous JavaScript and XML, a technique for creating dynamic web applications without full page reloads."
+        "description": "Asynchronous JavaScript and XML, a technique for creating dynamic web applications without full page reloads.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "websocket",
+        "skillsets": ["Development"],
+        "title": "WebSocket",
+        "description": "Communication protocol providing full-duplex communication channels over a single TCP connection for real-time web applications.",
+        "type": "personal",
+        "experience": 3
+    },
+    {
+        "slug": "service-workers",
+        "skillsets": ["Development"],
+        "title": "Service Workers",
+        "description": "JavaScript workers that run in the background, enabling offline functionality and background sync for web applications.",
+        "type": "personal",
+        "experience": 3
+    },
+    {
+        "slug": "pwa",
+        "skillsets": ["Development", "UX"],
+        "title": "PWA",
+        "description": "Progressive Web Apps, web applications that provide a native app-like experience with offline support and installability.",
+        "type": "personal",
+        "experience": 3
+    },
+    {
+        "slug": "browser-devtools",
+        "skillsets": ["Development", "Software"],
+        "title": "Browser DevTools",
+        "description": "Built-in browser developer tools like Chrome DevTools and Firefox DevTools for debugging, profiling, and inspecting web applications.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "rest-api",
+        "skillsets": ["Development"],
+        "title": "REST API",
+        "description": "Representational State Transfer API, an architectural style for designing networked applications using HTTP methods.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "soap",
+        "skillsets": ["Development"],
+        "title": "SOAP",
+        "description": "Simple Object Access Protocol, a messaging protocol for exchanging structured information in web services.",
+        "type": "personal",
+        "experience": 1
+    },
+    {
+        "slug": "oauth",
+        "skillsets": ["Development"],
+        "title": "OAuth",
+        "description": "Authorization framework that enables applications to obtain limited access to user accounts on HTTP services.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "jwt",
+        "skillsets": ["Development"],
+        "title": "JWT",
+        "description": "JSON Web Tokens, a compact and self-contained way for securely transmitting information between parties as a JSON object.",
+        "type": "personal",
+        "experience": 1
+    },
+    {
+        "slug": "ssl-tls",
+        "skillsets": ["Development", "DevOps"],
+        "title": "SSL/TLS",
+        "description": "Secure Sockets Layer and Transport Layer Security protocols for encrypting data transmitted over networks.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "https",
+        "skillsets": ["Development", "DevOps"],
+        "title": "HTTPS",
+        "description": "HyperText Transfer Protocol Secure, encrypted version of HTTP that uses SSL/TLS to secure web communications.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "security-best-practices",
+        "skillsets": ["Development", "DevOps"],
+        "title": "Security Best Practices",
+        "description": "Industry-standard security practices and guidelines for developing and deploying secure applications and systems.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "owasp",
+        "skillsets": ["Development", "DevOps"],
+        "title": "OWASP",
+        "description": "Open Web Application Security Project, community-driven organization focused on improving software security.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "ldap",
+        "skillsets": ["Development", "DevOps"],
+        "title": "LDAP",
+        "description": "Lightweight Directory Access Protocol, used for accessing and managing distributed directory information services.",
+        "type": "professional",
+        "experience": 1
+    },
+    {
+        "slug": "two-factor-authentication",
+        "skillsets": ["Development"],
+        "title": "Two-Factor Authentication",
+        "description": "Authentication method requiring two forms of verification to enhance account security beyond passwords.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "encryption",
+        "skillsets": ["Development", "DevOps"],
+        "title": "Encryption",
+        "description": "Process of converting data into a secure format to prevent unauthorized access and protect sensitive information.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "firewall-management",
+        "skillsets": ["DevOps"],
+        "title": "Firewall Management",
+        "description": "Configuration and administration of network firewalls to control incoming and outgoing traffic and protect systems.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "microservices",
+        "skillsets": ["Development"],
+        "title": "Microservices",
+        "description": "Architectural approach to building applications as a collection of small, independent services that communicate over APIs.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "api-gateway",
+        "skillsets": ["Development", "DevOps"],
+        "title": "API Gateway",
+        "description": "Single entry point for managing, routing, and securing API requests across multiple microservices or backend systems.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "postman",
+        "skillsets": ["Development", "Software"],
+        "title": "Postman",
+        "description": "API development and testing platform for designing, testing, and documenting REST APIs and web services.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "swagger",
+        "skillsets": ["Development", "Software"],
+        "title": "Swagger",
+        "description": "OpenAPI specification framework for designing, documenting, and testing RESTful APIs with interactive documentation.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "json",
         "skillsets": ["Development"],
         "title": "JSON",
-        "description": "JavaScript Object Notation, a lightweight data interchange format for storing and transmitting structured data."
+        "description": "JavaScript Object Notation, a lightweight data interchange format for storing and transmitting structured data.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "markdown",
+        "skillsets": ["Development"],
+        "title": "Markdown",
+        "description": "Lightweight markup language for formatting text with plain text syntax, commonly used for documentation and README files.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "yaml",
+        "skillsets": ["Development", "DevOps"],
+        "title": "YAML",
+        "description": "YAML Ain't Markup Language, human-readable data serialization standard used for configuration files and data exchange.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "vanilla-web-components",
         "skillsets": ["Development"],
         "title": "Vanilla Web Components",
-        "description": "Native browser APIs for creating reusable, encapsulated custom HTML elements without frameworks."
+        "description": "Native browser APIs for creating reusable, encapsulated custom HTML elements without frameworks.",
+        "type": "personal",
+        "experience": 4
     },
     {
         "slug": "server-management",
         "skillsets": ["DevOps"],
         "title": "Server Management",
-        "description": "Administration and maintenance of server infrastructure, including configuration, monitoring, and optimization."
+        "description": "Administration and maintenance of server infrastructure, including configuration, monitoring, and optimization.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "linux",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Linux",
+        "description": "Open-source Unix-like operating system for servers, desktops, and embedded systems with extensive command-line tools.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "wsl",
+        "skillsets": ["DevOps", "Software"],
+        "title": "WSL",
+        "description": "Windows Subsystem for Linux, compatibility layer for running Linux binary executables natively on Windows.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "windows-server",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Windows Server",
+        "description": "Microsoft's server operating system for managing network infrastructure, applications, and enterprise services.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "agile",
+        "skillsets": ["Leadership", "DevOps"],
+        "title": "Agile",
+        "description": "Iterative and incremental software development methodology emphasizing collaboration, flexibility, and rapid delivery.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "scrum",
+        "skillsets": ["Leadership", "DevOps"],
+        "title": "Scrum",
+        "description": "Agile framework for managing complex projects through iterative sprints, daily standups, and continuous improvement.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "kanban",
+        "skillsets": ["Leadership", "DevOps"],
+        "title": "Kanban",
+        "description": "Visual workflow management method for tracking work progress and optimizing the flow of tasks through a system.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "nginx",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Nginx",
+        "description": "High-performance web server, reverse proxy, and load balancer for serving web content and managing traffic.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "apache",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Apache",
+        "description": "Apache HTTP Server, widely-used open-source web server software for hosting websites and web applications.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "load-balancing",
+        "skillsets": ["DevOps"],
+        "title": "Load Balancing",
+        "description": "Distributing incoming network traffic across multiple servers to improve performance, reliability, and availability.",
+        "type": "professional",
+        "experience": 1
     },
     {
         "slug": "user-experience-design",
         "skillsets": ["UX"],
         "title": "User Experience Design",
-        "description": "Designing user-centered interfaces and interactions to create meaningful and enjoyable user experiences."
+        "description": "Designing user-centered interfaces and interactions to create meaningful and enjoyable user experiences.",
+        "type": "professional",
+        "experience": 4
     },
     {
         "slug": "web-design",
         "skillsets": ["Design", "UX"],
         "title": "Web Design",
-        "description": "Creating visual designs and layouts for websites, focusing on aesthetics, usability, and user experience."
+        "description": "Creating visual designs and layouts for websites, focusing on aesthetics, usability, and user experience.",
+        "type": "professional",
+        "experience": 4
     },
     {
         "slug": "iphone",
         "skillsets": ["Development"],
         "title": "iPhone",
-        "description": "iOS development for iPhone applications, including native app design and implementation."
+        "description": "iOS development for iPhone applications, including native app design and implementation.",
+        "type": "personal",
+        "experience": 1
     },
     {
         "slug": "multimedia",
         "skillsets": ["Design", "Multimedia"],
         "title": "Multimedia",
-        "description": "Creating and integrating multiple forms of media including graphics, audio, video, and interactive content."
+        "description": "Creating and integrating multiple forms of media including graphics, audio, video, and interactive content.",
+        "type": "personal",
+        "experience": 4
+    },
+    {
+        "slug": "data-visualization",
+        "skillsets": ["Design", "Development"],
+        "title": "Data Visualization",
+        "description": "Creating visual representations of data through charts, graphs, and interactive dashboards to communicate insights.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "analytics",
+        "skillsets": ["Development"],
+        "title": "Analytics",
+        "description": "Analysis of data to discover patterns, trends, and insights that inform decision-making and optimize performance.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "computer-science",
         "skillsets": ["Development", "Computer Science"],
         "title": "Computer Science",
-        "description": "Academic discipline covering algorithms, data structures, software engineering, and computational theory."
+        "description": "Academic discipline covering algorithms, data structures, software engineering, and computational theory.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "game-design",
         "skillsets": ["Design", "Development", "Game Design"],
         "title": "Game Design",
-        "description": "Designing game mechanics, systems, and player experiences to create engaging and enjoyable games."
+        "description": "Designing game mechanics, systems, and player experiences to create engaging and enjoyable games.",
+        "type": "personal",
+        "experience": 4
     },
     {
         "slug": "dnd",
-        "skillsets": ["TTRPGs", "Game Design"],
+        "skillsets": ["TTRPGs"],
         "title": "D&D",
-        "description": "Dungeons & Dragons, the classic tabletop role-playing game system."
+        "description": "Dungeons & Dragons, the classic tabletop role-playing game system.",
+        "type": "personal",
+        "experience": 5
     },
     {
         "slug": "gming",
         "skillsets": ["Writing", "Leadership", "TTRPGs", "Game Design"],
         "title": "GMing",
-        "description": "Game Mastering, the practice of running tabletop role-playing games by narrating stories and managing game sessions."
+        "description": "Game Mastering, the practice of running tabletop role-playing games by narrating stories and managing game sessions.",
+        "type": "personal",
+        "experience": 5
     },
     {
         "slug": "pbta",
-        "skillsets": ["TTRPGs", "Game Design"],
+        "skillsets": ["TTRPGs"],
         "title": "PbtA",
-        "description": "Powered by the Apocalypse"
+        "description": "Powered by the Apocalypse",
+        "type": "personal",
+        "experience": 3
     },
     {
         "slug": "humblewood",
-        "skillsets": ["TTRPGs", "Game Design"],
+        "skillsets": ["TTRPGs"],
         "title": "Humblewood",
-        "description": "Tabletop role-playing game setting featuring anthropomorphic animals in a fantasy woodland world."
+        "description": "Tabletop role-playing game setting featuring anthropomorphic animals in a fantasy woodland world.",
+        "type": "personal",
+        "experience": 3
+    },
+    {
+        "slug": "nimble",
+        "skillsets": ["TTRPGs"],
+        "title": "Nimble",
+        "description": "Lightweight tabletop role-playing game system.",
+        "type": "personal",
+        "experience": 1
+    },
+    {
+        "slug": "genesys",
+        "skillsets": ["TTRPGs"],
+        "title": "Genesys",
+        "description": "Narrative dice system tabletop role-playing game.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "ff-star-wars",
+        "skillsets": ["TTRPGs"],
+        "title": "FF Star Wars",
+        "description": "Fantasy Flight Games Star Wars role-playing game using the Genesys narrative dice system.",
+        "type": "personal",
+        "experience": 3
+    },
+    {
+        "slug": "5e",
+        "skillsets": ["TTRPGs"],
+        "title": "5E",
+        "description": "Dungeons & Dragons 5th Edition, the current edition of the classic tabletop role-playing game.",
+        "type": "personal",
+        "experience": 5
+    },
+    {
+        "slug": "4e",
+        "skillsets": ["TTRPGs"],
+        "title": "4E",
+        "description": "Dungeons & Dragons 4th Edition, a tactical combat-focused edition of D&D.",
+        "type": "personal",
+        "experience": 4
+    },
+    {
+        "slug": "pathfinder",
+        "skillsets": ["TTRPGs"],
+        "title": "Pathfinder",
+        "description": "Tabletop role-playing game based on the D&D 3.5 ruleset with expanded options.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "vampire-5e",
+        "skillsets": ["TTRPGs"],
+        "title": "Vampire 5E",
+        "description": "Vampire: The Masquerade 5th Edition, a modern gothic horror tabletop role-playing game.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "microscope",
+        "skillsets": ["TTRPGs"],
+        "title": "Microscope",
+        "description": "Collaborative storytelling game for creating epic histories across vast spans of time.",
+        "type": "personal",
+        "experience": 1
+    },
+    {
+        "slug": "fate",
+        "skillsets": ["TTRPGs"],
+        "title": "FATE",
+        "description": "FATE Core, a flexible tabletop role-playing game system focused on narrative and character aspects.",
+        "type": "personal",
+        "experience": 1
+    },
+    {
+        "slug": "call-of-cthulhu",
+        "skillsets": ["TTRPGs"],
+        "title": "Call of Cthulhu",
+        "description": "Horror tabletop role-playing game based on H.P. Lovecraft's Cthulhu Mythos.",
+        "type": "personal",
+        "experience": 1
+    },
+    {
+        "slug": "shadowrun",
+        "skillsets": ["TTRPGs"],
+        "title": "Shadowrun",
+        "description": "Cyberpunk-fantasy tabletop role-playing game combining magic and technology in a dystopian future.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "paranoia",
+        "skillsets": ["TTRPGs"],
+        "title": "Paranoia",
+        "description": "Comedic science-fiction tabletop role-playing game set in a dystopian underground city.",
+        "type": "personal",
+        "experience": 1
+    },
+    {
+        "slug": "robotech",
+        "skillsets": ["TTRPGs"],
+        "title": "Robotech",
+        "description": "Tabletop role-playing game based on the Robotech anime series featuring transforming mecha.",
+        "type": "personal",
+        "experience": 1
+    },
+    {
+        "slug": "dungeon-world",
+        "skillsets": ["TTRPGs"],
+        "title": "Dungeon World",
+        "description": "Powered by the Apocalypse fantasy tabletop role-playing game focused on collaborative storytelling.",
+        "type": "personal",
+        "experience": 3
     },
     {
         "slug": "vibe-coding",
         "skillsets": ["AI"],
         "title": "Vibe Coding",
-        "description": "An intuitive approach to programming that emphasizes natural language communication with AI coding assistants."
+        "description": "An intuitive approach to programming that emphasizes natural language communication with AI coding assistants.",
+        "type": "personal",
+        "experience": 2
     },
     {
         "slug": "cursor",
         "skillsets": ["AI", "Software"],
         "title": "Cursor",
-        "description": "AI-powered code editor designed for pair programming with AI assistants."
+        "description": "AI-powered code editor designed for pair programming with AI assistants.",
+        "type": "personal",
+        "experience": 2
     },
     {
         "slug": "github-copilot",
@@ -267,163 +961,617 @@
         "slug": "chatgpt",
         "skillsets": ["AI"],
         "title": "ChatGPT",
-        "description": "Large language model chatbot developed by OpenAI for conversational AI interactions and assistance."
+        "description": "Large language model chatbot developed by OpenAI for conversational AI interactions and assistance.",
+        "type": "personal",
+        "experience": 5
     },
     {
         "slug": "openai",
         "skillsets": ["AI"],
         "title": "OpenAI",
-        "description": "AI research company and platform providing advanced artificial intelligence models and services."
+        "description": "AI research company and platform providing advanced artificial intelligence models and services.",
+        "type": "personal",
+        "experience": 4
     },
     {
         "slug": "openai-api",
         "skillsets": ["AI", "Development"],
         "title": "OpenAI API",
-        "description": "Application programming interface for integrating OpenAI's language models and AI capabilities into applications."
+        "description": "Application programming interface for integrating OpenAI's language models and AI capabilities into applications.",
+        "type": "personal",
+        "experience": 3
     },
     {
         "slug": "azure-ai-foundry",
         "skillsets": ["AI", "Software"],
         "title": "Azure AI Foundry",
-        "description": "Microsoft Azure platform for building, deploying, and managing AI applications and models."
+        "description": "Microsoft Azure platform for building, deploying, and managing AI applications and models.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "claude",
         "skillsets": ["AI"],
         "title": "Claude",
-        "description": "AI assistant developed by Anthropic, designed for helpful, harmless, and honest interactions."
+        "description": "AI assistant developed by Anthropic, designed for helpful, harmless, and honest interactions.",
+        "type": "personal",
+        "experience": 3
     },
     {
         "slug": "github",
         "skillsets": ["Software", "DevOps"],
         "title": "GitHub",
-        "description": "Web-based platform for version control and collaboration using Git repositories."
+        "description": "Web-based platform for version control and collaboration using Git repositories.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "gitlab",
+        "skillsets": ["Software", "DevOps"],
+        "title": "GitLab",
+        "description": "Web-based DevOps platform providing Git repository management, CI/CD pipelines, and project management tools.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "github-actions",
+        "skillsets": ["DevOps", "Software", "Development"],
+        "title": "GitHub Actions",
+        "description": "CI/CD platform integrated with GitHub for automating workflows, testing, and deployment pipelines.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "azure-active-directory",
         "skillsets": ["Software", "DevOps"],
         "title": "Azure Active Directory",
-        "description": "Microsoft's cloud-based identity and access management service for authentication and authorization."
+        "description": "Microsoft's cloud-based identity and access management service for authentication and authorization.",
+        "type": "professional",
+        "experience": 1
     },
     {
         "slug": "azure",
         "skillsets": ["Software", "DevOps"],
         "title": "Azure",
-        "description": "Microsoft's cloud computing platform providing a wide range of services including hosting, storage, and AI."
+        "description": "Microsoft's cloud computing platform providing a wide range of services including hosting, storage, and AI.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "gimp",
         "skillsets": ["Software", "Design", "Multimedia"],
         "title": "Gimp",
-        "description": "GNU Image Manipulation Program, a free and open-source raster graphics editor for image editing and creation."
+        "description": "GNU Image Manipulation Program, a free and open-source raster graphics editor for image editing and creation.",
+        "type": "personal",
+        "experience": 3
     },
     {
         "slug": "davinci-resolve",
         "skillsets": ["Software", "Multimedia"],
         "title": "Davinci Resolve",
-        "description": "Professional video editing, color correction, and post-production software for film and video projects."
+        "description": "Professional video editing, color correction, and post-production software for film and video projects.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "maya",
+        "skillsets": ["Software", "Multimedia", "Game Design"],
+        "title": "Maya",
+        "description": "3D computer graphics software for modeling, animation, simulation, and rendering used in game development and film production.",
+        "type": "personal",
+        "experience": 1
+    },
+    {
+        "slug": "sketchup",
+        "skillsets": ["Software", "Design", "Multimedia"],
+        "title": "SketchUp",
+        "description": "3D modeling software for architectural, interior design, landscape architecture, and engineering applications.",
+        "type": "personal",
+        "experience": 1
     },
     {
         "slug": "obs",
         "skillsets": ["Software", "Multimedia"],
         "title": "OBS",
-        "description": "Open Broadcaster Software, free and open-source software for video recording and live streaming."
+        "description": "Open Broadcaster Software, free and open-source software for video recording and live streaming.",
+        "type": "personal",
+        "experience": 3
     },
     {
         "slug": "vs-code",
         "skillsets": ["Software"],
         "title": "VS Code",
-        "description": "Visual Studio Code, a lightweight but powerful source code editor with extensive extension support."
+        "description": "Visual Studio Code, a lightweight but powerful source code editor with extensive extension support.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "visual-studio",
+        "skillsets": ["Software", "Development"],
+        "title": "Visual Studio",
+        "description": "Microsoft's full-featured integrated development environment for building applications across multiple platforms and languages.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "sublime-text",
+        "skillsets": ["Software"],
+        "title": "Sublime Text",
+        "description": "Sophisticated text editor for code, markup, and prose with powerful features and extensive customization options.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "gitlens",
         "skillsets": ["Software"],
         "title": "GitLens",
-        "description": "Git extension for VS Code that enhances Git capabilities with advanced visualization and insights."
+        "description": "Git extension for VS Code that enhances Git capabilities with advanced visualization and insights.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "winmerge",
+        "skillsets": ["Development", "Software"],
+        "title": "WinMerge",
+        "description": "Windows diff and merge tool for comparing and merging files and folders, highlighting differences visually.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "diffmerge",
+        "skillsets": ["Development", "Software"],
+        "title": "DiffMerge",
+        "description": "Cross-platform diff and merge tool for comparing files, folders, and performing three-way merges.",
+        "type": "personal",
+        "experience": 2
     },
     {
         "slug": "python",
         "skillsets": ["Programming Languages", "Development", "Computer Science"],
         "title": "Python",
-        "description": "High-level programming language known for its simplicity and versatility in web development, data science, and automation."
+        "description": "High-level programming language known for its simplicity and versatility in web development, data science, and automation.",
+        "type": "personal",
+        "experience": 3
     },
     {
         "slug": "brainfuck",
         "skillsets": ["Programming Languages", "Computer Science"],
         "title": "Brainfuck",
-        "description": "Esoteric programming language designed to challenge and amuse programmers with its minimal instruction set."
+        "description": "Esoteric programming language designed to challenge and amuse programmers with its minimal instruction set.",
+        "type": "personal",
+        "experience": 2
     },
     {
         "slug": "graphic-design",
         "skillsets": ["Design"],
         "title": "Graphic Design",
-        "description": "Creating visual content using typography, imagery, and layout to communicate ideas and messages effectively."
+        "description": "Creating visual content using typography, imagery, and layout to communicate ideas and messages effectively.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "typography",
         "skillsets": ["Design"],
         "title": "Typography",
-        "description": "The art and technique of arranging type to make written language legible, readable, and visually appealing."
+        "description": "The art and technique of arranging type to make written language legible, readable, and visually appealing.",
+        "type": "professional",
+        "experience": 4
     },
     {
         "slug": "photography",
         "skillsets": ["Multimedia"],
         "title": "Photography",
-        "description": "The art and practice of capturing images using cameras, focusing on composition, lighting, and visual storytelling."
+        "description": "The art and practice of capturing images using cameras, focusing on composition, lighting, and visual storytelling.",
+        "type": "personal",
+        "experience": 2
     },
     {
         "slug": "three-js",
         "skillsets": ["Development", "Programming Languages"],
         "title": "Three.js",
-        "description": "JavaScript library for creating and displaying 3D graphics and animations in web browsers using WebGL."
+        "description": "JavaScript library for creating and displaying 3D graphics and animations in web browsers using WebGL.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "webgl",
+        "skillsets": ["Development", "Programming Languages"],
+        "title": "WebGL",
+        "description": "JavaScript API for rendering interactive 3D and 2D graphics within web browsers without plugins.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "perlin-noise",
         "skillsets": ["Development", "Computer Science"],
         "title": "Perlin Noise",
-        "description": "A gradient noise function algorithm used for generating natural-looking random patterns in procedural generation."
+        "description": "A gradient noise function algorithm used for generating natural-looking random patterns in procedural generation.",
+        "type": "professional",
+        "experience": 5
     },
     {
         "slug": "a-star",
         "skillsets": ["Development", "Computer Science"],
         "title": "A*",
-        "description": "A* search algorithm, a pathfinding and graph traversal algorithm used to find optimal paths between nodes."
+        "description": "A* search algorithm, a pathfinding and graph traversal algorithm used to find optimal paths between nodes.",
+        "type": "personal",
+        "experience": 5
     },
     {
         "slug": "godot",
         "skillsets": ["Software", "Game Design", "Development"],
         "title": "Godot",
-        "description": "Free and open-source game engine for creating 2D and 3D games with a flexible scene system."
+        "description": "Free and open-source game engine for creating 2D and 3D games with a flexible scene system.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "gamemaker-studio",
+        "skillsets": ["Software", "Game Design", "Development"],
+        "title": "GameMaker Studio",
+        "description": "Cross-platform game development engine for creating 2D games with a visual scripting system and GML programming language.",
+        "type": "personal",
+        "experience": 1
     },
     {
         "slug": "command-line",
         "skillsets": ["DevOps", "Software"],
         "title": "CL",
-        "description": "Command Line interface for interacting with operating systems and executing programs through text-based commands."
+        "description": "Command Line interface for interacting with operating systems and executing programs through text-based commands.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "terminal",
         "skillsets": ["DevOps", "Software"],
         "title": "Terminal",
-        "description": "Text-based interface for executing commands and managing system operations in various operating systems."
+        "description": "Text-based interface for executing commands and managing system operations in various operating systems.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "putty",
+        "skillsets": ["DevOps", "Software"],
+        "title": "PuTTY",
+        "description": "Free SSH and telnet client for Windows, providing secure remote access to servers and network devices.",
+        "type": "personal",
+        "experience": 4
+    },
+    {
+        "slug": "winscp",
+        "skillsets": ["DevOps", "Software"],
+        "title": "WinSCP",
+        "description": "Windows file transfer client using SFTP, SCP, and FTP protocols for secure file management on remote servers.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "filezilla",
+        "skillsets": ["DevOps", "Software"],
+        "title": "FileZilla",
+        "description": "Cross-platform FTP, FTPS, and SFTP client for transferring files between local and remote servers.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "cyberduck",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Cyberduck",
+        "description": "Cross-platform file transfer client supporting FTP, SFTP, WebDAV, and cloud storage services.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "bash-shell-scripting",
+        "skillsets": ["DevOps", "Software", "Development"],
+        "title": "Bash/Shell Scripting",
+        "description": "Writing shell scripts using Bash and other shell languages to automate tasks and system administration.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "powershell",
+        "skillsets": ["DevOps", "Software", "Development"],
+        "title": "PowerShell",
+        "description": "Task automation and configuration management framework from Microsoft, with a command-line shell and scripting language.",
+        "type": "professional",
+        "experience": 2
     },
     {
         "slug": "regex",
         "skillsets": ["Development", "Programming Languages", "Computer Science"],
         "title": "Regex",
-        "description": "Regular expressions, pattern matching syntax used for searching, validating, and manipulating text strings."
+        "description": "Regular expressions, pattern matching syntax used for searching, validating, and manipulating text strings.",
+        "type": "professional",
+        "experience": 3
     },
     {
         "slug": "fetch",
         "skillsets": ["Development", "Programming Languages"],
         "title": "Fetch",
-        "description": "Web API for making HTTP requests to fetch resources asynchronously from servers in web applications."
+        "description": "Web API for making HTTP requests to fetch resources asynchronously from servers in web applications.",
+        "type": "professional",
+        "experience": 4
     },
     {
         "slug": "node",
         "skillsets": ["Development", "Programming Languages", "Software", "DevOps"],
         "title": "Node",
-        "description": "Node.js, JavaScript runtime environment for building server-side applications and command-line tools."
+        "description": "Node.js, JavaScript runtime environment for building server-side applications and command-line tools.",
+        "type": "personal",
+        "experience": 3
+    },
+    {
+        "slug": "npm",
+        "skillsets": ["Development", "Software", "DevOps"],
+        "title": "npm",
+        "description": "Node Package Manager, package manager for JavaScript and the default package manager for Node.js.",
+        "type": "personal",
+        "experience": 3
+    },
+    {
+        "slug": "electron",
+        "skillsets": ["Development", "Software"],
+        "title": "Electron",
+        "description": "Framework for building cross-platform desktop applications using web technologies like HTML, CSS, and JavaScript.",
+        "type": "personal",
+        "experience": 2
+    },
+    {
+        "slug": "webpack",
+        "skillsets": ["Development", "DevOps", "Software"],
+        "title": "Webpack",
+        "description": "Module bundler for JavaScript applications that packages code and assets for production deployment.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "docker",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Docker",
+        "description": "Containerization platform for packaging applications and their dependencies into portable, isolated containers.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "virtualization",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Virtualization",
+        "description": "Creating virtual machines and virtual environments using platforms like VMware, VirtualBox, and Hyper-V.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "logging",
+        "skillsets": ["DevOps", "Development"],
+        "title": "Logging",
+        "description": "Implementing and managing application and system logging using tools like ELK Stack, Splunk, and centralized log management.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "datadog",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Datadog",
+        "description": "Cloud monitoring and analytics platform for infrastructure, applications, and log management with real-time insights.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "splunk",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Splunk",
+        "description": "Platform for searching, monitoring, and analyzing machine-generated big data through a web-style interface.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "performance-optimization",
+        "skillsets": ["Development", "DevOps"],
+        "title": "Performance Optimization",
+        "description": "Improving application and system performance through code optimization, caching strategies, and resource management.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "chef",
+        "skillsets": ["DevOps", "Software"],
+        "title": "Chef",
+        "description": "Configuration management and automation platform for managing infrastructure and application deployment.",
+        "type": "professional",
+        "experience": 1
+    },
+    {
+        "slug": "unit-testing",
+        "skillsets": ["Development"],
+        "title": "Unit Testing",
+        "description": "Testing individual components or functions in isolation to ensure they work correctly before integration.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "integration-testing",
+        "skillsets": ["Development"],
+        "title": "Integration Testing",
+        "description": "Testing how different components or systems work together to ensure they integrate correctly.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "end-to-end-testing",
+        "skillsets": ["Development"],
+        "title": "End-to-End Testing",
+        "description": "Testing complete user workflows from start to finish to verify the entire application works as expected.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "code-review",
+        "skillsets": ["Development", "DevOps"],
+        "title": "Code Review",
+        "description": "Systematic examination of source code to improve code quality, catch bugs, and share knowledge among team members.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "selenium",
+        "skillsets": ["Development", "Software"],
+        "title": "Selenium",
+        "description": "Automated testing framework for web applications that simulates user interactions across different browsers.",
+        "type": "professional",
+        "experience": 2
+    },
+    {
+        "slug": "team-leadership",
+        "skillsets": ["Leadership"],
+        "title": "Team Leadership",
+        "description": "Leading and motivating cross-functional teams to achieve project goals and deliverables.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "mentoring",
+        "skillsets": ["Leadership"],
+        "title": "Mentoring",
+        "description": "Guiding and developing junior developers and team members through knowledge sharing and career development.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "stakeholder-communication",
+        "skillsets": ["Leadership"],
+        "title": "Stakeholder Communication",
+        "description": "Communicating effectively with stakeholders, clients, and executives to align expectations and report progress.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "conflict-resolution",
+        "skillsets": ["Leadership"],
+        "title": "Conflict Resolution",
+        "description": "Identifying and resolving team conflicts and interpersonal issues to maintain a productive work environment.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "strategic-planning",
+        "skillsets": ["Leadership"],
+        "title": "Strategic Planning",
+        "description": "Developing long-term strategies and roadmaps to guide team and organizational objectives.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "decision-making",
+        "skillsets": ["Leadership"],
+        "title": "Decision Making",
+        "description": "Making informed decisions under pressure and with incomplete information to drive team progress.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "delegation",
+        "skillsets": ["Leadership"],
+        "title": "Delegation",
+        "description": "Assigning tasks and responsibilities effectively to team members based on their strengths and capabilities.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "change-management",
+        "skillsets": ["Leadership"],
+        "title": "Change Management",
+        "description": "Leading organizational change initiatives and helping teams adapt to new processes, tools, and methodologies.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "performance-management",
+        "skillsets": ["Leadership"],
+        "title": "Performance Management",
+        "description": "Evaluating team member performance, providing constructive feedback, and setting development goals.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "vision-setting",
+        "skillsets": ["Leadership"],
+        "title": "Vision Setting",
+        "description": "Creating and communicating a clear, compelling vision that inspires and aligns teams toward common goals.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "public-speaking",
+        "skillsets": ["Leadership"],
+        "title": "Public Speaking",
+        "description": "Effectively presenting ideas, strategies, and updates to audiences ranging from small teams to large conferences.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "negotiation",
+        "skillsets": ["Leadership"],
+        "title": "Negotiation",
+        "description": "Reaching mutually beneficial agreements with stakeholders, vendors, and team members through effective communication and compromise.",
+        "type": "professional",
+        "experience": 3
+    },
+    {
+        "slug": "crisis-management",
+        "skillsets": ["Leadership"],
+        "title": "Crisis Management",
+        "description": "Leading teams through critical situations, making rapid decisions, and managing emergencies to minimize impact.",
+        "type": "professional",
+        "experience": 4
+    },
+    {
+        "slug": "process-improvement",
+        "skillsets": ["Leadership"],
+        "title": "Process Improvement",
+        "description": "Analyzing existing workflows and implementing improvements to enhance efficiency, quality, and team productivity.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "cross-cultural-leadership",
+        "skillsets": ["Leadership"],
+        "title": "Cross-cultural Leadership",
+        "description": "Leading diverse, multicultural teams with sensitivity to different cultural perspectives, communication styles, and work practices.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "emotional-intelligence",
+        "skillsets": ["Leadership"],
+        "title": "Emotional Intelligence",
+        "description": "Understanding and managing emotions effectively, both personally and in team interactions, to build strong relationships and drive performance.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "risk-management",
+        "skillsets": ["Leadership"],
+        "title": "Risk Management",
+        "description": "Identifying potential risks, assessing their impact, and developing mitigation strategies to protect project and organizational success.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "innovation-leadership",
+        "skillsets": ["Leadership"],
+        "title": "Innovation Leadership",
+        "description": "Fostering a culture of creativity and innovation, encouraging experimentation, and leading teams to develop breakthrough solutions.",
+        "type": "professional",
+        "experience": 5
+    },
+    {
+        "slug": "time-management",
+        "skillsets": ["Leadership"],
+        "title": "Time Management",
+        "description": "Effectively prioritizing tasks, managing schedules, and optimizing time allocation for maximum productivity and team efficiency.",
+        "type": "professional",
+        "experience": 3
     }
 ]
 

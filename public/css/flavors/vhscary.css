@@ -8,11 +8,26 @@
    ============================================ */
 
 :root {
+    /* Font sizes - h1 uses large size for VHS effect */
+    --font-size-h1: 6rem;
     --text-primary: #FFFEF0;
     --secondary-bg: hsl(0, 30%, 7%);
     --panel-bg: hsl(0, 30%, 7%);
     --tag-bg: hsl(0, 30%, 13%);
     --tag-bg-hover: hsl(0, 30%, 13%);
+    
+    /* Font families */
+    --font-family-base: 'Special Elite', 'Courier New', 'Courier', monospace;
+    --font-family-headings: 'Special Elite', 'Courier New', 'Courier', monospace;
+    --font-family-h1: 'Creepster', 'Special Elite', 'Courier New', monospace;
+    
+    /* Heading colors */
+    --text-h1: red;
+    --text-h2: var(--text-primary);
+    --text-h3: var(--text-primary);
+    --text-h4: var(--text-primary);
+    --text-h5: var(--text-primary);
+    --text-h6: var(--text-primary);
 }
 
 /* ============================================
@@ -60,17 +75,10 @@ body::after {
    TYPOGRAPHY - FONT CHANGES ONLY
    ============================================ */
 
-body {
-    font-family: 'Special Elite', 'Courier New', 'Courier', monospace;
-}
-
 h1 {
-    font-family: 'Creepster', 'Special Elite', 'Courier New', monospace;
-    font-size: 3.5rem;
-}
-
-h2, h3, h4, h5, h6 {
-    font-family: 'Special Elite', 'Courier New', 'Courier', monospace;
+    font-size: 13.5cqw;
+    line-height: 1;
+    animation: vhs-flicker 8s infinite;
 }
 
 /* ============================================
@@ -124,6 +132,60 @@ h1 {
         4px 4px 0 hsl(0, 30%, 5%),
         5px 5px 0 hsl(0, 30%, 5%),
         6px 6px 0 hsl(0, 30%, 5%);
+}
+
+/* VHS Flicker Animation - flickers text color to match drop shadow 3-10 times, repeated 3 times with varied counts */
+@keyframes vhs-flicker {
+    /* First flicker sequence (0-33%) - 4 flickers */
+    0% { color: red; }
+    0.6% { color: hsl(0, 30%, 5%); }
+    1% { color: red; }
+    1.4% { color: hsl(0, 30%, 5%); }
+    1.8% { color: red; }
+    2.2% { color: hsl(0, 30%, 5%); }
+    2.6% { color: red; }
+    3% { color: hsl(0, 30%, 5%); }
+    3.4% { color: red; }
+    
+    /* Second flicker sequence (33-66%) - 9 flickers */
+    33% { color: red; }
+    33.2% { color: hsl(0, 30%, 5%); }
+    33.4% { color: red; }
+    33.6% { color: hsl(0, 30%, 5%); }
+    33.8% { color: red; }
+    34% { color: hsl(0, 30%, 5%); }
+    34.2% { color: red; }
+    34.4% { color: hsl(0, 30%, 5%); }
+    34.6% { color: red; }
+    34.8% { color: hsl(0, 30%, 5%); }
+    35% { color: red; }
+    35.2% { color: hsl(0, 30%, 5%); }
+    35.4% { color: red; }
+    35.6% { color: hsl(0, 30%, 5%); }
+    35.8% { color: red; }
+    36% { color: hsl(0, 30%, 5%); }
+    36.2% { color: red; }
+    36.4% { color: hsl(0, 30%, 5%); }
+    36.6% { color: red; }
+    36.8% { color: hsl(0, 30%, 5%); }
+    37% { color: red; }
+    
+    /* Third flicker sequence (66-100%) - 6 flickers */
+    66% { color: red; }
+    66.3% { color: hsl(0, 30%, 5%); }
+    66.6% { color: red; }
+    66.9% { color: hsl(0, 30%, 5%); }
+    67.2% { color: red; }
+    67.5% { color: hsl(0, 30%, 5%); }
+    67.8% { color: red; }
+    68.1% { color: hsl(0, 30%, 5%); }
+    68.4% { color: red; }
+    68.7% { color: hsl(0, 30%, 5%); }
+    69% { color: red; }
+    69.3% { color: hsl(0, 30%, 5%); }
+    69.6% { color: red; }
+    
+    100% { color: red; }
 }
 
 /* ============================================

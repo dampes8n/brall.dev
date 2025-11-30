@@ -48,20 +48,20 @@ class BProjects extends (window.BJsonLoader || HTMLElement) {
             const endDate = project.end ? BDate.formatDate(project.end) : 'Present';
             html += `<p><time>${startDate} - ${endDate}</time></p>`;
             
-            // Metadata section with domain, subdomain, and skillsets
+            // Tags section with domain, subdomain, and skillsets
             if (project.domain || project.subdomain || (project.skillsets && project.skillsets.length > 0)) {
-                html += `<nav class="metadata">`;
+                html += `<nav class="tags">`;
                 if (project.domain) {
-                    html += `<span class="timeline-domain">${this.escapeHtml(project.domain)}</span>`;
+                    html += `<span class="tag timeline-domain">${this.escapeHtml(project.domain)}</span>`;
                 }
                 if (project.subdomain) {
                     const subdomainLink = this.slugify(project.subdomain);
-                    html += `<a href="#!/subdomains/${subdomainLink}">${this.escapeHtml(project.subdomain)}</a>`;
+                    html += `<a href="#!/subdomains/${subdomainLink}" class="tag">${this.escapeHtml(project.subdomain)}</a>`;
                 }
                 if (project.skillsets && project.skillsets.length > 0) {
                     project.skillsets.forEach(skillset => {
                         const slug = this.slugify(skillset);
-                        html += `<a href="#!/skillsets/${slug}">${this.escapeHtml(skillset)}</a>`;
+                        html += `<a href="#!/skillsets/${slug}" class="tag">${this.escapeHtml(skillset)}</a>`;
                     });
                 }
                 html += `</nav>`;

@@ -5,7 +5,7 @@
         "subdomain": "ZeniMax Online Studios",
         "start": "2013-01",
         "end": null,
-        "skillsets": ["Development", "Design", "UX", "Leadership"],
+        "skillsets": ["Development", "Leadership", "AI", "Databases", "DevOps"],
         "title": "The Elder Scrolls Online",
         "description": "Multiple redesigns and rebuilds, case studies on 3D backgrounds and hotloading, patcher rebuilds"
     },
@@ -15,7 +15,7 @@
         "subdomain": "ZeniMax Online Studios",
         "start": "2020-mid",
         "end": "2025-07-02",
-        "skillsets": ["Development", "Design", "UX", "Leadership"],
+        "skillsets": ["Development"],
         "title": "Unannounced Game",
         "description": "Greenlit mid-2020, canceled July 2nd, 2025"
     },
@@ -25,7 +25,7 @@
         "subdomain": "ZeniMax Online Studios",
         "start": "2018",
         "end": "2019-late",
-        "skillsets": ["Development", "Design", "UX", "Leadership"],
+        "skillsets": ["Development", "Design", "UX"],
         "title": "Commander Keen",
         "description": "Announced June 9th, 2019, canceled late 2019"
     },
@@ -45,7 +45,7 @@
         "subdomain": "ZeniMax Online Studios",
         "start": null,
         "end": null,
-        "skillsets": ["Development", "Design", "UX", "Leadership"],
+        "skillsets": ["Development", "Design", "UX", "Leadership", "AI", "Databases", "DevOps"],
         "title": "APE",
         "description": "Laravel years and frameworkless rebuild"
     },
@@ -65,7 +65,7 @@
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
         "end": "2013",
-        "skillsets": ["Development", "DevOps", "Databases", "Leadership"],
+        "skillsets": ["Development", "DevOps", "Databases", "Leadership", "UX"],
         "title": "CORE CMS",
         "description": "Content Management System complete with community tools that enabled Public Affairs Officers to coordinate efforts, and a widgetized page management tool"
     },
@@ -75,7 +75,7 @@
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
         "end": "2013",
-        "skillsets": ["Development", "DevOps", "Databases"],
+        "skillsets": ["Development", "DevOps", "Databases", "UX"],
         "title": "My.Army.mil",
         "description": "iGoogle-like customizable homepage that allows users to pick and choose what Army content they are interested in seeing"
     },
@@ -85,7 +85,7 @@
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
         "end": "2013",
-        "skillsets": ["Development", "Design"],
+        "skillsets": ["Game Design"],
         "title": "Army App",
         "description": "US Army News & Information iPhone app, one of the first government apps. Powered by CORE and also with a game I designed"
     },
@@ -105,7 +105,7 @@
         "subdomain": "NASA/Goddard Space Flight Center/Mantech",
         "start": "2007",
         "end": null,
-        "skillsets": ["Development", "DevOps"],
+        "skillsets": ["Development", "Databases"],
         "title": "SMA",
         "description": "Safety and Mission Assurance"
     },
@@ -125,7 +125,7 @@
         "subdomain": "Life",
         "start": "2013-07",
         "end": "2014-early",
-        "skillsets": ["Development", "Design"],
+        "skillsets": ["Development", "Design", "UX", "TTRPGs", "Writing", "Leadership"],
         "title": "The Bronze Coin",
         "description": null
     },
@@ -135,7 +135,7 @@
         "subdomain": "Life",
         "start": null,
         "end": null,
-        "skillsets": ["Development", "Design", "UX"],
+        "skillsets": ["Development", "Design", "UX", "Writing", "Leadership", "AI", "Databases", "DevOps"],
         "title": "This Portfolio Site",
         "description": null
     },
@@ -145,7 +145,7 @@
         "subdomain": "TTRPGs",
         "start": "2011",
         "end": "2014",
-        "skillsets": ["Writing", "Leadership"],
+        "skillsets": ["Writing", "Leadership", "TTRPGs"],
         "title": "Truugahn",
         "description": "D&D 4E campaign. My first campaign in adulthood after a long gap since childhood. Standard fantasy on a version of Earth in the deep future where some god had cut Earth in half"
     },
@@ -155,7 +155,7 @@
         "subdomain": "TTRPGs",
         "start": "2014-mid",
         "end": "2016-10",
-        "skillsets": ["Writing", "Leadership"],
+        "skillsets": ["Writing", "Leadership", "TTRPGs"],
         "title": "Bonewall",
         "description": "D&D 5E campaign. What happens if the party kills a purple worm on day one, one that had a bellyache from eating through a vault filled with the thieves' guild's fortune?"
     },
@@ -165,7 +165,7 @@
         "subdomain": "TTRPGs",
         "start": "2015-07",
         "end": "2016-mid",
-        "skillsets": ["Writing", "Leadership"],
+        "skillsets": ["Writing", "Leadership", "TTRPGs", "Game Design"],
         "title": "Comedy of Justice",
         "description": "D&D 5E campaign. We all showed up to play D&D, but the apocalypse happened instead. The DM was grabbed by a demon and dragged to Hell, monsters are flying around shooting lasers, and the only weapon anyone can find is a book. The BBEG was Ceres from Evoland 2"
     },
@@ -175,7 +175,7 @@
         "subdomain": "TTRPGs",
         "start": "2016-10",
         "end": "2017-mid",
-        "skillsets": ["Writing", "Leadership"],
+        "skillsets": ["Writing", "Leadership", "TTRPGs", "Game Design", "Development"],
         "title": "Isle of Glass Statues",
         "description": "D&D 5E campaign. Ultimately had 15 players across four groups. Washed up on a deserted island, shifting between obsidian statues and corporal form, players have to survive extreme hostility on an ever-changing landscape"
     },
@@ -185,7 +185,7 @@
         "subdomain": "TTRPGs",
         "start": "2018-04",
         "end": "2019-10-12",
-        "skillsets": ["Writing", "Leadership"],
+        "skillsets": ["Writing", "Leadership", "TTRPGs"],
         "title": "Truugahn II",
         "description": "D&D 5E campaign. A continuation of my first campaign, Truugahn turned out to secretly be the old god of death, trying to reclaim his domain"
     },
@@ -195,7 +195,7 @@
         "subdomain": "TTRPGs",
         "start": "2019-07",
         "end": "2020-mid",
-        "skillsets": ["Writing", "Leadership"],
+        "skillsets": ["Writing", "Leadership", "TTRPGs"],
         "title": "Papaku Vai",
         "description": "D&D 5E campaign. A vacation island paradise with a dark undercurrent"
     },
@@ -205,7 +205,7 @@
         "subdomain": "TTRPGs",
         "start": "2021-07",
         "end": "2021-08",
-        "skillsets": ["Writing", "Leadership"],
+        "skillsets": ["Writing", "Leadership", "TTRPGs"],
         "title": "Crumblewood",
         "description": "D&D 5E and Humblewood campaign. A zombie apocalypse in the world of Humblewood. Played outside in a wedding tent in a field"
     },
@@ -215,7 +215,7 @@
         "subdomain": "TTRPGs",
         "start": "2021-07",
         "end": "2023-mid",
-        "skillsets": ["Writing", "Leadership"],
+        "skillsets": ["Writing", "Leadership", "TTRPGs", "Game Design"],
         "title": "Repocalypse (Comedy of Justice II)",
         "description": "D&D 5E and PbtA campaign. A continuation of Comedy of Justice I with new players - still all playing themselves. Ceres survived the first campaign by living inside me"
     },
@@ -225,7 +225,7 @@
         "subdomain": "TTRPGs",
         "start": "2023-03",
         "end": null,
-        "skillsets": ["Writing", "Leadership"],
+        "skillsets": ["Writing", "Leadership", "TTRPGs"],
         "title": "Halfling Baked",
         "description": "D&D 5E campaign. Cherry Grass-seed left his band, the Warlocks, over 100 years ago. He's now 270 years old and resolved to go on one last hurrah. The Halfling Bard has hired a half-dozen hale and hearty music lovers as his road crew"
     },
@@ -235,7 +235,7 @@
         "subdomain": "TTRPGs",
         "start": "2024-07-21",
         "end": "2024-07-27",
-        "skillsets": ["Writing", "Leadership"],
+        "skillsets": ["Writing", "Leadership", "TTRPGs", "Game Design", "Development"],
         "title": "Isle of Glass Statues II",
         "description": "D&D 5E campaign at Dan Wells, Game Night Getaway '24. The game went exceptionally well with 16 players in total over the course of the week, and around 50 hours of play time. They solved the island on the final day"
     }

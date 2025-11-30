@@ -312,7 +312,7 @@
                     if (filteredProjects.length > 0) {
                         html += `<section class="related">`;
                         html += `<h2>Projects</h2>`;
-                        html += `<nav class="tag-list">`;
+                        html += `<nav class="tags">`;
                         filteredProjects.forEach(project => {
                             html += `<a href="#!/projects/${project.slug}" class="tag">${this.escapeHtml(project.title)}</a>`;
                         });
@@ -323,7 +323,7 @@
                     if (filteredEvents.length > 0) {
                         html += `<section class="related">`;
                         html += `<h2>Timeline Events</h2>`;
-                        html += `<nav class="tag-list">`;
+                        html += `<nav class="tags">`;
                         filteredEvents.forEach(event => {
                             const eventDate = BDate.formatDate(event.date || 'Unknown');
                             html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
@@ -377,9 +377,11 @@
                         e.skillsets && e.skillsets.includes(skillsetName)
                     );
                     
+                    const totalCount = filteredSkills.length + filteredProjects.length + filteredEvents.length;
+                    
                     // Create HTML for skillset page
                     let html = `<article>`;
-                    html += `<h1>${this.escapeHtml(skillsetName)}</h1>`;
+                    html += `<h1>${this.escapeHtml(skillsetName)} <span>(${totalCount})</span></h1>`;
                     
                     if (skillset.description) {
                         html += `<p>${skillset.description}</p>`;
@@ -388,9 +390,10 @@
                     if (filteredSkills.length > 0) {
                         html += `<section class="related">`;
                         html += `<h2>Skills</h2>`;
-                        html += `<nav class="tag-list">`;
+                        html += `<nav class="tags">`;
                         filteredSkills.forEach(skill => {
-                            html += `<a href="#!/skills/${skill.slug}" class="tag">${this.escapeHtml(skill.title)}</a>`;
+                            const level = (typeof skill.experience === 'number' && skill.experience >= 1 && skill.experience <= 5) ? skill.experience : '';
+                            html += `<a href="#!/skills/${skill.slug}" class="tag"><b-xp level="${level}"></b-xp>${this.escapeHtml(skill.title)}</a>`;
                         });
                         html += `</nav>`;
                         html += `</section>`;
@@ -399,7 +402,7 @@
                     if (filteredProjects.length > 0) {
                         html += `<section class="related">`;
                         html += `<h2>Projects</h2>`;
-                        html += `<nav class="tag-list">`;
+                        html += `<nav class="tags">`;
                         filteredProjects.forEach(project => {
                             html += `<a href="#!/projects/${project.slug}" class="tag">${this.escapeHtml(project.title)}</a>`;
                         });
@@ -410,7 +413,7 @@
                     if (filteredEvents.length > 0) {
                         html += `<section class="related">`;
                         html += `<h2>Timeline Events</h2>`;
-                        html += `<nav class="tag-list">`;
+                        html += `<nav class="tags">`;
                         filteredEvents.forEach(event => {
                             const eventDate = BDate.formatDate(event.date || 'Unknown');
                             html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
@@ -482,7 +485,7 @@
                     if (item.description) {
                         html += `<p>${item.description}</p>`;
                     }
-                    html += `<nav class="metadata">`;
+                    html += `<nav class="tags">`;
                     if (item.domain) {
                         html += `<span class="tag timeline-domain">${this.escapeHtml(item.domain)}</span>`;
                     }
@@ -493,7 +496,7 @@
                     if (item.skillsets && item.skillsets.length > 0) {
                         item.skillsets.forEach(skillset => {
                             const slug = skillset.toLowerCase().replace(/\s+/g, '-');
-                            html += `<a href="#!/skillsets/${slug}">${this.escapeHtml(skillset)}</a>`;
+                            html += `<a href="#!/skillsets/${slug}" class="tag">${this.escapeHtml(skillset)}</a>`;
                         });
                     }
                     html += `</nav>`;
@@ -505,7 +508,7 @@
                     if (relatedEvents.length > 0) {
                         html += `<section class="related">`;
                         html += `<h2>Related Timeline Events</h2>`;
-                        html += `<nav class="tag-list">`;
+                        html += `<nav class="tags">`;
                         relatedEvents.forEach(event => {
                             const eventDate = BDate.formatDate(event.date || 'Unknown');
                             html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
@@ -515,10 +518,29 @@
                     }
                 } else if (jsonFile === 'skills.json') {
                     html += `<h1>${this.escapeHtml(item.title)}</h1>`;
+
+                    // Skill experience and type indicator (detail view)
+                    const levelValue = typeof item.experience === 'number' ? item.experience : null;
+                    const typeValue = item.type === 'professional' || item.type === 'personal' ? item.type : null;
+                    if (levelValue) {
+                        const levelInt = Math.max(1, Math.min(5, levelValue));
+                        let levelWord = 'Novice';
+                        switch (levelInt) {
+                            case 1: levelWord = 'Novice'; break;
+                            case 2: levelWord = 'Moderate'; break;
+                            case 3: levelWord = 'Average'; break;
+                            case 4: levelWord = 'Expert'; break;
+                            case 5: levelWord = 'Master'; break;
+                        }
+                        const typeLabel = typeValue ? (typeValue.charAt(0).toUpperCase() + typeValue.slice(1)) : '';
+                        const stars = '★★★★★'.slice(0, levelInt) + '☆☆☆☆☆'.slice(0, 5 - levelInt);
+                        html += `<h2 class="skill-xp"><span class="skill-xp-stars" aria-hidden="true">${stars}</span> · <span class="sr-only">${levelWord} skill level (${levelInt} of 5)${typeLabel ? ', ' + typeLabel : ''}. </span><span class="skill-xp-label">${levelWord}</span>${typeLabel ? `<span class="skill-xp-type"> · ${typeLabel}</span>` : ''}</h2>`;
+                    }
+
                     if (item.description) {
                         html += `<p>${item.description}</p>`;
                     }
-                    html += `<nav class="metadata">`;
+                    html += `<nav class="tags">`;
                     if (item.skillsets && item.skillsets.length > 0) {
                         item.skillsets.forEach(skillset => {
                             const slug = skillset.toLowerCase().replace(/\s+/g, '-');
@@ -539,7 +561,7 @@
                     if (relatedProjects.length > 0) {
                         html += `<section class="related">`;
                         html += `<h2>Projects using the same Skillsets</h2>`;
-                        html += `<nav class="tag-list">`;
+                        html += `<nav class="tags">`;
                         relatedProjects.forEach(project => {
                             html += `<a href="#!/projects/${project.slug}" class="tag">${this.escapeHtml(project.title)}</a>`;
                         });
@@ -550,7 +572,7 @@
                     if (relatedEvents.length > 0) {
                         html += `<section class="related">`;
                         html += `<h2>Timeline Events</h2>`;
-                        html += `<nav class="tag-list">`;
+                        html += `<nav class="tags">`;
                         relatedEvents.forEach(event => {
                             const eventDate = BDate.formatDate(event.date || 'Unknown');
                             html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
@@ -567,7 +589,7 @@
                     // Handle slashes in subdomain names
                     const subdomainLink = subdomain ? this.slugify(subdomain) : '';
                     const subdomainHtml = subdomain ? 
-                        `<a href="#!/subdomains/${subdomainLink}">${this.escapeHtml(subdomain)}</a>` : 
+                        `<a href="#!/subdomains/${subdomainLink}" class="tag">${this.escapeHtml(subdomain)}</a>` : 
                         '';
                     
                     // Rebuild article tag with data-domain attribute
@@ -581,7 +603,7 @@
                     if (item.description) {
                         html += `<p>${item.description}</p>`;
                     }
-                    html += `<nav class="metadata">`;
+                    html += `<nav class="tags">`;
                     if (domain) {
                         html += `<span class="tag timeline-domain">${this.escapeHtml(domain)}</span>`;
                     }
@@ -609,7 +631,8 @@
                         item.skills.forEach(skillName => {
                             const skill = skills.find(s => s.title === skillName);
                             if (skill) {
-                                html += `<a href="#!/skills/${skill.slug}" class="tag">${this.escapeHtml(skillName)}</a>`;
+                                const level = (typeof skill.experience === 'number' && skill.experience >= 1 && skill.experience <= 5) ? skill.experience : '';
+                                html += `<a href="#!/skills/${skill.slug}" class="tag"><b-xp level="${level}"></b-xp>${this.escapeHtml(skillName)}</a>`;
                             } else {
                                 html += `<span class="tag">${this.escapeHtml(skillName)}</span>`;
                             }

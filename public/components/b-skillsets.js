@@ -70,56 +70,40 @@ class BSkillsets extends (window.BJsonLoader || HTMLElement) {
         // Group skills by skillset
         skillsets.forEach(skillset => {
             const slug = this.slugify(skillset);
-            html += `<div class="skillset-group">`;
-            html += `<h3><a href="#!/skillsets/${slug}">${this.escapeHtml(skillset)}</a></h3>`;
             
-            // Find all skills in this skillset
+            // Count skills in this skillset (only counting skills since that's what we display)
             const skillsInSkillset = this.skills.filter(skill => 
                 skill.skillsets && skill.skillsets.includes(skillset)
             );
+            const skillsCount = skillsInSkillset.length;
+            
+            html += `<div class="skillset-group">`;
+            html += `<h3><a href="#!/skillsets/${slug}">${this.escapeHtml(skillset)} <span>(${skillsCount})</span></a></h3>`;
             
             if (skillsInSkillset.length > 0) {
-                // Count how many times each skill appears in projects and timeline events
-                const skillCounts = new Map();
-                skillsInSkillset.forEach(skill => {
-                    let count = 0;
-                    // Count projects that share the same skillset
-                    this.projects.forEach(project => {
-                        if (project.skillsets && project.skillsets.includes(skillset)) {
-                            count++;
-                        }
-                    });
-                    // Count timeline events that reference this skill
-                    this.timelineEvents.forEach(event => {
-                        if (event.skills && event.skills.includes(skill.title)) {
-                            count++;
-                        }
-                    });
-                    skillCounts.set(skill, count);
-                });
-                
-                // Sort skills by count (descending)
+                // Sort skills: first by experience level (descending - Master first), then alphabetically
                 const sortedSkills = skillsInSkillset.sort((a, b) => {
-                    return skillCounts.get(b) - skillCounts.get(a);
+                    const aExp = (typeof a.experience === 'number' && a.experience >= 1 && a.experience <= 5) ? a.experience : 0;
+                    const bExp = (typeof b.experience === 'number' && b.experience >= 1 && b.experience <= 5) ? b.experience : 0;
+                    // First sort by experience (descending)
+                    if (bExp !== aExp) {
+                        return bExp - aExp;
+                    }
+                    // Then sort alphabetically by title
+                    return (a.title || '').localeCompare(b.title || '', undefined, { sensitivity: 'base' });
                 });
                 
-                // Calculate min and max counts for font size scaling
-                const counts = Array.from(skillCounts.values());
-                const minCount = Math.min(...counts);
-                const maxCount = Math.max(...counts);
-                const minSize = 0.9; // rem
-                const maxSize = 1.8; // rem
+                // Font size scaling based on experience (1-5)
+                const minSize = 0.9; // rem (Novice)
+                const maxSize = 1.8; // rem (Master)
                 
-                html += `<div class="skillset-tag-cloud">`;
+                html += `<div class="tags">`;
                 sortedSkills.forEach(skill => {
-                    const count = skillCounts.get(skill);
-                    // Calculate font size based on count
-                    let fontSize = minSize;
-                    if (maxCount > minCount) {
-                        const ratio = (count - minCount) / (maxCount - minCount);
-                        fontSize = minSize + (ratio * (maxSize - minSize));
-                    }
-                    html += `<a href="#!/skills/${skill.slug}" class="tag" style="font-size: ${fontSize}rem;">${this.escapeHtml(skill.title)}</a>`;
+                    const level = (typeof skill.experience === 'number' && skill.experience >= 1 && skill.experience <= 5) ? skill.experience : 1;
+                    // Calculate font size based on experience level (1-5 maps to minSize-maxSize)
+                    const ratio = (level - 1) / 4; // 0 for level 1, 1 for level 5
+                    const fontSize = minSize + (ratio * (maxSize - minSize));
+                    html += `<a href="#!/skills/${skill.slug}" class="tag" style="font-size: ${fontSize}rem;"><b-xp level="${level}"></b-xp>${this.escapeHtml(skill.title)}</a>`;
                 });
                 html += `</div>`;
             }

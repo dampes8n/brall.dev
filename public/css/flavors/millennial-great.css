@@ -3,6 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Bebas+Neue&family=Love+Light&display=swap');
 
 :root {
+    /* Font sizes - h1 is larger for Love Light font */
+    --font-size-h1: 3rem;
+    
+    /* Font families */
+    --font-family-base: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-headings: 'Bebas Neue', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-h1: 'Love Light', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+:root {
     /* Domain colors - using core colors */
     --timeline-academic: hsl(283, 39%, 53%);
     --timeline-employed: hsl(140, 49%, 54%);
@@ -26,18 +36,14 @@
 }
 
 body {
-    font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    color: hsl(0, 0%, 100%);
     background-color: hsl(0, 0%, 15%);
     text-shadow: 1px 1px 0 black;
 }
 
 /* Headings - mostly white */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bebas Neue', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
     letter-spacing: 0.05em;
-    color: hsl(0, 0%, 100%);
 }
 
 h2 {
@@ -46,8 +52,6 @@ h2 {
 
 /* H1 uses Love Light for elegant millennial style */
 h1 {
-    font-family: 'Love Light', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 3rem;
     font-weight: bold;
     letter-spacing: 0.03em;
     text-shadow: 1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black, 4px 4px 0 black;
@@ -82,9 +86,9 @@ a[href^="#!"]:hover {
     color: hsl(0, 0%, 95%);
 }
 
-/* Metadata and secondary text */
-.metadata,
-.metadata time {
+/* Tags and secondary text */
+.tags,
+.tags time {
     color: hsl(0, 0%, 85%);
 }
 
@@ -155,33 +159,33 @@ a.tag:hover {
     text-decoration: underline;
 }
 
-/* Legacy metadata selectors - should use .tag class */
-.metadata > span,
-.metadata > a {
+/* Legacy tags selectors - should use .tag class */
+.tags > span,
+.tags > a {
     /* Fallback for legacy - should use .tag class */
     background: var(--tag-bg);
 }
 
-.metadata > span {
+.tags > span {
     color: hsl(0, 0%, 100%);
 }
 
-.metadata > a:hover {
+.tags > a:hover {
     background: var(--tag-bg-hover);
 }
 
-/* Timeline metadata - all should use .tag class */
-.timeline-content .metadata > span,
-.timeline-content .metadata > a {
+/* Timeline tags - all should use .tag class */
+.timeline-content .tags > span,
+.timeline-content .tags > a {
     /* Fallback for legacy - should use .tag class */
     background: var(--tag-bg);
 }
 
-.timeline-content .metadata > span {
+.timeline-content .tags > span {
     color: hsl(0, 0%, 100%);
 }
 
-.timeline-content .metadata > a:hover {
+.timeline-content .tags > a:hover {
     background: var(--tag-bg-hover);
 }
 
