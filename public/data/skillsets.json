@@ -2,72 +2,99 @@
     {
         "slug": "computer-science",
         "title": "Computer Science",
-        "description": "Academic discipline covering algorithms, data structures, software engineering, and computational theory."
+        "description": "<img src=\"img/skillsets/computer-science_1000w.jpg\" alt=\"\" />\nAcademic discipline covering algorithms, data structures, software engineering, and computational theory.",
+        "image_photographer": "Kevin Ku",
+        "image_photographer_url": "https://www.pexels.com/@kevin-ku-92347"
     },
     {
         "slug": "databases",
         "title": "Databases",
-        "description": "Systems and technologies for storing, managing, and retrieving structured data efficiently."
+        "description": "<img src=\"img/skillsets/databases_1000w.jpg\" alt=\"\" />\nSystems and technologies for storing, managing, and retrieving structured data efficiently.",
+        "image_photographer": "Tima Miroshnichenko",
+        "image_photographer_url": "https://www.pexels.com/@tima-miroshnichenko"
     },
     {
         "slug": "design",
         "title": "Design",
-        "description": "Creating visual and interactive designs for digital products, focusing on aesthetics and user experience."
+        "description": "<img src=\"img/skillsets/design_1000w.jpg\" alt=\"\" />\nCreating visual and interactive designs for digital products, focusing on aesthetics and user experience.",
+        "image_photographer": "Tranmautritam",
+        "image_photographer_url": "https://www.pexels.com/@tranmautritam"
     },
     {
         "slug": "devops",
         "title": "DevOps",
-        "description": "Practices combining software development and IT operations to shorten development cycles and improve deployment reliability."
+        "description": "<img src=\"img/skillsets/devops_1000w.jpg\" alt=\"\" />\nPractices combining software development and IT operations to shorten development cycles and improve deployment reliability.",
+        "image_photographer": "Kevin Ku",
+        "image_photographer_url": "https://www.pexels.com/@kevin-ku-92347"
     },
     {
         "slug": "development",
         "title": "Development",
-        "description": "Building and creating software applications, websites, and digital solutions through programming and technical implementation."
+        "description": "<img src=\"img/skillsets/development_1000w.jpg\" alt=\"\" />\nBuilding and creating software applications, websites, and digital solutions through programming and technical implementation.",
+        "image_photographer": "Christina Morillo",
+        "image_photographer_url": "https://www.pexels.com/@divinetechygirl"
     },
     {
         "slug": "game-design",
         "title": "Game Design",
-        "description": "Designing game mechanics, systems, and player experiences to create engaging and enjoyable games."
+        "description": "<img src=\"img/skillsets/game-design_1000w.jpg\" alt=\"\" />\nDesigning game mechanics, systems, and player experiences to create engaging and enjoyable games.",
+        "image_photographer": "Francesco Ungaro",
+        "image_photographer_url": "https://www.pexels.com/@francesco-ungaro"
     },
     {
         "slug": "leadership",
         "title": "Leadership",
-        "description": "Guiding teams, making strategic decisions, and fostering collaboration to achieve organizational goals."
+        "description": "<img src=\"img/skillsets/leadership_1000w.jpg\" alt=\"\" />\nGuiding teams, making strategic decisions, and fostering collaboration to achieve organizational goals.",
+        "image_photographer": "Miguel Á. Padriñán",
+        "image_photographer_url": "https://www.pexels.com/@padrinan"
     },
     {
         "slug": "multimedia",
         "title": "Multimedia",
-        "description": "Creating and integrating multiple forms of media including graphics, audio, video, and interactive content."
+        "description": "<img src=\"img/skillsets/multimedia_1000w.jpg\" alt=\"\" />\nCreating and integrating multiple forms of media including graphics, audio, video, and interactive content.",
+        "image_photographer": "Format",
+        "image_photographer_url": "https://www.pexels.com/@format-380633"
     },
     {
         "slug": "programming-languages",
         "title": "Programming Languages",
-        "description": "Languages and syntaxes used to write code and create software applications across various platforms."
+        "description": "<img src=\"img/skillsets/programming-languages_1000w.jpg\" alt=\"A woman coding on a laptop in a modern office environment with multiple monitors.\" />\nLanguages and syntaxes used to write code and create software applications across various platforms.",
+        "image_photographer": "Christina Morillo",
+        "image_photographer_url": "https://www.pexels.com/@divinetechygirl"
     },
     {
         "slug": "software",
         "title": "Software",
-        "description": "Tools, applications, and platforms used for development, design, collaboration, and system management."
+        "description": "<img src=\"img/skillsets/software_1000w.jpg\" alt=\"\" />\nTools, applications, and platforms used for development, design, collaboration, and system management.",
+        "image_photographer": "luis gomes",
+        "image_photographer_url": "https://www.pexels.com/@luis-gomes-166706"
     },
     {
         "slug": "ttrpgs",
         "title": "TTRPGs",
-        "description": "Tabletop role-playing games, collaborative storytelling experiences played with dice, rules, and imagination."
+        "description": "<img src=\"img/skillsets/ttrpgs_1000w.jpg\" alt=\"\" />\nTabletop role-playing games, collaborative storytelling experiences played with dice, rules, and imagination.",
+        "image_photographer": "Karola G",
+        "image_photographer_url": "https://www.pexels.com/@karola-g"
     },
     {
         "slug": "ux",
         "title": "UX",
-        "description": "User Experience design, focusing on creating intuitive, accessible, and enjoyable interactions between users and products."
+        "description": "<img src=\"img/skillsets/ux_1000w.jpg\" alt=\"\" />\nUser Experience design, focusing on creating intuitive, accessible, and enjoyable interactions between users and products.",
+        "image_photographer": "picjumbo.com",
+        "image_photographer_url": "https://www.pexels.com/@picjumbo-com-55570"
     },
     {
         "slug": "writing",
         "title": "Writing",
-        "description": "Creating written content including creative writing, technical documentation, and narrative storytelling."
+        "description": "<img src=\"img/skillsets/writing_1000w.jpg\" alt=\"\" />\nCreating written content including creative writing, technical documentation, and narrative storytelling.",
+        "image_photographer": "picjumbo.com",
+        "image_photographer_url": "https://www.pexels.com/@picjumbo-com-55570"
     },
     {
         "slug": "ai",
         "title": "AI",
-        "description": "Artificial intelligence tools, platforms, and APIs for enhancing development workflows and creating intelligent applications. <a href=\"#!/My-Stance-On-AI\">My Stance On AI</a>"
+        "description": "<img src=\"img/skillsets/ai_1000w.jpg\" alt=\"\" />\nArtificial intelligence tools, platforms, and APIs for enhancing development workflows and creating intelligent applications. <a href=\"#!/My-Stance-On-AI\">My Stance On AI</a>",
+        "image_photographer": "Tara Winstead",
+        "image_photographer_url": "https://www.pexels.com/@tara-winstead"
     }
 ]
-

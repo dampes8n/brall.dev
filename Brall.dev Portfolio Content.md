@@ -203,47 +203,60 @@ My first campaign in adulthood was after a long gap since childhood. Though only
 
 #### Unannounced Game Cancellation \- July 2nd, 2025
 
-Holding everyone together during a project cancellation
+When the Unannounced Game was cancelled, everyone was devastated. You can look it up by the date. I am not at liberty to name the project, but it was all leaked. Our union Discord server was overrun, with essentially half the company being told to stop working and unsure whether they still had a job. As members of the MC, it fell to us to hold the group together, keep morale up, and get and provide answers.
 
-#### Running for BC \- March 2025
+#### Running for the Bargaining Committee \- March 2025
+
+Next, we needed to form our Bargaining Committee (BC), and we had a huge turnout. I narrowly missed being elected to the BC, but the half dozen folks that were elected are all amazing folks who had been part of the OC for a year longer than I’d been.
+
+#### Joining the Mobilization Committee \- Jan 2025
+
+More changing names, the OC became the MC: same job, different title.
 
 #### Vote to Unionize \- Jan 2025
 
+In January, we voted. And ZeniMax Online Studios United officially was formed\! In a landslide.
+
 #### Campaign to Unionize \- October 2024
+
+In October, the campaign proper began. If you don’t know, this looks like formally telling your employer that you intend to vote to unionize, having conversations with people to get them to support you, and finally voting together. The OC had to talk to as many of our, at the time, 500 coworkers as possible. In the end, we reached almost all of them, and I personally talked to 200 people.
 
 #### Joining the Organizing Committee \- May 29th, 2024
 
+Another member of the OC approached me, and I immediately joined the crew. For the next five months, we boned up on how unions work, agitated our coworkers (sounds mean, but this is just union lingo for talking to people about their gripes in the industry and how unions solve them), and built a good foundational infrastructure for our union to hang on when it formed.
+
 ### The Elder Scrolls Online \- January 2013
 
-Detail each redesign/rebuild  
-Case Studies with different pages/parts
-
-* 3D Backgrounds  
-* Hotloading
-
-Patcher
-
-* Rebuild in 2025  
-* First built in 2013-2014
+What can I say about The Elder Scrolls Online that hasn’t already been said? Over 20 million players. Over 10 years of being a Live Service. And over 10 years with me, driving excellence in web development.
 
 ### Unannounced Game \- Mid 2020 \- July 2nd, 2025
 
 #### Greenlit \- Mid 2020
 
+I can’t say much about this project. It was leaked, so you could find it yourself. I am not at liberty to discuss. However, I can say that the project was extremely personally exciting.
+
 #### Canceled \- July 2nd, 2025
+
+RIP
 
 ### Commander Keen \- 2018
 
 #### Announced \- June 9th, 2019
 
-[https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home](https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home)
+[Commander Keen Archived Site](https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home)  
+\[Insert keen video\]  
+The Keen site is a masterpiece. We were so on the bleeding edge. Check out the \[Insert link to Commander Keen website project page\]. 
+
+The game? I loved the aesthetic.  
+[https://www.ign.com/articles/2019/06/10/commander-keen-resurrected-as-a-mobile-game-e3-2019](https://www.ign.com/articles/2019/06/10/commander-keen-resurrected-as-a-mobile-game-e3-2019)
 
 #### Canceled \- Late 2019
 
-### APE
+RIP
 
-Laravel Years  
-Frameworkless Rebuild
+### Advanced Page Editor (APE)
+
+The spiritual successor to what I built for the Army with CORE 2\. APE delivers on all the promises CORE had and more. Pages are constructed from proto-web-components called Smart Blocks, which can be assembled in the CMS by non-technical page managers in any configuration, nesting as needed. I wish I were at liberty to show it.
 
 ## Engility/L3/MPRI
 
@@ -251,9 +264,9 @@ Frameworkless Rebuild
 
 https://web.archive.org/web/20150116150828/http://www.army.mil/
 
-### CORE CMS
+### CORE 2 CMS
 
-CORE Content Management System a CMS complete with community tools that enabled the disjointed Public Affairs Officers to be able to coordinate efforts, and a wigetized page management tool that enabled non-technical page publishers to be able to customize their page.
+CORE 2 Content Management System a CMS complete with community tools that enabled the disjointed Public Affairs Officers to be able to coordinate efforts, and a wigetized page management tool that enabled non-technical page publishers to be able to customize their page.
 
 ### My.Army.mil
 
@@ -273,5 +286,110 @@ Medal of Honor: Petry is one of our Medal of Honor series of sites dedicated to 
 
 ### SMA \- Safety and Mission Assurance \- 2007
 
-# Skills
+Humble Beginnings.
 
+\[Insert screenshot of SMA site\]  
+https://web.archive.org/web/20090713081100/http://sma.gsfc.nasa.gov/
+
+# Projects
+
+## The Elder Scrolls Online Website
+
+Over the last 13 years, since the website predates the game, The Elder Scrolls Online’s website has undergone many major redesigns. Here are some Wayback Machine snapshots I could find of different versions:  
+[https://web.archive.org/web/20181118115517/https://www.elderscrollsonline.com/en-us/home](https://web.archive.org/web/20181118115517/https://www.elderscrollsonline.com/en-us/home)  
+[https://web.archive.org/web/20200215221935/elderscrollsonline.com/en-us/home](https://web.archive.org/web/20200215221935/elderscrollsonline.com/en-us/home)  
+[https://web.archive.org/web/20210304011954/https://www.elderscrollsonline.com/en-us/home](https://web.archive.org/web/20210304011954/https://www.elderscrollsonline.com/en-us/home)  
+[https://web.archive.org/web/20230301122943/elderscrollsonline.com/en-us/home](https://web.archive.org/web/20230301122943/elderscrollsonline.com/en-us/home)  
+[https://web.archive.org/web/20240307080029/elderscrollsonline.com/en-us/home](https://web.archive.org/web/20240307080029/elderscrollsonline.com/en-us/home)  
+[I honestly think the website speaks for itself.](https://www.elderscrollsonline.com)
+
+But if I had to pick a favorite part. It would be [Smolder Scrolls](https://www.elderscrollsonline.com/en-us/smolderscrolls).
+
+## Commander Keen Website
+
+[Commander Keen Archived Site](https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home)  
+\[Insert keen video\]
+
+The Commander Keen site is some of my best work to date. The designer I worked with, [David Campbell](https://www.mobygames.com/person/1061958/david-campbell/), is top-notch. We worked hand in glove on the designs and had direct access to the game's art director, [Marc Hudgins](https://www.mobygames.com/person/3684/marc-hudgins/).
+
+From first learning about the game to the website going live, it was just about ***three* months**.
+
+\#\# Scrolling Stars (And Space Junk)  
+The idea of scrolling stars was there from the start. Implementing it, though, was a different matter. It went through several versions, starting with layered backgrounds, moving to individual images, and finally becoming a WebGL canvas. With canvas, we gained much-needed performance, which ultimately meant we could have many more stars on screen and insert random space junk as well.
+
+\#\# Parallax Header  
+The top of the page is constructed of 10ish layers, all individually parallaxing based on scroll and with css animations.
+
+\#\# All of the text is real text  
+Ok, not the logo. But all the rest of it. I don’t think we were the first to use text-shadows to stroke text. But I do believe we did it best. It perfectly matches the game, which doesn’t use CSS.
+
+\#\# No, those aren’t animated gifs.  
+\[Insert keen-card video\]  
+The Card section features an animated sprite-sheet-based PNG. Not only does this animation play much more smoothly than a GIF (and pre-dates animated PNGs in the browser), but it features advanced options\! This one has a fidget at the end that plays more rarely than the main animation sequence, and it plays randomly. This tech supports up to two fidgets per sheet. These were hand-assembled from the game’s real animations by Marc.  
+\[Insert billie-flying-longer png\]
+
+\#\# Mouse-based 3D jiggle.  
+Many of the sections are broken today, but they worked fine when the site was live. It is the browsers that have changed. You can still see this working more or less as intended in the cards section. This is a small 3D wiggle applied to the section based on how close the mouse is to the edges. Ok, for most sections it is a lot more than a “little.” You can fix it by moving the mouse to the center of the screen. You’re welcome.
+
+\#\# Sparkles  
+When sections fade in, they do so with sparkles that randomly appear with them and which spin and dance.
+
+\#\# Speedlines  
+The Speedlines behind the sections wobble to and fro. They are built using the [Cicada Tile technique](https://latex.net/efficient-seamless-tiled-backgrounds/).
+
+## Army.mil
+
+[Archive of Army.mil](https://web.archive.org/web/20150116150828/http://www.army.mil/)  
+\[Insert army.mil screenshot\]
+
+## My.Army.mil
+
+[Archive of My.Army.mil](https://web.archive.org/web/20110601073507/http://my.army.mil/)  
+\[Insert my.army.mil screenshot\]
+
+## Medal of Honor: Petry
+
+[Archive of Petry Site](https://web.archive.org/web/20150717214628/http://www.army.mil/medalofhonor/petry/)  
+\[Insert petry site screenshot\]  
+If it wasn’t for the Wayback Machine, this wonderful microsite would be gone for good. [Today it looks like this](https://www.army.mil/medalofhonor/petry/).
+
+## Magitism: The Force of Magic
+
+[Magitism: The Force of Magic](https://www.magitism.com)  
+\[Insert book shot\]
+
+Not only did I write the whole book. But I put together all the marketing materials and sell them in person at events.
+
+\[Insert book-selling shot\]
+
+However, the website is the real gem. I made sure that my cover artist delivered the PSD to me so I could carve it up and reproduce the cover in web form. I used some of the techniques I developed for the \[link to Commander Keen project\], including the scrolling stars.
+
+## This Portfolio Site
+
+Since I’d been working at the same place for almost 13 years – and recent events being what they are – I thought it was high time I built a new portfolio. My old portfolios and resumes were always very dramatic, pretentious, and over-the-top. I thought, Hell, might as well keep up the tradition.
+
+I’ve been using AI in my processes for years now. \[Insert link to My Stance on AI\] But, ironically, considering where I work, perhaps, I haven’t fully adopted AI vibe coding. I hadn’t fully explored the limits. I’ve done some vibe coding here and there for small projects around the house, of course; I’ve seen people use it similarly for half-assed games and YouTube reactions. But is AI really up to the task of polishing off a whole project?
+
+No. It isn’t.
+
+It is getting closer all the time, though. It can get you to the first 90%. But the second 90%? The polish phase? The refactoring and refinement? It not only needed handholding the whole way, but it could also have benefited dramatically from my stepping in to write code by hand.
+
+I didn’t step in, though. I persisted. This website was entirely vibe-coded. I didn’t write a single line of it by hand. I came close in a few places; I’ll detail them below, but in the end, I didn’t hand-write anything. I sure-as-fuck wanted to.
+
+\#\# The Good  
+At this point, vibe coding is how every project should start. Getting to that first 90% – [you know about the two 90%, right](https://en.wikipedia.org/wiki/Ninety%E2%80%93ninety_rule)? It is like the three sea-shells. Anyway. AI is astoundingly good at getting a prototype or even the baseline of a project together. For this portfolio, I went in with a plan. \[Link to plan.md\] And the majority of that plan ended up being built. Not all of it was kept; a lot of the ideas were dead ends, but that’s how ideas work. Some of the flavors changed. Some of the design ideas didn’t feel good in practice. Some elements weren’t implemented due to time constraints. 
+
+AI sped up these parts of the process, and by the end of day one, the majority of the portfolio's structure was in place. The problem is that this is day five that I am writing this.
+
+\#\# The Bad  
+Vibe coding can’t do new. Any novel idea has to be explained to AI in excruciating detail. Often in pseudocode. Sometimes, by giving code snippets to get the point across. If you look around at the different flavors of this portfolio – down there in the footer, can’t miss 'em – you’ll see that there is more than one novel design technique employed therein.
+
+The Video-based transitions in Terminally Ill and VHScary? Never seen that before. The 3D Scene backgrounds? Only ever seen that done on The Elder Scrolls Online (by me). Getting these techniques working was a pain. A doable pain that took me the closest I got to actually coding in the whole project, but it was achievable.
+
+\#\# The Ugly  
+What AI couldn’t do is code professionally. I constantly had to remind it to use the CSS variables we’d set up to make the flavor files easier and smaller. Some of the flavors are hundreds of lines of redundant CSS. I couldn’t get it to clean up the code. If I asked it to fix a design issue, it would always add more code rather than remove it, even if eliminating code would be the obvious solution for a human. Does the \<pre\>article p { margin: 0; }\</pre\> override the base level p tag’s margin? Better add that margin like this, right? \<pre\>article p { margin: 0; margin-bottom: 1rem; }\</pre\> That’s better than realizing the zeroed margin is old and not doing anything. Exhausting.
+
+In the end, this website is bloated and contains at least twice as much code as it should.
+
+\#\# A Light at the End of the Tunnel  
+As bad as polishing is, it is all solvable. As these tools mature (in this case, Cursor), you’ll see these issues go away. Now that I have built a finished, polished product without writing code, I can see how coding by hand is going to die out. Is that good? Once again, I’ll point you to my stance on AI linked to above and in the main navigation.  

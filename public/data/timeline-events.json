@@ -8,7 +8,8 @@
         "skills": [],
         "title": "Born",
         "slug": "born",
-        "major": true
+        "major": true,
+        "description": "<img src=\"img/pirate.jpeg\" alt=\"\" />"
     },
     {
         "domain": "Personal",
@@ -38,7 +39,8 @@
         "skillsets": [],
         "skills": [],
         "title": "Moved to Chambersburg, PA",
-        "slug": "moved-to-chambersburg"
+        "slug": "moved-to-chambersburg",
+        "description": "<img src=\"img/parrots.jpeg\" alt=\"\" />"
     },
     {
         "domain": "Personal",
@@ -59,7 +61,8 @@
         "skills": [],
         "title": "Graduated High School",
         "slug": "graduated-high-school",
-        "major": true
+        "major": true,
+        "description": "<img src=\"img/graduation.jpg\" alt=\"\" />"
     },
     {
         "domain": "Personal",
@@ -276,7 +279,7 @@
     {
         "domain": "Employed",
         "subdomain": "Engility/L3/MPRI",
-        "project": "CORE CMS",
+        "project": "CORE 2 CMS",
         "date": "2008",
         "skillsets": [
             "Development",
@@ -291,7 +294,7 @@
             "XHTML",
             "CSS"
         ],
-        "title": "CORE CMS",
+        "title": "CORE 2 CMS",
         "description": "Content Management System with community tools and widgetized page management",
         "slug": "core-cms"
     },
@@ -321,10 +324,10 @@
             "Development"
         ],
         "skills": [
-            "CORE CMS"
+            "CORE 2 CMS"
         ],
         "title": "Medal of Honor: Petry",
-        "description": "Medal of Honor series site powered by CORE CMS",
+        "description": "Medal of Honor series site powered by CORE 2 CMS",
         "slug": "medal-of-honor-petry"
     },
     {
@@ -340,7 +343,7 @@
         ],
         "skills": [],
         "title": "Ended at Engility/L3/MPRI",
-        "description": "Led technological vision for Army.mil, My.Army.mil, and CORE CMS",
+        "description": "Led technological vision for Army.mil, My.Army.mil, and CORE 2 CMS",
         "slug": "ended-at-engility-l3-mpri"
     },
     {
@@ -430,7 +433,7 @@
     {
         "domain": "Independent",
         "subdomain": "Life",
-        "project": "The Bronze Coin",
+        "project": null,
         "date": "2013-07",
         "skillsets": [
             "Development",
@@ -441,14 +444,14 @@
             "CSS",
             "JavaScript"
         ],
-        "title": "Opened",
+        "title": "Opened The Bronze Coin",
         "description": "I opened The Bronze Coin, a role-playing guildhall, after a lot of market research. Pro-DMing was just starting, but had not blossomed as it would during the pandemic. The year+ it operated was tons of fun and work. I met a lot of people who would go on to be part of my life to this day, and many who drifted in pleasantly for years before moving on.",
         "slug": "opened-the-bronze-coin"
     },
     {
         "domain": "Independent",
         "subdomain": "Life",
-        "project": "The Bronze Coin",
+        "project": null,
         "date": "2014-early",
         "skillsets": [
             "Development",
@@ -459,7 +462,7 @@
             "CSS",
             "JavaScript"
         ],
-        "title": "Closed",
+        "title": "Closed The Bronze Coin",
         "description": "It turned out that my research was flawed. I'd expected one level of engagement from the people I had interviewed outside game stores, but the reality was 1/10th of what the study indicated. This made the project unsustainable. If I'd opened The Bronze Coin 6-7 years later than I did, I would have missed the pandemic and landed right in the sweet spot of explosive growth in Pro-DMing. Live and learn. Expensive mistake, though.",
         "slug": "closed-the-bronze-coin"
     },
@@ -528,7 +531,7 @@
             "GMing"
         ],
         "title": "Started Comedy of Justice",
-        "description": "We all showed up to play D&D, but the apocalypse happened instead. The DM was grabbed by a demon and dragged to Hell, monsters are flying around shooting lasers, and the only weapon anyone can find is a book. This campaign started big and got universal. By the end, one of the players had inherited godhood from Yahweh, another was a Jewish Disney Princess, and another went and learned to fight from Goku. The final battle featured Galactus and Unicron doing the DBZ fusion dance. You had to be there.<br>The BBEG was Ceres from Evoland 2; why yes, this campaign *did* start before that game came out, and yes, she already was the BBEG before it came out – no, I don't know how, it just happened that way. I played Evoland II and discovered that my BBEG was in it. I don't know how she got there. She *can* open portals between universes. It doesn't seem like it, but I'm being completely serious. Here are my notes about her when she reveals herself as the BBEG to the group. She first met them in session 2, as the Mythomancer, a month before Evoland 2 was released.<br>\"The ceiling tiles melt away, the rails glowing, and a red-hot hole opens in the concrete above. Wreathed in fire, Mytha descends from the floor above, her clothes burned away and her naked body ice blue and covered in black-lined etchings. She has two small black horns on either side of her bald head.\" Ice-blue-skinned portal-diving universe-hopping demon-girl.<br>I even named her Mytha when I played Evoland 2 for the first time. I just thought she looked similar; I didn't know who she was yet. When you name her in the game, you wouldn't know she can open portals in time and space.",
+        "description": "<p>We all showed up to play D&D, but the apocalypse happened instead. The DM was grabbed by a demon and dragged to Hell, monsters are flying around shooting lasers, and the only weapon anyone can find is a book. This campaign started big and got universal. By the end, one of the players had inherited godhood from Yahweh, another was a Jewish Disney Princess, and another went and learned to fight from Goku. The final battle featured Galactus and Unicron doing the DBZ fusion dance. You had to be there.</p><p>The BBEG was Ceres from Evoland 2; why yes, this campaign *did* start before that game came out, and yes, she already was the BBEG before it came out – no, I don't know how, it just happened that way. I played Evoland II and discovered that my BBEG was in it. I don't know how she got there. She *can* open portals between universes. It doesn't seem like it, but I'm being completely serious. Here are my notes about her when she reveals herself as the BBEG to the group. She first met them in session 2, as the Mythomancer, a month before Evoland 2 was released.</p><p>\"The ceiling tiles melt away, the rails glowing, and a red-hot hole opens in the concrete above. Wreathed in fire, Mytha descends from the floor above, her clothes burned away and her naked body ice blue and covered in black-lined etchings. She has two small black horns on either side of her bald head.\" Ice-blue-skinned portal-diving universe-hopping demon-girl.</p><p><img src=\"img/ceres.jpeg\" alt=\"\" /></p><p>I even named her Mytha when I played Evoland 2 for the first time. I just thought she looked similar; I didn't know who she was yet. When you name her in the game, you wouldn't know she can open portals in time and space.</p>",
         "slug": "started-comedy-of-justice"
     },
     {
@@ -562,7 +565,7 @@
             "GMing"
         ],
         "title": "Started Isle of Glass Statues",
-        "description": "Ultimately, this game had 15 players across four groups. This is the foundation for things to come. Washed up on a deserted island, shifting between obsidian statues and corporal form, players have to survive extreme hostility on an ever-changing landscape.<br><a href=\"https://www.reddit.com/r/dndnext/comments/65krnk/isle_of_glass_statues_free_hardcore_multigroup_5e/\">https://www.reddit.com/r/dndnext/comments/65krnk/isle_of_glass_statues_free_hardcore_multigroup_5e/</a>",
+        "description": "<p>Ultimately, this game had 15 players across four groups. This is the foundation for things to come. Washed up on a deserted island, shifting between obsidian statues and corporal form, players have to survive extreme hostility on an ever-changing landscape.</p><p><a href=\"https://www.reddit.com/r/dndnext/comments/65krnk/isle_of_glass_statues_free_hardcore_multigroup_5e/\">https://www.reddit.com/r/dndnext/comments/65krnk/isle_of_glass_statues_free_hardcore_multigroup_5e/</a></p>",
         "slug": "started-isle-of-glass-statues"
     },
     {
@@ -662,7 +665,8 @@
         "skills": [],
         "title": "Got married to Elena Herron",
         "slug": "married",
-        "major": true
+        "major": true,
+        "description": "<img src=\"img/wedding.jpeg\" alt=\"\" />"
     },
     {
         "domain": "Personal",
@@ -749,7 +753,7 @@
             "PbtA"
         ],
         "title": "Started Repocalypse (Comedy of Justice II)",
-        "description": "A continuation of Comedy of Justice I with new players - still all playing themselves. Ceres survived the first campaign by living inside me.<br>If you'd like rules for making universe-hopping games manageable, you can start with my <a href=\"files/Universe%20Hopping%20Rules.docx\">Universe Hopping Rules.docx</a>.",
+        "description": "<p>A continuation of Comedy of Justice I with new players - still all playing themselves. Ceres survived the first campaign by living inside me.</p><p>If you'd like rules for making universe-hopping games manageable, you can start with my <a href=\"files/Universe%20Hopping%20Rules.docx\">Universe Hopping Rules.docx</a>.</p>",
         "slug": "started-repocalypse-comedy-of-justice-ii"
     },
     {
@@ -764,7 +768,7 @@
             "Creative Writing"
         ],
         "title": "Began",
-        "description": "Elevator Pitches:<br>• Magical aliens crash-land on Earth; Humanity has to science the shit out of the magic to get them back into space.<br>• Hail Mary meets Mistborn, crash-landing in Philadelphia.",
+        "description": "<p>Elevator Pitches:</p><p>• Magical aliens crash-land on Earth; Humanity has to science the shit out of the magic to get them back into space.</p><p>• Hail Mary meets Mistborn, crash-landing in Philadelphia.</p>",
         "slug": "began-writing"
     },
     {
@@ -779,7 +783,7 @@
             "Creative Writing"
         ],
         "title": "Published",
-        "description": "For the book's release, I did a 24-hour Twitch stream. I don't expect you to watch the VODs.<br><strong>Opening Interviews</strong><br><b-yt slug=\"yfIo22Eow-Q\"></b-yt><br><strong>Dwarf Fortress</strong><br><b-yt slug=\"PDhqJZpUF14\"></b-yt><br><b-yt slug=\"cNZlJ2ZFH8o\"></b-yt><br><strong>Satisfactory</strong><br><b-yt slug=\"CYb535NfQwc\"></b-yt><br><b-yt slug=\"eR7DF_-Occ0\"></b-yt>",
+        "description": "<p>For the book's release, I did a 24-hour Twitch stream. I don't expect you to watch the VODs.</p><p><strong>Opening Interviews</strong></p><p><b-yt slug=\"yfIo22Eow-Q\"></b-yt></p><p><strong>Dwarf Fortress</strong></p><p><b-yt slug=\"PDhqJZpUF14\"></b-yt></p><p><b-yt slug=\"cNZlJ2ZFH8o\"></b-yt></p><p><strong>Satisfactory</strong></p><p><b-yt slug=\"CYb535NfQwc\"></b-yt></p><p><b-yt slug=\"eR7DF_-Occ0\"></b-yt></p>",
         "slug": "published",
         "major": true
     },
@@ -830,7 +834,7 @@
             "Creative Writing"
         ],
         "title": "Dale Arnold Review",
-        "description": "⭐⭐⭐⭐⭐ Bought this expecting modest - Loved it<br>\"I bought this at the dealers room at Balticon because I always try to support new authors. I expected a decent work of course but <strong>I enjoyed reading this book more than I have enjoyed Hugo winners in the past.</strong> Magic as rules driven physics played as hard science fiction, the human spirit winning out in the end in a clever way. I read all the way through and it did not lag. The author's voice is good. Hope he writes more.\"<br>— Dale Arnold, President of the Baltimore Science Fiction Society",
+        "description": "<p>⭐⭐⭐⭐⭐ Bought this expecting modest - Loved it</p><p>\"I bought this at the dealers room at Balticon because I always try to support new authors. I expected a decent work of course but <strong>I enjoyed reading this book more than I have enjoyed Hugo winners in the past.</strong> Magic as rules driven physics played as hard science fiction, the human spirit winning out in the end in a clever way. I read all the way through and it did not lag. The author's voice is good. Hope he writes more.\"</p><p>— Dale Arnold, President of the Baltimore Science Fiction Society</p>",
         "slug": "dale-review"
     },
     {
@@ -847,7 +851,7 @@
             "GMing"
         ],
         "title": "Started Isle of Glass Statues II",
-        "description": "This game was at Dan Wells, Game Night Getaway '24. Dan is the other author on Brandon Sanderson's Intentionally Blank podcast.<br>The game went exceptionally well. There were 16 players in total over the course of the week, and I got in around 50 hours of play time. They solved the island on the final day.",
+        "description": "<p>This game was at Dan Wells, Game Night Getaway '24. Dan is the other author on Brandon Sanderson's Intentionally Blank podcast.</p><p>The game went exceptionally well. There were 16 players in total over the course of the week, and I got in around 50 hours of play time. They solved the island on the final day.</p>",
         "slug": "started-isle-of-glass-statues-ii"
     },
     {

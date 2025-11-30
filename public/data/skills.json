@@ -1,63 +1,103 @@
 [
     {
         "slug": "creative-writing",
-        "skillsets": ["Writing"],
+        "skillsets": [
+            "Writing"
+        ],
         "title": "Creative Writing",
-        "description": "Writing original fiction, stories, and creative content.",
+        "description": "<img src=\"img/skills/creative-writing_1000w.jpg\" alt=\"Close-up of handwritten 'Be creative' with a light bulb sketch on paper.\" />\nWriting original fiction, stories, and creative content.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "technical-writing",
-        "skillsets": ["Writing", "Development"],
+        "skillsets": [
+            "Writing",
+            "Development"
+        ],
         "title": "Technical Writing",
-        "description": "Creating clear, concise documentation for technical audiences, including specifications, guides, and technical content.",
+        "description": "<img src=\"img/skills/technical-writing_1000w.jpg\" alt=\"Two scientists in a lab examining samples and recording data in a healthcare setting.\" />\nCreating clear, concise documentation for technical audiences, including specifications, guides, and technical content.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Pavel Danilyuk",
+        "image_photographer_url": "https://www.pexels.com/@pavel-danilyuk"
     },
     {
         "slug": "api-documentation",
-        "skillsets": ["Writing", "Development"],
+        "skillsets": [
+            "Writing",
+            "Development"
+        ],
         "title": "API Documentation",
-        "description": "Writing comprehensive documentation for APIs, including endpoints, parameters, examples, and integration guides.",
+        "description": "<img src=\"img/skills/api-documentation_1000w.jpg\" alt=\"Monochrome image of a hand writing on a document, emphasizing attention to detail.\" />\nWriting comprehensive documentation for APIs, including endpoints, parameters, examples, and integration guides.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Bastian Riccardi",
+        "image_photographer_url": "https://www.pexels.com/@rccbtn"
     },
     {
         "slug": "code-documentation",
-        "skillsets": ["Writing", "Development"],
+        "skillsets": [
+            "Writing",
+            "Development"
+        ],
         "title": "Code Documentation",
-        "description": "Writing inline comments, function documentation, and code explanations to make codebase maintainable and understandable.",
+        "description": "<img src=\"img/skills/code-documentation_1000w.jpg\" alt=\"A detective decoding cipher documents with a magnifying glass, notebook in hand.\" />\nWriting inline comments, function documentation, and code explanations to make codebase maintainable and understandable.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "cottonbro studio",
+        "image_photographer_url": "https://www.pexels.com/@cottonbro"
     },
     {
         "slug": "user-documentation",
-        "skillsets": ["Writing", "UX"],
+        "skillsets": [
+            "Writing",
+            "UX"
+        ],
         "title": "User Documentation",
-        "description": "Creating user guides, tutorials, and help documentation to assist end users in understanding and using software.",
+        "description": "<img src=\"img/skills/user-documentation_1000w.jpg\" alt=\"Close-up of woman's hands typing on a laptop in a modern home office setting.\" />\nCreating user guides, tutorials, and help documentation to assist end users in understanding and using software.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "cottonbro studio",
+        "image_photographer_url": "https://www.pexels.com/@cottonbro"
     },
     {
         "slug": "html",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "HTML",
-        "description": "HyperText Markup Language for structuring web content.",
+        "description": "<img src=\"img/skills/html_1000w.jpg\" alt=\"Minimalist image of HTML keycaps against a gray background, perfect for digital and web design themes.\" />\nHyperText Markup Language for structuring web content.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Miguel Á. Padriñán",
+        "image_photographer_url": "https://www.pexels.com/@padrinan"
     },
     {
         "slug": "html5",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "HTML5",
-        "description": "Modern HTML standard with enhanced semantic elements, multimedia support, and APIs.",
+        "description": "<img src=\"img/skills/html5_1000w.jpg\" alt=\"Detailed view of HTML and CSS code on a dark screen, representing modern web development.\" />\nModern HTML standard with enhanced semantic elements, multimedia support, and APIs.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Harold Vasquez",
+        "image_photographer_url": "https://www.pexels.com/@harold-vasquez-853421"
     },
     {
         "slug": "xhtml",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "XHTML",
         "description": "Extensible HyperText Markup Language, an XML-based version of HTML with stricter syntax rules.",
         "type": "professional",
@@ -65,47 +105,80 @@
     },
     {
         "slug": "css",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "CSS",
-        "description": "Cascading Style Sheets for styling and layout of web pages.",
+        "description": "<img src=\"img/skills/css_1000w.jpg\" alt=\"Close-up of vibrant HTML code displayed on a computer screen, showcasing web development and programming.\" />\nCascading Style Sheets for styling and layout of web pages.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "sass",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "Sass",
-        "description": "Syntactically Awesome Style Sheets, a CSS preprocessor with variables, nesting, and mixins.",
+        "description": "<img src=\"img/skills/sass_1000w.jpg\" alt=\"Studio portrait of a confident woman in a red shirt posing fiercely against a black background.\" />\nSyntactically Awesome Style Sheets, a CSS preprocessor with variables, nesting, and mixins.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Tima Miroshnichenko",
+        "image_photographer_url": "https://www.pexels.com/@tima-miroshnichenko"
     },
     {
         "slug": "bootstrap",
-        "skillsets": ["Development", "Design"],
+        "skillsets": [
+            "Development",
+            "Design"
+        ],
         "title": "Bootstrap",
-        "description": "Popular CSS framework for building responsive, mobile-first websites with pre-built components and utilities.",
+        "description": "<img src=\"img/skills/bootstrap_1000w.jpg\" alt=\"A group of adults engaged in a discussion in a modern indoor office environment.\" />\nPopular CSS framework for building responsive, mobile-first websites with pre-built components and utilities.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Greta Hoffman",
+        "image_photographer_url": "https://www.pexels.com/@greta-hoffman"
     },
     {
         "slug": "javascript",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "JavaScript",
-        "description": "Dynamic programming language for web development, enabling interactive and responsive user interfaces.",
+        "description": "<img src=\"img/skills/javascript_1000w.jpg\" alt=\"Vivid, blurred close-up of colorful code on a screen, representing web development and programming.\" />\nDynamic programming language for web development, enabling interactive and responsive user interfaces.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Markus Spiske",
+        "image_photographer_url": "https://www.pexels.com/@markusspiske"
     },
     {
         "slug": "typescript",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "TypeScript",
-        "description": "Typed superset of JavaScript that compiles to plain JavaScript, adding static type checking.",
+        "description": "<img src=\"img/skills/typescript_1000w.jpg\" alt=\"A vintage camera hanging in a bookshop surrounded by classic Turkish literature in Istanbul.\" />\nTyped superset of JavaScript that compiles to plain JavaScript, adding static type checking.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Yeşim Ç.",
+        "image_photographer_url": "https://www.pexels.com/@yesimcolak"
     },
     {
         "slug": "jquery",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "jQuery",
         "description": "JavaScript library that simplifies DOM manipulation, event handling, and AJAX interactions.",
         "type": "professional",
@@ -113,79 +186,133 @@
     },
     {
         "slug": "lit",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "Lit",
-        "description": "Lightweight web components library for building fast, reusable UI components.",
+        "description": "<img src=\"img/skills/lit_1000w.jpg\" alt=\"Close-up shot of a hand lighting a fire with a lighter, showcasing energy and flame.\" />\nLightweight web components library for building fast, reusable UI components.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Lgh_9",
+        "image_photographer_url": "https://www.pexels.com/@lgh_9-324057"
     },
     {
         "slug": "php",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "PHP",
-        "description": "Server-side scripting language designed for web development, particularly suited for dynamic web pages.",
+        "description": "<img src=\"img/skills/php_1000w.jpg\" alt=\"A close-up view of PHP code displayed on a computer screen, highlighting programming and development concepts.\" />\nServer-side scripting language designed for web development, particularly suited for dynamic web pages.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "ruby",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "Ruby",
-        "description": "Dynamic, object-oriented programming language known for its elegant syntax and developer productivity.",
+        "description": "<img src=\"img/skills/ruby_1000w.jpg\" alt=\"Close-up of luxurious pearl and diamond rings with gold accents on a black background.\" />\nDynamic, object-oriented programming language known for its elegant syntax and developer productivity.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Marta Branco",
+        "image_photographer_url": "https://www.pexels.com/@martabranco"
     },
     {
         "slug": "ruby-on-rails",
-        "skillsets": ["Development", "Software"],
+        "skillsets": [
+            "Development",
+            "Software"
+        ],
         "title": "Ruby on Rails",
-        "description": "Full-stack web application framework written in Ruby, emphasizing convention over configuration and rapid development.",
+        "description": "<img src=\"img/skills/ruby-on-rails_1000w.jpg\" alt=\"\" />\nFull-stack web application framework written in Ruby, emphasizing convention over configuration and rapid development.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Digital Buggu",
+        "image_photographer_url": "https://www.pexels.com/@digitalbuggu"
     },
     {
         "slug": "java",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "Java",
-        "description": "Object-oriented programming language designed for cross-platform application development.",
+        "description": "<img src=\"img/skills/java_1000w.jpg\" alt=\"\" />\nObject-oriented programming language designed for cross-platform application development.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Christina Morillo",
+        "image_photographer_url": "https://www.pexels.com/@divinetechygirl"
     },
     {
         "slug": "c-sharp",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "C#",
-        "description": "Microsoft's object-oriented programming language for building applications on the .NET framework.",
+        "description": "<img src=\"img/skills/c-sharp_1000w.jpg\" alt=\"\" />\nMicrosoft's object-oriented programming language for building applications on the .NET framework.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Erhan Anbar",
+        "image_photographer_url": "https://www.pexels.com/@erhan-anbar-170428647"
     },
     {
         "slug": "photoshop",
-        "skillsets": ["Design", "Software", "Multimedia"],
+        "skillsets": [
+            "Design",
+            "Software",
+            "Multimedia"
+        ],
         "title": "Photoshop",
-        "description": "Adobe image editing and graphic design software for creating and manipulating digital images.",
+        "description": "<img src=\"img/skills/photoshop_1000w.jpg\" alt=\"\" />\nAdobe image editing and graphic design software for creating and manipulating digital images.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Silver Works",
+        "image_photographer_url": "https://www.pexels.com/@silver-works-909675"
     },
     {
         "slug": "illustrator",
-        "skillsets": ["Design", "Software", "Multimedia"],
+        "skillsets": [
+            "Design",
+            "Software",
+            "Multimedia"
+        ],
         "title": "Illustrator",
-        "description": "Adobe vector graphics editor for creating illustrations, logos, icons, and scalable graphics.",
+        "description": "<img src=\"img/skills/illustrator_1000w.jpg\" alt=\"\" />\nAdobe vector graphics editor for creating illustrations, logos, icons, and scalable graphics.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Antoni Shkraba Studio",
+        "image_photographer_url": "https://www.pexels.com/@shkrabaanthony"
     },
     {
         "slug": "adobe-creative-cloud",
-        "skillsets": ["Design", "Software", "Multimedia"],
+        "skillsets": [
+            "Design",
+            "Software",
+            "Multimedia"
+        ],
         "title": "Adobe Creative Cloud",
-        "description": "Subscription-based suite of Adobe creative applications including Photoshop, Illustrator, Premiere Pro, After Effects, and more.",
+        "description": "<img src=\"img/skills/adobe-creative-cloud_1000w.jpg\" alt=\"\" />\nSubscription-based suite of Adobe creative applications including Photoshop, Illustrator, Premiere Pro, After Effects, and more.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "cottonbro studio",
+        "image_photographer_url": "https://www.pexels.com/@cottonbro"
     },
     {
         "slug": "mysql",
-        "skillsets": ["Databases", "Software"],
+        "skillsets": [
+            "Databases",
+            "Software"
+        ],
         "title": "MySQL",
         "description": "Open-source relational database management system for storing and managing structured data.",
         "type": "professional",
@@ -193,7 +320,10 @@
     },
     {
         "slug": "phpmyadmin",
-        "skillsets": ["Databases", "Software"],
+        "skillsets": [
+            "Databases",
+            "Software"
+        ],
         "title": "phpMyAdmin",
         "description": "Web-based administration tool for managing MySQL and MariaDB databases through a graphical interface.",
         "type": "professional",
@@ -201,15 +331,23 @@
     },
     {
         "slug": "mysql-workbench",
-        "skillsets": ["Databases", "Software"],
+        "skillsets": [
+            "Databases",
+            "Software"
+        ],
         "title": "MySQL Workbench",
-        "description": "Official MySQL database design, administration, and development tool with visual database design capabilities.",
+        "description": "<img src=\"img/skills/mysql-workbench_1000w.jpg\" alt=\"\" />\nOfficial MySQL database design, administration, and development tool with visual database design capabilities.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Anna Krupa",
+        "image_photographer_url": "https://www.pexels.com/@anna-krupa-510283934"
     },
     {
         "slug": "heidisql",
-        "skillsets": ["Databases", "Software"],
+        "skillsets": [
+            "Databases",
+            "Software"
+        ],
         "title": "HeidiSQL",
         "description": "Lightweight database management tool for MySQL, MariaDB, PostgreSQL, and SQL Server with a user-friendly interface.",
         "type": "professional",
@@ -217,15 +355,23 @@
     },
     {
         "slug": "sql",
-        "skillsets": ["Databases", "Development"],
+        "skillsets": [
+            "Databases",
+            "Development"
+        ],
         "title": "SQL",
-        "description": "Structured Query Language, standard programming language for managing and querying relational databases.",
+        "description": "<img src=\"img/skills/sql_1000w.jpg\" alt=\"\" />\nStructured Query Language, standard programming language for managing and querying relational databases.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Markus Spiske",
+        "image_photographer_url": "https://www.pexels.com/@markusspiske"
     },
     {
         "slug": "nosql",
-        "skillsets": ["Databases", "Development"],
+        "skillsets": [
+            "Databases",
+            "Development"
+        ],
         "title": "NoSQL",
         "description": "Non-relational database systems designed for flexible data models, scalability, and high-performance applications.",
         "type": "professional",
@@ -233,7 +379,11 @@
     },
     {
         "slug": "memcached",
-        "skillsets": ["Databases", "DevOps", "Software"],
+        "skillsets": [
+            "Databases",
+            "DevOps",
+            "Software"
+        ],
         "title": "Memcached",
         "description": "Distributed memory caching system for improving application performance by caching frequently accessed data.",
         "type": "professional",
@@ -241,31 +391,50 @@
     },
     {
         "slug": "redis",
-        "skillsets": ["Databases", "DevOps", "Software"],
+        "skillsets": [
+            "Databases",
+            "DevOps",
+            "Software"
+        ],
         "title": "Redis",
-        "description": "In-memory data structure store used as a database, cache, and message broker for high-performance applications.",
+        "description": "<img src=\"img/skills/redis_1000w.jpg\" alt=\"\" />\nIn-memory data structure store used as a database, cache, and message broker for high-performance applications.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Nandhu Kumar",
+        "image_photographer_url": "https://www.pexels.com/@nandhukumar"
     },
     {
         "slug": "laravel",
-        "skillsets": ["Development", "Software"],
+        "skillsets": [
+            "Development",
+            "Software"
+        ],
         "title": "Laravel",
-        "description": "PHP web application framework with elegant syntax and tools for building modern web applications.",
+        "description": "<img src=\"img/skills/laravel_1000w.jpg\" alt=\"\" />\nPHP web application framework with elegant syntax and tools for building modern web applications.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Startup Stock Photos",
+        "image_photographer_url": "https://www.pexels.com/@startup-stock-photos"
     },
     {
         "slug": "git",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Git",
-        "description": "Distributed version control system for tracking changes in source code and coordinating collaborative development.",
+        "description": "<img src=\"img/skills/git_1000w.jpg\" alt=\"\" />\nDistributed version control system for tracking changes in source code and coordinating collaborative development.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Christina Morillo",
+        "image_photographer_url": "https://www.pexels.com/@divinetechygirl"
     },
     {
         "slug": "perforce",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Perforce",
         "description": "Version control system designed for large-scale software development and asset management.",
         "type": "professional",
@@ -273,87 +442,136 @@
     },
     {
         "slug": "subversion",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Subversion",
-        "description": "Centralized version control system for managing file and directory versions over time.",
+        "description": "<img src=\"img/skills/subversion_1000w.jpg\" alt=\"\" />\nCentralized version control system for managing file and directory versions over time.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Tima Miroshnichenko",
+        "image_photographer_url": "https://www.pexels.com/@tima-miroshnichenko"
     },
     {
         "slug": "cvs",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "CVS",
-        "description": "Concurrent Versions System, an early version control system for tracking file revisions.",
+        "description": "<img src=\"img/skills/cvs_1000w.jpg\" alt=\"\" />\nConcurrent Versions System, an early version control system for tracking file revisions.",
         "type": "professional",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Luis  Erives",
+        "image_photographer_url": "https://www.pexels.com/@luis-erives-1457235"
     },
     {
         "slug": "jira",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Jira",
-        "description": "Project management and issue tracking tool for agile software development teams.",
+        "description": "<img src=\"img/skills/jira_1000w.jpg\" alt=\"\" />\nProject management and issue tracking tool for agile software development teams.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Jean-Paul Wettstein",
+        "image_photographer_url": "https://www.pexels.com/@jean-paul-wettstein-677916508"
     },
     {
         "slug": "jenkins",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Jenkins",
-        "description": "Open-source automation server for building, testing, and deploying software through continuous integration.",
+        "description": "<img src=\"img/skills/jenkins_1000w.jpg\" alt=\"\" />\nOpen-source automation server for building, testing, and deploying software through continuous integration.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "RealToughCandy.com",
+        "image_photographer_url": "https://www.pexels.com/@realtoughcandy"
     },
     {
         "slug": "confluence",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Confluence",
-        "description": "Collaboration and documentation platform for teams to create, share, and organize knowledge.",
+        "description": "<img src=\"img/skills/confluence_1000w.jpg\" alt=\"\" />\nCollaboration and documentation platform for teams to create, share, and organize knowledge.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Anni Roenkae",
+        "image_photographer_url": "https://www.pexels.com/@anniroenkae"
     },
     {
         "slug": "slack",
-        "skillsets": ["Software", "DevOps"],
+        "skillsets": [
+            "Software",
+            "DevOps"
+        ],
         "title": "Slack",
-        "description": "Team communication and collaboration platform with channels, direct messaging, and integrations.",
+        "description": "<img src=\"img/skills/slack_1000w.jpg\" alt=\"\" />\nTeam communication and collaboration platform with channels, direct messaging, and integrations.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Scott Webb",
+        "image_photographer_url": "https://www.pexels.com/@scottwebb"
     },
     {
         "slug": "microsoft-teams",
-        "skillsets": ["Software", "DevOps"],
+        "skillsets": [
+            "Software",
+            "DevOps"
+        ],
         "title": "Microsoft Teams",
-        "description": "Collaboration platform for chat, video meetings, file sharing, and team collaboration within Microsoft 365.",
+        "description": "<img src=\"img/skills/microsoft-teams_1000w.jpg\" alt=\"\" />\nCollaboration platform for chat, video meetings, file sharing, and team collaboration within Microsoft 365.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "cottonbro studio",
+        "image_photographer_url": "https://www.pexels.com/@cottonbro"
     },
     {
         "slug": "zoom",
-        "skillsets": ["Software"],
+        "skillsets": [
+            "Software"
+        ],
         "title": "Zoom",
-        "description": "Video conferencing and online meeting platform for remote collaboration, webinars, and virtual events.",
+        "description": "<img src=\"img/skills/zoom_1000w.jpg\" alt=\"\" />\nVideo conferencing and online meeting platform for remote collaboration, webinars, and virtual events.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Anna Shvets",
+        "image_photographer_url": "https://www.pexels.com/@shvetsa"
     },
     {
         "slug": "notion",
-        "skillsets": ["Software"],
+        "skillsets": [
+            "Software"
+        ],
         "title": "Notion",
-        "description": "All-in-one workspace for notes, documentation, project management, and collaboration with database capabilities.",
+        "description": "<img src=\"img/skills/notion_1000w.jpg\" alt=\"\" />\nAll-in-one workspace for notes, documentation, project management, and collaboration with database capabilities.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "RDNE Stock project",
+        "image_photographer_url": "https://www.pexels.com/@rdne"
     },
     {
         "slug": "obsidian",
-        "skillsets": ["Software"],
+        "skillsets": [
+            "Software"
+        ],
         "title": "Obsidian",
-        "description": "Knowledge base and note-taking application that uses markdown files and creates connections between notes.",
+        "description": "<img src=\"img/skills/obsidian_1000w.jpg\" alt=\"\" />\nKnowledge base and note-taking application that uses markdown files and creates connections between notes.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "KoolShooters",
+        "image_photographer_url": "https://www.pexels.com/@koolshooters"
     },
     {
         "slug": "evernote",
-        "skillsets": ["Software"],
+        "skillsets": [
+            "Software"
+        ],
         "title": "Evernote",
         "description": "Note-taking and organization application for capturing ideas, documents, and web clippings across devices.",
         "type": "personal",
@@ -361,7 +579,9 @@
     },
     {
         "slug": "onenote",
-        "skillsets": ["Software"],
+        "skillsets": [
+            "Software"
+        ],
         "title": "OneNote",
         "description": "Microsoft's digital note-taking application for organizing notes, drawings, and multimedia content.",
         "type": "professional",
@@ -369,47 +589,72 @@
     },
     {
         "slug": "microsoft-office-suite",
-        "skillsets": ["Software"],
+        "skillsets": [
+            "Software"
+        ],
         "title": "Microsoft Office Suite",
-        "description": "Productivity software suite including Word, Excel, PowerPoint, Outlook, and other Microsoft applications.",
+        "description": "<img src=\"img/skills/microsoft-office-suite_1000w.jpg\" alt=\"\" />\nProductivity software suite including Word, Excel, PowerPoint, Outlook, and other Microsoft applications.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Max Vakhtbovycn",
+        "image_photographer_url": "https://www.pexels.com/@heyho"
     },
     {
         "slug": "google-workspace",
-        "skillsets": ["Software", "DevOps"],
+        "skillsets": [
+            "Software",
+            "DevOps"
+        ],
         "title": "Google Workspace",
-        "description": "Cloud-based productivity suite including Gmail, Docs, Sheets, Slides, Drive, and collaboration tools.",
+        "description": "<img src=\"img/skills/google-workspace_1000w.jpg\" alt=\"\" />\nCloud-based productivity suite including Gmail, Docs, Sheets, Slides, Drive, and collaboration tools.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Caio",
+        "image_photographer_url": "https://www.pexels.com/@caio"
     },
     {
         "slug": "dropbox",
-        "skillsets": ["Software"],
+        "skillsets": [
+            "Software"
+        ],
         "title": "Dropbox",
-        "description": "Cloud storage and file synchronization service for storing and sharing files across devices and teams.",
+        "description": "<img src=\"img/skills/dropbox_1000w.jpg\" alt=\"\" />\nCloud storage and file synchronization service for storing and sharing files across devices and teams.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Ekaterina Belinskaya",
+        "image_photographer_url": "https://www.pexels.com/@ekaterinabelinskaya"
     },
     {
         "slug": "google-drive",
-        "skillsets": ["Software"],
+        "skillsets": [
+            "Software"
+        ],
         "title": "Google Drive",
-        "description": "Cloud storage and file synchronization service from Google for storing, sharing, and collaborating on files.",
+        "description": "<img src=\"img/skills/google-drive_1000w.jpg\" alt=\"\" />\nCloud storage and file synchronization service from Google for storing, sharing, and collaborating on files.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Caio",
+        "image_photographer_url": "https://www.pexels.com/@caio"
     },
     {
         "slug": "password-managers",
-        "skillsets": ["Software", "DevOps"],
+        "skillsets": [
+            "Software",
+            "DevOps"
+        ],
         "title": "Password Managers",
-        "description": "Tools like LastPass, 1Password, and Bitwarden for securely storing and managing passwords and credentials.",
+        "description": "<img src=\"img/skills/password-managers_1000w.jpg\" alt=\"\" />\nTools like LastPass, 1Password, and Bitwarden for securely storing and managing passwords and credentials.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Miguel Á. Padriñán",
+        "image_photographer_url": "https://www.pexels.com/@padrinan"
     },
     {
         "slug": "akamai",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Akamai",
         "description": "Content delivery network and cloud services platform for improving web performance and security.",
         "type": "professional",
@@ -417,47 +662,71 @@
     },
     {
         "slug": "limelight",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Limelight",
-        "description": "Content delivery network service for accelerating web content and media delivery globally.",
+        "description": "<img src=\"img/skills/limelight_1000w.jpg\" alt=\"\" />\nContent delivery network service for accelerating web content and media delivery globally.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "MART  PRODUCTION",
+        "image_photographer_url": "https://www.pexels.com/@mart-production"
     },
     {
         "slug": "cdn",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "CDN",
-        "description": "Content Delivery Network, distributed network of servers that deliver web content to users based on geographic location.",
+        "description": "<img src=\"img/skills/cdn_1000w.jpg\" alt=\"\" />\nContent Delivery Network, distributed network of servers that deliver web content to users based on geographic location.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Himalaya Karan",
+        "image_photographer_url": "https://www.pexels.com/@himkan"
     },
     {
         "slug": "rss",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "RSS",
-        "description": "Really Simple Syndication, a web feed format for publishing frequently updated content.",
+        "description": "<img src=\"img/skills/rss_1000w.jpg\" alt=\"\" />\nReally Simple Syndication, a web feed format for publishing frequently updated content.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Dima Pavlenko",
+        "image_photographer_url": "https://www.pexels.com/@dima-pavlenko-1200758"
     },
     {
         "slug": "xml",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "XML",
-        "description": "Extensible Markup Language for storing and transporting structured data in a human-readable format.",
+        "description": "<img src=\"img/skills/xml_1000w.jpg\" alt=\"\" />\nExtensible Markup Language for storing and transporting structured data in a human-readable format.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Markus Winkler",
+        "image_photographer_url": "https://www.pexels.com/@markus-winkler-1430818"
     },
     {
         "slug": "ajax",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "AJAX",
-        "description": "Asynchronous JavaScript and XML, a technique for creating dynamic web applications without full page reloads.",
+        "description": "<img src=\"img/skills/ajax_1000w.jpg\" alt=\"\" />\nAsynchronous JavaScript and XML, a technique for creating dynamic web applications without full page reloads.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Bipu Das Kajol",
+        "image_photographer_url": "https://www.pexels.com/@bipudaskajol"
     },
     {
         "slug": "websocket",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "WebSocket",
         "description": "Communication protocol providing full-duplex communication channels over a single TCP connection for real-time web applications.",
         "type": "personal",
@@ -465,47 +734,71 @@
     },
     {
         "slug": "service-workers",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "Service Workers",
-        "description": "JavaScript workers that run in the background, enabling offline functionality and background sync for web applications.",
+        "description": "<img src=\"img/skills/service-workers_1000w.jpg\" alt=\"\" />\nJavaScript workers that run in the background, enabling offline functionality and background sync for web applications.",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Malama Mushitu",
+        "image_photographer_url": "https://www.pexels.com/@malama-mushitu-2148898721"
     },
     {
         "slug": "pwa",
-        "skillsets": ["Development", "UX"],
+        "skillsets": [
+            "Development",
+            "UX"
+        ],
         "title": "PWA",
-        "description": "Progressive Web Apps, web applications that provide a native app-like experience with offline support and installability.",
+        "description": "<img src=\"img/skills/pwa_1000w.jpg\" alt=\"\" />\nProgressive Web Apps, web applications that provide a native app-like experience with offline support and installability.",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Nic Wood",
+        "image_photographer_url": "https://www.pexels.com/@nic-scrollstoppingphotos"
     },
     {
         "slug": "browser-devtools",
-        "skillsets": ["Development", "Software"],
+        "skillsets": [
+            "Development",
+            "Software"
+        ],
         "title": "Browser DevTools",
-        "description": "Built-in browser developer tools like Chrome DevTools and Firefox DevTools for debugging, profiling, and inspecting web applications.",
+        "description": "<img src=\"img/skills/browser-devtools_1000w.jpg\" alt=\"\" />\nBuilt-in browser developer tools like Chrome DevTools and Firefox DevTools for debugging, profiling, and inspecting web applications.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Mikhail Nilov",
+        "image_photographer_url": "https://www.pexels.com/@mikhail-nilov"
     },
     {
         "slug": "rest-api",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "REST API",
-        "description": "Representational State Transfer API, an architectural style for designing networked applications using HTTP methods.",
+        "description": "<img src=\"img/skills/rest-api_1000w.jpg\" alt=\"\" />\nRepresentational State Transfer API, an architectural style for designing networked applications using HTTP methods.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Regan Dsouza",
+        "image_photographer_url": "https://www.pexels.com/@regan-dsouza-1315522347"
     },
     {
         "slug": "soap",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "SOAP",
-        "description": "Simple Object Access Protocol, a messaging protocol for exchanging structured information in web services.",
+        "description": "<img src=\"img/skills/soap_1000w.jpg\" alt=\"\" />\nSimple Object Access Protocol, a messaging protocol for exchanging structured information in web services.",
         "type": "personal",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Tara Winstead",
+        "image_photographer_url": "https://www.pexels.com/@tara-winstead"
     },
     {
         "slug": "oauth",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "OAuth",
         "description": "Authorization framework that enables applications to obtain limited access to user accounts on HTTP services.",
         "type": "professional",
@@ -513,39 +806,61 @@
     },
     {
         "slug": "jwt",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "JWT",
-        "description": "JSON Web Tokens, a compact and self-contained way for securely transmitting information between parties as a JSON object.",
+        "description": "<img src=\"img/skills/jwt_1000w.jpg\" alt=\"\" />\nJSON Web Tokens, a compact and self-contained way for securely transmitting information between parties as a JSON object.",
         "type": "personal",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "ssl-tls",
-        "skillsets": ["Development", "DevOps"],
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
         "title": "SSL/TLS",
-        "description": "Secure Sockets Layer and Transport Layer Security protocols for encrypting data transmitted over networks.",
+        "description": "<img src=\"img/skills/ssl-tls_1000w.jpg\" alt=\"\" />\nSecure Sockets Layer and Transport Layer Security protocols for encrypting data transmitted over networks.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "cottonbro studio",
+        "image_photographer_url": "https://www.pexels.com/@cottonbro"
     },
     {
         "slug": "https",
-        "skillsets": ["Development", "DevOps"],
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
         "title": "HTTPS",
-        "description": "HyperText Transfer Protocol Secure, encrypted version of HTTP that uses SSL/TLS to secure web communications.",
+        "description": "<img src=\"img/skills/https_1000w.jpg\" alt=\"\" />\nHyperText Transfer Protocol Secure, encrypted version of HTTP that uses SSL/TLS to secure web communications.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Asad Photo Maldives",
+        "image_photographer_url": "https://www.pexels.com/@asadphoto"
     },
     {
         "slug": "security-best-practices",
-        "skillsets": ["Development", "DevOps"],
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
         "title": "Security Best Practices",
-        "description": "Industry-standard security practices and guidelines for developing and deploying secure applications and systems.",
+        "description": "<img src=\"img/skills/security-best-practices_1000w.jpg\" alt=\"\" />\nIndustry-standard security practices and guidelines for developing and deploying secure applications and systems.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Markus Winkler",
+        "image_photographer_url": "https://www.pexels.com/@markus-winkler-1430818"
     },
     {
         "slug": "owasp",
-        "skillsets": ["Development", "DevOps"],
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
         "title": "OWASP",
         "description": "Open Web Application Security Project, community-driven organization focused on improving software security.",
         "type": "professional",
@@ -553,39 +868,59 @@
     },
     {
         "slug": "ldap",
-        "skillsets": ["Development", "DevOps"],
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
         "title": "LDAP",
-        "description": "Lightweight Directory Access Protocol, used for accessing and managing distributed directory information services.",
+        "description": "<img src=\"img/skills/ldap_1000w.jpg\" alt=\"\" />\nLightweight Directory Access Protocol, used for accessing and managing distributed directory information services.",
         "type": "professional",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Bernadette Little",
+        "image_photographer_url": "https://www.pexels.com/@bernadette-little-1228608"
     },
     {
         "slug": "two-factor-authentication",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "Two-Factor Authentication",
-        "description": "Authentication method requiring two forms of verification to enhance account security beyond passwords.",
+        "description": "<img src=\"img/skills/two-factor-authentication_1000w.jpg\" alt=\"\" />\nAuthentication method requiring two forms of verification to enhance account security beyond passwords.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "REINER  SCT",
+        "image_photographer_url": "https://www.pexels.com/@reiner-sct-140938854"
     },
     {
         "slug": "encryption",
-        "skillsets": ["Development", "DevOps"],
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
         "title": "Encryption",
-        "description": "Process of converting data into a secure format to prevent unauthorized access and protect sensitive information.",
+        "description": "<img src=\"img/skills/encryption_1000w.jpg\" alt=\"\" />\nProcess of converting data into a secure format to prevent unauthorized access and protect sensitive information.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Markus Spiske",
+        "image_photographer_url": "https://www.pexels.com/@markusspiske"
     },
     {
         "slug": "firewall-management",
-        "skillsets": ["DevOps"],
+        "skillsets": [
+            "DevOps"
+        ],
         "title": "Firewall Management",
-        "description": "Configuration and administration of network firewalls to control incoming and outgoing traffic and protect systems.",
+        "description": "<img src=\"img/skills/firewall-management_1000w.jpg\" alt=\"\" />\nConfiguration and administration of network firewalls to control incoming and outgoing traffic and protect systems.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "microservices",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "Microservices",
         "description": "Architectural approach to building applications as a collection of small, independent services that communicate over APIs.",
         "type": "professional",
@@ -593,231 +928,366 @@
     },
     {
         "slug": "api-gateway",
-        "skillsets": ["Development", "DevOps"],
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
         "title": "API Gateway",
-        "description": "Single entry point for managing, routing, and securing API requests across multiple microservices or backend systems.",
+        "description": "<img src=\"img/skills/api-gateway_1000w.jpg\" alt=\"\" />\nSingle entry point for managing, routing, and securing API requests across multiple microservices or backend systems.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "El Puerto  de Santa María",
+        "image_photographer_url": "https://www.pexels.com/@el-puerto-de-santa-maria-2148829485"
     },
     {
         "slug": "postman",
-        "skillsets": ["Development", "Software"],
+        "skillsets": [
+            "Development",
+            "Software"
+        ],
         "title": "Postman",
-        "description": "API development and testing platform for designing, testing, and documenting REST APIs and web services.",
+        "description": "<img src=\"img/skills/postman_1000w.jpg\" alt=\"\" />\nAPI development and testing platform for designing, testing, and documenting REST APIs and web services.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Kampus Production",
+        "image_photographer_url": "https://www.pexels.com/@kampus"
     },
     {
         "slug": "swagger",
-        "skillsets": ["Development", "Software"],
+        "skillsets": [
+            "Development",
+            "Software"
+        ],
         "title": "Swagger",
-        "description": "OpenAPI specification framework for designing, documenting, and testing RESTful APIs with interactive documentation.",
+        "description": "<img src=\"img/skills/swagger_1000w.jpg\" alt=\"\" />\nOpenAPI specification framework for designing, documenting, and testing RESTful APIs with interactive documentation.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "brandon retratos",
+        "image_photographer_url": "https://www.pexels.com/@brandon-retratos-768594541"
     },
     {
         "slug": "json",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "JSON",
-        "description": "JavaScript Object Notation, a lightweight data interchange format for storing and transmitting structured data.",
+        "description": "<img src=\"img/skills/json_1000w.jpg\" alt=\"\" />\nJavaScript Object Notation, a lightweight data interchange format for storing and transmitting structured data.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Markus Spiske",
+        "image_photographer_url": "https://www.pexels.com/@markusspiske"
     },
     {
         "slug": "markdown",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "Markdown",
-        "description": "Lightweight markup language for formatting text with plain text syntax, commonly used for documentation and README files.",
+        "description": "<img src=\"img/skills/markdown_1000w.jpg\" alt=\"\" />\nLightweight markup language for formatting text with plain text syntax, commonly used for documentation and README files.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Max Fischer",
+        "image_photographer_url": "https://www.pexels.com/@max-fischer"
     },
     {
         "slug": "yaml",
-        "skillsets": ["Development", "DevOps"],
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
         "title": "YAML",
-        "description": "YAML Ain't Markup Language, human-readable data serialization standard used for configuration files and data exchange.",
+        "description": "<img src=\"img/skills/yaml_1000w.jpg\" alt=\"\" />\nYAML Ain't Markup Language, human-readable data serialization standard used for configuration files and data exchange.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Kindel Media",
+        "image_photographer_url": "https://www.pexels.com/@kindelmedia"
     },
     {
         "slug": "vanilla-web-components",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "Vanilla Web Components",
-        "description": "Native browser APIs for creating reusable, encapsulated custom HTML elements without frameworks.",
+        "description": "<img src=\"img/skills/vanilla-web-components_1000w.jpg\" alt=\"\" />\nNative browser APIs for creating reusable, encapsulated custom HTML elements without frameworks.",
         "type": "personal",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "panumas nikhomkhai",
+        "image_photographer_url": "https://www.pexels.com/@cookiecutter"
     },
     {
         "slug": "server-management",
-        "skillsets": ["DevOps"],
+        "skillsets": [
+            "DevOps"
+        ],
         "title": "Server Management",
-        "description": "Administration and maintenance of server infrastructure, including configuration, monitoring, and optimization.",
+        "description": "<img src=\"img/skills/server-management_1000w.jpg\" alt=\"\" />\nAdministration and maintenance of server infrastructure, including configuration, monitoring, and optimization.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Christina Morillo",
+        "image_photographer_url": "https://www.pexels.com/@divinetechygirl"
     },
     {
         "slug": "linux",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Linux",
-        "description": "Open-source Unix-like operating system for servers, desktops, and embedded systems with extensive command-line tools.",
+        "description": "<img src=\"img/skills/linux_1000w.jpg\" alt=\"\" />\nOpen-source Unix-like operating system for servers, desktops, and embedded systems with extensive command-line tools.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Christina Morillo",
+        "image_photographer_url": "https://www.pexels.com/@divinetechygirl"
     },
     {
         "slug": "wsl",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "WSL",
-        "description": "Windows Subsystem for Linux, compatibility layer for running Linux binary executables natively on Windows.",
+        "description": "<img src=\"img/skills/wsl_1000w.jpg\" alt=\"\" />\nWindows Subsystem for Linux, compatibility layer for running Linux binary executables natively on Windows.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Wayne  Barnes",
+        "image_photographer_url": "https://www.pexels.com/@wayne-barnes-672097373"
     },
     {
         "slug": "windows-server",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Windows Server",
-        "description": "Microsoft's server operating system for managing network infrastructure, applications, and enterprise services.",
+        "description": "<img src=\"img/skills/windows-server_1000w.jpg\" alt=\"\" />\nMicrosoft's server operating system for managing network infrastructure, applications, and enterprise services.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Lawrence Suzara",
+        "image_photographer_url": "https://www.pexels.com/@lawrencesuzara"
     },
     {
         "slug": "agile",
-        "skillsets": ["Leadership", "DevOps"],
+        "skillsets": [
+            "Leadership",
+            "DevOps"
+        ],
         "title": "Agile",
-        "description": "Iterative and incremental software development methodology emphasizing collaboration, flexibility, and rapid delivery.",
+        "description": "<img src=\"img/skills/agile_1000w.jpg\" alt=\"\" />\nIterative and incremental software development methodology emphasizing collaboration, flexibility, and rapid delivery.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "scrum",
-        "skillsets": ["Leadership", "DevOps"],
+        "skillsets": [
+            "Leadership",
+            "DevOps"
+        ],
         "title": "Scrum",
-        "description": "Agile framework for managing complex projects through iterative sprints, daily standups, and continuous improvement.",
+        "description": "<img src=\"img/skills/scrum_1000w.jpg\" alt=\"\" />\nAgile framework for managing complex projects through iterative sprints, daily standups, and continuous improvement.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Tima Miroshnichenko",
+        "image_photographer_url": "https://www.pexels.com/@tima-miroshnichenko"
     },
     {
         "slug": "kanban",
-        "skillsets": ["Leadership", "DevOps"],
+        "skillsets": [
+            "Leadership",
+            "DevOps"
+        ],
         "title": "Kanban",
-        "description": "Visual workflow management method for tracking work progress and optimizing the flow of tasks through a system.",
+        "description": "<img src=\"img/skills/kanban_1000w.jpg\" alt=\"\" />\nVisual workflow management method for tracking work progress and optimizing the flow of tasks through a system.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "SHVETS production",
+        "image_photographer_url": "https://www.pexels.com/@shvets-production"
     },
     {
         "slug": "nginx",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Nginx",
-        "description": "High-performance web server, reverse proxy, and load balancer for serving web content and managing traffic.",
+        "description": "<img src=\"img/skills/nginx_1000w.jpg\" alt=\"\" />\nHigh-performance web server, reverse proxy, and load balancer for serving web content and managing traffic.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "RealToughCandy.com",
+        "image_photographer_url": "https://www.pexels.com/@realtoughcandy"
     },
     {
         "slug": "apache",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Apache",
-        "description": "Apache HTTP Server, widely-used open-source web server software for hosting websites and web applications.",
+        "description": "<img src=\"img/skills/apache_1000w.jpg\" alt=\"\" />\nApache HTTP Server, widely-used open-source web server software for hosting websites and web applications.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Markus Spiske",
+        "image_photographer_url": "https://www.pexels.com/@markusspiske"
     },
     {
         "slug": "load-balancing",
-        "skillsets": ["DevOps"],
+        "skillsets": [
+            "DevOps"
+        ],
         "title": "Load Balancing",
-        "description": "Distributing incoming network traffic across multiple servers to improve performance, reliability, and availability.",
+        "description": "<img src=\"img/skills/load-balancing_1000w.jpg\" alt=\"\" />\nDistributing incoming network traffic across multiple servers to improve performance, reliability, and availability.",
         "type": "professional",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Aan Amrin",
+        "image_photographer_url": "https://www.pexels.com/@aan-amrin-383798812"
     },
     {
         "slug": "user-experience-design",
-        "skillsets": ["UX"],
+        "skillsets": [
+            "UX"
+        ],
         "title": "User Experience Design",
-        "description": "Designing user-centered interfaces and interactions to create meaningful and enjoyable user experiences.",
+        "description": "<img src=\"img/skills/user-experience-design_1000w.jpg\" alt=\"\" />\nDesigning user-centered interfaces and interactions to create meaningful and enjoyable user experiences.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Tatiana Kathie",
+        "image_photographer_url": "https://www.pexels.com/@tkathie"
     },
     {
         "slug": "web-design",
-        "skillsets": ["Design", "UX"],
+        "skillsets": [
+            "Design",
+            "UX"
+        ],
         "title": "Web Design",
-        "description": "Creating visual designs and layouts for websites, focusing on aesthetics, usability, and user experience.",
+        "description": "<img src=\"img/skills/web-design_1000w.jpg\" alt=\"\" />\nCreating visual designs and layouts for websites, focusing on aesthetics, usability, and user experience.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "picjumbo.com",
+        "image_photographer_url": "https://www.pexels.com/@picjumbo-com-55570"
     },
     {
         "slug": "iphone",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "iPhone",
-        "description": "iOS development for iPhone applications, including native app design and implementation.",
+        "description": "<img src=\"img/skills/iphone_1000w.jpg\" alt=\"\" />\niOS development for iPhone applications, including native app design and implementation.",
         "type": "personal",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Jess Bailey Designs",
+        "image_photographer_url": "https://www.pexels.com/@jessbaileydesign"
     },
     {
         "slug": "multimedia",
-        "skillsets": ["Design", "Multimedia"],
+        "skillsets": [
+            "Design",
+            "Multimedia"
+        ],
         "title": "Multimedia",
-        "description": "Creating and integrating multiple forms of media including graphics, audio, video, and interactive content.",
+        "description": "<img src=\"img/skills/multimedia_1000w.jpg\" alt=\"\" />\nCreating and integrating multiple forms of media including graphics, audio, video, and interactive content.",
         "type": "personal",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Format",
+        "image_photographer_url": "https://www.pexels.com/@format-380633"
     },
     {
         "slug": "data-visualization",
-        "skillsets": ["Design", "Development"],
+        "skillsets": [
+            "Design",
+            "Development"
+        ],
         "title": "Data Visualization",
-        "description": "Creating visual representations of data through charts, graphs, and interactive dashboards to communicate insights.",
+        "description": "<img src=\"img/skills/data-visualization_1000w.jpg\" alt=\"Flatlay of business report with colorful charts, a notebook, and a laptop for data analysis on a desk.\" />\nCreating visual representations of data through charts, graphs, and interactive dashboards to communicate insights.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Lukas",
+        "image_photographer_url": "https://www.pexels.com/@goumbik"
     },
     {
         "slug": "analytics",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "Analytics",
-        "description": "Analysis of data to discover patterns, trends, and insights that inform decision-making and optimize performance.",
+        "description": "<img src=\"img/skills/analytics_1000w.jpg\" alt=\"\" />\nAnalysis of data to discover patterns, trends, and insights that inform decision-making and optimize performance.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Lukas",
+        "image_photographer_url": "https://www.pexels.com/@goumbik"
     },
     {
         "slug": "computer-science",
-        "skillsets": ["Development", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Computer Science"
+        ],
         "title": "Computer Science",
-        "description": "Academic discipline covering algorithms, data structures, software engineering, and computational theory.",
+        "description": "<img src=\"img/skills/computer-science_1000w.jpg\" alt=\"\" />\nAcademic discipline covering algorithms, data structures, software engineering, and computational theory.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Kevin Ku",
+        "image_photographer_url": "https://www.pexels.com/@kevin-ku-92347"
     },
     {
         "slug": "game-design",
-        "skillsets": ["Design", "Development", "Game Design"],
+        "skillsets": [
+            "Design",
+            "Development",
+            "Game Design"
+        ],
         "title": "Game Design",
-        "description": "Designing game mechanics, systems, and player experiences to create engaging and enjoyable games.",
+        "description": "<img src=\"img/skills/game-design_1000w.jpg\" alt=\"\" />\nDesigning game mechanics, systems, and player experiences to create engaging and enjoyable games.",
         "type": "personal",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Francesco Ungaro",
+        "image_photographer_url": "https://www.pexels.com/@francesco-ungaro"
     },
     {
         "slug": "dnd",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "D&D",
-        "description": "Dungeons & Dragons, the classic tabletop role-playing game system.",
+        "description": "<img src=\"img/skills/dnd_1000w.jpg\" alt=\"\" />\nDungeons & Dragons, the classic tabletop role-playing game system.",
         "type": "personal",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Imad Clicks",
+        "image_photographer_url": "https://www.pexels.com/@imadclicks"
     },
     {
         "slug": "gming",
-        "skillsets": ["Writing", "Leadership", "TTRPGs", "Game Design"],
+        "skillsets": [
+            "Writing",
+            "Leadership",
+            "TTRPGs",
+            "Game Design"
+        ],
         "title": "GMing",
-        "description": "Game Mastering, the practice of running tabletop role-playing games by narrating stories and managing game sessions.",
+        "description": "<img src=\"img/skills/gming_1000w.jpg\" alt=\"\" />\nGame Mastering, the practice of running tabletop role-playing games by narrating stories and managing game sessions.",
         "type": "personal",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Lucie Liz",
+        "image_photographer_url": "https://www.pexels.com/@lulizler"
     },
     {
         "slug": "pbta",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "PbtA",
-        "description": "Powered by the Apocalypse",
+        "description": "<img src=\"img/skills/pbta_1000w.jpg\" alt=\"Muslim man breaking pita bread at a dining table for dinner during iftar indoors.\" />\nPowered by the Apocalypse",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Michael Burrows",
+        "image_photographer_url": "https://www.pexels.com/@michael-burrows"
     },
     {
         "slug": "humblewood",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "Humblewood",
         "description": "Tabletop role-playing game setting featuring anthropomorphic animals in a fantasy woodland world.",
         "type": "personal",
@@ -825,87 +1295,129 @@
     },
     {
         "slug": "nimble",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "Nimble",
-        "description": "Lightweight tabletop role-playing game system.",
+        "description": "<img src=\"img/skills/nimble_1000w.jpg\" alt=\"\" />\nLightweight tabletop role-playing game system.",
         "type": "personal",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Veronika Andrews",
+        "image_photographer_url": "https://www.pexels.com/@veronika-andrews-2153322013"
     },
     {
         "slug": "genesys",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "Genesys",
-        "description": "Narrative dice system tabletop role-playing game.",
+        "description": "<img src=\"img/skills/genesys_1000w.jpg\" alt=\"\" />\nNarrative dice system tabletop role-playing game.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "RDNE Stock project",
+        "image_photographer_url": "https://www.pexels.com/@rdne"
     },
     {
         "slug": "ff-star-wars",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "FF Star Wars",
-        "description": "Fantasy Flight Games Star Wars role-playing game using the Genesys narrative dice system.",
+        "description": "<img src=\"img/skills/ff-star-wars_1000w.jpg\" alt=\"\" />\nFantasy Flight Games Star Wars role-playing game using the Genesys narrative dice system.",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Craig Adderley",
+        "image_photographer_url": "https://www.pexels.com/@thatguycraig000"
     },
     {
         "slug": "5e",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "5E",
-        "description": "Dungeons & Dragons 5th Edition, the current edition of the classic tabletop role-playing game.",
+        "description": "<img src=\"img/skills/5e_1000w.jpg\" alt=\"\" />\nDungeons & Dragons 5th Edition, the current edition of the classic tabletop role-playing game.",
         "type": "personal",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Miguel Cuenca",
+        "image_photographer_url": "https://www.pexels.com/@miguel-cuenca-67882473"
     },
     {
         "slug": "4e",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "4E",
-        "description": "Dungeons & Dragons 4th Edition, a tactical combat-focused edition of D&D.",
+        "description": "<img src=\"img/skills/4e_1000w.jpg\" alt=\"\" />\nDungeons & Dragons 4th Edition, a tactical combat-focused edition of D&D.",
         "type": "personal",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Emrah Aslantepe",
+        "image_photographer_url": "https://www.pexels.com/@emrah-aslantepe-914624648"
     },
     {
         "slug": "pathfinder",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "Pathfinder",
-        "description": "Tabletop role-playing game based on the D&D 3.5 ruleset with expanded options.",
+        "description": "<img src=\"img/skills/pathfinder_1000w.jpg\" alt=\"\" />\nTabletop role-playing game based on the D&D 3.5 ruleset with expanded options.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Valentin Antonucci",
+        "image_photographer_url": "https://www.pexels.com/@valentinantonucci"
     },
     {
         "slug": "vampire-5e",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "Vampire 5E",
-        "description": "Vampire: The Masquerade 5th Edition, a modern gothic horror tabletop role-playing game.",
+        "description": "<img src=\"img/skills/vampire-5e_1000w.jpg\" alt=\"\" />\nVampire: The Masquerade 5th Edition, a modern gothic horror tabletop role-playing game.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "cottonbro studio",
+        "image_photographer_url": "https://www.pexels.com/@cottonbro"
     },
     {
         "slug": "microscope",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "Microscope",
-        "description": "Collaborative storytelling game for creating epic histories across vast spans of time.",
+        "description": "<img src=\"img/skills/microscope_1000w.jpg\" alt=\"\" />\nCollaborative storytelling game for creating epic histories across vast spans of time.",
         "type": "personal",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "fate",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "FATE",
-        "description": "FATE Core, a flexible tabletop role-playing game system focused on narrative and character aspects.",
+        "description": "<img src=\"img/skills/fate_1000w.jpg\" alt=\"\" />\nFATE Core, a flexible tabletop role-playing game system focused on narrative and character aspects.",
         "type": "personal",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Alina Vilchenko",
+        "image_photographer_url": "https://www.pexels.com/@monstera"
     },
     {
         "slug": "call-of-cthulhu",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "Call of Cthulhu",
-        "description": "Horror tabletop role-playing game based on H.P. Lovecraft's Cthulhu Mythos.",
+        "description": "<img src=\"img/skills/call-of-cthulhu_1000w.jpg\" alt=\"\" />\nHorror tabletop role-playing game based on H.P. Lovecraft's Cthulhu Mythos.",
         "type": "personal",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Andrea Piacquadio",
+        "image_photographer_url": "https://www.pexels.com/@olly"
     },
     {
         "slug": "shadowrun",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "Shadowrun",
         "description": "Cyberpunk-fantasy tabletop role-playing game combining magic and technology in a dystopian future.",
         "type": "personal",
@@ -913,15 +1425,21 @@
     },
     {
         "slug": "paranoia",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "Paranoia",
-        "description": "Comedic science-fiction tabletop role-playing game set in a dystopian underground city.",
+        "description": "<img src=\"img/skills/paranoia_1000w.jpg\" alt=\"\" />\nComedic science-fiction tabletop role-playing game set in a dystopian underground city.",
         "type": "personal",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "cottonbro studio",
+        "image_photographer_url": "https://www.pexels.com/@cottonbro"
     },
     {
         "slug": "robotech",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "Robotech",
         "description": "Tabletop role-playing game based on the Robotech anime series featuring transforming mecha.",
         "type": "personal",
@@ -929,85 +1447,133 @@
     },
     {
         "slug": "dungeon-world",
-        "skillsets": ["TTRPGs"],
+        "skillsets": [
+            "TTRPGs"
+        ],
         "title": "Dungeon World",
-        "description": "Powered by the Apocalypse fantasy tabletop role-playing game focused on collaborative storytelling.",
+        "description": "<img src=\"img/skills/dungeon-world_1000w.jpg\" alt=\"\" />\nPowered by the Apocalypse fantasy tabletop role-playing game focused on collaborative storytelling.",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Mikhail Nilov",
+        "image_photographer_url": "https://www.pexels.com/@mikhail-nilov"
     },
     {
         "slug": "vibe-coding",
-        "skillsets": ["AI"],
+        "skillsets": [
+            "AI"
+        ],
         "title": "Vibe Coding",
-        "description": "An intuitive approach to programming that emphasizes natural language communication with AI coding assistants.",
+        "description": "<img src=\"img/skills/vibe-coding_1000w.jpg\" alt=\"\" />\nAn intuitive approach to programming that emphasizes natural language communication with AI coding assistants.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Darlene Alderson",
+        "image_photographer_url": "https://www.pexels.com/@darlene-alderson"
     },
     {
         "slug": "cursor",
-        "skillsets": ["AI", "Software"],
+        "skillsets": [
+            "AI",
+            "Software"
+        ],
         "title": "Cursor",
-        "description": "AI-powered code editor designed for pair programming with AI assistants.",
+        "description": "<img src=\"img/skills/cursor_1000w.jpg\" alt=\"\" />\nAI-powered code editor designed for pair programming with AI assistants.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "github-copilot",
-        "skillsets": ["AI", "Software"],
+        "skillsets": [
+            "AI",
+            "Software"
+        ],
         "title": "GitHub Copilot",
-        "description": "AI pair programmer that suggests code completions and entire functions based on context."
+        "description": "<img src=\"img/skills/github-copilot_1000w.jpg\" alt=\"\" />\nAI pair programmer that suggests code completions and entire functions based on context.",
+        "image_photographer": "Matheus Bertelli",
+        "image_photographer_url": "https://www.pexels.com/@bertellifotografia"
     },
     {
         "slug": "chatgpt",
-        "skillsets": ["AI"],
+        "skillsets": [
+            "AI"
+        ],
         "title": "ChatGPT",
-        "description": "Large language model chatbot developed by OpenAI for conversational AI interactions and assistance.",
+        "description": "<img src=\"img/skills/chatgpt_1000w.jpg\" alt=\"\" />\nLarge language model chatbot developed by OpenAI for conversational AI interactions and assistance.",
         "type": "personal",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Airam Dato-on",
+        "image_photographer_url": "https://www.pexels.com/@airamdphoto"
     },
     {
         "slug": "openai",
-        "skillsets": ["AI"],
+        "skillsets": [
+            "AI"
+        ],
         "title": "OpenAI",
-        "description": "AI research company and platform providing advanced artificial intelligence models and services.",
+        "description": "<img src=\"img/skills/openai_1000w.jpg\" alt=\"\" />\nAI research company and platform providing advanced artificial intelligence models and services.",
         "type": "personal",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Andrew Neel",
+        "image_photographer_url": "https://www.pexels.com/@andrew"
     },
     {
         "slug": "openai-api",
-        "skillsets": ["AI", "Development"],
+        "skillsets": [
+            "AI",
+            "Development"
+        ],
         "title": "OpenAI API",
-        "description": "Application programming interface for integrating OpenAI's language models and AI capabilities into applications.",
+        "description": "<img src=\"img/skills/openai-api_1000w.jpg\" alt=\"\" />\nApplication programming interface for integrating OpenAI's language models and AI capabilities into applications.",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Markus Winkler",
+        "image_photographer_url": "https://www.pexels.com/@markus-winkler-1430818"
     },
     {
         "slug": "azure-ai-foundry",
-        "skillsets": ["AI", "Software"],
+        "skillsets": [
+            "AI",
+            "Software"
+        ],
         "title": "Azure AI Foundry",
-        "description": "Microsoft Azure platform for building, deploying, and managing AI applications and models.",
+        "description": "<img src=\"img/skills/azure-ai-foundry_1000w.jpg\" alt=\"\" />\nMicrosoft Azure platform for building, deploying, and managing AI applications and models.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "SlimMars 13",
+        "image_photographer_url": "https://www.pexels.com/@slimmars-13-197677686"
     },
     {
         "slug": "claude",
-        "skillsets": ["AI"],
+        "skillsets": [
+            "AI"
+        ],
         "title": "Claude",
-        "description": "AI assistant developed by Anthropic, designed for helpful, harmless, and honest interactions.",
+        "description": "<img src=\"img/skills/claude_1000w.jpg\" alt=\"\" />\nAI assistant developed by Anthropic, designed for helpful, harmless, and honest interactions.",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Clement Couturier",
+        "image_photographer_url": "https://www.pexels.com/@clement-couturier-546640561"
     },
     {
         "slug": "github",
-        "skillsets": ["Software", "DevOps"],
+        "skillsets": [
+            "Software",
+            "DevOps"
+        ],
         "title": "GitHub",
-        "description": "Web-based platform for version control and collaboration using Git repositories.",
+        "description": "<img src=\"img/skills/github_1000w.jpg\" alt=\"\" />\nWeb-based platform for version control and collaboration using Git repositories.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Christina Morillo",
+        "image_photographer_url": "https://www.pexels.com/@divinetechygirl"
     },
     {
         "slug": "gitlab",
-        "skillsets": ["Software", "DevOps"],
+        "skillsets": [
+            "Software",
+            "DevOps"
+        ],
         "title": "GitLab",
         "description": "Web-based DevOps platform providing Git repository management, CI/CD pipelines, and project management tools.",
         "type": "professional",
@@ -1015,95 +1581,154 @@
     },
     {
         "slug": "github-actions",
-        "skillsets": ["DevOps", "Software", "Development"],
+        "skillsets": [
+            "DevOps",
+            "Software",
+            "Development"
+        ],
         "title": "GitHub Actions",
-        "description": "CI/CD platform integrated with GitHub for automating workflows, testing, and deployment pipelines.",
+        "description": "<img src=\"img/skills/github-actions_1000w.jpg\" alt=\"\" />\nCI/CD platform integrated with GitHub for automating workflows, testing, and deployment pipelines.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Christina Morillo",
+        "image_photographer_url": "https://www.pexels.com/@divinetechygirl"
     },
     {
         "slug": "azure-active-directory",
-        "skillsets": ["Software", "DevOps"],
+        "skillsets": [
+            "Software",
+            "DevOps"
+        ],
         "title": "Azure Active Directory",
-        "description": "Microsoft's cloud-based identity and access management service for authentication and authorization.",
+        "description": "<img src=\"img/skills/azure-active-directory_1000w.jpg\" alt=\"\" />\nMicrosoft's cloud-based identity and access management service for authentication and authorization.",
         "type": "professional",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Mikhail Nilov",
+        "image_photographer_url": "https://www.pexels.com/@mikhail-nilov"
     },
     {
         "slug": "azure",
-        "skillsets": ["Software", "DevOps"],
+        "skillsets": [
+            "Software",
+            "DevOps"
+        ],
         "title": "Azure",
-        "description": "Microsoft's cloud computing platform providing a wide range of services including hosting, storage, and AI.",
+        "description": "<img src=\"img/skills/azure_1000w.jpg\" alt=\"\" />\nMicrosoft's cloud computing platform providing a wide range of services including hosting, storage, and AI.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "SlimMars 13",
+        "image_photographer_url": "https://www.pexels.com/@slimmars-13-197677686"
     },
     {
         "slug": "gimp",
-        "skillsets": ["Software", "Design", "Multimedia"],
+        "skillsets": [
+            "Software",
+            "Design",
+            "Multimedia"
+        ],
         "title": "Gimp",
-        "description": "GNU Image Manipulation Program, a free and open-source raster graphics editor for image editing and creation.",
+        "description": "<img src=\"img/skills/gimp_1000w.jpg\" alt=\"\" />\nGNU Image Manipulation Program, a free and open-source raster graphics editor for image editing and creation.",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Wang Teck Heng",
+        "image_photographer_url": "https://www.pexels.com/@teckhengwang"
     },
     {
         "slug": "davinci-resolve",
-        "skillsets": ["Software", "Multimedia"],
+        "skillsets": [
+            "Software",
+            "Multimedia"
+        ],
         "title": "Davinci Resolve",
-        "description": "Professional video editing, color correction, and post-production software for film and video projects.",
+        "description": "<img src=\"img/skills/davinci-resolve_1000w.jpg\" alt=\"\" />\nProfessional video editing, color correction, and post-production software for film and video projects.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Daniel Liberty",
+        "image_photographer_url": "https://www.pexels.com/@daniel-liberty-3570706"
     },
     {
         "slug": "maya",
-        "skillsets": ["Software", "Multimedia", "Game Design"],
+        "skillsets": [
+            "Software",
+            "Multimedia",
+            "Game Design"
+        ],
         "title": "Maya",
-        "description": "3D computer graphics software for modeling, animation, simulation, and rendering used in game development and film production.",
+        "description": "<img src=\"img/skills/maya_1000w.jpg\" alt=\"\" />\n3D computer graphics software for modeling, animation, simulation, and rendering used in game development and film production.",
         "type": "personal",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Omar Zetina",
+        "image_photographer_url": "https://www.pexels.com/@zetinaconzeta"
     },
     {
         "slug": "sketchup",
-        "skillsets": ["Software", "Design", "Multimedia"],
+        "skillsets": [
+            "Software",
+            "Design",
+            "Multimedia"
+        ],
         "title": "SketchUp",
-        "description": "3D modeling software for architectural, interior design, landscape architecture, and engineering applications.",
+        "description": "<img src=\"img/skills/sketchup_1000w.jpg\" alt=\"\" />\n3D modeling software for architectural, interior design, landscape architecture, and engineering applications.",
         "type": "personal",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Tom Asito",
+        "image_photographer_url": "https://www.pexels.com/@tomasito"
     },
     {
         "slug": "obs",
-        "skillsets": ["Software", "Multimedia"],
+        "skillsets": [
+            "Software",
+            "Multimedia"
+        ],
         "title": "OBS",
-        "description": "Open Broadcaster Software, free and open-source software for video recording and live streaming.",
+        "description": "<img src=\"img/skills/obs_1000w.jpg\" alt=\"\" />\nOpen Broadcaster Software, free and open-source software for video recording and live streaming.",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Nejc Košir",
+        "image_photographer_url": "https://www.pexels.com/@nejc-kosir-108379"
     },
     {
         "slug": "vs-code",
-        "skillsets": ["Software"],
+        "skillsets": [
+            "Software"
+        ],
         "title": "VS Code",
-        "description": "Visual Studio Code, a lightweight but powerful source code editor with extensive extension support.",
+        "description": "<img src=\"img/skills/vs-code_1000w.jpg\" alt=\"\" />\nVisual Studio Code, a lightweight but powerful source code editor with extensive extension support.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Daniil Komov",
+        "image_photographer_url": "https://www.pexels.com/@dkomov"
     },
     {
         "slug": "visual-studio",
-        "skillsets": ["Software", "Development"],
+        "skillsets": [
+            "Software",
+            "Development"
+        ],
         "title": "Visual Studio",
-        "description": "Microsoft's full-featured integrated development environment for building applications across multiple platforms and languages.",
+        "description": "<img src=\"img/skills/visual-studio_1000w.jpg\" alt=\"\" />\nMicrosoft's full-featured integrated development environment for building applications across multiple platforms and languages.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Mikhail Nilov",
+        "image_photographer_url": "https://www.pexels.com/@mikhail-nilov"
     },
     {
         "slug": "sublime-text",
-        "skillsets": ["Software"],
+        "skillsets": [
+            "Software"
+        ],
         "title": "Sublime Text",
-        "description": "Sophisticated text editor for code, markup, and prose with powerful features and extensive customization options.",
+        "description": "<img src=\"img/skills/sublime-text_1000w.jpg\" alt=\"\" />\nSophisticated text editor for code, markup, and prose with powerful features and extensive customization options.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Marc Mueller",
+        "image_photographer_url": "https://www.pexels.com/@seven11nash"
     },
     {
         "slug": "gitlens",
-        "skillsets": ["Software"],
+        "skillsets": [
+            "Software"
+        ],
         "title": "GitLens",
         "description": "Git extension for VS Code that enhances Git capabilities with advanced visualization and insights.",
         "type": "professional",
@@ -1111,7 +1736,10 @@
     },
     {
         "slug": "winmerge",
-        "skillsets": ["Development", "Software"],
+        "skillsets": [
+            "Development",
+            "Software"
+        ],
         "title": "WinMerge",
         "description": "Windows diff and merge tool for comparing and merging files and folders, highlighting differences visually.",
         "type": "personal",
@@ -1119,7 +1747,10 @@
     },
     {
         "slug": "diffmerge",
-        "skillsets": ["Development", "Software"],
+        "skillsets": [
+            "Development",
+            "Software"
+        ],
         "title": "DiffMerge",
         "description": "Cross-platform diff and merge tool for comparing files, folders, and performing three-way merges.",
         "type": "personal",
@@ -1127,15 +1758,24 @@
     },
     {
         "slug": "python",
-        "skillsets": ["Programming Languages", "Development", "Computer Science"],
+        "skillsets": [
+            "Programming Languages",
+            "Development",
+            "Computer Science"
+        ],
         "title": "Python",
-        "description": "High-level programming language known for its simplicity and versatility in web development, data science, and automation.",
+        "description": "<img src=\"img/skills/python_1000w.jpg\" alt=\"\" />\nHigh-level programming language known for its simplicity and versatility in web development, data science, and automation.",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Christina Morillo",
+        "image_photographer_url": "https://www.pexels.com/@divinetechygirl"
     },
     {
         "slug": "brainfuck",
-        "skillsets": ["Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "Brainfuck",
         "description": "Esoteric programming language designed to challenge and amuse programmers with its minimal instruction set.",
         "type": "personal",
@@ -1143,31 +1783,46 @@
     },
     {
         "slug": "graphic-design",
-        "skillsets": ["Design"],
+        "skillsets": [
+            "Design"
+        ],
         "title": "Graphic Design",
-        "description": "Creating visual content using typography, imagery, and layout to communicate ideas and messages effectively.",
+        "description": "<img src=\"img/skills/graphic-design_1000w.jpg\" alt=\"\" />\nCreating visual content using typography, imagery, and layout to communicate ideas and messages effectively.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Tranmautritam",
+        "image_photographer_url": "https://www.pexels.com/@tranmautritam"
     },
     {
         "slug": "typography",
-        "skillsets": ["Design"],
+        "skillsets": [
+            "Design"
+        ],
         "title": "Typography",
-        "description": "The art and technique of arranging type to make written language legible, readable, and visually appealing.",
+        "description": "<img src=\"img/skills/typography_1000w.jpg\" alt=\"\" />\nThe art and technique of arranging type to make written language legible, readable, and visually appealing.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Alex Andrews",
+        "image_photographer_url": "https://www.pexels.com/@alex-andrews-271121"
     },
     {
         "slug": "photography",
-        "skillsets": ["Multimedia"],
+        "skillsets": [
+            "Multimedia"
+        ],
         "title": "Photography",
-        "description": "The art and practice of capturing images using cameras, focusing on composition, lighting, and visual storytelling.",
+        "description": "<img src=\"img/skills/photography_1000w.jpg\" alt=\"\" />\nThe art and practice of capturing images using cameras, focusing on composition, lighting, and visual storytelling.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Andre Furtado",
+        "image_photographer_url": "https://www.pexels.com/@andre-furtado-43594"
     },
     {
         "slug": "three-js",
-        "skillsets": ["Development", "Programming Languages"],
+        "skillsets": [
+            "Development",
+            "Programming Languages"
+        ],
         "title": "Three.js",
         "description": "JavaScript library for creating and displaying 3D graphics and animations in web browsers using WebGL.",
         "type": "professional",
@@ -1175,7 +1830,10 @@
     },
     {
         "slug": "webgl",
-        "skillsets": ["Development", "Programming Languages"],
+        "skillsets": [
+            "Development",
+            "Programming Languages"
+        ],
         "title": "WebGL",
         "description": "JavaScript API for rendering interactive 3D and 2D graphics within web browsers without plugins.",
         "type": "professional",
@@ -1183,15 +1841,23 @@
     },
     {
         "slug": "perlin-noise",
-        "skillsets": ["Development", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Computer Science"
+        ],
         "title": "Perlin Noise",
-        "description": "A gradient noise function algorithm used for generating natural-looking random patterns in procedural generation.",
+        "description": "<img src=\"img/skills/perlin-noise_1000w.jpg\" alt=\"\" />\nA gradient noise function algorithm used for generating natural-looking random patterns in procedural generation.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "TIM3LAB",
+        "image_photographer_url": "https://www.pexels.com/@tim3lab-1023764247"
     },
     {
         "slug": "a-star",
-        "skillsets": ["Development", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Computer Science"
+        ],
         "title": "A*",
         "description": "A* search algorithm, a pathfinding and graph traversal algorithm used to find optimal paths between nodes.",
         "type": "personal",
@@ -1199,47 +1865,77 @@
     },
     {
         "slug": "godot",
-        "skillsets": ["Software", "Game Design", "Development"],
+        "skillsets": [
+            "Software",
+            "Game Design",
+            "Development"
+        ],
         "title": "Godot",
-        "description": "Free and open-source game engine for creating 2D and 3D games with a flexible scene system.",
+        "description": "<img src=\"img/skills/godot_1000w.jpg\" alt=\"\" />\nFree and open-source game engine for creating 2D and 3D games with a flexible scene system.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Luis Quintero",
+        "image_photographer_url": "https://www.pexels.com/@jibarofoto"
     },
     {
         "slug": "gamemaker-studio",
-        "skillsets": ["Software", "Game Design", "Development"],
+        "skillsets": [
+            "Software",
+            "Game Design",
+            "Development"
+        ],
         "title": "GameMaker Studio",
-        "description": "Cross-platform game development engine for creating 2D games with a visual scripting system and GML programming language.",
+        "description": "<img src=\"img/skills/gamemaker-studio_1000w.jpg\" alt=\"\" />\nCross-platform game development engine for creating 2D games with a visual scripting system and GML programming language.",
         "type": "personal",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "Plus Minus",
+        "image_photographer_url": "https://www.pexels.com/@plus-minus-1775307559"
     },
     {
         "slug": "command-line",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "CL",
-        "description": "Command Line interface for interacting with operating systems and executing programs through text-based commands.",
+        "description": "<img src=\"img/skills/command-line_1000w.jpg\" alt=\"\" />\nCommand Line interface for interacting with operating systems and executing programs through text-based commands.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "PABLO PAREDES NUÑEZ",
+        "image_photographer_url": "https://www.pexels.com/@pablo-paredes-nunez-295717329"
     },
     {
         "slug": "terminal",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Terminal",
-        "description": "Text-based interface for executing commands and managing system operations in various operating systems.",
+        "description": "<img src=\"img/skills/terminal_1000w.jpg\" alt=\"\" />\nText-based interface for executing commands and managing system operations in various operating systems.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "putty",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "PuTTY",
-        "description": "Free SSH and telnet client for Windows, providing secure remote access to servers and network devices.",
+        "description": "<img src=\"img/skills/putty_1000w.jpg\" alt=\"\" />\nFree SSH and telnet client for Windows, providing secure remote access to servers and network devices.",
         "type": "personal",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "La Miko",
+        "image_photographer_url": "https://www.pexels.com/@lamiko"
     },
     {
         "slug": "winscp",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "WinSCP",
         "description": "Windows file transfer client using SFTP, SCP, and FTP protocols for secure file management on remote servers.",
         "type": "professional",
@@ -1247,7 +1943,10 @@
     },
     {
         "slug": "filezilla",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "FileZilla",
         "description": "Cross-platform FTP, FTPS, and SFTP client for transferring files between local and remote servers.",
         "type": "professional",
@@ -1255,7 +1954,10 @@
     },
     {
         "slug": "cyberduck",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Cyberduck",
         "description": "Cross-platform file transfer client supporting FTP, SFTP, WebDAV, and cloud storage services.",
         "type": "professional",
@@ -1263,15 +1965,25 @@
     },
     {
         "slug": "bash-shell-scripting",
-        "skillsets": ["DevOps", "Software", "Development"],
+        "skillsets": [
+            "DevOps",
+            "Software",
+            "Development"
+        ],
         "title": "Bash/Shell Scripting",
-        "description": "Writing shell scripts using Bash and other shell languages to automate tasks and system administration.",
+        "description": "<img src=\"img/skills/bash-shell-scripting_1000w.jpg\" alt=\"\" />\nWriting shell scripts using Bash and other shell languages to automate tasks and system administration.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Harold Vasquez",
+        "image_photographer_url": "https://www.pexels.com/@harold-vasquez-853421"
     },
     {
         "slug": "powershell",
-        "skillsets": ["DevOps", "Software", "Development"],
+        "skillsets": [
+            "DevOps",
+            "Software",
+            "Development"
+        ],
         "title": "PowerShell",
         "description": "Task automation and configuration management framework from Microsoft, with a command-line shell and scripting language.",
         "type": "professional",
@@ -1279,47 +1991,80 @@
     },
     {
         "slug": "regex",
-        "skillsets": ["Development", "Programming Languages", "Computer Science"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Computer Science"
+        ],
         "title": "Regex",
-        "description": "Regular expressions, pattern matching syntax used for searching, validating, and manipulating text strings.",
+        "description": "<img src=\"img/skills/regex_1000w.jpg\" alt=\"\" />\nRegular expressions, pattern matching syntax used for searching, validating, and manipulating text strings.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Anna Shvets",
+        "image_photographer_url": "https://www.pexels.com/@shvetsa"
     },
     {
         "slug": "fetch",
-        "skillsets": ["Development", "Programming Languages"],
+        "skillsets": [
+            "Development",
+            "Programming Languages"
+        ],
         "title": "Fetch",
-        "description": "Web API for making HTTP requests to fetch resources asynchronously from servers in web applications.",
+        "description": "<img src=\"img/skills/fetch_1000w.jpg\" alt=\"\" />\nWeb API for making HTTP requests to fetch resources asynchronously from servers in web applications.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Matthias Zomer",
+        "image_photographer_url": "https://www.pexels.com/@matthiaszomer"
     },
     {
         "slug": "node",
-        "skillsets": ["Development", "Programming Languages", "Software", "DevOps"],
+        "skillsets": [
+            "Development",
+            "Programming Languages",
+            "Software",
+            "DevOps"
+        ],
         "title": "Node",
-        "description": "Node.js, JavaScript runtime environment for building server-side applications and command-line tools.",
+        "description": "<img src=\"img/skills/node_1000w.jpg\" alt=\"\" />\nNode.js, JavaScript runtime environment for building server-side applications and command-line tools.",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "cottonbro studio",
+        "image_photographer_url": "https://www.pexels.com/@cottonbro"
     },
     {
         "slug": "npm",
-        "skillsets": ["Development", "Software", "DevOps"],
+        "skillsets": [
+            "Development",
+            "Software",
+            "DevOps"
+        ],
         "title": "npm",
-        "description": "Node Package Manager, package manager for JavaScript and the default package manager for Node.js.",
+        "description": "<img src=\"img/skills/npm_1000w.jpg\" alt=\"\" />\nNode Package Manager, package manager for JavaScript and the default package manager for Node.js.",
         "type": "personal",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "RealToughCandy.com",
+        "image_photographer_url": "https://www.pexels.com/@realtoughcandy"
     },
     {
         "slug": "electron",
-        "skillsets": ["Development", "Software"],
+        "skillsets": [
+            "Development",
+            "Software"
+        ],
         "title": "Electron",
-        "description": "Framework for building cross-platform desktop applications using web technologies like HTML, CSS, and JavaScript.",
+        "description": "<img src=\"img/skills/electron_1000w.jpg\" alt=\"\" />\nFramework for building cross-platform desktop applications using web technologies like HTML, CSS, and JavaScript.",
         "type": "personal",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "ThisIsEngineering",
+        "image_photographer_url": "https://www.pexels.com/@thisisengineering"
     },
     {
         "slug": "webpack",
-        "skillsets": ["Development", "DevOps", "Software"],
+        "skillsets": [
+            "Development",
+            "DevOps",
+            "Software"
+        ],
         "title": "Webpack",
         "description": "Module bundler for JavaScript applications that packages code and assets for production deployment.",
         "type": "professional",
@@ -1327,31 +2072,49 @@
     },
     {
         "slug": "docker",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Docker",
-        "description": "Containerization platform for packaging applications and their dependencies into portable, isolated containers.",
+        "description": "<img src=\"img/skills/docker_1000w.jpg\" alt=\"\" />\nContainerization platform for packaging applications and their dependencies into portable, isolated containers.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Kampus Production",
+        "image_photographer_url": "https://www.pexels.com/@kampus"
     },
     {
         "slug": "virtualization",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Virtualization",
-        "description": "Creating virtual machines and virtual environments using platforms like VMware, VirtualBox, and Hyper-V.",
+        "description": "<img src=\"img/skills/virtualization_1000w.jpg\" alt=\"\" />\nCreating virtual machines and virtual environments using platforms like VMware, VirtualBox, and Hyper-V.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Christina Morillo",
+        "image_photographer_url": "https://www.pexels.com/@divinetechygirl"
     },
     {
         "slug": "logging",
-        "skillsets": ["DevOps", "Development"],
+        "skillsets": [
+            "DevOps",
+            "Development"
+        ],
         "title": "Logging",
-        "description": "Implementing and managing application and system logging using tools like ELK Stack, Splunk, and centralized log management.",
+        "description": "<img src=\"img/skills/logging_1000w.jpg\" alt=\"\" />\nImplementing and managing application and system logging using tools like ELK Stack, Splunk, and centralized log management.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "datadog",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Datadog",
         "description": "Cloud monitoring and analytics platform for infrastructure, applications, and log management with real-time insights.",
         "type": "professional",
@@ -1359,7 +2122,10 @@
     },
     {
         "slug": "splunk",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Splunk",
         "description": "Platform for searching, monitoring, and analyzing machine-generated big data through a web-style interface.",
         "type": "professional",
@@ -1367,211 +2133,318 @@
     },
     {
         "slug": "performance-optimization",
-        "skillsets": ["Development", "DevOps"],
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
         "title": "Performance Optimization",
-        "description": "Improving application and system performance through code optimization, caching strategies, and resource management.",
+        "description": "<img src=\"img/skills/performance-optimization_1000w.jpg\" alt=\"\" />\nImproving application and system performance through code optimization, caching strategies, and resource management.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Andrey Matveev",
+        "image_photographer_url": "https://www.pexels.com/@zeleboba"
     },
     {
         "slug": "chef",
-        "skillsets": ["DevOps", "Software"],
+        "skillsets": [
+            "DevOps",
+            "Software"
+        ],
         "title": "Chef",
-        "description": "Configuration management and automation platform for managing infrastructure and application deployment.",
+        "description": "<img src=\"img/skills/chef_1000w.jpg\" alt=\"\" />\nConfiguration management and automation platform for managing infrastructure and application deployment.",
         "type": "professional",
-        "experience": 1
+        "experience": 1,
+        "image_photographer": "ELEVATE",
+        "image_photographer_url": "https://www.pexels.com/@elevate"
     },
     {
         "slug": "unit-testing",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "Unit Testing",
-        "description": "Testing individual components or functions in isolation to ensure they work correctly before integration.",
+        "description": "<img src=\"img/skills/unit-testing_1000w.jpg\" alt=\"\" />\nTesting individual components or functions in isolation to ensure they work correctly before integration.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "ThisIsEngineering",
+        "image_photographer_url": "https://www.pexels.com/@thisisengineering"
     },
     {
         "slug": "integration-testing",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "Integration Testing",
-        "description": "Testing how different components or systems work together to ensure they integrate correctly.",
+        "description": "<img src=\"img/skills/integration-testing_1000w.jpg\" alt=\"\" />\nTesting how different components or systems work together to ensure they integrate correctly.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Ludovic Delot",
+        "image_photographer_url": "https://www.pexels.com/@delot"
     },
     {
         "slug": "end-to-end-testing",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "End-to-End Testing",
-        "description": "Testing complete user workflows from start to finish to verify the entire application works as expected.",
+        "description": "<img src=\"img/skills/end-to-end-testing_1000w.jpg\" alt=\"\" />\nTesting complete user workflows from start to finish to verify the entire application works as expected.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Нурлан Шлюмбаев",
+        "image_photographer_url": "https://www.pexels.com/@2157803149"
     },
     {
         "slug": "code-review",
-        "skillsets": ["Development", "DevOps"],
+        "skillsets": [
+            "Development",
+            "DevOps"
+        ],
         "title": "Code Review",
-        "description": "Systematic examination of source code to improve code quality, catch bugs, and share knowledge among team members.",
+        "description": "<img src=\"img/skills/code-review_1000w.jpg\" alt=\"\" />\nSystematic examination of source code to improve code quality, catch bugs, and share knowledge among team members.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Mikhail Nilov",
+        "image_photographer_url": "https://www.pexels.com/@mikhail-nilov"
     },
     {
         "slug": "selenium",
-        "skillsets": ["Development", "Software"],
+        "skillsets": [
+            "Development",
+            "Software"
+        ],
         "title": "Selenium",
-        "description": "Automated testing framework for web applications that simulates user interactions across different browsers.",
+        "description": "<img src=\"img/skills/selenium_1000w.jpg\" alt=\"\" />\nAutomated testing framework for web applications that simulates user interactions across different browsers.",
         "type": "professional",
-        "experience": 2
+        "experience": 2,
+        "image_photographer": "Kate L",
+        "image_photographer_url": "https://www.pexels.com/@kate-l-2149358429"
     },
     {
         "slug": "team-leadership",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Team Leadership",
-        "description": "Leading and motivating cross-functional teams to achieve project goals and deliverables.",
+        "description": "<img src=\"img/skills/team-leadership_1000w.jpg\" alt=\"\" />\nLeading and motivating cross-functional teams to achieve project goals and deliverables.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Yan Krukau",
+        "image_photographer_url": "https://www.pexels.com/@yankrukov"
     },
     {
         "slug": "mentoring",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Mentoring",
-        "description": "Guiding and developing junior developers and team members through knowledge sharing and career development.",
+        "description": "<img src=\"img/skills/mentoring_1000w.jpg\" alt=\"\" />\nGuiding and developing junior developers and team members through knowledge sharing and career development.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "nappy",
+        "image_photographer_url": "https://www.pexels.com/@nappy"
     },
     {
         "slug": "stakeholder-communication",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Stakeholder Communication",
-        "description": "Communicating effectively with stakeholders, clients, and executives to align expectations and report progress.",
+        "description": "<img src=\"img/skills/stakeholder-communication_1000w.jpg\" alt=\"\" />\nCommunicating effectively with stakeholders, clients, and executives to align expectations and report progress.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Karola G",
+        "image_photographer_url": "https://www.pexels.com/@karola-g"
     },
     {
         "slug": "conflict-resolution",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Conflict Resolution",
-        "description": "Identifying and resolving team conflicts and interpersonal issues to maintain a productive work environment.",
+        "description": "<img src=\"img/skills/conflict-resolution_1000w.jpg\" alt=\"\" />\nIdentifying and resolving team conflicts and interpersonal issues to maintain a productive work environment.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Kyran Weekes",
+        "image_photographer_url": "https://www.pexels.com/@kyran-weekes-133604802"
     },
     {
         "slug": "strategic-planning",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Strategic Planning",
-        "description": "Developing long-term strategies and roadmaps to guide team and organizational objectives.",
+        "description": "<img src=\"img/skills/strategic-planning_1000w.jpg\" alt=\"\" />\nDeveloping long-term strategies and roadmaps to guide team and organizational objectives.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Sora Shimazaki",
+        "image_photographer_url": "https://www.pexels.com/@sora-shimazaki"
     },
     {
         "slug": "decision-making",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Decision Making",
-        "description": "Making informed decisions under pressure and with incomplete information to drive team progress.",
+        "description": "<img src=\"img/skills/decision-making_1000w.jpg\" alt=\"\" />\nMaking informed decisions under pressure and with incomplete information to drive team progress.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Engin Akyurt",
+        "image_photographer_url": "https://www.pexels.com/@enginakyurt"
     },
     {
         "slug": "delegation",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Delegation",
-        "description": "Assigning tasks and responsibilities effectively to team members based on their strengths and capabilities.",
+        "description": "<img src=\"img/skills/delegation_1000w.jpg\" alt=\"\" />\nAssigning tasks and responsibilities effectively to team members based on their strengths and capabilities.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Mikhail Nilov",
+        "image_photographer_url": "https://www.pexels.com/@mikhail-nilov"
     },
     {
         "slug": "change-management",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Change Management",
-        "description": "Leading organizational change initiatives and helping teams adapt to new processes, tools, and methodologies.",
+        "description": "<img src=\"img/skills/change-management_1000w.jpg\" alt=\"\" />\nLeading organizational change initiatives and helping teams adapt to new processes, tools, and methodologies.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "performance-management",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Performance Management",
-        "description": "Evaluating team member performance, providing constructive feedback, and setting development goals.",
+        "description": "<img src=\"img/skills/performance-management_1000w.jpg\" alt=\"\" />\nEvaluating team member performance, providing constructive feedback, and setting development goals.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Yan Krukau",
+        "image_photographer_url": "https://www.pexels.com/@yankrukov"
     },
     {
         "slug": "vision-setting",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Vision Setting",
-        "description": "Creating and communicating a clear, compelling vision that inspires and aligns teams toward common goals.",
+        "description": "<img src=\"img/skills/vision-setting_1000w.jpg\" alt=\"\" />\nCreating and communicating a clear, compelling vision that inspires and aligns teams toward common goals.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Min An",
+        "image_photographer_url": "https://www.pexels.com/@minan1398"
     },
     {
         "slug": "public-speaking",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Public Speaking",
-        "description": "Effectively presenting ideas, strategies, and updates to audiences ranging from small teams to large conferences.",
+        "description": "<img src=\"img/skills/public-speaking_1000w.jpg\" alt=\"\" />\nEffectively presenting ideas, strategies, and updates to audiences ranging from small teams to large conferences.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Monica Silvestre",
+        "image_photographer_url": "https://www.pexels.com/@monica"
     },
     {
         "slug": "negotiation",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Negotiation",
-        "description": "Reaching mutually beneficial agreements with stakeholders, vendors, and team members through effective communication and compromise.",
+        "description": "<img src=\"img/skills/negotiation_1000w.jpg\" alt=\"\" />\nReaching mutually beneficial agreements with stakeholders, vendors, and team members through effective communication and compromise.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "crisis-management",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Crisis Management",
-        "description": "Leading teams through critical situations, making rapid decisions, and managing emergencies to minimize impact.",
+        "description": "<img src=\"img/skills/crisis-management_1000w.jpg\" alt=\"\" />\nLeading teams through critical situations, making rapid decisions, and managing emergencies to minimize impact.",
         "type": "professional",
-        "experience": 4
+        "experience": 4,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "process-improvement",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Process Improvement",
-        "description": "Analyzing existing workflows and implementing improvements to enhance efficiency, quality, and team productivity.",
+        "description": "<img src=\"img/skills/process-improvement_1000w.jpg\" alt=\"\" />\nAnalyzing existing workflows and implementing improvements to enhance efficiency, quality, and team productivity.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Daniel Andraski",
+        "image_photographer_url": "https://www.pexels.com/@daniel-andraski-197681005"
     },
     {
         "slug": "cross-cultural-leadership",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Cross-cultural Leadership",
-        "description": "Leading diverse, multicultural teams with sensitivity to different cultural perspectives, communication styles, and work practices.",
+        "description": "<img src=\"img/skills/cross-cultural-leadership_1000w.jpg\" alt=\"\" />\nLeading diverse, multicultural teams with sensitivity to different cultural perspectives, communication styles, and work practices.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Ron Lach",
+        "image_photographer_url": "https://www.pexels.com/@ron-lach"
     },
     {
         "slug": "emotional-intelligence",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Emotional Intelligence",
-        "description": "Understanding and managing emotions effectively, both personally and in team interactions, to build strong relationships and drive performance.",
+        "description": "<img src=\"img/skills/emotional-intelligence_1000w.jpg\" alt=\"\" />\nUnderstanding and managing emotions effectively, both personally and in team interactions, to build strong relationships and drive performance.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "risk-management",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Risk Management",
-        "description": "Identifying potential risks, assessing their impact, and developing mitigation strategies to protect project and organizational success.",
+        "description": "<img src=\"img/skills/risk-management_1000w.jpg\" alt=\"\" />\nIdentifying potential risks, assessing their impact, and developing mitigation strategies to protect project and organizational success.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     },
     {
         "slug": "innovation-leadership",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Innovation Leadership",
-        "description": "Fostering a culture of creativity and innovation, encouraging experimentation, and leading teams to develop breakthrough solutions.",
+        "description": "<img src=\"img/skills/innovation-leadership_1000w.jpg\" alt=\"\" />\nFostering a culture of creativity and innovation, encouraging experimentation, and leading teams to develop breakthrough solutions.",
         "type": "professional",
-        "experience": 5
+        "experience": 5,
+        "image_photographer": "Fox",
+        "image_photographer_url": "https://www.pexels.com/@hillaryfox"
     },
     {
         "slug": "time-management",
-        "skillsets": ["Leadership"],
+        "skillsets": [
+            "Leadership"
+        ],
         "title": "Time Management",
-        "description": "Effectively prioritizing tasks, managing schedules, and optimizing time allocation for maximum productivity and team efficiency.",
+        "description": "<img src=\"img/skills/time-management_1000w.jpg\" alt=\"\" />\nEffectively prioritizing tasks, managing schedules, and optimizing time allocation for maximum productivity and team efficiency.",
         "type": "professional",
-        "experience": 3
+        "experience": 3,
+        "image_photographer": "Pixabay",
+        "image_photographer_url": "https://www.pexels.com/@pixabay"
     }
 ]
-

@@ -115,7 +115,7 @@ h6 {
 }
 
 p {
-    margin: 0;
+    margin-bottom: var(--spacing-double);
     font-size: var(--font-size-base);
     line-height: 1.7;
     color: var(--text-primary);
@@ -163,6 +163,14 @@ a[href^="#!"]:focus {
 
 a[href^="#!"]:visited {
     color: var(--accent-visited, hsl(271, 68%, 32%));
+}
+
+img {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .skip-link {
@@ -955,7 +963,6 @@ b-timeline.timeline-full-height .timeline-container {
 }
 
 .timeline-content p {
-    margin: 0;
     font-size: var(--font-size-base);
     color: var(--text-primary, hsla(0, 0%, 0%, 0.7));
     line-height: 1.7;
@@ -1038,7 +1045,6 @@ article[data-domain] .timeline-domain,
 
 .timeline-event-detail p {
     font-size: var(--font-size-h4);
-    margin: 0;
     line-height: 1.7;
     color: var(--text-primary, hsla(0, 0%, 0%, 0.8));
 }
@@ -1272,7 +1278,6 @@ article h3 {
 }
 
 article p {
-    margin: 0;
     line-height: 1.7;
     font-size: var(--font-size-base);
 }

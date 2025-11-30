@@ -1,43 +1,34 @@
 [
     {
-        "slug": "the-elder-scrolls-online",
-        "domain": "Employed",
-        "subdomain": "ZeniMax Online Studios",
-        "start": "2013-01",
-        "end": null,
-        "skillsets": ["Development", "Leadership", "AI", "Databases", "DevOps"],
-        "title": "The Elder Scrolls Online",
-        "description": "Multiple redesigns and rebuilds, case studies on 3D backgrounds and hotloading, patcher rebuilds"
+        "slug": "this-portfolio-site",
+        "domain": "Independent",
+        "subdomain": null,
+        "start": "2025-11-25",
+        "end": "2025-11-30",
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX",
+            "Writing",
+            "Leadership",
+            "AI",
+            "Databases",
+            "DevOps"
+        ],
+        "title": "This Portfolio Site",
+        "description": "<p>Since I'd been working at the same place for almost 13 years – and recent events being what they are – I thought it was high time I built a new portfolio. My old portfolios and resumes were always very dramatic, pretentious, and over-the-top. I thought, Hell, might as well keep up the tradition.</p><p>I've been using AI in my processes for years now. <a href=\"#!/My-Stance-On-AI\">My Stance On AI</a> But, ironically, considering where I work, perhaps, I haven't fully adopted AI vibe coding. I hadn't fully explored the limits. I've done some vibe coding here and there for small projects around the house, of course; I've seen people use it similarly for half-assed games and YouTube reactions. But is AI really up to the task of polishing off a whole project?</p><p>No. It isn't.</p><p>It is getting closer all the time, though. It can get you to the first 90%. But the second 90%? The polish phase? The refactoring and refinement? It not only needed handholding the whole way, but it could also have benefited dramatically from my stepping in to write code by hand.</p><p>I didn't step in, though. I persisted. This website was entirely vibe-coded. I didn't write a single line of it by hand. I came close in a few places; I'll detail them below, but in the end, I didn't hand-write anything. I sure-as-fuck wanted to.</p><h3>The Good</h3><p>At this point, vibe coding is how every project should start. Getting to that first 90% – <a href=\"https://en.wikipedia.org/wiki/Ninety%E2%80%93ninety_rule\">you know about the two 90%, right</a>? It is like the three sea-shells. Anyway. AI is astoundingly good at getting a prototype or even the baseline of a project together. For this portfolio, I went in with a plan. <a href=\"files/Plan.md\">Link to plan.md</a> And the majority of that plan ended up being built. Not all of it was kept; a lot of the ideas were dead ends, but that's how ideas work. Some of the flavors changed. Some of the design ideas didn't feel good in practice. Some elements weren't implemented due to time constraints.</p><p>AI sped up these parts of the process, and by the end of day one, the majority of the portfolio's structure was in place. The problem is that this is day five that I am writing this.</p><h3>The Bad</h3><p>Vibe coding can't do new. Any novel idea has to be explained to AI in excruciating detail. Often in pseudocode. Sometimes, by giving code snippets to get the point across. If you look around at the different flavors of this portfolio – down there in the footer, can't miss 'em – you'll see that there is more than one novel design technique employed therein.</p><p>The Video-based transitions in Terminally Ill and VHScary? Never seen that before. The 3D Scene backgrounds? Only ever seen that done on <a href=\"#!/projects/the-elder-scrolls-online\">The Elder Scrolls Online</a> (by me). Getting these techniques working was a pain. A doable pain that took me the closest I got to actually coding in the whole project, but it was achievable.</p><h3>The Ugly</h3><p>What AI couldn't do is code professionally. I constantly had to remind it to use the CSS variables we'd set up to make the flavor files easier and smaller. Some of the flavors are hundreds of lines of redundant CSS. I couldn't get it to clean up the code. If I asked it to fix a design issue, it would always add more code rather than remove it, even if eliminating code would be the obvious solution for a human. Does the <code>article p { margin: 0; }</code> override the base level p tag's margin? Better add that margin like this, right? <code>article p { margin: 0; margin-bottom: 1rem; }</code> That's better than realizing the zeroed margin is old and not doing anything. Exhausting.</p><p>In the end, this website is bloated and contains at least twice as much code as it should.</p><h3>A Light at the End of the Tunnel</h3><p>As bad as polishing is, it is all solvable. As these tools mature (in this case, Cursor), you'll see these issues go away. Now that I have built a finished, polished product without writing code, I can see how coding by hand is going to die out. Is that good? Once again, I'll point you to <a href=\"#!/My-Stance-On-AI\">my stance on AI</a> linked to above and in the main navigation.</p>"
     },
     {
-        "slug": "unannounced-game",
-        "domain": "Employed",
-        "subdomain": "ZeniMax Online Studios",
-        "start": "2020-mid",
-        "end": "2025-07-02",
-        "skillsets": ["Development"],
-        "title": "Unannounced Game",
-        "description": "Greenlit mid-2020, canceled July 2nd, 2025"
-    },
-    {
-        "slug": "commander-keen",
-        "domain": "Employed",
-        "subdomain": "ZeniMax Online Studios",
-        "start": "2018",
-        "end": "2019-late",
-        "skillsets": ["Development", "Design", "UX"],
-        "title": "Commander Keen",
-        "description": "Announced June 9th, 2019, canceled late 2019"
-    },
-    {
-        "slug": "zosu",
-        "domain": "Employed",
-        "subdomain": "ZeniMax Online Studios",
-        "start": "2024-05-29",
-        "end": null,
-        "skillsets": ["Leadership"],
-        "title": "ZOSU",
-        "description": "ZeniMax Online Studios United (ZOSU) is a Communications Workers of America (CWA) union chapter representing workers at ZeniMax Online Studios. As one of the first video game unions in the United States, ZOSU will be instrumental in organizing efforts to improve working conditions, secure fair compensation, and establish collective bargaining rights for game industry workers."
+        "slug": "magitism",
+        "domain": "Independent",
+        "subdomain": null,
+        "start": "2021-12",
+        "end": "2022-12-18",
+        "skillsets": [
+            "Writing"
+        ],
+        "title": "Magitism: The Force of Magic",
+        "description": "<p><a href=\"https://www.magitism.com\">Magitism: The Force of Magic</a></p><p><img src=\"img/projects/book-shot.jpeg\" alt=\"Book shot\" /></p><p>Not only did I write the whole book. But I put together all the marketing materials and sell them in person at events.</p><p><img src=\"img/projects/book-selling-shot.jpeg\" alt=\"Book selling shot\" /></p><p>However, the website is the real gem. I made sure that my cover artist delivered the PSD to me so I could carve it up and reproduce the cover in web form. I used some of the techniques I developed for the <a href=\"#!/projects/commander-keen\">Commander Keen project</a>, including the scrolling stars.</p>"
     },
     {
         "slug": "ape",
@@ -45,9 +36,30 @@
         "subdomain": "ZeniMax Online Studios",
         "start": null,
         "end": null,
-        "skillsets": ["Development", "Design", "UX", "Leadership", "AI", "Databases", "DevOps"],
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX",
+            "Leadership",
+            "AI",
+            "Databases",
+            "DevOps"
+        ],
         "title": "APE",
-        "description": "Laravel years and frameworkless rebuild"
+        "description": "<p>The spiritual successor to what I built for the Army with <a href=\"#!/projects/core-cms\">CORE 2</a>. APE delivers on all the promises CORE had and more. Pages are constructed from proto-web-components called Smart Blocks, which can be assembled in the CMS by non-technical page managers in any configuration, nesting as needed. I wish I were at liberty to show it.</p>"
+    },
+    {
+        "slug": "sma",
+        "domain": "Employed",
+        "subdomain": "NASA/Goddard Space Flight Center/Mantech",
+        "start": "2007",
+        "end": "2008",
+        "skillsets": [
+            "Development",
+            "Databases"
+        ],
+        "title": "SMA",
+        "description": "<p>Humble Beginnings.</p><p><img src=\"img/projects/sma-site.jpg\" alt=\"SMA site screenshot\" /></p>"
     },
     {
         "slug": "army-mil",
@@ -55,9 +67,14 @@
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
         "end": "2013",
-        "skillsets": ["Development", "DevOps", "Databases", "Leadership"],
+        "skillsets": [
+            "Development",
+            "DevOps",
+            "Databases",
+            "Leadership"
+        ],
         "title": "Army.mil",
-        "description": "Led the technological vision for Army.mil"
+        "description": "<p><a href=\"https://web.archive.org/web/20150116150828/http://www.army.mil/\">Archive of Army.mil</a></p><p><img src=\"img/projects/armymil-site.jpg\" alt=\"Army.mil screenshot\" /></p>"
     },
     {
         "slug": "core-cms",
@@ -65,9 +82,15 @@
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
         "end": "2013",
-        "skillsets": ["Development", "DevOps", "Databases", "Leadership", "UX"],
-        "title": "CORE CMS",
-        "description": "Content Management System complete with community tools that enabled Public Affairs Officers to coordinate efforts, and a widgetized page management tool"
+        "skillsets": [
+            "Development",
+            "DevOps",
+            "Databases",
+            "Leadership",
+            "UX"
+        ],
+        "title": "CORE 2 CMS",
+        "description": "<p>CORE 2 Content Management System a CMS complete with community tools that enabled the disjointed Public Affairs Officers to be able to coordinate efforts, and a wigetized page management tool that enabled non-technical page publishers to be able to customize their page.</p>"
     },
     {
         "slug": "my-army-mil",
@@ -75,9 +98,14 @@
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
         "end": "2013",
-        "skillsets": ["Development", "DevOps", "Databases", "UX"],
+        "skillsets": [
+            "Development",
+            "DevOps",
+            "Databases",
+            "UX"
+        ],
         "title": "My.Army.mil",
-        "description": "iGoogle-like customizable homepage that allows users to pick and choose what Army content they are interested in seeing"
+        "description": "<p>My.Army.mil was an iGoogle-like Customizable Homepage that allows users to pick and choose what Army content they are interested in seeing. This used the same underlying code base as the page management system in <a href=\"#!/projects/core-cms\">CORE</a>.</p><p><a href=\"https://web.archive.org/web/20110601073507/http://my.army.mil/\">Archive of My.Army.mil</a></p><p><img src=\"img/projects/myarmymil-site.jpg\" alt=\"My.Army.mil screenshot\" /></p>"
     },
     {
         "slug": "army-app",
@@ -85,9 +113,11 @@
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
         "end": "2013",
-        "skillsets": ["Game Design"],
+        "skillsets": [
+            "Game Design"
+        ],
         "title": "Army App",
-        "description": "US Army News & Information iPhone app, one of the first government apps. Powered by CORE and also with a game I designed"
+        "description": "<p>US Army News & Information an iPhone app, one of the first government apps. Powered by <a href=\"#!/projects/core-cms\">CORE</a> and also with a game I designed.</p>"
     },
     {
         "slug": "medal-of-honor-petry",
@@ -95,49 +125,65 @@
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
         "end": "2013",
-        "skillsets": ["Development"],
+        "skillsets": [
+            "Development"
+        ],
         "title": "Medal of Honor: Petry",
-        "description": "Medal of Honor series site dedicated to our nation's greatest heroes. The CORE CMS powers the news and image feeds on this site"
+        "description": "<p>Medal of Honor: Petry is one of our Medal of Honor series of sites dedicated to our nation's greatest heroes. The <a href=\"#!/projects/core-cms\">CORE CMS</a> powers the news and image feeds on this site, and while not my own work the 3D renders of the event were featured on the Daily Show when Sergeant First Class Petry described his Exp while appearing on that show.</p><p><a href=\"https://web.archive.org/web/20150717214628/http://www.army.mil/medalofhonor/petry/\">Archive of Petry Site</a></p><p><img src=\"img/projects/petry-site.jpg\" alt=\"Petry site screenshot\" /></p><p>If it wasn't for the Wayback Machine, this wonderful microsite would be gone for good. <a href=\"https://www.army.mil/medalofhonor/petry/\">Today it looks like this</a>.</p>"
     },
     {
-        "slug": "sma",
+        "slug": "the-elder-scrolls-online",
         "domain": "Employed",
-        "subdomain": "NASA/Goddard Space Flight Center/Mantech",
-        "start": "2007",
+        "subdomain": "ZeniMax Online Studios",
+        "start": "2013-01",
         "end": null,
-        "skillsets": ["Development", "Databases"],
-        "title": "SMA",
-        "description": "Safety and Mission Assurance"
+        "skillsets": [
+            "Development",
+            "Leadership",
+            "AI",
+            "Databases",
+            "DevOps"
+        ],
+        "title": "The Elder Scrolls Online",
+        "description": "<p>What can I say about The Elder Scrolls Online that hasn't already been said? Over 20 million players. Over 10 years of being a Live Service. And over 10 years with me, driving excellence in web development.</p><p>Over the last 13 years, since the website predates the game, The Elder Scrolls Online's website has undergone many major redesigns. Here are some Wayback Machine snapshots I could find of different versions:</p><ul><li><a href=\"https://web.archive.org/web/20181118115517/https://www.elderscrollsonline.com/en-us/home\">https://web.archive.org/web/20181118115517/https://www.elderscrollsonline.com/en-us/home</a></li><li><a href=\"https://web.archive.org/web/20200215221935/elderscrollsonline.com/en-us/home\">https://web.archive.org/web/20200215221935/elderscrollsonline.com/en-us/home</a></li><li><a href=\"https://web.archive.org/web/20210304011954/https://www.elderscrollsonline.com/en-us/home\">https://web.archive.org/web/20210304011954/https://www.elderscrollsonline.com/en-us/home</a></li><li><a href=\"https://web.archive.org/web/20230301122943/elderscrollsonline.com/en-us/home\">https://web.archive.org/web/20230301122943/elderscrollsonline.com/en-us/home</a></li><li><a href=\"https://web.archive.org/web/20240307080029/elderscrollsonline.com/en-us/home\">https://web.archive.org/web/20240307080029/elderscrollsonline.com/en-us/home</a></li></ul><p><a href=\"https://www.elderscrollsonline.com\">I honestly think the website speaks for itself.</a></p><p>But if I had to pick a favorite part. It would be <a href=\"https://www.elderscrollsonline.com/en-us/smolderscrolls\">Smolder Scrolls</a>.</p>"
     },
     {
-        "slug": "magitism",
-        "domain": "Independent",
-        "subdomain": "Life",
-        "start": "2021-12",
-        "end": "2022-12-18",
-        "skillsets": ["Writing"],
-        "title": "Magitism: The Force of Magic",
-        "description": "<a href=\"https://magitism.com\">Magitism.com</a><br>An exploration of the non-binary aliens trope – an attempt to deconstruct what makes it harmful and to reimagine it as supportive instead. Explores themes such as: what it means to be intelligent; how sufficiently explained magic is indistinguishable from science; and how history is not created by great men, but by systemic forces that dominate culture.</a>"
+        "slug": "commander-keen",
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "start": "2018",
+        "end": "2019-late",
+        "skillsets": [
+            "Development",
+            "Design",
+            "UX"
+        ],
+        "title": "Commander Keen",
+        "description": "<p><a href=\"https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home\">Commander Keen Archived Site</a></p><p><video controls style=\"border-radius: 8px; max-width: 100%; height: auto; display: block; margin: 0 auto;\"><source src=\"video/Keen.mp4\" type=\"video/mp4\"></video></p><p>The Commander Keen site is some of my best work to date. The designer I worked with, <a href=\"https://www.mobygames.com/person/1061958/david-campbell/\">David Campbell</a>, is top-notch. We worked hand in glove on the designs and had direct access to the game's art director, <a href=\"https://www.mobygames.com/person/3684/marc-hudgins/\">Marc Hudgins</a>.</p><p>From first learning about the game to the website going live, it was just about <strong>three months</strong>.</p><p>The Keen site is a masterpiece. We were so on the bleeding edge.</p><h3>Scrolling Stars (And Space Junk)</h3><p>The idea of scrolling stars was there from the start. Implementing it, though, was a different matter. It went through several versions, starting with layered backgrounds, moving to individual images, and finally becoming a WebGL canvas. With canvas, we gained much-needed performance, which ultimately meant we could have many more stars on screen and insert random space junk as well.</p><h3>Parallax Header</h3><p>The top of the page is constructed of 10ish layers, all individually parallaxing based on scroll and with css animations.</p><h3>All of the text is real text</h3><p>Ok, not the logo. But all the rest of it. I don't think we were the first to use text-shadows to stroke text. But I do believe we did it best. It perfectly matches the game, which doesn't use CSS.</p><h3>No, those aren't animated gifs.</h3><p><video controls style=\"border-radius: 8px; max-width: 100%; height: auto; display: block; margin: 0 auto;\"><source src=\"video/keen-card.mp4\" type=\"video/mp4\"></video></p><p>The Card section features an animated sprite-sheet-based PNG. Not only does this animation play much more smoothly than a GIF (and pre-dates animated PNGs in the browser), but it features advanced options! This one has a fidget at the end that plays more rarely than the main animation sequence, and it plays randomly. This tech supports up to two fidgets per sheet. These were hand-assembled from the game's real animations by Marc.</p><p><img src=\"img/projects/lg-billie-flying-longer-2.png\" alt=\"Billie flying animation\" /></p><h3>Mouse-based 3D jiggle.</h3><p>Many of the sections are broken today, but they worked fine when the site was live. It is the browsers that have changed. You can still see this working more or less as intended in the cards section. This is a small 3D wiggle applied to the section based on how close the mouse is to the edges. Ok, for most sections it is a lot more than a \"little.\" You can fix it by moving the mouse to the center of the screen. You're welcome.</p><h3>Sparkles</h3><p>When sections fade in, they do so with sparkles that randomly appear with them and which spin and dance.</p><h3>Speedlines</h3><p>The Speedlines behind the sections wobble to and fro. They are built using the <a href=\"https://latex.net/efficient-seamless-tiled-backgrounds/\">Cicada Tile technique</a>.</p>"
     },
     {
-        "slug": "the-bronze-coin",
-        "domain": "Independent",
-        "subdomain": "Life",
-        "start": "2013-07",
-        "end": "2014-early",
-        "skillsets": ["Development", "Design", "UX", "TTRPGs", "Writing", "Leadership"],
-        "title": "The Bronze Coin",
-        "description": null
+        "slug": "unannounced-game",
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "start": "2020-mid",
+        "end": "2025-07-02",
+        "skillsets": [
+            "Development"
+        ],
+        "title": "Unannounced Game",
+        "description": "<p>I can't say much about this project. It was leaked, so you could find it yourself. I am not at liberty to discuss. However, I can say that the project was extremely personally exciting.</p>"
     },
     {
-        "slug": "this-portfolio-site",
-        "domain": "Independent",
-        "subdomain": "Life",
-        "start": null,
+        "slug": "zosu",
+        "domain": "Employed",
+        "subdomain": "ZeniMax Online Studios",
+        "start": "2024-05-29",
         "end": null,
-        "skillsets": ["Development", "Design", "UX", "Writing", "Leadership", "AI", "Databases", "DevOps"],
-        "title": "This Portfolio Site",
-        "description": null
+        "skillsets": [
+            "Leadership"
+        ],
+        "title": "ZOSU",
+        "description": "<p>ZeniMax Online Studios United (ZOSU) is a Communications Workers of America (CWA) union chapter representing workers at ZeniMax Online Studios. As one of the first video game unions in the United States, ZOSU will be instrumental in organizing efforts to improve working conditions, secure fair compensation, and establish collective bargaining rights for game industry workers.</p>"
     },
     {
         "slug": "truugahn",
@@ -145,9 +191,13 @@
         "subdomain": "TTRPGs",
         "start": "2011",
         "end": "2014",
-        "skillsets": ["Writing", "Leadership", "TTRPGs"],
+        "skillsets": [
+            "Writing",
+            "Leadership",
+            "TTRPGs"
+        ],
         "title": "Truugahn",
-        "description": "D&D 4E campaign. My first campaign in adulthood after a long gap since childhood. Standard fantasy on a version of Earth in the deep future where some god had cut Earth in half"
+        "description": "<p>D&D 4E campaign. My first campaign in adulthood was after a long gap since childhood. Though only a little longer than other campaigns, it is deceptive because, unlike the 2-3 hour sessions that happen today, these were often 8-12-hour marathons. We covered in a single session what might be a month's worth of games today. All in all, it was pretty standard fantasy. However, we were on a version of Earth in the deep future. Oh, and some god had cut Earth in half, and the two halves kept their shape magically. (Turns out if you did that, all the water would rush into two big oceans – one on the flat side, and one on the curved side.)</p>"
     },
     {
         "slug": "bonewall",
@@ -155,9 +205,13 @@
         "subdomain": "TTRPGs",
         "start": "2014-mid",
         "end": "2016-10",
-        "skillsets": ["Writing", "Leadership", "TTRPGs"],
+        "skillsets": [
+            "Writing",
+            "Leadership",
+            "TTRPGs"
+        ],
         "title": "Bonewall",
-        "description": "D&D 5E campaign. What happens if the party kills a purple worm on day one, one that had a bellyache from eating through a vault filled with the thieves' guild's fortune?"
+        "description": "<p>D&D 5E campaign. What happens if the party kills a purple worm on day one, one that had a bellyache from eating through a vault filled with the thieves' guild's fortune?</p>"
     },
     {
         "slug": "comedy-of-justice",
@@ -165,9 +219,14 @@
         "subdomain": "TTRPGs",
         "start": "2015-07",
         "end": "2016-mid",
-        "skillsets": ["Writing", "Leadership", "TTRPGs", "Game Design"],
+        "skillsets": [
+            "Writing",
+            "Leadership",
+            "TTRPGs",
+            "Game Design"
+        ],
         "title": "Comedy of Justice",
-        "description": "D&D 5E campaign. We all showed up to play D&D, but the apocalypse happened instead. The DM was grabbed by a demon and dragged to Hell, monsters are flying around shooting lasers, and the only weapon anyone can find is a book. The BBEG was Ceres from Evoland 2"
+        "description": "<p>D&D 5E campaign. We all showed up to play D&D, but the apocalypse happened instead. The DM was grabbed by a demon and dragged to Hell, monsters are flying around shooting lasers, and the only weapon anyone can find is a book. This campaign started big and got universal. By the end, one of the players had inherited godhood from Yahweh, another was a Jewish Disney Princess, and another went and learned to fight from Goku. The final battle featured Galactus and Unicron doing the DBZ fusion dance. You had to be there.</p><p>The BBEG was Ceres from Evoland 2; why yes, this campaign <em>did</em> start before that game came out, and yes, she already was the BBEG before it came out – no, I don't know how, it just happened that way. I played Evoland II and discovered that my BBEG was in it. I don't know how she got there. She <em>can</em> open portals between universes. It doesn't seem like it, but I'm being completely serious. Here are my notes about her when she reveals herself as the BBEG to the group. She first met them in session 2, as the Mythomancer, a month before Evoland 2 was released.</p><p>&ldquo;The ceiling tiles melt away, the rails glowing, and a red-hot hole opens in the concrete above. Wreathed in fire, Mytha descends from the floor above, her clothes burned away and her naked body ice blue and covered in black-lined etchings. She has two small black horns on either side of her bald head.&rdquo; Ice-blue-skinned portal-diving universe-hopping demon-girl.</p><p><img src=\"img/ceres.jpeg\" alt=\"Picture of Ceres\" /></p><p>I even named her Mytha when I played Evoland 2 for the first time. I just thought she looked similar; I didn't know who she was yet. When you name her in the game, you wouldn't know she can open portals in time and space.</p>"
     },
     {
         "slug": "isle-of-glass-statues",
@@ -175,9 +234,15 @@
         "subdomain": "TTRPGs",
         "start": "2016-10",
         "end": "2017-mid",
-        "skillsets": ["Writing", "Leadership", "TTRPGs", "Game Design", "Development"],
+        "skillsets": [
+            "Writing",
+            "Leadership",
+            "TTRPGs",
+            "Game Design",
+            "Development"
+        ],
         "title": "Isle of Glass Statues",
-        "description": "D&D 5E campaign. Ultimately had 15 players across four groups. Washed up on a deserted island, shifting between obsidian statues and corporal form, players have to survive extreme hostility on an ever-changing landscape"
+        "description": "<p>D&D 5E campaign. Ultimately, this game had 15 players across four groups. This is the foundation for things to come. Washed up on a deserted island, shifting between obsidian statues and corporal form, players have to survive extreme hostility on an ever-changing landscape.</p><p><a href=\"https://www.reddit.com/r/dndnext/comments/65krnk/isle_of_glass_statues_free_hardcore_multigroup_5e/\">https://www.reddit.com/r/dndnext/comments/65krnk/isle_of_glass_statues_free_hardcore_multigroup_5e/</a></p>"
     },
     {
         "slug": "truugahn-ii",
@@ -185,9 +250,13 @@
         "subdomain": "TTRPGs",
         "start": "2018-04",
         "end": "2019-10-12",
-        "skillsets": ["Writing", "Leadership", "TTRPGs"],
+        "skillsets": [
+            "Writing",
+            "Leadership",
+            "TTRPGs"
+        ],
         "title": "Truugahn II",
-        "description": "D&D 5E campaign. A continuation of my first campaign, Truugahn turned out to secretly be the old god of death, trying to reclaim his domain"
+        "description": "<p>D&D 5E campaign. A continuation of my first campaign, Truugahn turned out to secretly be the old god of death, trying to reclaim his domain.</p>"
     },
     {
         "slug": "papaku-vai",
@@ -195,9 +264,13 @@
         "subdomain": "TTRPGs",
         "start": "2019-07",
         "end": "2020-mid",
-        "skillsets": ["Writing", "Leadership", "TTRPGs"],
+        "skillsets": [
+            "Writing",
+            "Leadership",
+            "TTRPGs"
+        ],
         "title": "Papaku Vai",
-        "description": "D&D 5E campaign. A vacation island paradise with a dark undercurrent"
+        "description": "<p>D&D 5E campaign. A vacation island paradise with a dark undercurrent.</p>"
     },
     {
         "slug": "crumblewood",
@@ -205,9 +278,13 @@
         "subdomain": "TTRPGs",
         "start": "2021-07",
         "end": "2021-08",
-        "skillsets": ["Writing", "Leadership", "TTRPGs"],
+        "skillsets": [
+            "Writing",
+            "Leadership",
+            "TTRPGs"
+        ],
         "title": "Crumblewood",
-        "description": "D&D 5E and Humblewood campaign. A zombie apocalypse in the world of Humblewood. Played outside in a wedding tent in a field"
+        "description": "<p>D&D 5E and Humblewood campaign. A zombie apocalypse in the world of Humblewood. Played outside in a wedding tent in a field.</p>"
     },
     {
         "slug": "repocalypse-comedy-of-justice-ii",
@@ -215,9 +292,14 @@
         "subdomain": "TTRPGs",
         "start": "2021-07",
         "end": "2023-mid",
-        "skillsets": ["Writing", "Leadership", "TTRPGs", "Game Design"],
+        "skillsets": [
+            "Writing",
+            "Leadership",
+            "TTRPGs",
+            "Game Design"
+        ],
         "title": "Repocalypse (Comedy of Justice II)",
-        "description": "D&D 5E and PbtA campaign. A continuation of Comedy of Justice I with new players - still all playing themselves. Ceres survived the first campaign by living inside me"
+        "description": "<p>D&D 5E and PbtA campaign. A continuation of Comedy of Justice I with new players - still all playing themselves. Ceres survived the first campaign by living inside me.</p><p>If you'd like rules for making universe-hopping games manageable, you can start with <a href=\"files/Universe%20Hopping%20Rules.docx\">Universe Hopping Rules</a>.</p>"
     },
     {
         "slug": "halfling-baked",
@@ -225,9 +307,13 @@
         "subdomain": "TTRPGs",
         "start": "2023-03",
         "end": null,
-        "skillsets": ["Writing", "Leadership", "TTRPGs"],
+        "skillsets": [
+            "Writing",
+            "Leadership",
+            "TTRPGs"
+        ],
         "title": "Halfling Baked",
-        "description": "D&D 5E campaign. Cherry Grass-seed left his band, the Warlocks, over 100 years ago. He's now 270 years old and resolved to go on one last hurrah. The Halfling Bard has hired a half-dozen hale and hearty music lovers as his road crew"
+        "description": "<p>D&D 5E campaign. Cherry Grass-seed left his band, the Warlocks, over 100 years ago. He's now 270 years old and resolved to go on one last hurrah. The Halfling Bard has hired a half-dozen hale and hearty music lovers (you) as his road crew and loaded up the wagons for the final time.</p>"
     },
     {
         "slug": "isle-of-glass-statues-ii",
@@ -235,9 +321,14 @@
         "subdomain": "TTRPGs",
         "start": "2024-07-21",
         "end": "2024-07-27",
-        "skillsets": ["Writing", "Leadership", "TTRPGs", "Game Design", "Development"],
+        "skillsets": [
+            "Writing",
+            "Leadership",
+            "TTRPGs",
+            "Game Design",
+            "Development"
+        ],
         "title": "Isle of Glass Statues II",
-        "description": "D&D 5E campaign at Dan Wells, Game Night Getaway '24. The game went exceptionally well with 16 players in total over the course of the week, and around 50 hours of play time. They solved the island on the final day"
+        "description": "<p>D&D 5E campaign. This game was at Dan Wells, Game Night Getaway '24. Dan is the other author on Brandon Sanderson's Intentionally Blank podcast.</p><p>The game went exceptionally well. There were 16 players in total over the course of the week, and I got in around 50 hours of play time. They solved the island on the final day.</p>"
     }
 ]
-

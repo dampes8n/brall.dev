@@ -36,9 +36,22 @@ class BSubdomainProjects extends (window.BJsonLoader || HTMLElement) {
             return;
         }
 
+        // Sort projects by start date (newest first)
+        const sortedProjects = [...this.projects].sort((a, b) => {
+            const startA = a.start || '';
+            const startB = b.start || '';
+            
+            // Projects without dates go to the end
+            if (!startA && !startB) return 0;
+            if (!startA) return 1;
+            if (!startB) return -1;
+            
+            return startB.localeCompare(startA);
+        });
+
         let html = '';
         
-        this.projects.forEach(project => {
+        sortedProjects.forEach(project => {
             html += `<div class="project-item">`;
             html += `<a href="#!/projects/${project.slug}">${this.escapeHtml(project.title)}</a>`;
             

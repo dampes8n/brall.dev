@@ -35,9 +35,31 @@ class BProjects extends (window.BJsonLoader || HTMLElement) {
             return;
         }
 
+        // Sort projects: first by domain (Independent, Employed, Personal), then by start date (newest first)
+        const domainOrder = { 'Independent': 1, 'Employed': 2, 'Personal': 3 };
+        const sortedProjects = [...this.projects].sort((a, b) => {
+            const domainA = domainOrder[a.domain] || 999;
+            const domainB = domainOrder[b.domain] || 999;
+            
+            if (domainA !== domainB) {
+                return domainA - domainB;
+            }
+            
+            // Within same domain, sort by start date (newest first)
+            const startA = a.start || '';
+            const startB = b.start || '';
+            
+            // Projects without dates go to the end
+            if (!startA && !startB) return 0;
+            if (!startA) return 1;
+            if (!startB) return -1;
+            
+            return startB.localeCompare(startA);
+        });
+
         let html = '';
         
-        this.projects.forEach(project => {
+        sortedProjects.forEach(project => {
             const domainLower = project.domain ? project.domain.toLowerCase() : '';
             const dataDomainAttr = domainLower ? ` data-domain="${domainLower}"` : '';
             html += `<article${dataDomainAttr}>`;

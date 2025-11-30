@@ -377,11 +377,9 @@
                         e.skillsets && e.skillsets.includes(skillsetName)
                     );
                     
-                    const totalCount = filteredSkills.length + filteredProjects.length + filteredEvents.length;
-                    
                     // Create HTML for skillset page
                     let html = `<article>`;
-                    html += `<h1>${this.escapeHtml(skillsetName)} <span>(${totalCount})</span></h1>`;
+                    html += `<h1>${this.escapeHtml(skillsetName)}</h1>`;
                     
                     if (skillset.description) {
                         html += `<p>${skillset.description}</p>`;

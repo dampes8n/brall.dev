@@ -261,3 +261,12 @@ h1 {
 .filter-controls input[type="checkbox"]:checked + .filter-major {
     text-decoration-color: hsl(0, 0%, 100%);
 }
+
+/* ============================================
+   IMAGES
+   ============================================ */
+
+img {
+    border: 2px solid red;
+    filter: grayscale(0.7) contrast(2) hue-rotate(15deg);
+}
