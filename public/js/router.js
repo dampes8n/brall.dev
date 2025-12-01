@@ -69,24 +69,112 @@
             }
         }
 
-        async loadContent(path, shouldScroll = true) {
-            // Normalize path
-            let targetPath = path;
-            if (targetPath.startsWith('#!')) {
-                targetPath = targetPath.substring(2);
-            } else if (targetPath.startsWith('/')) {
-                targetPath = targetPath.substring(1);
-            } else if (targetPath.startsWith('#')) {
-                targetPath = targetPath.substring(1);
+        // Normalize path: remove hashbang/leading slashes, clean up, default to Resume
+        static normalizePath(path) {
+            let normalized = path;
+            if (normalized.startsWith('#!')) {
+                normalized = normalized.substring(2);
+            } else if (normalized.startsWith('/')) {
+                normalized = normalized.substring(1);
+            } else if (normalized.startsWith('#')) {
+                normalized = normalized.substring(1);
             }
             
             // Clean up path: remove leading/trailing slashes and normalize
-            targetPath = targetPath.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
+            normalized = normalized.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
             
             // Ensure we have a valid path (default to Résumé if empty)
-            if (!targetPath || targetPath === '/') {
-                targetPath = 'Resume';
+            if (!normalized || normalized === '/') {
+                normalized = 'Resume';
             }
+            
+            return normalized;
+        }
+
+        // Fetch JSON data with JsonCache fallback
+        static async fetchJson(url) {
+            if (window.JsonCache) {
+                return await window.JsonCache.fetch(url);
+            } else {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch ${url}: ${response.status}`);
+                }
+                return await response.json();
+            }
+        }
+
+        // Fetch multiple JSON files in parallel
+        static async fetchMultipleJson(urls) {
+            if (window.JsonCache) {
+                return await Promise.all(urls.map(url => window.JsonCache.fetch(url)));
+            } else {
+                const responses = await Promise.all(urls.map(url => fetch(url)));
+                return await Promise.all(responses.map(r => {
+                    if (!r.ok) {
+                        throw new Error(`Failed to fetch: ${r.status}`);
+                    }
+                    return r.json();
+                }));
+            }
+        }
+
+        // Check cache and render if available, return true if cached
+        async renderFromCache(cacheKey, sectionId, shouldScroll) {
+            const html = Router.getCachedContent(cacheKey);
+            if (html) {
+                console.log('[Router] Using cached content for:', cacheKey);
+                await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                return true;
+            }
+            return false;
+        }
+
+        // Generate skillset slug from name
+        static skillsetToSlug(skillset) {
+            return skillset.toLowerCase().replace(/\s+/g, '-');
+        }
+
+        // Generate skillset link HTML
+        skillsetLink(skillset) {
+            const slug = Router.skillsetToSlug(skillset);
+            return `<a href="#!/skillsets/${slug}" class="tag">${this.escapeHtml(skillset)}</a>`;
+        }
+
+        // Generate event link HTML with date
+        eventLink(event) {
+            const eventDate = BDate.formatDate(event.date || 'Unknown');
+            return `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
+        }
+
+        // Generate project link HTML
+        projectLink(project) {
+            return `<a href="#!/projects/${project.slug}" class="tag">${this.escapeHtml(project.title)}</a>`;
+        }
+
+        // Generate skill link HTML with XP level
+        skillLink(skill) {
+            const level = (typeof skill.experience === 'number' && skill.experience >= 1 && skill.experience <= 5) ? skill.experience : '';
+            return `<a href="#!/skills/${skill.slug}" class="tag"><b-xp level="${level}"></b-xp>${this.escapeHtml(skill.title)}</a>`;
+        }
+
+        // Generate a related section with tags
+        renderRelatedSection(title, items, itemRenderer) {
+            if (items.length === 0) return '';
+            let html = `<section class="related">`;
+            html += `<h2>${this.escapeHtml(title)}</h2>`;
+            html += `<nav class="tags">`;
+            items.forEach(item => {
+                html += itemRenderer(item);
+            });
+            html += `</nav>`;
+            html += `</section>`;
+            return html;
+        }
+
+        async loadContent(path, shouldScroll = true) {
+            // Normalize path
+            const targetPath = Router.normalizePath(path);
             
             console.log('[Router] Loading content for path:', targetPath);
 
@@ -125,6 +213,9 @@
                 const title = breadcrumbs.generateTitle(targetPath);
                 breadcrumbs.add(targetPath, title, currentScrollY);
             }
+
+            // Update active state in main navigation
+            this.updateActiveNavLink(targetPath);
         }
 
 
@@ -176,18 +267,14 @@
             const contentPath = `partials/${path}.html`;
             
             // Check cache first
-            let html = Router.getCachedContent(path);
-            
-            if (html) {
-                console.log('[Router] Using cached content for:', path);
-                await this.createSectionFromHTML(html, sectionId, shouldScroll);
+            if (await this.renderFromCache(path, sectionId, shouldScroll)) {
                 return;
             }
             
             try {
                 const response = await fetch(contentPath);
                 if (response.ok) {
-                    html = await response.text();
+                    const html = await response.text();
                     // Cache the HTML
                     Router.setCachedContent(path, html);
                     await this.createSectionFromHTML(html, sectionId, shouldScroll);
@@ -205,6 +292,28 @@
             return text.toLowerCase().replace(/\//g, '-slash-').replace(/\s+/g, '-');
         }
 
+        // Convert slug back to subdomain name (capitalize words, handle slashes)
+        deslugifySubdomain(slug) {
+            // First, restore slashes from -slash- encoding
+            let subdomainName = slug.replace(/-slash-/g, '/');
+            // Then split by remaining hyphens, but preserve slashes
+            const parts = subdomainName.split('/');
+            if (parts.length > 1) {
+                // Has slashes - capitalize each part separately
+                subdomainName = parts.map(part => {
+                    return part.split('-').map(word => 
+                        word.charAt(0).toUpperCase() + word.slice(1)
+                    ).join(' ');
+                }).join('/');
+            } else {
+                // No slashes - just capitalize words
+                subdomainName = subdomainName.split('-').map(word => 
+                    word.charAt(0).toUpperCase() + word.slice(1)
+                ).join(' ');
+            }
+            return subdomainName;
+        }
+
         async loadSubdomain(slug, sectionId, shouldScroll, cacheKey) {
             // Use provided path as cache key, or construct from slug
             if (!cacheKey) {
@@ -212,75 +321,33 @@
             }
             
             // Check cache first
-            let html = Router.getCachedContent(cacheKey);
-            if (html) {
-                console.log('[Router] Using cached content for:', cacheKey);
-                await this.createSectionFromHTML(html, sectionId, shouldScroll);
+            if (await this.renderFromCache(cacheKey, sectionId, shouldScroll)) {
                 return;
             }
             
             try {
                 // Convert slug back to subdomain name
-                // First, restore slashes from -slash- encoding
-                let subdomainName = slug.replace(/-slash-/g, '/');
-                // Then split by remaining hyphens, but preserve slashes
-                // We need to split carefully to handle words between slashes
-                const parts = subdomainName.split('/');
-                if (parts.length > 1) {
-                    // Has slashes - capitalize each part separately
-                    subdomainName = parts.map(part => {
-                        return part.split('-').map(word => 
-                            word.charAt(0).toUpperCase() + word.slice(1)
-                        ).join(' ');
-                    }).join('/');
-                } else {
-                    // No slashes - just capitalize words
-                    subdomainName = subdomainName.split('-').map(word => 
-                        word.charAt(0).toUpperCase() + word.slice(1)
-                    ).join(' ');
-                }
+                const subdomainName = this.deslugifySubdomain(slug);
                 
-                // Load timeline events using JsonCache
-                const timelineEvents = window.JsonCache ? await window.JsonCache.fetch('data/timeline-events.json') : await fetch('data/timeline-events.json').then(r => r.json());
+                // Load data files
+                const [timelineEvents, allProjects] = await Router.fetchMultipleJson([
+                    'data/timeline-events.json',
+                    'data/projects.json'
+                ]);
                 
-                // Filter events by subdomain
+                // Filter by subdomain
                 const filteredEvents = timelineEvents.filter(e => 
                     e.subdomain && e.subdomain === subdomainName
                 );
-                
-                // Create HTML for subdomain page
-                html = `<article>`;
-                html += `<h1>${this.escapeHtml(subdomainName)}</h1>`;
-                
-                // Load projects for this subdomain using JsonCache
-                const allProjects = window.JsonCache ? await window.JsonCache.fetch('data/projects.json') : await fetch('data/projects.json').then(r => r.json());
                 const filteredProjects = allProjects.filter(p => 
                     p.subdomain && p.subdomain === subdomainName
                 );
                 
-                if (filteredProjects.length > 0) {
-                    html += `<section class="related">`;
-                    html += `<h2>Projects</h2>`;
-                    html += `<nav class="tags">`;
-                    filteredProjects.forEach(project => {
-                        html += `<a href="#!/projects/${project.slug}" class="tag">${this.escapeHtml(project.title)}</a>`;
-                    });
-                    html += `</nav>`;
-                    html += `</section>`;
-                }
-                
-                if (filteredEvents.length > 0) {
-                    html += `<section class="related">`;
-                    html += `<h2>Timeline Events</h2>`;
-                    html += `<nav class="tags">`;
-                    filteredEvents.forEach(event => {
-                        const eventDate = BDate.formatDate(event.date || 'Unknown');
-                        html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
-                    });
-                    html += `</nav>`;
-                    html += `</section>`;
-                }
-                
+                // Create HTML for subdomain page
+                let html = `<article>`;
+                html += `<h1>${this.escapeHtml(subdomainName)}</h1>`;
+                html += this.renderRelatedSection('Projects', filteredProjects, p => this.projectLink(p));
+                html += this.renderRelatedSection('Timeline Events', filteredEvents, e => this.eventLink(e));
                 html += `</article>`;
                 
                 // Cache the generated HTML
@@ -299,36 +366,18 @@
             }
             
             // Check cache first
-            let html = Router.getCachedContent(cacheKey);
-            if (html) {
-                console.log('[Router] Using cached content for:', cacheKey);
-                await this.createSectionFromHTML(html, sectionId, shouldScroll);
+            if (await this.renderFromCache(cacheKey, sectionId, shouldScroll)) {
                 return;
             }
             
             try {
-                // Load all data files including skillsets.json using JsonCache
-                if (window.JsonCache) {
-                    var [skillsets, skills, projects, timelineEvents] = await Promise.all([
-                        window.JsonCache.fetch('data/skillsets.json'),
-                        window.JsonCache.fetch('data/skills.json'),
-                        window.JsonCache.fetch('data/projects.json'),
-                        window.JsonCache.fetch('data/timeline-events.json')
-                    ]);
-                } else {
-                    const [skillsetsRes, skillsRes, projectsRes, timelineRes] = await Promise.all([
-                        fetch('data/skillsets.json'),
-                        fetch('data/skills.json'),
-                        fetch('data/projects.json'),
-                        fetch('data/timeline-events.json')
-                    ]);
-                    var [skillsets, skills, projects, timelineEvents] = await Promise.all([
-                        skillsetsRes.json(),
-                        skillsRes.json(),
-                        projectsRes.json(),
-                        timelineRes.json()
-                    ]);
-                }
+                // Load all data files
+                const [skillsets, skills, projects, timelineEvents] = await Router.fetchMultipleJson([
+                    'data/skillsets.json',
+                    'data/skills.json',
+                    'data/projects.json',
+                    'data/timeline-events.json'
+                ]);
                 
                 // Find the skillset by slug
                 const skillset = skillsets.find(s => s.slug === slug);
@@ -351,47 +400,16 @@
                 );
                 
                 // Create HTML for skillset page
-                html = `<article>`;
+                let html = `<article>`;
                 html += `<h1>${this.escapeHtml(skillsetName)}</h1>`;
                 
                 if (skillset.description) {
                     html += `<p>${skillset.description}</p>`;
                 }
                 
-                if (filteredSkills.length > 0) {
-                    html += `<section class="related">`;
-                    html += `<h2>Skills</h2>`;
-                    html += `<nav class="tags">`;
-                    filteredSkills.forEach(skill => {
-                        const level = (typeof skill.experience === 'number' && skill.experience >= 1 && skill.experience <= 5) ? skill.experience : '';
-                        html += `<a href="#!/skills/${skill.slug}" class="tag"><b-xp level="${level}"></b-xp>${this.escapeHtml(skill.title)}</a>`;
-                    });
-                    html += `</nav>`;
-                    html += `</section>`;
-                }
-                
-                if (filteredProjects.length > 0) {
-                    html += `<section class="related">`;
-                    html += `<h2>Projects</h2>`;
-                    html += `<nav class="tags">`;
-                    filteredProjects.forEach(project => {
-                        html += `<a href="#!/projects/${project.slug}" class="tag">${this.escapeHtml(project.title)}</a>`;
-                    });
-                    html += `</nav>`;
-                    html += `</section>`;
-                }
-                
-                if (filteredEvents.length > 0) {
-                    html += `<section class="related">`;
-                    html += `<h2>Timeline Events</h2>`;
-                    html += `<nav class="tags">`;
-                    filteredEvents.forEach(event => {
-                        const eventDate = BDate.formatDate(event.date || 'Unknown');
-                        html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
-                    });
-                    html += `</nav>`;
-                    html += `</section>`;
-                }
+                html += this.renderRelatedSection('Skills', filteredSkills, s => this.skillLink(s));
+                html += this.renderRelatedSection('Projects', filteredProjects, p => this.projectLink(p));
+                html += this.renderRelatedSection('Timeline Events', filteredEvents, e => this.eventLink(e));
                 
                 html += `</article>`;
                 
@@ -411,32 +429,21 @@
             }
             
             // Check cache first
-            let html = Router.getCachedContent(cacheKey);
-            if (html) {
-                console.log('[Router] Using cached content for:', cacheKey);
-                await this.createSectionFromHTML(html, sectionId, shouldScroll);
+            if (await this.renderFromCache(cacheKey, sectionId, shouldScroll)) {
                 return;
             }
             
             try {
-                // Load the JSON data using JsonCache
+                // Load the JSON data
                 const jsonPath = `data/${jsonFile}`;
                 let items;
-                if (window.JsonCache) {
-                    try {
-                        items = await window.JsonCache.fetch(jsonPath);
-                    } catch (error) {
-                        console.warn(`JSON file not found: ${jsonPath}`);
-                        return;
-                    }
-                } else {
-                    const jsonResponse = await fetch(jsonPath);
-                    if (!jsonResponse.ok) {
-                        console.warn(`JSON file not found: ${jsonPath}`);
-                        return;
-                    }
-                    items = await jsonResponse.json();
+                try {
+                    items = await Router.fetchJson(jsonPath);
+                } catch (error) {
+                    console.warn(`JSON file not found: ${jsonPath}`);
+                    return;
                 }
+                
                 const item = items.find(i => i.slug === slug);
                 
                 if (!item) {
@@ -445,7 +452,7 @@
                 }
                 
                 // Create HTML for the item (already includes article)
-                html = await this.renderDataItem(item, jsonFile);
+                const html = await this.renderDataItem(item, jsonFile);
                 
                 // Cache the generated HTML
                 Router.setCachedContent(cacheKey, html);
@@ -457,19 +464,19 @@
         }
 
         async renderDataItem(item, jsonFile) {
-            // Load all data for cross-linking using JsonCache
-            if (window.JsonCache) {
-                var [skills, projects, timelineEvents] = await Promise.all([
-                    window.JsonCache.fetch('data/skills.json').catch(() => []),
-                    window.JsonCache.fetch('data/projects.json').catch(() => []),
-                    window.JsonCache.fetch('data/timeline-events.json').catch(() => [])
+            // Load all data for cross-linking
+            let skills, projects, timelineEvents;
+            try {
+                [skills, projects, timelineEvents] = await Router.fetchMultipleJson([
+                    'data/skills.json',
+                    'data/projects.json',
+                    'data/timeline-events.json'
                 ]);
-            } else {
-                var [skills, projects, timelineEvents] = await Promise.all([
-                    fetch('data/skills.json').then(r => r.json()).catch(() => []),
-                    fetch('data/projects.json').then(r => r.json()).catch(() => []),
-                    fetch('data/timeline-events.json').then(r => r.json()).catch(() => [])
-                ]);
+            } catch (e) {
+                // If any fail, use empty arrays
+                skills = [];
+                projects = [];
+                timelineEvents = [];
             }
             
             // Wrap each item in an article
@@ -501,8 +508,7 @@
                 }
                 if (item.skillsets && item.skillsets.length > 0) {
                     item.skillsets.forEach(skillset => {
-                        const slug = skillset.toLowerCase().replace(/\s+/g, '-');
-                        html += `<a href="#!/skillsets/${slug}" class="tag">${this.escapeHtml(skillset)}</a>`;
+                        html += this.skillsetLink(skillset);
                     });
                 }
                 html += `</nav>`;
@@ -511,17 +517,7 @@
                 const relatedEvents = timelineEvents.filter(e => 
                     e.project && e.project.toLowerCase() === item.title.toLowerCase()
                 );
-                if (relatedEvents.length > 0) {
-                    html += `<section class="related">`;
-                    html += `<h2>Related Timeline Events</h2>`;
-                    html += `<nav class="tags">`;
-                    relatedEvents.forEach(event => {
-                        const eventDate = BDate.formatDate(event.date || 'Unknown');
-                        html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
-                    });
-                    html += `</nav>`;
-                    html += `</section>`;
-                }
+                html += this.renderRelatedSection('Related Timeline Events', relatedEvents, e => this.eventLink(e));
             } else if (jsonFile === 'skills.json') {
                 html += `<h1>${this.escapeHtml(item.title)}</h1>`;
 
@@ -549,8 +545,7 @@
                 html += `<nav class="tags">`;
                 if (item.skillsets && item.skillsets.length > 0) {
                     item.skillsets.forEach(skillset => {
-                        const slug = skillset.toLowerCase().replace(/\s+/g, '-');
-                        html += `<a href="#!/skillsets/${slug}" class="tag">${this.escapeHtml(skillset)}</a>`;
+                        html += this.skillsetLink(skillset);
                     });
                 }
                 html += `</nav>`;
@@ -564,28 +559,8 @@
                     e.skills && e.skills.some(es => es === item.title)
                 );
                 
-                if (relatedProjects.length > 0) {
-                    html += `<section class="related">`;
-                    html += `<h2>Projects using the same Skillsets</h2>`;
-                    html += `<nav class="tags">`;
-                    relatedProjects.forEach(project => {
-                        html += `<a href="#!/projects/${project.slug}" class="tag">${this.escapeHtml(project.title)}</a>`;
-                    });
-                    html += `</nav>`;
-                    html += `</section>`;
-                }
-                
-                if (relatedEvents.length > 0) {
-                    html += `<section class="related">`;
-                    html += `<h2>Timeline Events</h2>`;
-                    html += `<nav class="tags">`;
-                    relatedEvents.forEach(event => {
-                        const eventDate = BDate.formatDate(event.date || 'Unknown');
-                        html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
-                    });
-                    html += `</nav>`;
-                    html += `</section>`;
-                }
+                html += this.renderRelatedSection('Projects using the same Skillsets', relatedProjects, p => this.projectLink(p));
+                html += this.renderRelatedSection('Timeline Events', relatedEvents, e => this.eventLink(e));
             } else if (jsonFile === 'timeline-events.json') {
                 // Render as a bigger version of the timeline plate
                 const domain = item.domain || '';
@@ -629,16 +604,14 @@
                 }
                 if (item.skillsets && item.skillsets.length > 0) {
                     item.skillsets.forEach(skillset => {
-                        const slug = skillset.toLowerCase().replace(/\s+/g, '-');
-                        html += `<a href="#!/skillsets/${slug}" class="tag">${this.escapeHtml(skillset)}</a>`;
+                        html += this.skillsetLink(skillset);
                     });
                 }
                 if (item.skills && item.skills.length > 0) {
                     item.skills.forEach(skillName => {
                         const skill = skills.find(s => s.title === skillName);
                         if (skill) {
-                            const level = (typeof skill.experience === 'number' && skill.experience >= 1 && skill.experience <= 5) ? skill.experience : '';
-                            html += `<a href="#!/skills/${skill.slug}" class="tag"><b-xp level="${level}"></b-xp>${this.escapeHtml(skillName)}</a>`;
+                            html += this.skillLink(skill);
                         } else {
                             html += `<span class="tag">${this.escapeHtml(skillName)}</span>`;
                         }
@@ -649,23 +622,6 @@
             
             html += '</article>';
             return html;
-        }
-
-        renderSkillsetLinks(skillsets) {
-            return skillsets.map(skillset => {
-                const slug = skillset.toLowerCase().replace(/\s+/g, '-');
-                return `<a href="#!/skillsets/${slug}">${this.escapeHtml(skillset)}</a>`;
-            }).join(', ');
-        }
-
-        renderSkillLinks(skillNames, allSkills) {
-            return skillNames.map(skillName => {
-                const skill = allSkills.find(s => s.title === skillName);
-                if (skill) {
-                    return `<a href="#!/skills/${skill.slug}">${this.escapeHtml(skillName)}</a>`;
-                }
-                return this.escapeHtml(skillName);
-            }).join(', ');
         }
 
         escapeHtml(text) {
@@ -791,28 +747,40 @@
             document.title = newTitle;
         }
 
+        updateActiveNavLink(path) {
+            const mainMenu = document.getElementById('main-menu');
+            if (!mainMenu) return;
+
+            const normalizedPath = Router.normalizePath(path);
+            const links = mainMenu.querySelectorAll('a[href^="#!"]');
+            
+            // Remove active class from all links
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find and mark the matching link as active
+            links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href) {
+                    const linkPath = Router.normalizePath(href);
+                    const pathLower = normalizedPath.toLowerCase();
+                    const linkPathLower = linkPath.toLowerCase();
+                    
+                    // Match exact path or parent path (e.g., "projects/something" matches "Projects")
+                    if (linkPathLower === pathLower || 
+                        (normalizedPath.includes('/') && pathLower.startsWith(linkPathLower + '/'))) {
+                        link.classList.add('active');
+                    }
+                }
+            });
+        }
+
     }
 
-    // Normalize a path for comparison
+    // Normalize a path for comparison (uses Router.normalizePath)
     function normalizePathForComparison(path) {
-        let normalized = path;
-        if (normalized.startsWith('#!')) {
-            normalized = normalized.substring(2);
-        } else if (normalized.startsWith('/')) {
-            normalized = normalized.substring(1);
-        } else if (normalized.startsWith('#')) {
-            normalized = normalized.substring(1);
-        }
-        
-        // Clean up path: remove leading/trailing slashes and normalize
-        normalized = normalized.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
-        
-        // Ensure we have a valid path (default to Résumé if empty)
-        if (!normalized || normalized === '/') {
-            normalized = 'Resume';
-        }
-        
-        return normalized;
+        return Router.normalizePath(path);
     }
 
     // Set up click handlers for #! links
@@ -902,18 +870,8 @@
         let path = e.state?.path || getCurrentPath();
         const savedScrollY = e.state?.scrollY;
         
-        // Normalize path (same logic as in loadContent)
-        if (path.startsWith('#!')) {
-            path = path.substring(2);
-        } else if (path.startsWith('/')) {
-            path = path.substring(1);
-        } else if (path.startsWith('#')) {
-            path = path.substring(1);
-        }
-        path = path.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
-        if (!path || path === '/') {
-            path = 'Resume'; // Path stays as 'Resume' to match filename
-        }
+        // Normalize path
+        path = Router.normalizePath(path);
         
         // Load content without scrolling (we'll restore scroll position)
         const router = new Router();

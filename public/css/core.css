@@ -127,6 +127,15 @@ p {
     color: var(--text-primary);
 }
 
+/* Lists in articles get same margins as p tags */
+article ul,
+article ol {
+    margin-bottom: var(--spacing-double);
+    padding-left: var(--spacing-double-triple);
+    padding-right: var(--spacing-double-triple);
+    list-style-position: inside;
+}
+
 blockquote {
     margin-bottom: var(--spacing-double);
     padding: var(--spacing-double);
@@ -317,6 +326,13 @@ img {
     transition: all 0.2s ease;
 }
 
+/* Active main nav link (current page) - styled like top aside item */
+#main-menu a[href^="#!"].active {
+    font-weight: 600;
+    color: var(--text-primary, hsl(0, 0%, 10%));
+    background: hsla(0, 0%, 0%, 0.05);
+}
+
 /* Shared link hover/focus styles */
 #main-menu a[href^="#!"]:hover,
 #main-menu a[href^="#!"]:focus,
@@ -325,6 +341,13 @@ img {
     background: hsla(210, 100%, 50%, 0.1);
     color: var(--accent, hsl(210, 100%, 50%));
     outline: none;
+}
+
+/* Active link hover/focus - keep active styling */
+#main-menu a[href^="#!"].active:hover,
+#main-menu a[href^="#!"].active:focus {
+    background: hsla(0, 0%, 0%, 0.05);
+    color: var(--text-primary, hsl(0, 0%, 10%));
 }
 
 @media (max-width: 799px) {
