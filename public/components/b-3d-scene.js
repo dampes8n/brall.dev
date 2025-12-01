@@ -1090,8 +1090,6 @@ class B3DScene extends HTMLElement {
                         });
                     }
                 }
-                // Update frame counter and animations only when focused or on initial frame
-                this.frame++;
                 
                 // Update plane rotation (degrees per second)
                 if (this.planeRotationSpeed !== 0) {
