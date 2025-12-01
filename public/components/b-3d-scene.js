@@ -368,6 +368,32 @@ class B3DScene extends HTMLElement {
     // Only render one frame if mobile or reduced motion is on
     this.singleFrameMode = this.mobile || this.prefersReducedMotion;
 
+    // Cookie utility functions
+    const getCookie = (name) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    };
+    
+    const setCookie = (name, value, days = 365) => {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+    };
+    
+    // Load performance settings from cookie
+    const savedResolutionScale = parseFloat(getCookie('b3d_resolution_scale') || '1.0');
+    const savedTextureResolution = getCookie('b3d_texture_resolution') || 'full';
+    
+    // Clamp resolution scale to valid range [0.5, 1.0]
+    this.resolutionScale = Math.max(0.5, Math.min(1.0, savedResolutionScale));
+    this.textureResolution = (savedTextureResolution === 'half') ? 'half' : 'full';
+    
+    // Save initial settings to cookie
+    setCookie('b3d_resolution_scale', this.resolutionScale.toString());
+    setCookie('b3d_texture_resolution', this.textureResolution);
+
     this.scene = new THREE.Scene();
     // Use window dimensions (backgrounds container is full viewport)
     const width = window.innerWidth;
@@ -378,6 +404,8 @@ class B3DScene extends HTMLElement {
         antialias: true,
         alpha: true
     });
+    // Set pixel ratio based on resolution scale
+    this.renderer.setPixelRatio(window.devicePixelRatio * this.resolutionScale);
     // Use window dimensions (backgrounds container is full viewport)
     this.renderer.setSize(width, height);
     this.renderer.domElement.style.width = '100%';
@@ -421,6 +449,169 @@ class B3DScene extends HTMLElement {
     // Get texture folder from attribute, default to 'obsidian'
     const textureFolder = this.getAttribute('texture') || 'obsidian';
     const textureBase = `img/${textureFolder}`;
+    
+    // Function to get texture path based on current resolution setting
+    const getTexturePath = (filename) => {
+        if (this.textureResolution === 'half') {
+            // Try half-size version first (e.g., albedo_half.jpg)
+            const halfName = filename.replace('.jpg', '_half.jpg');
+            return `${textureBase}/${halfName}`;
+        }
+        return `${textureBase}/${filename}`;
+    };
+    
+    // Function to switch texture resolution
+    this.switchTextureResolution = (newResolution) => {
+        if (newResolution === this.textureResolution) return;
+        if (newResolution !== 'full' && newResolution !== 'half') return;
+        
+        const oldResolution = this.textureResolution;
+        this.textureResolution = newResolution;
+        
+        // Reload all textures with new resolution
+        const compensatedRepeat = this.getCompensatedRepeat();
+        
+        // Store current material properties and offsets
+        const currentMap = material.map;
+        const currentHeightMap = material.heightMap;
+        const currentNormalMap = material.normalMap;
+        const currentRoughnessMap = material.roughnessMap;
+        const currentMetalnessMap = material.metalnessMap;
+        const currentAoMap = material.aoMap;
+        
+        // Store offsets before clearing
+        const offsets = {
+            map: currentMap ? currentMap.offset.clone() : null,
+            height: currentHeightMap ? currentHeightMap.offset.clone() : null,
+            normal: currentNormalMap ? currentNormalMap.offset.clone() : null,
+            roughness: currentRoughnessMap ? currentRoughnessMap.offset.clone() : null,
+            metalness: currentMetalnessMap ? currentMetalnessMap.offset.clone() : null,
+            ao: currentAoMap ? currentAoMap.offset.clone() : null
+        };
+        
+        // Clear old textures array
+        this.textures = [];
+        
+        let loadError = false;
+        
+        // Helper to load texture with error handling
+        const loadTextureWithFallback = (path, fallbackPath, onLoad) => {
+            const loader = new THREE.TextureLoader();
+            loader.load(
+                path,
+                onLoad,
+                undefined,
+                () => {
+                    // Error loading - try fallback if switching to half
+                    if (newResolution === 'half' && fallbackPath) {
+                        loader.load(
+                            fallbackPath,
+                            onLoad,
+                            undefined,
+                            () => {
+                                // Fallback also failed - revert to full resolution
+                                loadError = true;
+                            }
+                        );
+                    } else {
+                        loadError = true;
+                    }
+                }
+            );
+        };
+        
+        // Reload textures
+        if (currentMap) {
+            const halfPath = getTexturePath('albedo.jpg');
+            const fullPath = `${textureBase}/albedo.jpg`;
+            loadTextureWithFallback(halfPath, fullPath, (texture) => {
+                texture.wrapS = THREE.RepeatWrapping;
+                texture.wrapT = THREE.RepeatWrapping;
+                texture.repeat.set(compensatedRepeat, compensatedRepeat);
+                if (offsets.map) texture.offset.copy(offsets.map);
+                material.map = texture;
+                material.needsUpdate = true;
+                this.textures.push(texture);
+            });
+        }
+        
+        if (currentHeightMap) {
+            const halfPath = getTexturePath('height.jpg');
+            const fullPath = `${textureBase}/height.jpg`;
+            loadTextureWithFallback(halfPath, fullPath, (heightTexture) => {
+                heightTexture.wrapS = THREE.RepeatWrapping;
+                heightTexture.wrapT = THREE.RepeatWrapping;
+                heightTexture.repeat.set(compensatedRepeat, compensatedRepeat);
+                if (offsets.height) heightTexture.offset.copy(offsets.height);
+                material.heightMap = heightTexture;
+                material.needsUpdate = true;
+                this.textures.push(heightTexture);
+            });
+        }
+        
+        if (currentNormalMap) {
+            const halfPath = getTexturePath('normal.jpg');
+            const fullPath = `${textureBase}/normal.jpg`;
+            loadTextureWithFallback(halfPath, fullPath, (normal) => {
+                normal.wrapS = THREE.RepeatWrapping;
+                normal.wrapT = THREE.RepeatWrapping;
+                normal.repeat.set(compensatedRepeat, compensatedRepeat);
+                if (offsets.normal) normal.offset.copy(offsets.normal);
+                material.normalMap = normal;
+                material.needsUpdate = true;
+                this.textures.push(normal);
+            });
+        }
+        
+        if (currentRoughnessMap) {
+            const halfPath = getTexturePath('roughness.jpg');
+            const fullPath = `${textureBase}/roughness.jpg`;
+            loadTextureWithFallback(halfPath, fullPath, (roughness) => {
+                roughness.wrapS = THREE.RepeatWrapping;
+                roughness.wrapT = THREE.RepeatWrapping;
+                roughness.repeat.set(compensatedRepeat, compensatedRepeat);
+                if (offsets.roughness) roughness.offset.copy(offsets.roughness);
+                material.roughnessMap = roughness;
+                material.needsUpdate = true;
+                this.textures.push(roughness);
+            });
+        }
+        
+        if (currentMetalnessMap) {
+            const halfPath = getTexturePath('metallic.jpg');
+            const fullPath = `${textureBase}/metallic.jpg`;
+            loadTextureWithFallback(halfPath, fullPath, (metalness) => {
+                metalness.wrapS = THREE.RepeatWrapping;
+                metalness.wrapT = THREE.RepeatWrapping;
+                metalness.repeat.set(compensatedRepeat, compensatedRepeat);
+                if (offsets.metalness) metalness.offset.copy(offsets.metalness);
+                material.metalnessMap = metalness;
+                material.needsUpdate = true;
+                this.textures.push(metalness);
+            });
+        }
+        
+        if (currentAoMap) {
+            const halfPath = getTexturePath('ao.jpg');
+            const fullPath = `${textureBase}/ao.jpg`;
+            loadTextureWithFallback(halfPath, fullPath, (ao) => {
+                ao.wrapS = THREE.RepeatWrapping;
+                ao.wrapT = THREE.RepeatWrapping;
+                ao.repeat.set(compensatedRepeat, compensatedRepeat);
+                if (offsets.ao) ao.offset.copy(offsets.ao);
+                material.aoMap = ao;
+                material.needsUpdate = true;
+                this.textures.push(ao);
+            });
+        }
+        
+        // If there was an error, revert resolution setting
+        if (loadError) {
+            this.textureResolution = oldResolution;
+        } else {
+            setCookie('b3d_texture_resolution', this.textureResolution);
+        }
+    };
 
     // Parse texture scroll speeds from attributes (units per second)
     this.textureScrollX = parseFloat(this.getAttribute('texture-scroll-x') || '0');
@@ -481,7 +672,7 @@ class B3DScene extends HTMLElement {
             
             // Load textures based on manifest (all through the manager for proper tracking)
             if (availableTextures.has('albedo.jpg')) {
-                const texture = new THREE.TextureLoader(manager).load(`${textureBase}/albedo.jpg`);
+                const texture = new THREE.TextureLoader(manager).load(getTexturePath('albedo.jpg'));
                 texture.wrapS = THREE.RepeatWrapping;
                 texture.wrapT = THREE.RepeatWrapping;
                 texture.repeat.set(compensatedRepeat, compensatedRepeat);
@@ -491,7 +682,7 @@ class B3DScene extends HTMLElement {
             }
 
             if (availableTextures.has('height.jpg')) {
-                const heightTexture = new THREE.TextureLoader(manager).load(`${textureBase}/height.jpg`);
+                const heightTexture = new THREE.TextureLoader(manager).load(getTexturePath('height.jpg'));
                 heightTexture.wrapS = THREE.RepeatWrapping;
                 heightTexture.wrapT = THREE.RepeatWrapping;
                 heightTexture.repeat.set(compensatedRepeat, compensatedRepeat);
@@ -501,7 +692,7 @@ class B3DScene extends HTMLElement {
             }
 
             if (availableTextures.has('normal.jpg')) {
-                const normal = new THREE.TextureLoader(manager).load(`${textureBase}/normal.jpg`);
+                const normal = new THREE.TextureLoader(manager).load(getTexturePath('normal.jpg'));
                 normal.wrapS = THREE.RepeatWrapping;
                 normal.wrapT = THREE.RepeatWrapping;
                 normal.repeat.set(compensatedRepeat, compensatedRepeat);
@@ -511,7 +702,7 @@ class B3DScene extends HTMLElement {
             }
 
             if (availableTextures.has('roughness.jpg')) {
-                const roughness = new THREE.TextureLoader(manager).load(`${textureBase}/roughness.jpg`);
+                const roughness = new THREE.TextureLoader(manager).load(getTexturePath('roughness.jpg'));
                 roughness.wrapS = THREE.RepeatWrapping;
                 roughness.wrapT = THREE.RepeatWrapping;
                 roughness.repeat.set(compensatedRepeat, compensatedRepeat);
@@ -524,7 +715,7 @@ class B3DScene extends HTMLElement {
             if (availableTextures.has('metallic.jpg')) {
                 const metalnessLoader = new THREE.TextureLoader(manager);
                 metalnessLoader.load(
-                    `${textureBase}/metallic.jpg`,
+                    getTexturePath('metallic.jpg'),
                     (metalness) => {
                         metalness.wrapS = THREE.RepeatWrapping; 
                         metalness.wrapT = THREE.RepeatWrapping;
@@ -545,7 +736,7 @@ class B3DScene extends HTMLElement {
             if (availableTextures.has('ao.jpg')) {
                 const aoLoader = new THREE.TextureLoader(manager);
                 aoLoader.load(
-                    `${textureBase}/ao.jpg`,
+                    getTexturePath('ao.jpg'),
                     (ao) => {
                         ao.wrapS = THREE.RepeatWrapping; 
                         ao.wrapT = THREE.RepeatWrapping;
@@ -564,7 +755,7 @@ class B3DScene extends HTMLElement {
         })
         .catch(() => {
             // If manifest fetch fails, load standard required textures as fallback
-            const texture = new THREE.TextureLoader(manager).load(`${textureBase}/albedo.jpg`);
+            const texture = new THREE.TextureLoader(manager).load(getTexturePath('albedo.jpg'));
             texture.wrapS = THREE.RepeatWrapping;
             texture.wrapT = THREE.RepeatWrapping;
             texture.repeat.set(compensatedRepeat, compensatedRepeat);
@@ -572,7 +763,7 @@ class B3DScene extends HTMLElement {
             material.needsUpdate = true;
             this.textures.push(texture);
 
-            const heightTexture = new THREE.TextureLoader(manager).load(`${textureBase}/height.jpg`);
+            const heightTexture = new THREE.TextureLoader(manager).load(getTexturePath('height.jpg'));
             heightTexture.wrapS = THREE.RepeatWrapping;
             heightTexture.wrapT = THREE.RepeatWrapping;
             heightTexture.repeat.set(compensatedRepeat, compensatedRepeat);
@@ -580,7 +771,7 @@ class B3DScene extends HTMLElement {
             material.needsUpdate = true;
             this.textures.push(heightTexture);
 
-            const normal = new THREE.TextureLoader(manager).load(`${textureBase}/normal.jpg`);
+            const normal = new THREE.TextureLoader(manager).load(getTexturePath('normal.jpg'));
             normal.wrapS = THREE.RepeatWrapping;
             normal.wrapT = THREE.RepeatWrapping;
             normal.repeat.set(compensatedRepeat, compensatedRepeat);
@@ -588,7 +779,7 @@ class B3DScene extends HTMLElement {
             material.needsUpdate = true;
             this.textures.push(normal);
 
-            const roughness = new THREE.TextureLoader(manager).load(`${textureBase}/roughness.jpg`);
+            const roughness = new THREE.TextureLoader(manager).load(getTexturePath('roughness.jpg'));
             roughness.wrapS = THREE.RepeatWrapping;
             roughness.wrapT = THREE.RepeatWrapping;
             roughness.repeat.set(compensatedRepeat, compensatedRepeat);
@@ -722,6 +913,19 @@ class B3DScene extends HTMLElement {
         this.lightFlicker(light, 0, offset, rate);
     });
 
+    // Function to update render resolution
+    this.updateResolution = (newScale) => {
+        // Clamp to valid range [0.5, 1.0]
+        newScale = Math.max(0.5, Math.min(1.0, newScale));
+        
+        if (newScale !== this.resolutionScale) {
+            this.resolutionScale = newScale;
+            setCookie('b3d_resolution_scale', this.resolutionScale.toString());
+            this.renderer.setPixelRatio(window.devicePixelRatio * this.resolutionScale);
+            this.screenResized = true;
+        }
+    };
+    
     const reportWindowSize = () => {
         this.setWr();
         const width = window.innerWidth;
@@ -756,13 +960,10 @@ class B3DScene extends HTMLElement {
 
     this.clock = new THREE.Clock();
     this.interval = 50;
-    this.maxFrameSkipsPerInterval = 10;
     this.maxSlowdownTolerance = 3;
     this.targetTimePerFrame = 1 / this.interval;
     this.upperTimePerFrame = this.targetTimePerFrame;
     this.lowerTimePerFrame = 1 / (this.interval + 5);
-    this.frameSkips = 0;
-    this.currFrameSkips = 0;
     this.currDelta = 0;
     this.currDeltaCount = 0;
     this.frame = 0;
@@ -770,6 +971,19 @@ class B3DScene extends HTMLElement {
     this.screenResized = false;
     this.hasRenderedInitialFrame = false; // Track if we've rendered the initial frame on load
     this.texturesLoaded = false; // Track if textures have finished loading
+    
+    // Resolution scaling levels (stepped for hysteresis)
+    this.resolutionLevels = [1.0, 0.75, 0.5];
+    // Find the appropriate resolution level based on saved scale
+    this.currentResolutionLevel = this.resolutionLevels.findIndex(level => level <= this.resolutionScale);
+    if (this.currentResolutionLevel < 0) {
+        // If not found (shouldn't happen with valid scale), use minimum
+        this.currentResolutionLevel = this.resolutionLevels.length - 1;
+    }
+    
+    // Performance tracking for resolution scaling
+    this.slowCount = 0;
+    this.fastCount = 0;
 
     this.handleVisibilityChange = () => {
         if (document.visibilityState === 'visible') {
@@ -898,20 +1112,13 @@ class B3DScene extends HTMLElement {
                 }
             }
             
-            // Render the scene - always render initial frame, otherwise respect frame skipping
-            if (isInitialFrame || this.currFrameSkips === 0) {
-                if (!isInitialFrame) {
-                    this.currFrameSkips = this.frameSkips;
-                }
-                this.renderer.render(this.scene, this.camera);
-                
-                // Mark that we've rendered the initial frame immediately after first render
-                // Only set the flag if textures are loaded (ensures initial frame has textures)
-                if (isInitialFrame && this.texturesLoaded) {
-                    this.hasRenderedInitialFrame = true;
-                }
-            } else {
-                this.currFrameSkips--;
+            // Render the scene - always render (no frame skipping, using resolution scaling instead)
+            this.renderer.render(this.scene, this.camera);
+            
+            // Mark that we've rendered the initial frame immediately after first render
+            // Only set the flag if textures are loaded (ensures initial frame has textures)
+            if (isInitialFrame && this.texturesLoaded) {
+                this.hasRenderedInitialFrame = true;
             }
         }
         
@@ -925,34 +1132,87 @@ class B3DScene extends HTMLElement {
     if (this.backgroundRendering) {
         this.performanceInterval = setInterval(() => this.measurePerformance(), 5000);
     }
-    this.slowCount = 0;
+    
     this.measurePerformance = () => {
         if (this.currDeltaCount <= 0) { return; }
         let avgTimePerFrame = (this.currDelta / this.currDeltaCount);
-        // console.log({currDelta, currDeltaCount, frameSkips});
+        
+        // Adjust resolution based on performance with hysteresis
         if (avgTimePerFrame > this.upperTimePerFrame) {
-            // Slower than target
-            let frames = Math.min(Math.ceil(avgTimePerFrame / this.targetTimePerFrame), this.maxFrameSkipsPerInterval);
-            // console.log(`Slow. Adding ${frames} frames`);
-            this.frameSkips += frames;
-        } else if (this.frameSkips > 0 && avgTimePerFrame < this.lowerTimePerFrame) {
-            let frames = Math.ceil((1 - (avgTimePerFrame / this.targetTimePerFrame)) * this.frameSkips);
-            // console.log(`Fast. Subtracing ${frames} frames`);
-            this.frameSkips -= Math.min(frames, this.frameSkips);
-        }
-        if (this.frameSkips >= this.maxFrameSkipsPerInterval) {
+            // Performance is slow - scale down resolution
             this.slowCount++;
-        } else {
+            this.fastCount = 0;
+            
+            // Only scale down if we've been slow for a bit (hysteresis)
+            if (this.slowCount >= 2) {
+                // Check if we're at minimum resolution (0.5)
+                if (this.resolutionScale <= 0.5) {
+                    // At minimum resolution - try switching to half-size textures
+                    if (this.textureResolution === 'full') {
+                        this.switchTextureResolution('half');
+                    }
+                    // If still slow after texture switch, increment slowCount for potential stop
+                } else {
+                    // Scale down resolution
+                    const currentLevel = this.currentResolutionLevel;
+                    if (currentLevel < this.resolutionLevels.length - 1) {
+                        this.currentResolutionLevel = currentLevel + 1;
+                        const newScale = this.resolutionLevels[this.currentResolutionLevel];
+                        this.updateResolution(newScale);
+                    }
+                    this.slowCount = 0; // Reset after scaling down
+                }
+            }
+        } else if (avgTimePerFrame < this.lowerTimePerFrame) {
+            // Performance is good - scale up resolution
+            this.fastCount++;
             this.slowCount = 0;
+            
+            // Only scale up if we've been fast for a bit (hysteresis)
+            if (this.fastCount >= 3) {
+                const currentLevel = this.currentResolutionLevel;
+                
+                // If using half-size textures, consider switching back to full textures
+                if (this.textureResolution === 'half') {
+                    // If we can scale up resolution, do that first
+                    if (currentLevel > 0) {
+                        this.currentResolutionLevel = currentLevel - 1;
+                        const newScale = this.resolutionLevels[this.currentResolutionLevel];
+                        this.updateResolution(newScale);
+                        
+                        // If we've scaled up from 0.5, switch back to full textures
+                        if (newScale > 0.5) {
+                            this.switchTextureResolution('full');
+                        }
+                    } else if (this.resolutionScale > 0.5) {
+                        // Already at max resolution but still using half textures, switch back
+                        this.switchTextureResolution('full');
+                    }
+                } else {
+                    // Scale up resolution
+                    if (currentLevel > 0) {
+                        this.currentResolutionLevel = currentLevel - 1;
+                        const newScale = this.resolutionLevels[this.currentResolutionLevel];
+                        this.updateResolution(newScale);
+                    }
+                }
+                this.fastCount = 0; // Reset after scaling up
+            }
+        } else {
+            // Performance is acceptable - reset counters
+            this.slowCount = 0;
+            this.fastCount = 0;
         }
-
-        if (this.slowCount >= this.maxSlowdownTolerance) {
+        
+        // If still slow after all optimizations, stop rendering
+        if (this.slowCount >= this.maxSlowdownTolerance && this.resolutionScale <= 0.5 && this.textureResolution === 'half') {
             if (this.backgroundRendering) {
                 this.stopRendering();
                 window.clearInterval(this.performanceInterval);
             }
             this.slowCount = 0;
         }
+        
         this.currDelta = 0;
         this.currDeltaCount = 0;
     };
