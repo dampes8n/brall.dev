@@ -400,6 +400,8 @@ class B3DScene extends HTMLElement {
     const manager = new THREE.LoadingManager();
     manager.onLoad = () => {
         // Mark textures as loaded
+        // Ensure material is updated after all textures are loaded
+        material.needsUpdate = true;
         this.texturesLoaded = true;
         
         // Render initial frame once textures are loaded (use requestAnimationFrame to ensure renderer is ready)
@@ -484,6 +486,7 @@ class B3DScene extends HTMLElement {
                 texture.wrapT = THREE.RepeatWrapping;
                 texture.repeat.set(compensatedRepeat, compensatedRepeat);
                 material.map = texture;
+                material.needsUpdate = true;
                 this.textures.push(texture);
             }
 
@@ -493,6 +496,7 @@ class B3DScene extends HTMLElement {
                 heightTexture.wrapT = THREE.RepeatWrapping;
                 heightTexture.repeat.set(compensatedRepeat, compensatedRepeat);
                 material.heightMap = heightTexture;
+                material.needsUpdate = true;
                 this.textures.push(heightTexture);
             }
 
@@ -502,6 +506,7 @@ class B3DScene extends HTMLElement {
                 normal.wrapT = THREE.RepeatWrapping;
                 normal.repeat.set(compensatedRepeat, compensatedRepeat);
                 material.normalMap = normal;
+                material.needsUpdate = true;
                 this.textures.push(normal);
             }
 
@@ -511,6 +516,7 @@ class B3DScene extends HTMLElement {
                 roughness.wrapT = THREE.RepeatWrapping;
                 roughness.repeat.set(compensatedRepeat, compensatedRepeat);
                 material.roughnessMap = roughness;
+                material.needsUpdate = true;
                 this.textures.push(roughness);
             }
 
@@ -525,6 +531,7 @@ class B3DScene extends HTMLElement {
                         const currentCompensatedRepeat = this.getCompensatedRepeat();
                         metalness.repeat.set(currentCompensatedRepeat, currentCompensatedRepeat);
                         material.metalnessMap = metalness;
+                        material.needsUpdate = true;
                         this.textures.push(metalness);
                     },
                     undefined,
@@ -545,6 +552,7 @@ class B3DScene extends HTMLElement {
                         const currentCompensatedRepeat = this.getCompensatedRepeat();
                         ao.repeat.set(currentCompensatedRepeat, currentCompensatedRepeat);
                         material.aoMap = ao;
+                        material.needsUpdate = true;
                         this.textures.push(ao);
                     },
                     undefined,
@@ -561,6 +569,7 @@ class B3DScene extends HTMLElement {
             texture.wrapT = THREE.RepeatWrapping;
             texture.repeat.set(compensatedRepeat, compensatedRepeat);
             material.map = texture;
+            material.needsUpdate = true;
             this.textures.push(texture);
 
             const heightTexture = new THREE.TextureLoader(manager).load(`${textureBase}/height.jpg`);
@@ -568,6 +577,7 @@ class B3DScene extends HTMLElement {
             heightTexture.wrapT = THREE.RepeatWrapping;
             heightTexture.repeat.set(compensatedRepeat, compensatedRepeat);
             material.heightMap = heightTexture;
+            material.needsUpdate = true;
             this.textures.push(heightTexture);
 
             const normal = new THREE.TextureLoader(manager).load(`${textureBase}/normal.jpg`);
@@ -575,6 +585,7 @@ class B3DScene extends HTMLElement {
             normal.wrapT = THREE.RepeatWrapping;
             normal.repeat.set(compensatedRepeat, compensatedRepeat);
             material.normalMap = normal;
+            material.needsUpdate = true;
             this.textures.push(normal);
 
             const roughness = new THREE.TextureLoader(manager).load(`${textureBase}/roughness.jpg`);
@@ -582,6 +593,7 @@ class B3DScene extends HTMLElement {
             roughness.wrapT = THREE.RepeatWrapping;
             roughness.repeat.set(compensatedRepeat, compensatedRepeat);
             material.roughnessMap = roughness;
+            material.needsUpdate = true;
             this.textures.push(roughness);
         });
 
