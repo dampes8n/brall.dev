@@ -691,6 +691,10 @@ b-flavor-selector select:focus {
         mix-blend-mode: normal;
     }
     
+    #foregrounds .transition-video {
+        display: none;
+    }
+    
     b-hamburger.menu-toggle-label,
     .menu-toggle-label {
         bottom: calc(4.7rem + var(--spacing-triple) + var(--spacing-triple));
