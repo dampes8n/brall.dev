@@ -50,7 +50,8 @@
         "skillsets": [],
         "skills": [],
         "title": "Bar Mitzvah",
-        "slug": "bar-mitzvah"
+        "slug": "bar-mitzvah",
+        "description": "<img src=\"img/barmitzvah1.jpg\" alt=\"\" /><img src=\"img/barmitzvah2.jpg\" alt=\"\" /><img src=\"img/barmitzvah3.jpg\" alt=\"\" />"
     },
     {
         "domain": "Academic",

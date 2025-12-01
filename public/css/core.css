@@ -139,6 +139,39 @@ blockquote {
     position: relative;
 }
 
+.breakout {
+    margin-bottom: var(--spacing-double);
+    padding: var(--spacing-double);
+    background: var(--panel-bg);
+    border-radius: 8px;
+    border-bottom: 3px solid var(--accent, hsl(210, 100%, 50%));
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--text-primary);
+    text-align: center;
+    position: relative;
+}
+
+.breakout::before,
+.breakout::after {
+    content: "\f071"; /* fa-triangle-exclamation */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+}
+
+.breakout::before {
+    left: var(--spacing-double);
+}
+
+.breakout::after {
+    right: var(--spacing-double);
+}
+
 a {
     color: hsl(210, 100%, 40%);
     text-decoration: underline;

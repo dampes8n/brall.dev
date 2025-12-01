@@ -16,6 +16,9 @@ class BProjects extends (window.BJsonLoader || HTMLElement) {
             this.classList.add('projects-full-height');
         }
         
+        // Check if priority-based sorting should be used
+        this.usePriority = this.hasAttribute('use-priority');
+        
         this.showLoading('Loading projects...');
         this.loadProjects();
     }
@@ -35,27 +38,62 @@ class BProjects extends (window.BJsonLoader || HTMLElement) {
             return;
         }
 
-        // Sort projects: first by domain (Independent, Employed, Personal), then by start date (newest first)
-        const domainOrder = { 'Independent': 1, 'Employed': 2, 'Personal': 3 };
-        const sortedProjects = [...this.projects].sort((a, b) => {
-            const domainA = domainOrder[a.domain] || 999;
-            const domainB = domainOrder[b.domain] || 999;
-            
-            if (domainA !== domainB) {
-                return domainA - domainB;
-            }
-            
-            // Within same domain, sort by start date (newest first)
-            const startA = a.start || '';
-            const startB = b.start || '';
-            
-            // Projects without dates go to the end
-            if (!startA && !startB) return 0;
-            if (!startA) return 1;
-            if (!startB) return -1;
-            
-            return startB.localeCompare(startA);
-        });
+        // Sort projects based on whether priority sorting is enabled
+        let sortedProjects;
+        if (this.usePriority) {
+            // Priority-based sorting: projects with priority come first, sorted by priority (lower number = higher priority)
+            // Then projects without priority follow, sorted by domain and start date
+            sortedProjects = [...this.projects].sort((a, b) => {
+                const priorityA = a.priority !== undefined ? a.priority : 999999;
+                const priorityB = b.priority !== undefined ? b.priority : 999999;
+                
+                if (priorityA !== priorityB) {
+                    return priorityA - priorityB;
+                }
+                
+                // If both have same priority (or both don't have priority), fall back to domain/date sorting
+                const domainOrder = { 'Independent': 1, 'Employed': 2, 'Personal': 3 };
+                const domainA = domainOrder[a.domain] || 999;
+                const domainB = domainOrder[b.domain] || 999;
+                
+                if (domainA !== domainB) {
+                    return domainA - domainB;
+                }
+                
+                // Within same domain, sort by start date (newest first)
+                const startA = a.start || '';
+                const startB = b.start || '';
+                
+                // Projects without dates go to the end
+                if (!startA && !startB) return 0;
+                if (!startA) return 1;
+                if (!startB) return -1;
+                
+                return startB.localeCompare(startA);
+            });
+        } else {
+            // Default sorting: first by domain (Independent, Employed, Personal), then by start date (newest first)
+            const domainOrder = { 'Independent': 1, 'Employed': 2, 'Personal': 3 };
+            sortedProjects = [...this.projects].sort((a, b) => {
+                const domainA = domainOrder[a.domain] || 999;
+                const domainB = domainOrder[b.domain] || 999;
+                
+                if (domainA !== domainB) {
+                    return domainA - domainB;
+                }
+                
+                // Within same domain, sort by start date (newest first)
+                const startA = a.start || '';
+                const startB = b.start || '';
+                
+                // Projects without dates go to the end
+                if (!startA && !startB) return 0;
+                if (!startA) return 1;
+                if (!startB) return -1;
+                
+                return startB.localeCompare(startA);
+            });
+        }
 
         let html = '';
         

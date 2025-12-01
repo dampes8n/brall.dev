@@ -5,6 +5,7 @@
         "subdomain": null,
         "start": "2025-11-25",
         "end": "2025-11-30",
+        "priority": 0,
         "skillsets": [
             "Development",
             "Design",
@@ -24,6 +25,7 @@
         "subdomain": null,
         "start": "2021-12",
         "end": "2022-12-18",
+        "priority": 1,
         "skillsets": [
             "Writing"
         ],
@@ -67,6 +69,7 @@
         "subdomain": "Engility/L3/MPRI",
         "start": "2008",
         "end": "2013",
+        "priority": 3,
         "skillsets": [
             "Development",
             "DevOps",
@@ -137,6 +140,7 @@
         "subdomain": "ZeniMax Online Studios",
         "start": "2013-01",
         "end": null,
+        "priority": 2,
         "skillsets": [
             "Development",
             "Leadership",
@@ -153,6 +157,7 @@
         "subdomain": "ZeniMax Online Studios",
         "start": "2018",
         "end": "2019-late",
+        "priority": 4,
         "skillsets": [
             "Development",
             "Design",
