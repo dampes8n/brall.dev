@@ -118,6 +118,10 @@
 
         // Router class to handle content loading
         class Router {
+            // Content cache: stores {html: string, timestamp: number}
+            static contentCache = new Map();
+            static CACHE_DURATION = 15 * 60 * 1000; // 15 minutes in milliseconds
+
             // Helper to get main content element
             static getMainContent() {
                 return document.getElementById('main-content');
@@ -140,6 +144,39 @@
             static async loadContentFromPath(path, shouldScroll = true) {
                 const router = new Router();
                 await router.loadContent(path, shouldScroll);
+            }
+
+            // Cache helper methods
+            static getCachedContent(path) {
+                const cacheEntry = Router.contentCache.get(path);
+                if (!cacheEntry) {
+                    return null;
+                }
+
+                // Check if cache has expired (older than 15 minutes)
+                const age = Date.now() - cacheEntry.timestamp;
+                if (age > Router.CACHE_DURATION) {
+                    Router.contentCache.delete(path);
+                    return null;
+                }
+
+                return cacheEntry.html;
+            }
+
+            static setCachedContent(path, html) {
+                Router.contentCache.set(path, {
+                    html: html,
+                    timestamp: Date.now()
+                });
+            }
+
+            static clearExpiredCache() {
+                const now = Date.now();
+                for (const [path, entry] of Router.contentCache.entries()) {
+                    if (now - entry.timestamp > Router.CACHE_DURATION) {
+                        Router.contentCache.delete(path);
+                    }
+                }
             }
 
             async loadContent(path, shouldScroll = true) {
@@ -230,17 +267,17 @@
                         jsonFile = 'timeline-events.json';
                     } else if (type === 'skillsets') {
                         // Skillsets are special - they filter across multiple JSON files
-                        await this.loadSkillset(slug, sectionId, shouldScroll);
+                        await this.loadSkillset(slug, sectionId, shouldScroll, path);
                         return;
                     } else if (type === 'subdomains') {
                         // Subdomains are special - they filter timeline events
-                        await this.loadSubdomain(slug, sectionId, shouldScroll);
+                        await this.loadSubdomain(slug, sectionId, shouldScroll, path);
                         return;
                     }
                     
                     if (basePartial && jsonFile) {
                         // Load the base partial and then find the item by slug
-                        await this.loadDataItem(basePartial, jsonFile, slug, sectionId, shouldScroll);
+                        await this.loadDataItem(basePartial, jsonFile, slug, sectionId, shouldScroll, path);
                         return;
                     }
                 }
@@ -248,10 +285,21 @@
                 // Default: load partial as before
                 const contentPath = `partials/${path}.html`;
                 
+                // Check cache first
+                let html = Router.getCachedContent(path);
+                
+                if (html) {
+                    console.log('[Router] Using cached content for:', path);
+                    await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                    return;
+                }
+                
                 try {
                     const response = await fetch(contentPath);
                     if (response.ok) {
-                        const html = await response.text();
+                        html = await response.text();
+                        // Cache the HTML
+                        Router.setCachedContent(path, html);
                         await this.createSectionFromHTML(html, sectionId, shouldScroll);
                     } else {
                         console.warn(`Content not found: ${contentPath}`);
@@ -267,7 +315,20 @@
                 return text.toLowerCase().replace(/\//g, '-slash-').replace(/\s+/g, '-');
             }
 
-            async loadSubdomain(slug, sectionId, shouldScroll) {
+            async loadSubdomain(slug, sectionId, shouldScroll, cacheKey) {
+                // Use provided path as cache key, or construct from slug
+                if (!cacheKey) {
+                    cacheKey = `subdomains/${slug}`;
+                }
+                
+                // Check cache first
+                let html = Router.getCachedContent(cacheKey);
+                if (html) {
+                    console.log('[Router] Using cached content for:', cacheKey);
+                    await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                    return;
+                }
+                
                 try {
                     // Convert slug back to subdomain name
                     // First, restore slashes from -slash- encoding
@@ -299,7 +360,7 @@
                     );
                     
                     // Create HTML for subdomain page
-                    let html = `<article>`;
+                    html = `<article>`;
                     html += `<h1>${this.escapeHtml(subdomainName)}</h1>`;
                     
                     // Load projects for this subdomain
@@ -334,13 +395,29 @@
                     
                     html += `</article>`;
                     
+                    // Cache the generated HTML
+                    Router.setCachedContent(cacheKey, html);
+                    
                     await this.createSectionFromHTML(html, sectionId, shouldScroll);
                 } catch (e) {
                     console.error(`Error loading subdomain: ${e}`);
                 }
             }
 
-            async loadSkillset(slug, sectionId, shouldScroll) {
+            async loadSkillset(slug, sectionId, shouldScroll, cacheKey) {
+                // Use provided path as cache key, or construct from slug
+                if (!cacheKey) {
+                    cacheKey = `skillsets/${slug}`;
+                }
+                
+                // Check cache first
+                let html = Router.getCachedContent(cacheKey);
+                if (html) {
+                    console.log('[Router] Using cached content for:', cacheKey);
+                    await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                    return;
+                }
+                
                 try {
                     // Load all data files including skillsets.json
                     const [skillsetsRes, skillsRes, projectsRes, timelineRes] = await Promise.all([
@@ -378,7 +455,7 @@
                     );
                     
                     // Create HTML for skillset page
-                    let html = `<article>`;
+                    html = `<article>`;
                     html += `<h1>${this.escapeHtml(skillsetName)}</h1>`;
                     
                     if (skillset.description) {
@@ -422,13 +499,29 @@
                     
                     html += `</article>`;
                     
+                    // Cache the generated HTML
+                    Router.setCachedContent(cacheKey, html);
+                    
                     await this.createSectionFromHTML(html, sectionId, shouldScroll);
                 } catch (e) {
                     console.error(`Error loading skillset: ${e}`);
                 }
             }
 
-            async loadDataItem(basePartial, jsonFile, slug, sectionId, shouldScroll) {
+            async loadDataItem(basePartial, jsonFile, slug, sectionId, shouldScroll, cacheKey) {
+                // Use the provided path as cache key, or construct it from jsonFile and slug
+                if (!cacheKey) {
+                    cacheKey = `${jsonFile.replace('.json', '')}/${slug}`;
+                }
+                
+                // Check cache first
+                let html = Router.getCachedContent(cacheKey);
+                if (html) {
+                    console.log('[Router] Using cached content for:', cacheKey);
+                    await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                    return;
+                }
+                
                 try {
                     // Load the JSON data
                     const jsonPath = `data/${jsonFile}`;
@@ -448,7 +541,10 @@
                     }
                     
                     // Create HTML for the item (already includes article)
-                    const html = await this.renderDataItem(item, jsonFile);
+                    html = await this.renderDataItem(item, jsonFile);
+                    
+                    // Cache the generated HTML
+                    Router.setCachedContent(cacheKey, html);
                     
                     await this.createSectionFromHTML(html, sectionId, shouldScroll);
                 } catch (e) {

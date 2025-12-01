@@ -4,7 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Résumé - Will Brall's Portfolio</title>
-    <link rel="stylesheet" href="css/core.css">
+    <style>
+/* Core CSS - Base styles and layout */
+
+:root { --filetype-alt: "File"; --transition-duration: 0.3s; --primary-bg: hsl(0, 0%, 94%); --secondary-bg: hsl(0, 0%, 100%); --tag-bg: hsla(0, 0%, 0%, 0.05); --tag-bg-hover: hsla(0, 0%, 0%, 0.1); --timeline-academic: hsl(283, 39%, 53%); --timeline-employed: hsl(140, 49%, 54%); --timeline-independent: hsl(0, 100%, 71%); --timeline-personal: hsl(32, 89%, 51%); --panel-bg: hsla(0, 0%, 100%, 0.94); --panel-blur: blur(10px); --list-reset: list-style: none; padding: 0; margin: 0; --scrollbar-width: 4px; --scrollbar-track-bg: transparent; --scrollbar-thumb-bg: hsla(0, 0%, 0%, 0.15); --scrollbar-thumb-hover-bg: hsla(0, 0%, 0%, 0.25); --font-size-base: 1rem; --font-size-base-small: 0.9rem; --font-size-h1: 3rem; --font-size-h2: 1.75rem; --font-size-h3: 1.5rem; --font-size-h4: 1.25rem; --font-size-h5: 1.1rem; --font-size-h6: 1rem; --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; --font-family-headings: var(--font-family-base); --font-family-h1: var(--font-family-headings); --text-primary: hsl(0, 0%, 10%); --text-h1: var(--text-primary); --text-h2: var(--text-primary); --text-h3: var(--text-primary); --text-h4: var(--text-primary); --text-h5: var(--text-primary); --text-h6: var(--text-primary); --logo-color: hsl(0, 0%, 0%); --spacing-single: 0.5rem; --spacing-double: 1rem; --spacing-triple: 1.5rem; --spacing-double-triple: 3rem; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-family-base); font-size: var(--font-size-base); min-height: 100vh; height: 100vh; overflow: hidden; position: relative; line-height: 1.7; color: var(--text-primary); background-color: var(--primary-bg); }
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-family-headings); font-weight: 600; line-height: 1.7; margin: 0; text-wrap: balance; }
+h1 { font-family: var(--font-family-h1); font-size: var(--font-size-h1); color: var(--text-h1); }
+h2 { font-size: var(--font-size-h2); color: var(--text-h2); }
+h3 { font-size: var(--font-size-h3); color: var(--text-h3); }
+h4 { font-size: var(--font-size-h4); color: var(--text-h4); }
+h5 { font-size: var(--font-size-h5); color: var(--text-h5); }
+h6 { font-size: var(--font-size-h6); color: var(--text-h6); }
+p { margin-bottom: var(--spacing-double); font-size: var(--font-size-base); line-height: 1.7; color: var(--text-primary); }
+blockquote { margin-bottom: var(--spacing-double); padding: var(--spacing-double); border-left: 3px solid var(--accent, hsl(210, 100%, 50%)); background: var(--panel-bg); border-radius: 0; border-top-right-radius: 8px; border-bottom-right-radius: 8px; font-size: var(--font-size-base); line-height: 1.7; color: var(--text-primary); position: relative; }
+img { border-radius: 8px; max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+a { color: hsl(210, 100%, 40%); text-decoration: underline; margin: 0; line-height: 1.7; }
+a:hover, a:focus { color: hsl(210, 100%, 30%); text-decoration: none; }
+a:focus { outline: 2px solid hsl(210, 100%, 40%); outline-offset: 2px; border-radius: 2px; }
+a[href^="#!"] { display: inline-block; color: var(--accent, hsl(210, 100%, 50%)); text-decoration: none; cursor: pointer; }
+a[href^="#!"]:hover { color: var(--accent-hover, hsl(210, 100%, 35%)); text-decoration: underline; }
+a[href^="#!"]:focus { outline: none; }
+a[href^="#!"]:visited { color: var(--accent-visited, hsl(271, 68%, 32%)); }
+a[href$=".pdf"]::after { content: "\f1c1"; font-family: "Font Awesome 6 Free"; font-weight: 900; margin-left: var(--spacing-single); font-size: var(--font-size-base-small); }
+a[href$=".doc"]::after, a[href$=".docx"]::after { content: "\f1c2"; font-family: "Font Awesome 6 Free"; font-weight: 900; margin-left: var(--spacing-single); font-size: var(--font-size-base-small); }
+a.tag:hover { background: var(--tag-bg-hover); text-decoration: underline; }
+
+.skip-link { position: absolute; top: -9999px; left: 0; background: hsl(0, 0%, 0%); color: hsl(0, 0%, 100%); padding: 8px; text-decoration: none; z-index: 1000; overflow: hidden; }
+.skip-link:focus { top: 0; overflow: visible; }
+.skip-link:focus:not(:active) { scroll-margin-top: 0; }
+
+/* Layout */
+#layout-wrapper { display: grid; grid-template-columns: 250px 1fr 250px; gap: 0 var(--spacing-single); }
+#main-menu, #main-content, #situational-menu { background: var(--panel-bg); backdrop-filter: var(--panel-blur); border-radius: 8px; }
+#main-menu { grid-column: 1; padding: var(--spacing-double); margin: 0 0 var(--spacing-single) var(--spacing-single); position: sticky; top: var(--spacing-single); align-self: start; max-height: calc(100vh - 1rem); overflow-y: auto; box-sizing: border-box; }
+#main-menu ul, #situational-menu ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--spacing-single); }
+#main-menu li { margin: 0; }
+#main-menu a i { margin-right: var(--spacing-single); }
+#main-menu a[href^="#!"] { display: block; padding: var(--spacing-single) var(--spacing-double); margin: 0; border-radius: 6px; transition: all 0.2s ease; }
+#main-menu a[href^="#!"]:hover, #main-menu a[href^="#!"]:focus, #situational-menu a:hover, #situational-menu a:focus { background: hsla(210, 100%, 50%, 0.1); color: var(--accent, hsl(210, 100%, 50%)); outline: none; }
+
+#main-content { grid-column: 2; height: calc(100vh - var(--spacing-single) - 4.7rem - var(--spacing-single)); margin: var(--spacing-single) 0; outline: none; align-self: start; overflow-y: auto; overflow-x: hidden; position: sticky; top: var(--spacing-single); }
+#main-content:focus { outline: none; }
+#situational-menu { grid-column: 3; padding: var(--spacing-double); margin: 0 var(--spacing-double) var(--spacing-single) 0; position: sticky; top: var(--spacing-single); align-self: start; max-height: calc(100vh - 1rem); overflow-y: auto; box-sizing: border-box; }
+#situational-menu nav { margin: 0; }
+#situational-menu h2 { font-size: var(--font-size-h6); font-weight: 600; margin: 0 0 var(--spacing-double) 0; color: var(--text-h2); }
+#main-menu li, #situational-menu li { margin: 0; }
+#situational-menu a { display: block; padding: var(--spacing-single) var(--spacing-double); border-radius: 6px; font-size: var(--font-size-base-small); text-decoration: none; transition: all 0.2s ease; }
+#situational-menu li:first-child a { font-weight: 600; color: var(--text-primary, hsl(0, 0%, 10%)); background: hsla(0, 0%, 0%, 0.05); }
+
+b-hamburger.menu-toggle-label, .menu-toggle-label { display: none; }
+#backgrounds { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1; }
+#foregrounds { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 999; }
+b-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+b-layer .layer-content { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+#content-pane { position: relative; z-index: 1; padding: var(--spacing-triple) var(--spacing-double-triple); container-type: inline-size; container-name: content; }
+section { margin-bottom: var(--spacing-triple); }
+header { margin-bottom: var(--spacing-triple); }
+.tagline { font-size: var(--font-size-h4); letter-spacing: 2px; }
+.blockquote-with-logo { display: grid; grid-template-columns: auto 1fr; gap: var(--spacing-single); align-items: stretch; margin-bottom: var(--spacing-double); }
+.blockquote-with-logo blockquote { margin-bottom: 0; }
+.blockquote-with-logo .resume-logo { width: auto; height: 100%; min-width: 100px; -webkit-mask-image: url('img/logo.svg'); mask-image: url('img/logo.svg'); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-position: center; mask-position: center; background-color: var(--logo-color); }
+article { border-radius: 4px; margin-bottom: var(--spacing-triple); }
+article article { border: none; margin-bottom: 0; padding-bottom: 0; background: transparent; }
+article h3 { margin: 0; }
+article p { line-height: 1.7; font-size: var(--font-size-base); }
+#main-footer { position: fixed; bottom: 0; left: 0; right: 0; padding: var(--spacing-single) var(--spacing-triple); background: var(--secondary-bg, hsla(0, 0%, 100%, 0.95)); border-top: 1px solid hsla(0, 0%, 0%, 0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; z-index: 100; backdrop-filter: blur(10px); min-height: 4.7rem; box-sizing: border-box; }
+#main-footer .copyright { margin: 0; font-size: var(--font-size-base-small); color: var(--text-primary, hsla(0, 0%, 0%, 0.6)); }
+b-flavor-selector { display: flex; align-items: center; gap: var(--spacing-single); }
+b-flavor-selector label { font-size: var(--font-size-base-small); color: var(--text-primary, hsl(0, 0%, 10%)); }
+b-flavor-selector select { padding: var(--spacing-single); border: 1px solid hsla(0, 0%, 0%, 0.2); border-radius: 4px; background: var(--secondary-bg); font-size: var(--font-size-base-small); color: var(--text-primary, hsl(0, 0%, 10%)); cursor: pointer; }
+
+.tag.timeline-domain::before, .timeline-domain::before, .tags .timeline-domain::before, a.tag[href^="#!/subdomains/"]::before, a[href^="#!/subdomains/"].tag::before, .tags a[href^="#!/subdomains/"]::before, a.tag[href^="#!/projects/"]::before, a[href^="#!/projects/"].tag::before, .tags a[href^="#!/projects/"]::before, a.tag[href^="#!/skillsets/"]::before, a[href^="#!/skillsets/"].tag::before, .tags a[href^="#!/skillsets/"]::before, a.tag[href^="#!/timeline-events/"]::before, a[href^="#!/timeline-events/"].tag::before, .tags a[href^="#!/timeline-events/"]::before { font-family: "Font Awesome 6 Free"; font-weight: 900; margin-right: var(--spacing-single); }
+.tag.timeline-domain::before, .timeline-domain::before, .tags .timeline-domain::before { content: "\f1c0"; }
+a.tag[href^="#!/subdomains/"]::before, a[href^="#!/subdomains/"].tag::before, .tags a[href^="#!/subdomains/"]::before { content: "\f0e8"; }
+a.tag[href^="#!/projects/"]::before, a[href^="#!/projects/"].tag::before, .tags a[href^="#!/projects/"]::before { content: "\f135"; }
+a.tag[href^="#!/skillsets/"]::before, a[href^="#!/skillsets/"].tag::before, .tags a[href^="#!/skillsets/"]::before { content: "\f5fd"; }
+a.tag[href^="#!/timeline-events/"]::before, a[href^="#!/timeline-events/"].tag::before, .tags a[href^="#!/timeline-events/"]::before { content: "\f017"; }
+
+/* ============================================ STRUCTURAL CLASSES (Layout & Structure) ============================================ */
+
+.card { background: var(--panel-bg); padding: var(--spacing-triple); border-radius: 8px; margin: var(--spacing-triple) auto; max-width: 800px; }
+.card-list { display: grid; gap: var(--spacing-triple); margin-top: var(--spacing-double); max-height: max(50vh, 500px); overflow-y: auto; overflow-x: hidden; }
+
+/* ============================================ STYLISTIC CLASSES (Appearance & Theme) ============================================ */
+
+.tag { padding: var(--spacing-single) var(--spacing-triple); font-size: 0.9rem; display: inline-block; background: var(--tag-bg); border-radius: 3px; text-decoration: none; color: inherit; }
+code { padding: var(--spacing-single) var(--spacing-triple); font-size: 0.9rem; display: inline-block; background: var(--tag-bg); border-radius: 3px; text-decoration: none; color: inherit; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+b-xp { display: inline-flex; align-items: center; margin-right: var(--spacing-single); }
+.xp-char { display: inline-block; line-height: 1; }
+
+a.tag:hover { background: var(--tag-bg-hover); text-decoration: underline; }
+
+.tags { display: flex; gap: var(--spacing-single); flex-wrap: wrap; font-size: var(--font-size-base); margin-top: var(--spacing-single); margin-bottom: var(--spacing-triple); justify-content: flex-start; align-items: flex-start; }
+p + .tags { margin-top: var(--spacing-triple); }
+.tags > span, .tags > a { padding: var(--spacing-single) var(--spacing-triple); font-size: 0.9rem; display: inline-block; background: var(--tag-bg); border-radius: 3px; text-decoration: none; }
+.tags > a:hover { background: var(--tag-bg-hover); text-decoration: underline; }
+.related { margin-top: var(--spacing-triple); }
+.related h2 { font-size: var(--font-size-h3); margin-bottom: var(--spacing-double); }
+
+/* ============================================ TIMELINE SPECIFIC STYLES ============================================ */
+
+.timeline-container { position: relative; padding: 0 calc(var(--spacing-double) + 2px) 0 0; min-height: 200px; max-height: max(50vh, 500px); overflow-y: auto; overflow-x: hidden; }
+
+/* Full height mode - no scrolling, expands to fit content */
+b-timeline.timeline-full-height .timeline-container { max-height: none; overflow-y: visible; }
+
+/* ============================================ UNIFIED MINIMAL SCROLLBAR STYLING (DRY) ============================================ */
+
+#main-menu ul { padding-right: 5px; }
+#situational-menu nav { padding-right: 5px; }
+* { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg); }
+*::-webkit-scrollbar { width: var(--scrollbar-width); height: var(--scrollbar-width); }
+*::-webkit-scrollbar-button { width: 0; height: 0; display: none; }
+*::-webkit-scrollbar-button:single-button, *::-webkit-scrollbar-button:double-button, *::-webkit-scrollbar-button:start:decrement, *::-webkit-scrollbar-button:end:increment { width: 0; height: 0; display: none; }
+*::-webkit-scrollbar-track { background: var(--scrollbar-track-bg); }
+*::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb-bg); border-radius: 0; }
+*::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover-bg); }
+
+.timeline-container { position: relative; padding: 0 calc(var(--spacing-double) + 2px) 0 0; min-height: 200px; max-height: max(50vh, 500px); overflow-y: auto; overflow-x: hidden; }
+b-timeline.timeline-full-height .timeline-container { max-height: none; overflow-y: visible; }
+.timeline-event { position: relative; padding-left: calc(var(--spacing-single) * 8); margin-bottom: var(--spacing-triple); transition: height 0.3s ease, margin 0.3s ease, padding 0.3s ease, opacity 0.3s ease; transition-behavior: allow-discrete; opacity: 1; overflow: visible; }
+.timeline-event-hidden { margin-bottom: 0; opacity: 0; pointer-events: none; height: 0; padding-top: 0; padding-bottom: 0; overflow: hidden; }
+.timeline-marker { position: absolute; left: 12px; top: 17px; width: 20px; height: 20px; z-index: 3; transform: translateY(-50%); margin-top: var(--spacing-single); }
+.timeline-marker-outer { position: absolute; top: 0; left: 0; width: 20px; height: 20px; border-radius: 50%; background: hsl(0, 0%, 50%); z-index: 1; }
+.timeline-marker-inner { position: absolute; top: 50%; left: 50%; width: 14px; height: 14px; border-radius: 50%; background: var(--secondary-bg); transform: translate(-50%, -50%); z-index: 2; }
+.timeline-marker::after { content: ''; position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; border-radius: 50%; background: var(--accent, hsl(210, 100%, 50%)); transform: translate(-50%, -50%); z-index: 3; }
+.timeline-event[data-domain="academic"] .timeline-marker::after { background: var(--timeline-academic); }
+.timeline-event[data-domain="employed"] .timeline-marker::after { background: var(--timeline-employed); }
+.timeline-event[data-domain="independent"] .timeline-marker::after { background: var(--timeline-independent); }
+.timeline-event[data-domain="personal"] .timeline-marker::after { background: var(--timeline-personal); }
+.timeline-title-star { color: var(--domain-color, var(--accent, hsl(210, 100%, 50%))); margin-right: var(--spacing-single); }
+.timeline-event[data-domain="academic"] .timeline-title-star { color: var(--timeline-academic); }
+.timeline-event[data-domain="employed"] .timeline-title-star { color: var(--timeline-employed); }
+.timeline-event[data-domain="independent"] .timeline-title-star { color: var(--timeline-independent); }
+.timeline-event[data-domain="personal"] .timeline-title-star { color: var(--timeline-personal); }
+[data-domain="academic"] { --domain-color: var(--timeline-academic); }
+[data-domain="employed"] { --domain-color: var(--timeline-employed); }
+[data-domain="independent"] { --domain-color: var(--timeline-independent); }
+[data-domain="personal"] { --domain-color: var(--timeline-personal); }
+
+.timeline-event::before { content: ''; position: absolute; left: 21px; top: 16px; width: 2px; background: hsl(0, 0%, 50%); pointer-events: none; z-index: 0; height: calc(100% + 1.5rem - 0px); display: block; transition: height 0.5s ease, margin 0.5s ease, padding 0.5s ease, opacity 0.5s ease; transition-behavior: allow-discrete; }
+.timeline-event:last-child::before, .timeline-event.timeline-last-visible::before { display: none; }
+.timeline-event-hidden::before { opacity: 0; }
+.timeline-content { background: var(--panel-bg); padding: 0 var(--spacing-double) var(--spacing-single); border-radius: 0; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-left: 3px solid var(--accent, hsl(210, 100%, 50%)); }
+.timeline-event[data-domain] .timeline-content { border-left-color: var(--domain-color); }
+.timeline-content time, .card time { font-weight: 600; color: var(--accent, hsl(210, 100%, 50%)); margin: 0; line-height: 1.7; font-size: var(--font-size-base-small); display: block; }
+[data-domain] time, [data-domain] .timeline-content time { color: var(--domain-color); }
+.timeline-content h3 { margin: 0; font-size: var(--font-size-h4); font-weight: 600; line-height: 1.7; }
+.timeline-content p { font-size: var(--font-size-base); color: var(--text-primary, hsla(0, 0%, 0%, 0.7)); line-height: 1.7; }
+.timeline-content .tags { display: flex; gap: var(--spacing-single); flex-wrap: wrap; font-size: var(--font-size-base-small); color: var(--text-primary, hsla(0, 0%, 0%, 0.6)); margin-top: var(--spacing-single); margin-bottom: 0; }
+.timeline-content .tags > span, .timeline-content .tags > a { padding: var(--spacing-single) var(--spacing-single); background: var(--tag-bg); border-radius: 3px; text-decoration: none; display: inline-block; }
+.timeline-content .tags > a:hover { background: var(--tag-bg-hover); text-decoration: underline; }
+.timeline-domain { font-weight: 600; }
+.timeline-event[data-domain] .timeline-domain, .card[data-domain] .timeline-domain, article[data-domain] .timeline-domain, [data-domain] .tags .timeline-domain { color: var(--domain-color); }
+.timeline-skillset, .timeline-skill { font-weight: 500; }
+.timeline-event-detail { position: relative; margin: var(--spacing-triple) auto; }
+.timeline-event-detail::before { content: ''; position: absolute; left: 10px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--panel-bg); z-index: 1; }
+.timeline-event-detail .card { background: var(--panel-bg); padding: var(--spacing-triple); border-radius: 8px; }
+.timeline-event-detail h1 { font-size: var(--font-size-h1); margin: 0; line-height: 1.7; }
+.timeline-event-detail p { font-size: var(--font-size-h4); line-height: 1.7; color: var(--text-primary, hsla(0, 0%, 0%, 0.8)); }
+.timeline-event-detail .tags { font-size: var(--font-size-base); gap: var(--spacing-triple); margin-top: var(--spacing-single); }
+.timeline-event-detail .tags > a > span, .timeline-event-detail .tags > span > a { background: transparent; padding: 0; border-radius: 0; }
+.timeline-event-detail .timeline-domain { font-weight: 600; }
+.timeline-event-detail[data-domain] .timeline-domain { color: var(--domain-color); }
+.timeline-wrapper { position: relative; container-type: inline-size; container-name: timeline; width: 100%; margin-top: var(--spacing-double); }
+.timeline-content-area { position: relative; }
+.timeline-filters { float: right; width: 200px; padding: var(--spacing-double); margin: 0 0 var(--spacing-single) var(--spacing-double); background: var(--secondary-bg, hsl(0, 0%, 100%)); border-radius: 4px; clear: right; position: sticky; top: var(--spacing-double); z-index: 10; box-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.1); }
+.timeline-filters h2 { font-size: var(--font-size-h5); margin-bottom: var(--spacing-single); margin-top: 0; }
+.filter-controls { display: flex; flex-direction: column; gap: var(--spacing-single); margin-top: var(--spacing-single); }
+.filter-controls label { display: flex; align-items: center; gap: var(--spacing-single); cursor: pointer; font-size: var(--font-size-base); }
+.filter-controls input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; outline: none !important; border: none !important; box-shadow: none !important; }
+.filter-controls input[type="checkbox"]:focus { outline: none !important; border: none !important; box-shadow: none !important; }
+.filter-controls label:focus { outline: none !important; }
+.filter-controls label:focus-within { outline: none !important; }
+.filter-color { position: relative; display: inline-block; width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; transition: box-shadow 0.2s ease; border: 2px solid hsl(0, 0%, 100%); box-shadow: 0 0 0 0 transparent; }
+.filter-color.academic { background: var(--timeline-academic); }
+.filter-color.employed { background: var(--timeline-employed); }
+.filter-color.independent { background: var(--timeline-independent); }
+.filter-color.personal { background: var(--timeline-personal); }
+.filter-separator { height: 1px; background: hsla(0, 0%, 0%, 0.2); margin: var(--spacing-double) 0 var(--spacing-single) 0; }
+.filter-major { display: inline-block; font-size: var(--font-size-h4); line-height: 1; color: hsl(45, 100%, 50%); }
+.filter-controls input[type="checkbox"]:checked + .filter-major { text-decoration: underline; text-decoration-color: hsl(0, 0%, 0%); text-decoration-thickness: 4px; }
+.filter-controls input[type="checkbox"]:checked + .filter-color { box-shadow: 0 0 0 3px hsl(0, 0%, 0%); }
+.filter-controls label:hover .filter-color { box-shadow: 0 0 0 3px hsl(0, 0%, 50%); }
+.filter-controls label:hover { font-weight: bold; }
+
+/* ============================================ PROJECTS, SKILLS, SKILLSETS ============================================ */
+
+b-projects, b-skillsets { display: grid; gap: var(--spacing-triple); margin-top: var(--spacing-double); max-height: max(50vh, 500px); overflow-y: auto; overflow-x: hidden; }
+b-projects.projects-full-height, b-skillsets.skillsets-full-height { max-height: none; overflow-y: visible; }
+.skillset-group { margin-bottom: var(--spacing-double); }
+.skillset-group h3 { margin: 0; font-size: var(--font-size-h3); }
+.spotlight-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-triple); margin-top: var(--spacing-double); }
+
+/* ============================================ MEDIA QUERIES & CONTAINER QUERIES ============================================ */
+
+@media (max-width: 1049px) { #layout-wrapper { grid-template-columns: 250px 1fr; } #situational-menu { display: none; } }
+@media (max-width: 799px) { #layout-wrapper { grid-template-columns: 1fr; } #main-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; display: none; margin: 0; padding: var(--spacing-triple) var(--spacing-triple) var(--spacing-triple) 0; } #main-menu.menu-open { display: flex; flex-direction: column; align-items: center; justify-content: center; } #main-menu.menu-open ul { width: 100%; align-items: center; } #main-menu.menu-open a[href^="#!"] { font-size: calc(var(--font-size-base) * 2); } #main-content { grid-column: 1; height: calc(100vh - var(--spacing-double) - var(--footer-height, 80px)); } b-hamburger.menu-toggle-label, .menu-toggle-label { display: block; position: fixed; bottom: var(--spacing-double); left: var(--spacing-double); z-index: 1001; background: var(--accent, hsl(210, 100%, 50%)); color: var(--secondary-bg, hsl(0, 0%, 100%)); border: none; border-radius: 50%; width: 3rem; height: 3rem; font-size: var(--font-size-h3); cursor: pointer; box-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.2); text-align: center; line-height: 3rem; } b-hamburger.menu-toggle-label:hover, .menu-toggle-label:hover { opacity: 0.9; } b-hamburger.menu-toggle-label:focus, .menu-toggle-label:focus { outline: 2px solid var(--accent, hsl(210, 100%, 50%)); outline-offset: 2px; } #content-pane { padding-bottom: var(--spacing-triple); } .spotlight-projects { grid-template-columns: 1fr; } #main-footer { position: fixed; bottom: 0; flex-direction: column; align-items: flex-end; text-align: right; padding-right: var(--spacing-double); } }
+@media (min-width: 1400px) { #layout-wrapper { max-width: 1400px; margin: 0 auto; } }
+@container timeline (max-width: 600px) { .timeline-filters { float: none; width: 100%; position: static; margin: 0 0 var(--spacing-triple) 0; } .filter-controls { flex-direction: row; flex-wrap: wrap; } .timeline-filters > .filter-controls:last-of-type { margin-top: 0; } .timeline-filters > .filter-separator { display: block; height: 1px; width: 100%; background: hsla(0, 0%, 0%, 0.2); margin: var(--spacing-triple) 0; } .filter-controls label { min-width: 125px; } }
+
+</style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style id="flavor-style"></style>
     <style id="transition-style"></style>
@@ -52,7 +258,1152 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="components/base/b-json-loader.js"></script>
-    <script src="js/loader.js"></script>
+    <script>
+/**
+ * Loader.js - Auto-loads web components from HTML
+ * Reads incoming HTML, finds web components, and autoloads their .js files
+ */
+
+(function() {
+    'use strict';
+
+    const componentCache = new Map();
+    const pendingLoads = new Map();
+
+    function loadComponent(componentName) {
+        // If already loaded, return immediately
+        if (componentCache.has(componentName)) {
+            return Promise.resolve(componentCache.get(componentName));
+        }
+
+        // If already loading, return the existing promise
+        if (pendingLoads.has(componentName)) {
+            return pendingLoads.get(componentName);
+        }
+
+        // Check if script tag already exists in DOM
+        const existingScript = document.querySelector(`script[src="components/${componentName}.js"]`);
+        if (existingScript) {
+            // Script exists but not in cache yet - wait for it to load
+            const loadPromise = new Promise((resolve, reject) => {
+                const checkLoaded = () => {
+                    if (componentCache.has(componentName)) {
+                        resolve(componentCache.get(componentName));
+                    } else {
+                        // Wait a bit and check again
+                        setTimeout(checkLoaded, 50);
+                    }
+                };
+                checkLoaded();
+            });
+            pendingLoads.set(componentName, loadPromise);
+            return loadPromise;
+        }
+
+        // Create new load promise
+        const loadPromise = new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = `components/${componentName}.js`;
+            script.onload = () => {
+                componentCache.set(componentName, true);
+                pendingLoads.delete(componentName);
+                resolve();
+            };
+            script.onerror = () => {
+                console.warn(`Failed to load component: ${componentName}`);
+                pendingLoads.delete(componentName);
+                reject(new Error(`Failed to load component: ${componentName}`));
+            };
+            document.head.appendChild(script);
+        });
+
+        pendingLoads.set(componentName, loadPromise);
+        return loadPromise;
+    }
+
+    function findComponents(element = document) {
+        const components = new Set();
+        const customElements = element.querySelectorAll('*');
+        
+        customElements.forEach(el => {
+            const tagName = el.tagName.toLowerCase();
+            // Only add if not in cache and not already pending
+            if (tagName.includes('-') && !componentCache.has(tagName) && !pendingLoads.has(tagName)) {
+                components.add(tagName);
+            }
+        });
+
+        return Array.from(components);
+    }
+
+    function initializeComponents() {
+        const components = findComponents();
+        const loadPromises = components.map(comp => loadComponent(comp).catch(() => {}));
+        
+        return Promise.all(loadPromises);
+    }
+
+    // Initialize on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeComponents);
+    } else {
+        initializeComponents();
+    }
+
+    // Watch for dynamically added components
+    const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+                if (node.nodeType === 1) { // Element node
+                    const components = findComponents(node);
+                    components.forEach(comp => loadComponent(comp).catch(() => {}));
+                }
+            });
+        });
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+    // Export for manual loading if needed
+    window.ComponentLoader = {
+        load: loadComponent,
+        find: findComponents
+    };
+
+    // Router functionality - handles hashbang routing (#!)
+    (function() {
+        'use strict';
+
+        // Router class to handle content loading
+        class Router {
+            // Content cache: stores {html: string, timestamp: number}
+            static contentCache = new Map();
+            static CACHE_DURATION = 15 * 60 * 1000; // 15 minutes in milliseconds
+
+            // Helper to get main content element
+            static getMainContent() {
+                return document.getElementById('main-content');
+            }
+
+            // Helper to get scroll position (from main-content instead of window)
+            static getScrollPosition() {
+                const mainContent = Router.getMainContent();
+                return mainContent ? mainContent.scrollTop : 0;
+            }
+
+            // Helper to set scroll position (on main-content instead of window)
+            static setScrollPosition(scrollY) {
+                const mainContent = Router.getMainContent();
+                if (mainContent) {
+                    mainContent.scrollTop = scrollY;
+                }
+            }
+
+            static async loadContentFromPath(path, shouldScroll = true) {
+                const router = new Router();
+                await router.loadContent(path, shouldScroll);
+            }
+
+            // Cache helper methods
+            static getCachedContent(path) {
+                const cacheEntry = Router.contentCache.get(path);
+                if (!cacheEntry) {
+                    return null;
+                }
+
+                // Check if cache has expired (older than 15 minutes)
+                const age = Date.now() - cacheEntry.timestamp;
+                if (age > Router.CACHE_DURATION) {
+                    Router.contentCache.delete(path);
+                    return null;
+                }
+
+                return cacheEntry.html;
+            }
+
+            static setCachedContent(path, html) {
+                Router.contentCache.set(path, {
+                    html: html,
+                    timestamp: Date.now()
+                });
+            }
+
+            static clearExpiredCache() {
+                const now = Date.now();
+                for (const [path, entry] of Router.contentCache.entries()) {
+                    if (now - entry.timestamp > Router.CACHE_DURATION) {
+                        Router.contentCache.delete(path);
+                    }
+                }
+            }
+
+            async loadContent(path, shouldScroll = true) {
+                // Normalize path
+                let targetPath = path;
+                if (targetPath.startsWith('#!')) {
+                    targetPath = targetPath.substring(2);
+                } else if (targetPath.startsWith('/')) {
+                    targetPath = targetPath.substring(1);
+                } else if (targetPath.startsWith('#')) {
+                    targetPath = targetPath.substring(1);
+                }
+                
+                // Clean up path: remove leading/trailing slashes and normalize
+                targetPath = targetPath.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
+                
+                // Ensure we have a valid path (default to Résumé if empty)
+                if (!targetPath || targetPath === '/') {
+                    targetPath = 'Resume';
+                }
+                
+                console.log('[Router] Loading content for path:', targetPath);
+
+                // Update title immediately so it shows right away
+                this.updateTitle(targetPath);
+
+                // Check if this is first load (no breadcrumb exists for this path)
+                const breadcrumbs = document.querySelector('b-breadcrumbs');
+                const isFirstLoad = breadcrumbs && breadcrumbs.breadcrumbs && !breadcrumbs.breadcrumbs.find(b => 
+                    breadcrumbs.normalizePath(b.path) === breadcrumbs.normalizePath(targetPath)
+                );
+
+                // Generate section ID using timestamp
+                const sectionId = `section-${Date.now()}`;
+
+                // Trigger transition video fade in and wait for it to complete
+                await this.showTransitionVideo();
+
+                // Load main content (video is at full opacity during this)
+                // Scroll to top on first load, otherwise don't scroll (breadcrumbs will handle it)
+                const shouldScrollToTop = isFirstLoad;
+                await this.loadMainContent(targetPath, shouldScrollToTop, sectionId);
+
+                // Trigger transition video fade out after content loads and wait for it to complete
+                await this.hideTransitionVideo();
+
+                // Update history with path and scroll position
+                const newUrl = `#!${targetPath}`;
+                const scrollY = Router.getScrollPosition();
+                window.history.pushState({ path: targetPath, scrollY }, '', newUrl);
+
+                // Update breadcrumbs (add new breadcrumb with current scroll position)
+                // Note: scroll position will be 0 if first load (we scrolled to top)
+                const currentScrollY = Router.getScrollPosition();
+                if (breadcrumbs) {
+                    const title = breadcrumbs.generateTitle(targetPath);
+                    breadcrumbs.add(targetPath, title, currentScrollY);
+                }
+            }
+
+
+            async loadMainContent(path, shouldScroll, sectionId) {
+                // Check if we're in file:// protocol
+                if (window.location.protocol === 'file:') {
+                    console.error('File:// protocol detected. Please use a web server.');
+                    console.error('Use Python (python -m http.server 8000), PHP, or VS Code Live Server');
+                    console.error('See README.md for more options.');
+                    return;
+                }
+                
+                const contentPane = document.getElementById('content-pane');
+                
+                // Check if path matches project/skill/timeline-event pattern
+                const pathParts = path.split('/');
+                if (pathParts.length === 2) {
+                    const [type, slug] = pathParts;
+                    let basePartial = null;
+                    let jsonFile = null;
+                    
+                    if (type === 'projects') {
+                        basePartial = 'Projects';
+                        jsonFile = 'projects.json';
+                    } else if (type === 'skills') {
+                        basePartial = 'Resume'; // Skills are shown on Résumé page
+                        jsonFile = 'skills.json';
+                    } else if (type === 'timeline-events') {
+                        basePartial = 'History';
+                        jsonFile = 'timeline-events.json';
+                    } else if (type === 'skillsets') {
+                        // Skillsets are special - they filter across multiple JSON files
+                        await this.loadSkillset(slug, sectionId, shouldScroll, path);
+                        return;
+                    } else if (type === 'subdomains') {
+                        // Subdomains are special - they filter timeline events
+                        await this.loadSubdomain(slug, sectionId, shouldScroll, path);
+                        return;
+                    }
+                    
+                    if (basePartial && jsonFile) {
+                        // Load the base partial and then find the item by slug
+                        await this.loadDataItem(basePartial, jsonFile, slug, sectionId, shouldScroll, path);
+                        return;
+                    }
+                }
+                
+                // Default: load partial as before
+                const contentPath = `partials/${path}.html`;
+                
+                // Check cache first
+                let html = Router.getCachedContent(path);
+                
+                if (html) {
+                    console.log('[Router] Using cached content for:', path);
+                    await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                    return;
+                }
+                
+                try {
+                    const response = await fetch(contentPath);
+                    if (response.ok) {
+                        html = await response.text();
+                        // Cache the HTML
+                        Router.setCachedContent(path, html);
+                        await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                    } else {
+                        console.warn(`Content not found: ${contentPath}`);
+                    }
+                } catch (e) {
+                    console.error(`Error loading content: ${e}`);
+                }
+            }
+
+            slugify(text) {
+                if (!text) return '';
+                // Handle slashes by converting them to -slash- for URL safety
+                return text.toLowerCase().replace(/\//g, '-slash-').replace(/\s+/g, '-');
+            }
+
+            async loadSubdomain(slug, sectionId, shouldScroll, cacheKey) {
+                // Use provided path as cache key, or construct from slug
+                if (!cacheKey) {
+                    cacheKey = `subdomains/${slug}`;
+                }
+                
+                // Check cache first
+                let html = Router.getCachedContent(cacheKey);
+                if (html) {
+                    console.log('[Router] Using cached content for:', cacheKey);
+                    await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                    return;
+                }
+                
+                try {
+                    // Convert slug back to subdomain name
+                    // First, restore slashes from -slash- encoding
+                    let subdomainName = slug.replace(/-slash-/g, '/');
+                    // Then split by remaining hyphens, but preserve slashes
+                    // We need to split carefully to handle words between slashes
+                    const parts = subdomainName.split('/');
+                    if (parts.length > 1) {
+                        // Has slashes - capitalize each part separately
+                        subdomainName = parts.map(part => {
+                            return part.split('-').map(word => 
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            ).join(' ');
+                        }).join('/');
+                    } else {
+                        // No slashes - just capitalize words
+                        subdomainName = subdomainName.split('-').map(word => 
+                            word.charAt(0).toUpperCase() + word.slice(1)
+                        ).join(' ');
+                    }
+                    
+                    // Load timeline events
+                    const timelineRes = await fetch('data/timeline-events.json');
+                    const timelineEvents = await timelineRes.json();
+                    
+                    // Filter events by subdomain
+                    const filteredEvents = timelineEvents.filter(e => 
+                        e.subdomain && e.subdomain === subdomainName
+                    );
+                    
+                    // Create HTML for subdomain page
+                    html = `<article>`;
+                    html += `<h1>${this.escapeHtml(subdomainName)}</h1>`;
+                    
+                    // Load projects for this subdomain
+                    const projectsRes = await fetch('data/projects.json');
+                    const allProjects = await projectsRes.json();
+                    const filteredProjects = allProjects.filter(p => 
+                        p.subdomain && p.subdomain === subdomainName
+                    );
+                    
+                    if (filteredProjects.length > 0) {
+                        html += `<section class="related">`;
+                        html += `<h2>Projects</h2>`;
+                        html += `<nav class="tags">`;
+                        filteredProjects.forEach(project => {
+                            html += `<a href="#!/projects/${project.slug}" class="tag">${this.escapeHtml(project.title)}</a>`;
+                        });
+                        html += `</nav>`;
+                        html += `</section>`;
+                    }
+                    
+                    if (filteredEvents.length > 0) {
+                        html += `<section class="related">`;
+                        html += `<h2>Timeline Events</h2>`;
+                        html += `<nav class="tags">`;
+                        filteredEvents.forEach(event => {
+                            const eventDate = BDate.formatDate(event.date || 'Unknown');
+                            html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
+                        });
+                        html += `</nav>`;
+                        html += `</section>`;
+                    }
+                    
+                    html += `</article>`;
+                    
+                    // Cache the generated HTML
+                    Router.setCachedContent(cacheKey, html);
+                    
+                    await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                } catch (e) {
+                    console.error(`Error loading subdomain: ${e}`);
+                }
+            }
+
+            async loadSkillset(slug, sectionId, shouldScroll, cacheKey) {
+                // Use provided path as cache key, or construct from slug
+                if (!cacheKey) {
+                    cacheKey = `skillsets/${slug}`;
+                }
+                
+                // Check cache first
+                let html = Router.getCachedContent(cacheKey);
+                if (html) {
+                    console.log('[Router] Using cached content for:', cacheKey);
+                    await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                    return;
+                }
+                
+                try {
+                    // Load all data files including skillsets.json
+                    const [skillsetsRes, skillsRes, projectsRes, timelineRes] = await Promise.all([
+                        fetch('data/skillsets.json'),
+                        fetch('data/skills.json'),
+                        fetch('data/projects.json'),
+                        fetch('data/timeline-events.json')
+                    ]);
+                    
+                    const [skillsets, skills, projects, timelineEvents] = await Promise.all([
+                        skillsetsRes.json(),
+                        skillsRes.json(),
+                        projectsRes.json(),
+                        timelineRes.json()
+                    ]);
+                    
+                    // Find the skillset by slug
+                    const skillset = skillsets.find(s => s.slug === slug);
+                    if (!skillset) {
+                        console.warn(`Skillset with slug "${slug}" not found`);
+                        return;
+                    }
+                    
+                    const skillsetName = skillset.title;
+                    
+                    // Filter items by skillset
+                    const filteredSkills = skills.filter(s => 
+                        s.skillsets && s.skillsets.includes(skillsetName)
+                    );
+                    const filteredProjects = projects.filter(p => 
+                        p.skillsets && p.skillsets.includes(skillsetName)
+                    );
+                    const filteredEvents = timelineEvents.filter(e => 
+                        e.skillsets && e.skillsets.includes(skillsetName)
+                    );
+                    
+                    // Create HTML for skillset page
+                    html = `<article>`;
+                    html += `<h1>${this.escapeHtml(skillsetName)}</h1>`;
+                    
+                    if (skillset.description) {
+                        html += `<p>${skillset.description}</p>`;
+                    }
+                    
+                    if (filteredSkills.length > 0) {
+                        html += `<section class="related">`;
+                        html += `<h2>Skills</h2>`;
+                        html += `<nav class="tags">`;
+                        filteredSkills.forEach(skill => {
+                            const level = (typeof skill.experience === 'number' && skill.experience >= 1 && skill.experience <= 5) ? skill.experience : '';
+                            html += `<a href="#!/skills/${skill.slug}" class="tag"><b-xp level="${level}"></b-xp>${this.escapeHtml(skill.title)}</a>`;
+                        });
+                        html += `</nav>`;
+                        html += `</section>`;
+                    }
+                    
+                    if (filteredProjects.length > 0) {
+                        html += `<section class="related">`;
+                        html += `<h2>Projects</h2>`;
+                        html += `<nav class="tags">`;
+                        filteredProjects.forEach(project => {
+                            html += `<a href="#!/projects/${project.slug}" class="tag">${this.escapeHtml(project.title)}</a>`;
+                        });
+                        html += `</nav>`;
+                        html += `</section>`;
+                    }
+                    
+                    if (filteredEvents.length > 0) {
+                        html += `<section class="related">`;
+                        html += `<h2>Timeline Events</h2>`;
+                        html += `<nav class="tags">`;
+                        filteredEvents.forEach(event => {
+                            const eventDate = BDate.formatDate(event.date || 'Unknown');
+                            html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
+                        });
+                        html += `</nav>`;
+                        html += `</section>`;
+                    }
+                    
+                    html += `</article>`;
+                    
+                    // Cache the generated HTML
+                    Router.setCachedContent(cacheKey, html);
+                    
+                    await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                } catch (e) {
+                    console.error(`Error loading skillset: ${e}`);
+                }
+            }
+
+            async loadDataItem(basePartial, jsonFile, slug, sectionId, shouldScroll, cacheKey) {
+                // Use the provided path as cache key, or construct it from jsonFile and slug
+                if (!cacheKey) {
+                    cacheKey = `${jsonFile.replace('.json', '')}/${slug}`;
+                }
+                
+                // Check cache first
+                let html = Router.getCachedContent(cacheKey);
+                if (html) {
+                    console.log('[Router] Using cached content for:', cacheKey);
+                    await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                    return;
+                }
+                
+                try {
+                    // Load the JSON data
+                    const jsonPath = `data/${jsonFile}`;
+                    const jsonResponse = await fetch(jsonPath);
+                    
+                    if (!jsonResponse.ok) {
+                        console.warn(`JSON file not found: ${jsonPath}`);
+                        return;
+                    }
+                    
+                    const items = await jsonResponse.json();
+                    const item = items.find(i => i.slug === slug);
+                    
+                    if (!item) {
+                        console.warn(`Item with slug "${slug}" not found in ${jsonFile}`);
+                        return;
+                    }
+                    
+                    // Create HTML for the item (already includes article)
+                    html = await this.renderDataItem(item, jsonFile);
+                    
+                    // Cache the generated HTML
+                    Router.setCachedContent(cacheKey, html);
+                    
+                    await this.createSectionFromHTML(html, sectionId, shouldScroll);
+                } catch (e) {
+                    console.error(`Error loading data item: ${e}`);
+                }
+            }
+
+            async renderDataItem(item, jsonFile) {
+                // Load all data for cross-linking
+                const [skills, projects, timelineEvents] = await Promise.all([
+                    fetch('data/skills.json').then(r => r.json()).catch(() => []),
+                    fetch('data/projects.json').then(r => r.json()).catch(() => []),
+                    fetch('data/timeline-events.json').then(r => r.json()).catch(() => [])
+                ]);
+                
+                // Wrap each item in an article
+                let html = '<article>';
+                
+                if (jsonFile === 'projects.json') {
+                    // Format dates using BDate component
+                    const startDate = item.start ? BDate.formatDate(item.start) : 'Ongoing';
+                    const endDate = item.end ? BDate.formatDate(item.end) : 'Present';
+                    const domain = item.domain || '';
+                    const domainLower = domain ? domain.toLowerCase() : '';
+                    const dataDomainAttr = domainLower ? ` data-domain="${domainLower}"` : '';
+                    
+                    // Rebuild article tag with data-domain attribute
+                    html = `<article${dataDomainAttr}>`;
+                    
+                    html += `<p><time>${startDate} - ${endDate}</time></p>`;
+                    html += `<h1>${this.escapeHtml(item.title)}</h1>`;
+                    if (item.description) {
+                        html += `<p>${item.description}</p>`;
+                    }
+                    html += `<nav class="tags">`;
+                    if (item.domain) {
+                        html += `<span class="tag timeline-domain">${this.escapeHtml(item.domain)}</span>`;
+                    }
+                    if (item.subdomain) {
+                        const subdomainLink = this.slugify(item.subdomain);
+                        html += `<a href="#!/subdomains/${subdomainLink}" class="tag">${this.escapeHtml(item.subdomain)}</a>`;
+                    }
+                    if (item.skillsets && item.skillsets.length > 0) {
+                        item.skillsets.forEach(skillset => {
+                            const slug = skillset.toLowerCase().replace(/\s+/g, '-');
+                            html += `<a href="#!/skillsets/${slug}" class="tag">${this.escapeHtml(skillset)}</a>`;
+                        });
+                    }
+                    html += `</nav>`;
+                    
+                    // Cross-links: Related timeline events
+                    const relatedEvents = timelineEvents.filter(e => 
+                        e.project && e.project.toLowerCase() === item.title.toLowerCase()
+                    );
+                    if (relatedEvents.length > 0) {
+                        html += `<section class="related">`;
+                        html += `<h2>Related Timeline Events</h2>`;
+                        html += `<nav class="tags">`;
+                        relatedEvents.forEach(event => {
+                            const eventDate = BDate.formatDate(event.date || 'Unknown');
+                            html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
+                        });
+                        html += `</nav>`;
+                        html += `</section>`;
+                    }
+                } else if (jsonFile === 'skills.json') {
+                    html += `<h1>${this.escapeHtml(item.title)}</h1>`;
+
+                    // Skill experience and type indicator (detail view)
+                    const levelValue = typeof item.experience === 'number' ? item.experience : null;
+                    const typeValue = item.type === 'professional' || item.type === 'personal' ? item.type : null;
+                    if (levelValue) {
+                        const levelInt = Math.max(1, Math.min(5, levelValue));
+                        let levelWord = 'Novice';
+                        switch (levelInt) {
+                            case 1: levelWord = 'Novice'; break;
+                            case 2: levelWord = 'Moderate'; break;
+                            case 3: levelWord = 'Average'; break;
+                            case 4: levelWord = 'Expert'; break;
+                            case 5: levelWord = 'Master'; break;
+                        }
+                        const typeLabel = typeValue ? (typeValue.charAt(0).toUpperCase() + typeValue.slice(1)) : '';
+                        const stars = '★★★★★'.slice(0, levelInt) + '☆☆☆☆☆'.slice(0, 5 - levelInt);
+                        html += `<h2 class="skill-xp"><span class="skill-xp-stars" aria-hidden="true">${stars}</span> · <span class="sr-only">${levelWord} skill level (${levelInt} of 5)${typeLabel ? ', ' + typeLabel : ''}. </span><span class="skill-xp-label">${levelWord}</span>${typeLabel ? `<span class="skill-xp-type"> · ${typeLabel}</span>` : ''}</h2>`;
+                    }
+
+                    if (item.description) {
+                        html += `<p>${item.description}</p>`;
+                    }
+                    html += `<nav class="tags">`;
+                    if (item.skillsets && item.skillsets.length > 0) {
+                        item.skillsets.forEach(skillset => {
+                            const slug = skillset.toLowerCase().replace(/\s+/g, '-');
+                            html += `<a href="#!/skillsets/${slug}" class="tag">${this.escapeHtml(skillset)}</a>`;
+                        });
+                    }
+                    html += `</nav>`;
+                    
+                    // Cross-links: Projects using the same skillsets and timeline events with this skill
+                    const relatedProjects = projects.filter(p => 
+                        p.skillsets && item.skillsets && 
+                        p.skillsets.some(ps => item.skillsets.includes(ps))
+                    );
+                    const relatedEvents = timelineEvents.filter(e => 
+                        e.skills && e.skills.some(es => es === item.title)
+                    );
+                    
+                    if (relatedProjects.length > 0) {
+                        html += `<section class="related">`;
+                        html += `<h2>Projects using the same Skillsets</h2>`;
+                        html += `<nav class="tags">`;
+                        relatedProjects.forEach(project => {
+                            html += `<a href="#!/projects/${project.slug}" class="tag">${this.escapeHtml(project.title)}</a>`;
+                        });
+                        html += `</nav>`;
+                        html += `</section>`;
+                    }
+                    
+                    if (relatedEvents.length > 0) {
+                        html += `<section class="related">`;
+                        html += `<h2>Timeline Events</h2>`;
+                        html += `<nav class="tags">`;
+                        relatedEvents.forEach(event => {
+                            const eventDate = BDate.formatDate(event.date || 'Unknown');
+                            html += `<a href="#!/timeline-events/${event.slug}" class="tag"><strong>${this.escapeHtml(event.title)}</strong> <em>(${this.escapeHtml(eventDate)})</em></a>`;
+                        });
+                        html += `</nav>`;
+                        html += `</section>`;
+                    }
+                } else if (jsonFile === 'timeline-events.json') {
+                    // Render as a bigger version of the timeline plate
+                    const domain = item.domain || '';
+                    const domainLower = domain ? domain.toLowerCase() : '';
+                    const dataDomainAttr = domainLower ? ` data-domain="${domainLower}"` : '';
+                    const subdomain = item.subdomain || '';
+                    // Handle slashes in subdomain names
+                    const subdomainLink = subdomain ? this.slugify(subdomain) : '';
+                    const subdomainHtml = subdomain ? 
+                        `<a href="#!/subdomains/${subdomainLink}" class="tag">${this.escapeHtml(subdomain)}</a>` : 
+                        '';
+                    
+                    // Rebuild article tag with data-domain attribute
+                    html = `<article${dataDomainAttr}>`;
+                    
+                    // Format date using BDate component
+                    const formattedDate = BDate.formatDate(item.date || 'Unknown');
+                    
+                    html += `<time>${this.escapeHtml(formattedDate)}</time>`;
+                    html += `<h1>${this.escapeHtml(item.title)}</h1>`;
+                    if (item.description) {
+                        html += `<p>${item.description}</p>`;
+                    }
+                    html += `<nav class="tags">`;
+                    if (domain) {
+                        html += `<span class="tag timeline-domain">${this.escapeHtml(domain)}</span>`;
+                    }
+                    if (subdomainHtml) {
+                        html += subdomainHtml;
+                    }
+                    if (item.project) {
+                        // Find project by title match
+                        const relatedProject = projects.find(p => 
+                            p.title && p.title.toLowerCase() === item.project.toLowerCase()
+                        );
+                        if (relatedProject) {
+                            html += `<a href="#!/projects/${relatedProject.slug}" class="tag">${this.escapeHtml(item.project)}</a>`;
+                        } else {
+                            html += `<span class="tag">${this.escapeHtml(item.project)}</span>`;
+                        }
+                    }
+                    if (item.skillsets && item.skillsets.length > 0) {
+                        item.skillsets.forEach(skillset => {
+                            const slug = skillset.toLowerCase().replace(/\s+/g, '-');
+                            html += `<a href="#!/skillsets/${slug}" class="tag">${this.escapeHtml(skillset)}</a>`;
+                        });
+                    }
+                    if (item.skills && item.skills.length > 0) {
+                        item.skills.forEach(skillName => {
+                            const skill = skills.find(s => s.title === skillName);
+                            if (skill) {
+                                const level = (typeof skill.experience === 'number' && skill.experience >= 1 && skill.experience <= 5) ? skill.experience : '';
+                                html += `<a href="#!/skills/${skill.slug}" class="tag"><b-xp level="${level}"></b-xp>${this.escapeHtml(skillName)}</a>`;
+                            } else {
+                                html += `<span class="tag">${this.escapeHtml(skillName)}</span>`;
+                            }
+                        });
+                    }
+                    html += `</nav>`;
+                }
+                
+                html += '</article>';
+                return html;
+            }
+
+            renderSkillsetLinks(skillsets) {
+                return skillsets.map(skillset => {
+                    const slug = skillset.toLowerCase().replace(/\s+/g, '-');
+                    return `<a href="#!/skillsets/${slug}">${this.escapeHtml(skillset)}</a>`;
+                }).join(', ');
+            }
+
+            renderSkillLinks(skillNames, allSkills) {
+                return skillNames.map(skillName => {
+                    const skill = allSkills.find(s => s.title === skillName);
+                    if (skill) {
+                        return `<a href="#!/skills/${skill.slug}">${this.escapeHtml(skillName)}</a>`;
+                    }
+                    return this.escapeHtml(skillName);
+                }).join(', ');
+            }
+
+            escapeHtml(text) {
+                if (!text) return '';
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+
+            async createSectionFromHTML(html, sectionId, shouldScroll) {
+                const contentPane = document.getElementById('content-pane');
+                
+                if (!contentPane) {
+                    console.error('[Router] content-pane element not found');
+                    return;
+                }
+                
+                // Save current scroll position to prevent unwanted scrolling during content swap
+                const scrollY = Router.getScrollPosition();
+                
+                // Clear existing content
+                contentPane.innerHTML = '';
+                
+                // Temporarily set scroll position to top to prevent browser from trying to maintain position
+                Router.setScrollPosition(0);
+                        
+                // Check if HTML already starts with an article tag
+                const trimmedHtml = html.trim();
+                const alreadyHasArticle = trimmedHtml.startsWith('<article');
+                
+                if (alreadyHasArticle) {
+                    // Content already has article, just set it directly
+                    contentPane.innerHTML = html;
+                    const article = contentPane.querySelector('article');
+                    if (article) {
+                        article.id = sectionId;
+                        article.setAttribute('tabindex', '-1');
+                    }
+                } else {
+                    // Create a wrapper div (not article, to avoid nesting)
+                    const wrapper = document.createElement('div');
+                    wrapper.id = sectionId;
+                    wrapper.setAttribute('tabindex', '-1');
+                    wrapper.innerHTML = html;
+                    contentPane.appendChild(wrapper);
+                }
+
+                // Get the section element (either article or wrapper)
+                const section = contentPane.querySelector(`#${sectionId}`) || 
+                                contentPane.querySelector('article') || 
+                                contentPane.firstElementChild;
+
+                // Reload any components in the new content
+                if (window.ComponentLoader && section) {
+                    window.ComponentLoader.find(section).forEach(comp => {
+                        window.ComponentLoader.load(comp).catch(() => {});
+                    });
+                }
+
+                // Wait for layout to complete before scrolling
+                // This prevents scroll position from shifting as content loads
+                await new Promise(resolve => {
+                    // Use requestAnimationFrame to wait for layout
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            resolve();
+                        });
+                    });
+                });
+
+                if (shouldScroll) {
+                    // For first load, scroll to top of main content
+                    // For subsequent loads, breadcrumbs will handle scroll position
+                    Router.setScrollPosition(0);
+                }
+            }
+
+            async showTransitionVideo() {
+                const transitionVideo = document.querySelector('#foregrounds .transition-video');
+                if (transitionVideo) {
+                    transitionVideo.classList.add('active');
+                    // Wait for fade in to complete (200ms)
+                    await new Promise(resolve => setTimeout(resolve, 200));
+                }
+            }
+
+            async hideTransitionVideo() {
+                const transitionVideo = document.querySelector('#foregrounds .transition-video');
+                if (transitionVideo) {
+                    transitionVideo.classList.remove('active');
+                    // Wait for fade out to complete (200ms)
+                    await new Promise(resolve => setTimeout(resolve, 200));
+                }
+            }
+
+            updateTitle(path) {
+                // Handle data item routes (projects/skills/timeline-events)
+                const pathParts = path.split('/');
+                let newTitle;
+                
+                if (pathParts.length === 2) {
+                    const [type, slug] = pathParts;
+                    // Capitalize first letter of type and format slug
+                    const typeName = type.charAt(0).toUpperCase() + type.slice(1).replace(/s$/, '');
+                    const slugTitle = slug.split('-').map(word => 
+                        word.charAt(0).toUpperCase() + word.slice(1)
+                    ).join(' ');
+                    newTitle = `${slugTitle} - Will Brall's Portfolio`;
+                } else {
+                    // Generate title from filename: replace hyphens with spaces and capitalize
+                    const pageTitle = path.split('-').map(word => 
+                        word.charAt(0).toUpperCase() + word.slice(1)
+                    ).join(' ');
+                    newTitle = `${pageTitle} - Will Brall's Portfolio`;
+                }
+                
+                console.log('[Router] Updating title:', newTitle, 'for path:', path);
+                document.title = newTitle;
+            }
+
+        }
+
+        // Normalize a path for comparison
+        function normalizePathForComparison(path) {
+            let normalized = path;
+            if (normalized.startsWith('#!')) {
+                normalized = normalized.substring(2);
+            } else if (normalized.startsWith('/')) {
+                normalized = normalized.substring(1);
+            } else if (normalized.startsWith('#')) {
+                normalized = normalized.substring(1);
+            }
+            
+            // Clean up path: remove leading/trailing slashes and normalize
+            normalized = normalized.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
+            
+            // Ensure we have a valid path (default to Résumé if empty)
+            if (!normalized || normalized === '/') {
+                normalized = 'Resume';
+            }
+            
+            return normalized;
+        }
+
+        // Set up click handlers for #! links
+        function setupLinkHandlers() {
+            document.addEventListener('click', async (e) => {
+                const link = e.target.closest('a[href^="#!"]');
+                if (!link) return;
+                
+                const href = link.getAttribute('href');
+                
+                // Normalize both paths for comparison
+                const targetPath = normalizePathForComparison(href);
+                const currentPath = normalizePathForComparison(getCurrentPath());
+                
+                // Don't navigate if we're already on this page
+                if (targetPath === currentPath) {
+                    e.preventDefault();
+                    return;
+                }
+                
+                e.preventDefault();
+                
+                // Save current scroll position before navigation
+                const scrollY = Router.getScrollPosition();
+                saveScrollPosition(currentPath, scrollY);
+                
+                const router = new Router();
+                await router.loadContent(href, true);
+            });
+        }
+
+        // Save scroll position for current path
+        function saveScrollPosition(path, scrollY) {
+            const breadcrumbs = document.querySelector('b-breadcrumbs');
+            if (breadcrumbs) {
+                const normalizedPath = breadcrumbs.normalizePath(path);
+                const title = breadcrumbs.generateTitle(normalizedPath);
+                breadcrumbs.add(normalizedPath, title, scrollY);
+            }
+        }
+
+        function getCurrentPath() {
+            const hash = window.location.hash;
+            if (hash.startsWith('#!')) {
+                return hash.substring(2);
+            }
+            return 'Resume'; // Default to Résumé
+        }
+
+        async function loadInitialContent() {
+            try {
+                // Ensure content-pane exists
+                const contentPane = document.getElementById('content-pane');
+                if (!contentPane) {
+                    console.error('[Router] content-pane not found, retrying...');
+                    setTimeout(loadInitialContent, 100);
+                    return;
+                }
+                
+                let path = getCurrentPath();
+                
+                // If no hash exists, default to Résumé
+                if (!window.location.hash || !window.location.hash.startsWith('#!')) {
+                    path = 'Resume'; // Path stays as 'Resume' to match filename
+                }
+                
+                console.log('[Router] Initial load, path:', path);
+                
+                // On initial load, always scroll to top (first load)
+                // Router is available in this scope
+                await Router.loadContentFromPath(path, true);
+                
+                // Set initial history state and hash
+                const newUrl = `#!${path}`;
+                window.history.replaceState({ path, scrollY: 0 }, '', newUrl);
+                // Also ensure hash is set
+                if (window.location.hash !== newUrl) {
+                    window.location.hash = newUrl;
+                }
+            } catch (e) {
+                console.error('[Router] Error loading initial content:', e);
+            }
+        }
+
+        // Handle back/forward buttons
+        window.addEventListener('popstate', async (e) => {
+            let path = e.state?.path || getCurrentPath();
+            const savedScrollY = e.state?.scrollY;
+            
+            // Normalize path (same logic as in loadContent)
+            if (path.startsWith('#!')) {
+                path = path.substring(2);
+            } else if (path.startsWith('/')) {
+                path = path.substring(1);
+            } else if (path.startsWith('#')) {
+                path = path.substring(1);
+            }
+            path = path.replace(/^\/+|\/+$/g, '').replace(/\/+/g, '/');
+            if (!path || path === '/') {
+                path = 'Resume'; // Path stays as 'Resume' to match filename
+            }
+            
+            // Load content without scrolling (we'll restore scroll position)
+            const router = new Router();
+            await router.loadContent(path, false);
+            
+            // Restore scroll position from history state or breadcrumbs
+            const scrollY = savedScrollY !== undefined ? savedScrollY : 
+                          (() => {
+                              const breadcrumbs = document.querySelector('b-breadcrumbs');
+                              return breadcrumbs ? breadcrumbs.getScrollPosition(path) : 0;
+                          })();
+            
+            // Wait for layout to complete before restoring scroll
+            await new Promise(resolve => {
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        resolve();
+                    });
+                });
+            });
+            
+            Router.setScrollPosition(scrollY);
+        });
+
+        // Set up link handlers and load initial content
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                setupLinkHandlers();
+                loadInitialContent();
+            });
+        } else {
+            setupLinkHandlers();
+            loadInitialContent();
+        }
+
+        // Export Router for use elsewhere
+        window.Router = Router;
+    })();
+
+    // Scroll main content when scrolling outside of it
+    (function() {
+        'use strict';
+
+        function initScrollDelegation() {
+            const mainContent = document.getElementById('main-content');
+            if (!mainContent) {
+                // Retry if main-content isn't ready yet
+                setTimeout(initScrollDelegation, 100);
+                return;
+            }
+
+            // List of scrollable elements that should handle their own scrolling
+            const scrollableSelectors = [
+                '#main-menu',
+                '#situational-menu',
+                '.card-list',
+                '.link-list',
+                '.timeline-container',
+                'b-projects',
+                'b-skillsets'
+            ];
+
+            function isInsideScrollableElement(element) {
+                if (!element) return false;
+                // Check if element or any ancestor is a scrollable element (excluding main-content)
+                for (const selector of scrollableSelectors) {
+                    const closest = element.closest ? element.closest(selector) : null;
+                    if (closest) {
+                        // Check if this element can actually scroll
+                        const canScroll = closest.scrollHeight > closest.clientHeight;
+                        if (canScroll) {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
+            function isInsideMainContent(element) {
+                if (!element) return false;
+                return element === mainContent || (element.closest && element.closest('#main-content'));
+            }
+
+            document.addEventListener('wheel', function(e) {
+                const target = e.target;
+                
+                // If we're inside a scrollable element (other than main-content), let it handle scrolling
+                if (isInsideScrollableElement(target)) {
+                    return; // Let the scrollable element handle it
+                }
+                
+                // If we're inside main-content, let it handle its own scrolling naturally
+                if (isInsideMainContent(target)) {
+                    return; // Main-content will handle its own scroll
+                }
+                
+                // Otherwise, we're outside any scrollable area - scroll main-content
+                if (mainContent.scrollHeight > mainContent.clientHeight) {
+                    e.preventDefault();
+                    const deltaY = e.deltaY;
+                    const currentScroll = mainContent.scrollTop;
+                    const maxScroll = mainContent.scrollHeight - mainContent.clientHeight;
+                    
+                    // Calculate new scroll position
+                    let newScroll = currentScroll + deltaY;
+                    newScroll = Math.max(0, Math.min(newScroll, maxScroll));
+                    
+                    mainContent.scrollTop = newScroll;
+                }
+            }, { passive: false });
+        }
+
+        // Initialize scroll delegation when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initScrollDelegation);
+        } else {
+            initScrollDelegation();
+        }
+    })();
+
+    // Handle video pausing for reduced motion preference
+    (function() {
+        function pauseVideosIfReducedMotion() {
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (prefersReducedMotion) {
+                const videos = document.querySelectorAll('#backgrounds video, #foregrounds video');
+                videos.forEach(video => {
+                    video.pause();
+                });
+            }
+        }
+
+        // Pause videos on initial load if reduced motion is enabled
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', pauseVideosIfReducedMotion);
+        } else {
+            pauseVideosIfReducedMotion();
+        }
+
+        // Listen for changes to reduced motion preference
+        const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+        reducedMotionQuery.addEventListener('change', pauseVideosIfReducedMotion);
+    })();
+})();
+</script>
     <script id="flavor-script" src=""></script>
 </body>
 </html>
