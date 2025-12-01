@@ -456,69 +456,134 @@ class B3DScene extends HTMLElement {
 
     const compensatedRepeat = this.getCompensatedRepeat();
 
-    const texture = new THREE.TextureLoader(manager).load(`${textureBase}/albedo.jpg`);
-    texture.wrapS = THREE.RepeatWrapping;
-    texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(compensatedRepeat, compensatedRepeat);
-    material.map = texture;
-    this.textures.push(texture);
+    // Load manifest.json to see which textures are available
+    const manifestUrl = `${textureBase}/manifest.json`;
+    let availableTextures = new Set();
+    
+    // Try to load manifest, fall back to loading all textures if manifest doesn't exist
+    fetch(manifestUrl)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            // If manifest doesn't exist, assume all standard textures are available
+            return { textures: ['albedo.jpg', 'normal.jpg', 'height.jpg', 'roughness.jpg', 'metallic.jpg', 'ao.jpg'] };
+        })
+        .then(manifest => {
+            // Create a set of available texture filenames for quick lookup
+            if (manifest && manifest.textures) {
+                manifest.textures.forEach(textureFile => {
+                    availableTextures.add(textureFile);
+                });
+            }
+            
+            // Load textures based on manifest (all through the manager for proper tracking)
+            if (availableTextures.has('albedo.jpg')) {
+                const texture = new THREE.TextureLoader(manager).load(`${textureBase}/albedo.jpg`);
+                texture.wrapS = THREE.RepeatWrapping;
+                texture.wrapT = THREE.RepeatWrapping;
+                texture.repeat.set(compensatedRepeat, compensatedRepeat);
+                material.map = texture;
+                this.textures.push(texture);
+            }
 
-    const heightTexture = new THREE.TextureLoader(manager).load(`${textureBase}/height.jpg`);
-    heightTexture.wrapS = THREE.RepeatWrapping;
-    heightTexture.wrapT = THREE.RepeatWrapping;
-    heightTexture.repeat.set(compensatedRepeat, compensatedRepeat);
-    material.heightMap = heightTexture;
-    this.textures.push(heightTexture);
+            if (availableTextures.has('height.jpg')) {
+                const heightTexture = new THREE.TextureLoader(manager).load(`${textureBase}/height.jpg`);
+                heightTexture.wrapS = THREE.RepeatWrapping;
+                heightTexture.wrapT = THREE.RepeatWrapping;
+                heightTexture.repeat.set(compensatedRepeat, compensatedRepeat);
+                material.heightMap = heightTexture;
+                this.textures.push(heightTexture);
+            }
 
-    const normal = new THREE.TextureLoader(manager).load(`${textureBase}/normal.jpg`);
-    normal.wrapS = THREE.RepeatWrapping;
-    normal.wrapT = THREE.RepeatWrapping;
-    normal.repeat.set(compensatedRepeat, compensatedRepeat);
-    material.normalMap = normal;
-    this.textures.push(normal);
+            if (availableTextures.has('normal.jpg')) {
+                const normal = new THREE.TextureLoader(manager).load(`${textureBase}/normal.jpg`);
+                normal.wrapS = THREE.RepeatWrapping;
+                normal.wrapT = THREE.RepeatWrapping;
+                normal.repeat.set(compensatedRepeat, compensatedRepeat);
+                material.normalMap = normal;
+                this.textures.push(normal);
+            }
 
-    const roughness = new THREE.TextureLoader(manager).load(`${textureBase}/roughness.jpg`);
-    roughness.wrapS = THREE.RepeatWrapping;
-    roughness.wrapT = THREE.RepeatWrapping;
-    roughness.repeat.set(compensatedRepeat, compensatedRepeat);
-    material.roughnessMap = roughness;
-    this.textures.push(roughness);
+            if (availableTextures.has('roughness.jpg')) {
+                const roughness = new THREE.TextureLoader(manager).load(`${textureBase}/roughness.jpg`);
+                roughness.wrapS = THREE.RepeatWrapping;
+                roughness.wrapT = THREE.RepeatWrapping;
+                roughness.repeat.set(compensatedRepeat, compensatedRepeat);
+                material.roughnessMap = roughness;
+                this.textures.push(roughness);
+            }
 
-    // Metalness texture is optional
-    const metalnessLoader = new THREE.TextureLoader();
-    metalnessLoader.load(
-        `${textureBase}/metallic.jpg`,
-        (metalness) => {
-            metalness.wrapS = THREE.RepeatWrapping; 
-            metalness.wrapT = THREE.RepeatWrapping;
-            const currentCompensatedRepeat = this.getCompensatedRepeat();
-            metalness.repeat.set(currentCompensatedRepeat, currentCompensatedRepeat);
-            material.metalnessMap = metalness;
-            this.textures.push(metalness);
-        },
-        undefined,
-        () => {
-            // Error loading metalness texture - it's optional, so just skip it
-        }
-    );
+            // Metalness texture is optional - only load if in manifest
+            if (availableTextures.has('metallic.jpg')) {
+                const metalnessLoader = new THREE.TextureLoader(manager);
+                metalnessLoader.load(
+                    `${textureBase}/metallic.jpg`,
+                    (metalness) => {
+                        metalness.wrapS = THREE.RepeatWrapping; 
+                        metalness.wrapT = THREE.RepeatWrapping;
+                        const currentCompensatedRepeat = this.getCompensatedRepeat();
+                        metalness.repeat.set(currentCompensatedRepeat, currentCompensatedRepeat);
+                        material.metalnessMap = metalness;
+                        this.textures.push(metalness);
+                    },
+                    undefined,
+                    () => {
+                        // Error loading metalness texture - it's optional, so just skip it
+                    }
+                );
+            }
 
-    // Ambient occlusion texture is optional
-    const aoLoader = new THREE.TextureLoader();
-    aoLoader.load(
-        `${textureBase}/ao.jpg`,
-        (ao) => {
-            ao.wrapS = THREE.RepeatWrapping; 
-            ao.wrapT = THREE.RepeatWrapping;
-            const currentCompensatedRepeat = this.getCompensatedRepeat();
-            ao.repeat.set(currentCompensatedRepeat, currentCompensatedRepeat);
-            material.aoMap = ao;
-            this.textures.push(ao);
-        },
-        undefined,
-        () => {
-            // Error loading AO texture - it's optional, so just skip it
-        }
-    );
+            // Ambient occlusion texture is optional - only load if in manifest
+            if (availableTextures.has('ao.jpg')) {
+                const aoLoader = new THREE.TextureLoader(manager);
+                aoLoader.load(
+                    `${textureBase}/ao.jpg`,
+                    (ao) => {
+                        ao.wrapS = THREE.RepeatWrapping; 
+                        ao.wrapT = THREE.RepeatWrapping;
+                        const currentCompensatedRepeat = this.getCompensatedRepeat();
+                        ao.repeat.set(currentCompensatedRepeat, currentCompensatedRepeat);
+                        material.aoMap = ao;
+                        this.textures.push(ao);
+                    },
+                    undefined,
+                    () => {
+                        // Error loading AO texture - it's optional, so just skip it
+                    }
+                );
+            }
+        })
+        .catch(() => {
+            // If manifest fetch fails, load standard required textures as fallback
+            const texture = new THREE.TextureLoader(manager).load(`${textureBase}/albedo.jpg`);
+            texture.wrapS = THREE.RepeatWrapping;
+            texture.wrapT = THREE.RepeatWrapping;
+            texture.repeat.set(compensatedRepeat, compensatedRepeat);
+            material.map = texture;
+            this.textures.push(texture);
+
+            const heightTexture = new THREE.TextureLoader(manager).load(`${textureBase}/height.jpg`);
+            heightTexture.wrapS = THREE.RepeatWrapping;
+            heightTexture.wrapT = THREE.RepeatWrapping;
+            heightTexture.repeat.set(compensatedRepeat, compensatedRepeat);
+            material.heightMap = heightTexture;
+            this.textures.push(heightTexture);
+
+            const normal = new THREE.TextureLoader(manager).load(`${textureBase}/normal.jpg`);
+            normal.wrapS = THREE.RepeatWrapping;
+            normal.wrapT = THREE.RepeatWrapping;
+            normal.repeat.set(compensatedRepeat, compensatedRepeat);
+            material.normalMap = normal;
+            this.textures.push(normal);
+
+            const roughness = new THREE.TextureLoader(manager).load(`${textureBase}/roughness.jpg`);
+            roughness.wrapS = THREE.RepeatWrapping;
+            roughness.wrapT = THREE.RepeatWrapping;
+            roughness.repeat.set(compensatedRepeat, compensatedRepeat);
+            material.roughnessMap = roughness;
+            this.textures.push(roughness);
+        });
 
     this.plane = new THREE.Mesh(geometry, material);
     // Get initial rotation from attribute (in degrees), default to 0

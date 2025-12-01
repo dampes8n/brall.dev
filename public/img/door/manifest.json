@@ -1,0 +1,10 @@
+{
+  "textures": [
+    "albedo.jpg",
+    "normal.jpg",
+    "height.jpg",
+    "roughness.jpg",
+    "metallic.jpg",
+    "ao.jpg"
+  ]
+}
