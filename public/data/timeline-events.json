@@ -406,7 +406,7 @@
             "GMing"
         ],
         "title": "Started Truugahn",
-        "description": "D&D 4E campaign",
+        "description": "<p>My first campaign in adulthood was after a long gap since childhood. Though only a little longer than other campaigns, it is deceptive because, unlike the 2-3 hour sessions that happen today, these were often 8-12-hour marathons. We covered in a single session what might be a month's worth of games today. All in all, it was pretty standard fantasy. However, we were on a version of Earth in the deep future. Oh, and some god had cut Earth in half, and the two halves kept their shape magically. (Turns out if you did that, all the water would rush into two big oceans – one on the flat side, and one on the curved side.)</p>",
         "slug": "started-truugahn"
     },
     {
@@ -525,7 +525,7 @@
             "GMing"
         ],
         "title": "Ended Bonewall",
-        "description": "D&D 5E campaign",
+        "description": "<p>What happens if the party kills a purple worm on day one, one that had a bellyache from eating through a vault filled with the thieves' guild's fortune?</p>",
         "slug": "ended-bonewall"
     },
     {
@@ -810,6 +810,7 @@
         ],
         "skills": [],
         "title": "Greenlit Unannounced Game",
+        "description": "<p>I can't say much about this project. It was leaked, so you could find it yourself. I am not at liberty to discuss. However, I can say that the project was extremely personally exciting.</p>",
         "slug": "unannounced-game-greenlit"
     },
     {
@@ -825,7 +826,7 @@
         ],
         "skills": [],
         "title": "Unannounced Game Cancellation",
-        "description": "Holding everyone together during a project cancellation",
+        "description": "<p>RIP</p>",
         "slug": "unannounced-game-canceled"
     },
     {
@@ -838,7 +839,7 @@
         ],
         "skills": [],
         "title": "Holding everyone together during a project cancellation",
-        "description": "ZOSU",
+        "description": "<p>When the Unannounced Game was cancelled, everyone was devastated. You can look it up by the date. I am not at liberty to name the project, but it was all leaked. Our union Discord server was overrun, with essentially half the company being told to stop working and unsure whether they still had a job. As members of the MC, it fell to us to hold the group together, keep morale up, and get and provide answers.</p>",
         "slug": "holding-everyone-together-during-a-project-cancellation"
     },
     {
@@ -851,7 +852,7 @@
         ],
         "skills": [],
         "title": "Vote to Unionize",
-        "description": "ZOSU",
+        "description": "<p>In January, we voted. And ZeniMax Online Studios United officially was formed! In a landslide.</p>",
         "slug": "vote-to-unionize"
     },
     {
@@ -864,7 +865,7 @@
         ],
         "skills": [],
         "title": "Running for BC",
-        "description": "ZOSU",
+        "description": "<p>Next, we needed to form our Bargaining Committee (BC), and we had a huge turnout. I narrowly missed being elected to the BC, but the half dozen folks that were elected are all amazing folks who had been part of the OC for a year longer than I'd been.</p>",
         "slug": "running-for-bc"
     },
     {
@@ -877,7 +878,7 @@
         ],
         "skills": [],
         "title": "Joining the Organizing Committee",
-        "description": "ZOSU",
+        "description": "<p>Another member of the OC approached me, and I immediately joined the crew. For the next five months, we boned up on how unions work, agitated our coworkers (sounds mean, but this is just union lingo for talking to people about their gripes in the industry and how unions solve them), and built a good foundational infrastructure for our union to hang on when it formed.</p>",
         "slug": "joining-the-organizing-committee"
     },
     {
@@ -890,7 +891,7 @@
         ],
         "skills": [],
         "title": "Campaign to Unionize",
-        "description": "ZOSU",
+        "description": "<p>In October, the campaign proper began. If you don't know, this looks like formally telling your employer that you intend to vote to unionize, having conversations with people to get them to support you, and finally voting together. The OC had to talk to as many of our, at the time, 500 coworkers as possible. In the end, we reached almost all of them, and I personally talked to 200 people.</p>",
         "slug": "campaign-to-unionize"
     },
     {
@@ -906,6 +907,7 @@
         ],
         "skills": [],
         "title": "Started Commander Keen",
+        "description": "<p>The Commander Keen site is some of my best work to date. The designer I worked with, <a href=\"https://www.mobygames.com/person/1061958/david-campbell/\">David Campbell</a>, is top-notch. We worked hand in glove on the designs and had direct access to the game's art director, <a href=\"https://www.mobygames.com/person/3684/marc-hudgins/\">Marc Hudgins</a>.</p><p>From first learning about the game to the website going live, it was just about <strong>three months</strong>.</p>",
         "slug": "started-commander-keen"
     },
     {
@@ -921,7 +923,7 @@
         ],
         "skills": [],
         "title": "Announced Commander Keen",
-        "description": "<a href=\"https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home\">https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home</a>",
+        "description": "<p><a href=\"https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home\">Commander Keen Archived Site</a></p><p>The Keen site is a masterpiece. We were so on the bleeding edge.</p><p>The game? I loved the aesthetic.</p><p><a href=\"https://www.ign.com/articles/2019/06/10/commander-keen-resurrected-as-a-mobile-game-e3-2019\">https://www.ign.com/articles/2019/06/10/commander-keen-resurrected-as-a-mobile-game-e3-2019</a></p>",
         "slug": "commander-keen-announced"
     },
     {
@@ -937,6 +939,7 @@
         ],
         "skills": [],
         "title": "Canceled Commander Keen",
+        "description": "<p>RIP</p>",
         "slug": "commander-keen-canceled"
     }
 ]
