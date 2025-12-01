@@ -173,9 +173,6 @@ class BFlavorSelector extends HTMLElement {
             return;
         }
 
-        // Add transition for non-initial loads
-        transitionStyle.textContent = '* { transition: all 0.3s ease; }';
-
         // Fade in blinder, then load CSS, then fade out
         this.fadeInBlinder()
             .then(() => this.loadFlavorCss(newFlavor))
@@ -215,12 +212,6 @@ class BFlavorSelector extends HTMLElement {
 
                 // Fade out blinder after everything is loaded
                 return this.fadeOutBlinder();
-            })
-            .then(() => {
-                // Remove transition after animation
-                setTimeout(() => {
-                    transitionStyle.textContent = '';
-                }, 300);
             })
             .catch(err => {
                 console.error(`Failed to load flavor ${newFlavor}:`, err);

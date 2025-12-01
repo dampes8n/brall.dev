@@ -171,11 +171,11 @@ a[href^="#!"]:hover {
 
 #main-menu,
 #situational-menu {
-    background: hsla(0, 0%, 0%, 0.8);
+    background: transparent;
     border: 1px dashed var(--text-primary);
     border-radius: 0;
     box-shadow: none;
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
 }
 
 #main-menu ul {
@@ -267,11 +267,11 @@ a[href^="#!"]:hover {
    ============================================ */
 
 #main-content {
-    background: hsla(0, 0%, 0%, 0.8);
+    background: transparent;
     border: 1px dashed var(--text-primary);
     border-radius: 0;
     box-shadow: none;
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
 }
 
 #content-pane {
@@ -604,10 +604,10 @@ b-skillsets {
    ============================================ */
 
 #main-footer {
-    background: var(--primary-bg);
+    background: transparent;
     border-top: 1px dashed var(--text-primary);
     box-shadow: none;
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
 }
 
 #main-footer .copyright {
@@ -678,9 +678,9 @@ b-flavor-selector select:focus {
         display: none;
     }
     
-    b-hamburger.menu-toggle-label,
-    .menu-toggle-label {
-        bottom: calc(4.7rem + var(--spacing-triple) + var(--spacing-triple));
+    #main-menu {
+        background: var(--panel-bg);
+        backdrop-filter: var(--panel-blur);
     }
 }
 
@@ -763,13 +763,6 @@ img {
     z-index: 1;
 }
 
-#layout-wrapper {
-    mix-blend-mode: screen;
-}
-
-#main-footer {
-    mix-blend-mode: screen;
-}
 
 /* ============================================
    TRANSITION VIDEO

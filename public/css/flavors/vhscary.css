@@ -55,7 +55,6 @@ body::before {
     );
     pointer-events: none;
     z-index: 9999;
-    mix-blend-mode: overlay;
 }
 
 body::after {
@@ -90,13 +89,14 @@ h1 {
 #main-menu,
 #situational-menu {
     border: 1px solid red;
-    background: rgba(0, 0, 0, 0.75);
+    background: transparent;
+    backdrop-filter: none;
 }
 
 #main-footer {
     border-top: 1px solid red;
-    background: rgba(0, 0, 0, 0.75);
-    mix-blend-mode: screen;
+    background: transparent;
+    backdrop-filter: none;
 }
 
 /* ============================================
@@ -215,7 +215,6 @@ h1 {
 }
 
 #layout-wrapper {
-    mix-blend-mode: screen;
 }
 
 
@@ -282,9 +281,13 @@ img {
         display: none;
     }
     
+    #main-menu {
+        background: var(--panel-bg);
+        backdrop-filter: var(--panel-blur);
+    }
+    
     b-hamburger.menu-toggle-label,
     .menu-toggle-label {
-        bottom: calc(4.7rem + var(--spacing-triple) + var(--spacing-triple));
         display: flex;
         align-items: center;
         justify-content: center;
