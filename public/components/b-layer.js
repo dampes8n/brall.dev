@@ -19,6 +19,23 @@ class BLayer extends HTMLElement {
         this.style.height = '100%';
         this.style.pointerEvents = 'none';
         this.style.zIndex = this.getAttribute('type') === 'foreground' ? '10' : '1';
+        
+        // Pause any existing videos if reduced motion is enabled
+        this.pauseVideosIfReducedMotion(this);
+    }
+
+    /**
+     * Pause videos if reduced motion is enabled
+     * @param {HTMLElement} container - Container element to search for videos
+     */
+    pauseVideosIfReducedMotion(container) {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReducedMotion) {
+            const videos = container.querySelectorAll('video');
+            videos.forEach(video => {
+                video.pause();
+            });
+        }
     }
 
     /**
@@ -40,6 +57,11 @@ class BLayer extends HTMLElement {
 
         // Add to DOM
         this.appendChild(newLayer);
+
+        // Pause videos if reduced motion is enabled (use setTimeout to ensure videos are in DOM)
+        setTimeout(() => {
+            this.pauseVideosIfReducedMotion(newLayer);
+        }, 0);
 
         // Load any components in the new content
         if (window.ComponentLoader) {

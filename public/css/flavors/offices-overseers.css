@@ -275,32 +275,6 @@ a:visited {
 }
 
 @media (max-width: 799px) {
-    .menu-toggle-label {
-        display: block;
-        position: fixed;
-        bottom: 1rem;
-        left: 1rem;
-        z-index: 1001;
-        background: var(--accent-hover);
-        color: var(--primary-bg);
-        border: none;
-        border-radius: 4px;
-        width: 3rem;
-        height: 3rem;
-        font-size: 1.5rem;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-    
-    .menu-toggle-label:hover {
-        background: #004488;
-    }
-    
-    .menu-toggle-label:focus {
-        outline: 2px solid var(--primary-bg);
-        outline-offset: 2px;
-    }
-    
     #main-menu {
         position: fixed;
         top: 0;
@@ -614,7 +588,6 @@ b-flavor-selector select:focus {
     
     #main-footer {
         flex-direction: column;
-        align-items: flex-start;
         gap: 1rem;
     }
 }

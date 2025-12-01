@@ -218,6 +218,7 @@ h1 {
     mix-blend-mode: screen;
 }
 
+
 /* ============================================
    TRANSITION VIDEO
    ============================================ */
@@ -270,4 +271,20 @@ h1 {
 img {
     border: 2px solid red;
     filter: grayscale(0.7) contrast(2) hue-rotate(15deg);
+}
+
+/* ============================================
+   MOBILE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 799px) {
+    b-hamburger.menu-toggle-label,
+    .menu-toggle-label {
+        bottom: calc(4.7rem + var(--spacing-triple) + var(--spacing-triple));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1;
+    }
 }

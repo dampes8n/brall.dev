@@ -1021,5 +1021,29 @@
             initScrollDelegation();
         }
     })();
+
+    // Handle video pausing for reduced motion preference
+    (function() {
+        function pauseVideosIfReducedMotion() {
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (prefersReducedMotion) {
+                const videos = document.querySelectorAll('#backgrounds video, #foregrounds video');
+                videos.forEach(video => {
+                    video.pause();
+                });
+            }
+        }
+
+        // Pause videos on initial load if reduced motion is enabled
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', pauseVideosIfReducedMotion);
+        } else {
+            pauseVideosIfReducedMotion();
+        }
+
+        // Listen for changes to reduced motion preference
+        const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+        reducedMotionQuery.addEventListener('change', pauseVideosIfReducedMotion);
+    })();
 })();
 

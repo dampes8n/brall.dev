@@ -101,9 +101,6 @@ h1:has(+ .tagline) {
 
 #main-menu,
 #situational-menu,
-#main-footer {
-    position: relative;
-}
 
 #main-menu,
 #situational-menu,

@@ -352,6 +352,12 @@ class B3DScene extends HTMLElement {
     this.setWr();
 
     this.mobile = window.matchMedia("(pointer: coarse)").matches;
+    
+    // Check for reduced motion preference
+    this.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    
+    // Only render one frame if mobile or reduced motion is on
+    this.singleFrameMode = this.mobile || this.prefersReducedMotion;
 
     this.scene = new THREE.Scene();
     // Use window dimensions (backgrounds container is full viewport)
@@ -693,7 +699,8 @@ class B3DScene extends HTMLElement {
         
         // Always render the very first frame (even if backgroundRendering is false), but only after textures load
         // Then check focus for subsequent frames
-        const shouldRender = (isInitialFrame && this.texturesLoaded) || (this.backgroundRendering && hasFocus);
+        // In single frame mode, only render the initial frame
+        const shouldRender = (isInitialFrame && this.texturesLoaded) || (this.backgroundRendering && hasFocus && !this.singleFrameMode);
         
         if (shouldRender) {
             // Get delta time once per frame (only when actually updating)
@@ -800,8 +807,10 @@ class B3DScene extends HTMLElement {
             }
         }
         
-        // Always schedule next frame to check for focus changes
-        requestAnimationFrame(() => this.render());
+        // Only schedule next frame if not in single frame mode
+        if (!this.singleFrameMode) {
+            requestAnimationFrame(() => this.render());
+        }
     };
 
     this.performanceInterval = null;

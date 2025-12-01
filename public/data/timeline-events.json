@@ -53,7 +53,7 @@
         "slug": "bar-mitzvah"
     },
     {
-        "domain": "Personal",
+        "domain": "Academic",
         "subdomain": "Life",
         "project": null,
         "date": "2001",
@@ -61,7 +61,6 @@
         "skills": [],
         "title": "Graduated High School",
         "slug": "graduated-high-school",
-        "major": true,
         "description": "<img src=\"img/graduation.jpg\" alt=\"\" />"
     },
     {
@@ -279,60 +278,6 @@
     {
         "domain": "Employed",
         "subdomain": "Engility/L3/MPRI",
-        "project": "CORE 2 CMS",
-        "date": "2008",
-        "skillsets": [
-            "Development",
-            "DevOps",
-            "Databases",
-            "Leadership"
-        ],
-        "skills": [
-            "PHP",
-            "MySQL",
-            "JavaScript",
-            "XHTML",
-            "CSS"
-        ],
-        "title": "CORE 2 CMS",
-        "description": "Content Management System with community tools and widgetized page management",
-        "slug": "core-cms"
-    },
-    {
-        "domain": "Employed",
-        "subdomain": "Engility/L3/MPRI",
-        "project": "Army App",
-        "date": "2008",
-        "skillsets": [
-            "Development",
-            "Design"
-        ],
-        "skills": [
-            "iPhone",
-            "Game Design"
-        ],
-        "title": "Army App",
-        "description": "US Army News & Information iPhone app, one of the first government apps",
-        "slug": "army-app"
-    },
-    {
-        "domain": "Employed",
-        "subdomain": "Engility/L3/MPRI",
-        "project": "Medal of Honor: Petry",
-        "date": "2008",
-        "skillsets": [
-            "Development"
-        ],
-        "skills": [
-            "CORE 2 CMS"
-        ],
-        "title": "Medal of Honor: Petry",
-        "description": "Medal of Honor series site powered by CORE 2 CMS",
-        "slug": "medal-of-honor-petry"
-    },
-    {
-        "domain": "Employed",
-        "subdomain": "Engility/L3/MPRI",
         "project": null,
         "date": "2013",
         "skillsets": [
@@ -345,26 +290,6 @@
         "title": "Ended at Engility/L3/MPRI",
         "description": "Led technological vision for Army.mil, My.Army.mil, and CORE 2 CMS",
         "slug": "ended-at-engility-l3-mpri"
-    },
-    {
-        "domain": "Employed",
-        "subdomain": "Engility/L3/MPRI",
-        "project": "My.Army.mil",
-        "date": "2008",
-        "skillsets": [
-            "Development",
-            "DevOps",
-            "Databases"
-        ],
-        "skills": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "MySQL"
-        ],
-        "title": "My.Army.mil",
-        "description": "Engility/L3/MPRI",
-        "slug": "my-army-mil"
     },
     {
         "domain": "Personal",
@@ -767,7 +692,7 @@
         "skills": [
             "Creative Writing"
         ],
-        "title": "Began",
+        "title": "Began Magitism: The Force of Magic",
         "description": "<p>Elevator Pitches:</p><p>• Magical aliens crash-land on Earth; Humanity has to science the shit out of the magic to get them back into space.</p><p>• Hail Mary meets Mistborn, crash-landing in Philadelphia.</p>",
         "slug": "began-writing"
     },
@@ -782,7 +707,7 @@
         "skills": [
             "Creative Writing"
         ],
-        "title": "Published",
+        "title": "Published Magitism: The Force of Magic",
         "description": "<p>For the book's release, I did a 24-hour Twitch stream. I don't expect you to watch the VODs.</p><p><strong>Opening Interviews</strong></p><p><b-yt slug=\"yfIo22Eow-Q\"></b-yt></p><p><strong>Dwarf Fortress</strong></p><p><b-yt slug=\"PDhqJZpUF14\"></b-yt></p><p><b-yt slug=\"cNZlJ2ZFH8o\"></b-yt></p><p><strong>Satisfactory</strong></p><p><b-yt slug=\"CYb535NfQwc\"></b-yt></p><p><b-yt slug=\"eR7DF_-Occ0\"></b-yt></p>",
         "slug": "published",
         "major": true
@@ -791,7 +716,7 @@
         "domain": "Personal",
         "subdomain": "TTRPGs",
         "project": "Repocalypse (Comedy of Justice II)",
-        "date": "2023-mid",
+        "date": "2023-early",
         "skillsets": [
             "Writing",
             "Leadership"
@@ -883,7 +808,7 @@
             "Leadership"
         ],
         "skills": [],
-        "title": "Greenlit",
+        "title": "Greenlit Unannounced Game",
         "slug": "unannounced-game-greenlit"
     },
     {
@@ -970,42 +895,6 @@
     {
         "domain": "Employed",
         "subdomain": "ZeniMax Online Studios",
-        "project": "The Elder Scrolls Online - Patcher",
-        "date": "2025",
-        "skillsets": [
-            "Development",
-            "Design",
-            "UX"
-        ],
-        "skills": [
-            "HTML",
-            "CSS",
-            "JavaScript"
-        ],
-        "title": "Patcher Rebuild in 2025",
-        "slug": "patcher-rebuild-in-2025"
-    },
-    {
-        "domain": "Employed",
-        "subdomain": "ZeniMax Online Studios",
-        "project": "The Elder Scrolls Online - Patcher",
-        "date": "2013",
-        "skillsets": [
-            "Development",
-            "Design",
-            "UX"
-        ],
-        "skills": [
-            "HTML",
-            "CSS",
-            "JavaScript"
-        ],
-        "title": "Patcher First build in 2013-2014",
-        "slug": "patcher-first-build-in-2013-2014"
-    },
-    {
-        "domain": "Employed",
-        "subdomain": "ZeniMax Online Studios",
         "project": "Commander Keen",
         "date": "2018",
         "skillsets": [
@@ -1030,7 +919,7 @@
             "Leadership"
         ],
         "skills": [],
-        "title": "Announced",
+        "title": "Announced Commander Keen",
         "description": "<a href=\"https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home\">https://web.archive.org/web/20190928233418/https://commanderkeen.bethesda.net/en-us/home</a>",
         "slug": "commander-keen-announced"
     },
@@ -1046,27 +935,7 @@
             "Leadership"
         ],
         "skills": [],
-        "title": "Canceled",
+        "title": "Canceled Commander Keen",
         "slug": "commander-keen-canceled"
-    },
-    {
-        "domain": "Employed",
-        "subdomain": "ZeniMax Online Studios",
-        "project": "APE",
-        "date": null,
-        "skillsets": [
-            "Development",
-            "Design",
-            "UX"
-        ],
-        "skills": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "Laravel"
-        ],
-        "title": "APE",
-        "description": "Laravel years and frameworkless rebuild",
-        "slug": "ape"
     }
 ]
