@@ -86,6 +86,11 @@ class BBreadcrumbs extends HTMLElement {
         // First, restore slashes from -slash- encoding
         let title = path.replace(/-slash-/g, '/');
         
+        // Special case: History -> Timeline
+        if (title.toLowerCase() === 'history') {
+            return 'Timeline';
+        }
+        
         // Handle paths with slashes (e.g., "projects/something" -> "Projects: Something")
         if (title.includes('/')) {
             const parts = title.split('/');

@@ -236,7 +236,7 @@ class BFlavorSelector extends HTMLElement {
         };
         
         this.innerHTML = `
-            <label for="${uniqueId}"><i class="fa-solid fa-palette" aria-hidden="true"></i> Flavor: </label>
+            <label for="${uniqueId}">Flavor: </label>
             <select id="${uniqueId}" aria-label="Select flavor">
                 ${Object.entries(this.flavorNames).map(([key, name]) => 
                     `<option value="${key}" ${key === this.currentFlavor ? 'selected' : ''} data-icon="${flavorIcons[key] || 'fa-palette'}">${name}</option>`

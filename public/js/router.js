@@ -777,9 +777,13 @@
                 newTitle = `${slugTitle} - Will Brall's Portfolio`;
             } else {
                 // Generate title from filename: replace hyphens with spaces and capitalize
-                const pageTitle = path.split('-').map(word => 
+                let pageTitle = path.split('-').map(word => 
                     word.charAt(0).toUpperCase() + word.slice(1)
                 ).join(' ');
+                // Special case: History -> Timeline
+                if (pageTitle.toLowerCase() === 'history') {
+                    pageTitle = 'Timeline';
+                }
                 newTitle = `${pageTitle} - Will Brall's Portfolio`;
             }
             

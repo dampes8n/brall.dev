@@ -32,7 +32,7 @@
     --scrollbar-thumb-hover-bg: hsla(0, 0%, 0%, 0.25);
     
     /* Font sizes */
-    --font-size-base: 1rem;
+    --font-size-base: calc(1rem + 1px);
     --font-size-base-small: 0.9rem;
     --font-size-h1: 3rem;
     --font-size-h2: 1.75rem;
@@ -120,6 +120,8 @@ h6 {
 
 p {
     margin-bottom: var(--spacing-double);
+    padding-left: var(--spacing-double-triple);
+    padding-right: var(--spacing-double-triple);
     font-size: var(--font-size-base);
     line-height: 1.7;
     color: var(--text-primary);
@@ -527,8 +529,10 @@ header {
 }
 
 .tagline {
-    font-size: var(--font-size-h4);
+    font-size: calc(var(--font-size-h4) + 1px);
     letter-spacing: 2px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .blockquote-with-logo {
@@ -536,7 +540,8 @@ header {
     grid-template-columns: auto 1fr;
     gap: var(--spacing-single);
     align-items: stretch;
-    margin-bottom: var(--spacing-double);
+    margin-top: calc(var(--spacing-double) * 2);
+    margin-bottom: calc(var(--spacing-double) * 2);
 }
 
 .blockquote-with-logo blockquote {
