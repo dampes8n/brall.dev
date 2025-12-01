@@ -34,7 +34,7 @@
     /* Font sizes */
     --font-size-base: 1rem;
     --font-size-base-small: 0.9rem;
-    --font-size-h1: 2rem;
+    --font-size-h1: 3rem;
     --font-size-h2: 1.75rem;
     --font-size-h3: 1.5rem;
     --font-size-h4: 1.25rem;
@@ -55,10 +55,14 @@
     --text-h5: var(--text-primary);
     --text-h6: var(--text-primary);
     
+    /* Logo color */
+    --logo-color: hsl(0, 0%, 0%);
+    
     /* Spacing - based on smallest margin (0.5rem between nav/main/aside and top) */
     --spacing-single: 0.5rem;
     --spacing-double: 1rem;
     --spacing-triple: 1.5rem;
+    --spacing-double-triple: 3rem;
 }
 
 * {
@@ -119,6 +123,20 @@ p {
     font-size: var(--font-size-base);
     line-height: 1.7;
     color: var(--text-primary);
+}
+
+blockquote {
+    margin-bottom: var(--spacing-double);
+    padding: var(--spacing-double);
+    border-left: 3px solid var(--accent, hsl(210, 100%, 50%));
+    background: var(--panel-bg);
+    border-radius: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--text-primary);
+    position: relative;
 }
 
 a {
@@ -448,8 +466,7 @@ b-layer .layer-content {
 #content-pane {
     position: relative;
     z-index: 1;
-    padding: var(--spacing-double) var(--spacing-triple) var(--spacing-triple);
-    padding-right: calc(var(--spacing-triple) + 5px);
+    padding: var(--spacing-triple) var(--spacing-double-triple);
     container-type: inline-size;
     container-name: content;
 }
@@ -466,6 +483,33 @@ header {
 .tagline {
     font-size: var(--font-size-h4);
     letter-spacing: 2px;
+}
+
+.blockquote-with-logo {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-single);
+    align-items: stretch;
+    margin-bottom: var(--spacing-double);
+}
+
+.blockquote-with-logo blockquote {
+    margin-bottom: 0;
+}
+
+.blockquote-with-logo .resume-logo {
+    width: auto;
+    height: 100%;
+    min-width: 100px;
+    -webkit-mask-image: url('../img/logo.svg');
+    mask-image: url('../img/logo.svg');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    background-color: var(--logo-color);
 }
 
 /* Articles - remove border from nested articles */
@@ -625,6 +669,16 @@ a[href^="#!/timeline-events/"].tag::before,
 
 /* Tag/Badge - Small labeled element - Unified tag structure */
 .tag {
+    padding: var(--spacing-single) var(--spacing-triple);
+    font-size: 0.9rem;
+    display: inline-block;
+    background: var(--tag-bg);
+    border-radius: 3px;
+    text-decoration: none;
+    color: inherit;
+}
+
+code {
     padding: var(--spacing-single) var(--spacing-triple);
     font-size: 0.9rem;
     display: inline-block;

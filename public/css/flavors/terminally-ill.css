@@ -22,6 +22,7 @@
     --primary-bg: #000000;
     --secondary-bg: #0a0a0a;
     --text-primary: #ffffff;
+    --logo-color: var(--text-primary);
     --text-secondary: #cccccc;
     
     /* Link colors - teal for CLI feel */

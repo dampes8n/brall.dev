@@ -11,6 +11,7 @@
     /* Font sizes - h1 uses large size for VHS effect */
     --font-size-h1: 6rem;
     --text-primary: #FFFEF0;
+    --logo-color: var(--text-primary);
     --secondary-bg: hsl(0, 30%, 7%);
     --panel-bg: hsl(0, 30%, 7%);
     --tag-bg: hsl(0, 30%, 13%);

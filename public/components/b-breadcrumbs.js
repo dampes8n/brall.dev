@@ -8,7 +8,8 @@ class BBreadcrumbs extends HTMLElement {
         super();
         this.breadcrumbs = []; // Array of {path, title, scrollY}
         this.cookieName = 'breadcrumbs';
-        this.maxBreadcrumbs = 20;
+        this.maxBreadcrumbs = 20; // Internal storage limit
+        this.displayLimit = 10; // Number of breadcrumbs to display
     }
 
     connectedCallback() {
@@ -124,7 +125,10 @@ class BBreadcrumbs extends HTMLElement {
         
         ul.innerHTML = '';
         
-        this.breadcrumbs.forEach((breadcrumb, index) => {
+        // Only display the first displayLimit breadcrumbs
+        const breadcrumbsToDisplay = this.breadcrumbs.slice(0, this.displayLimit);
+        
+        breadcrumbsToDisplay.forEach((breadcrumb, index) => {
             const li = document.createElement('li');
             const a = document.createElement('a');
             a.href = `#!${breadcrumb.path}`;

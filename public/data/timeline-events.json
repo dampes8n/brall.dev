@@ -207,7 +207,7 @@
     },
     {
         "domain": "Employed",
-        "subdomain": "NASA/Goddard Space Flight Center/Mantech",
+        "subdomain": "Mantech",
         "project": "SMA",
         "date": "2007-late",
         "skillsets": [
@@ -221,14 +221,14 @@
             "CSS",
             "CVS"
         ],
-        "title": "Employed at NASA/Goddard",
-        "description": "Safety and Mission Assurance",
+        "title": "Employed by NASA/GSFC",
+        "description": "Web Developer - Mantech - Safety and Mission Assurance",
         "slug": "employed-at-nasa-goddard",
         "major": true
     },
     {
         "domain": "Employed",
-        "subdomain": "NASA/Goddard Space Flight Center/Mantech",
+        "subdomain": "NASA/Goddard Space Flight Center",
         "project": "SMA",
         "date": "2008",
         "skillsets": [
@@ -271,8 +271,8 @@
             "Memcached",
             "Limelight"
         ],
-        "title": "Employed at Engility/L3/MPRI",
-        "description": "Led technological vision for Army.mil",
+        "title": "Employed by Army.mil",
+        "description": "Lead Web Developer - Led technological vision for Army.mil",
         "slug": "employed-at-engility-l3-mpri",
         "major": true
     },
@@ -411,8 +411,8 @@
             "Memcached",
             "Akamai"
         ],
-        "title": "Employed at ZeniMax Online Studios",
-        "description": "The Elder Scrolls Online",
+        "title": "Employed by The Elder Scrolls Online",
+        "description": "Lead Web Developer - Zenimax Online Studios",
         "slug": "employed-at-zenimax-online-studios",
         "major": true
     },

@@ -25,6 +25,7 @@
     
     /* Text colors for light mode */
     --text-primary: hsl(0, 0%, 100%);
+    --logo-color: var(--text-primary);
     --text-secondary: hsl(0, 0%, 90%);
     
     --panel-bg: hsla(0, 0%, 0%, 0.4);

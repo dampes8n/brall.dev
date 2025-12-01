@@ -32,6 +32,9 @@
     --font-size-h5: 1.2375rem;
     --font-size-h6: 1.125rem;
     
+    /* Logo color matches main text */
+    --logo-color: var(--text-primary);
+    
     /* Font families */
     --font-family-base: 'Bookinsanity', 'Crimson Text', 'Times New Roman', 'Times', serif;
     --font-family-headings: 'Mr Eaves Small Caps', 'Cinzel', 'Times New Roman', serif;

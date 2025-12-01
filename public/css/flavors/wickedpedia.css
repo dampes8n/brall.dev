@@ -9,6 +9,7 @@
     --primary-bg: #ffffff;
     --secondary-bg: #f8f9fa;
     --text-primary: #202122;
+    --logo-color: var(--text-primary);
     --text-secondary: #54595d;
     
     /* Link colors */
