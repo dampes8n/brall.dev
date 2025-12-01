@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Résumé - Will Brall's Portfolio</title>
+    <!-- Preconnect to CDN for faster resource loading -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <!-- Preload critical JSON files for initial page (Resume page loads timeline and skillsets) -->
+    <link rel="preload" as="fetch" href="data/timeline-events.json" crossorigin>
+    <link rel="preload" as="fetch" href="data/skills.json" crossorigin>
+    <link rel="preload" as="fetch" href="data/projects.json" crossorigin>
+    <link rel="preload" as="fetch" href="data/skillsets.json" crossorigin>
     <style>
 /* Core CSS - Base styles and layout */
 
@@ -210,10 +218,43 @@ b-projects.projects-full-height, b-skillsets.skillsets-full-height { max-height:
 @media (min-width: 1400px) { #layout-wrapper { max-width: 1400px; margin: 0 auto; } }
 @container timeline (max-width: 600px) { .timeline-filters { float: none; width: 100%; position: static; margin: 0 0 var(--spacing-triple) 0; } .filter-controls { flex-direction: row; flex-wrap: wrap; } .timeline-filters > .filter-controls:last-of-type { margin-top: 0; } .timeline-filters > .filter-separator { display: block; height: 1px; width: 100%; background: hsla(0, 0%, 0%, 0.2); margin: var(--spacing-triple) 0; } .filter-controls label { min-width: 125px; } }
 
+/* Font Awesome font-display optimization */
+@font-face {
+    font-family: "Font Awesome 6 Free";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2") format("woff2");
+}
+
 </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
     <style id="flavor-style"></style>
     <style id="transition-style"></style>
+    <script>
+        // Asynchronously load Font Awesome CSS after initial render
+        (function() {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+            link.integrity = 'sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==';
+            link.crossOrigin = 'anonymous';
+            link.referrerPolicy = 'no-referrer';
+            // Load after initial render to avoid blocking
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    requestAnimationFrame(function() {
+                        document.head.appendChild(link);
+                    });
+                });
+            } else {
+                requestAnimationFrame(function() {
+                    document.head.appendChild(link);
+                });
+            }
+        })();
+    </script>
 </head>
 <body>
     <b-skip-link></b-skip-link>
@@ -256,8 +297,35 @@ b-projects.projects-full-height, b-skillsets.skillsets-full-height { max-height:
     
     <div id="foregrounds"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="components/base/b-json-loader.js"></script>
+    <script src="components/base/b-json-loader.js" defer></script>
+    <script>
+    // Load Three.js dynamically only when needed (for b-3d-scene components)
+    (function() {
+        let threeJsLoading = null;
+        window.loadThreeJs = function() {
+            if (typeof THREE !== 'undefined') {
+                return Promise.resolve(THREE);
+            }
+            if (threeJsLoading) {
+                return threeJsLoading;
+            }
+            threeJsLoading = new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+                script.integrity = 'sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==';
+                script.crossOrigin = 'anonymous';
+                script.referrerPolicy = 'no-referrer';
+                script.onload = () => resolve(THREE);
+                script.onerror = () => {
+                    threeJsLoading = null;
+                    reject(new Error('Failed to load Three.js'));
+                };
+                document.head.appendChild(script);
+            });
+            return threeJsLoading;
+        };
+    })();
+    </script>
     <script>
 /**
  * Loader.js - Auto-loads web components from HTML
@@ -338,9 +406,30 @@ b-projects.projects-full-height, b-skillsets.skillsets-full-height { max-height:
 
     function initializeComponents() {
         const components = findComponents();
-        const loadPromises = components.map(comp => loadComponent(comp).catch(() => {}));
+        // Separate critical components (needed for initial render) from non-critical
+        const criticalComponents = ['b-skip-link', 'b-hamburger', 'b-date', 'b-breadcrumbs', 'b-flavor-selector'];
+        const critical = components.filter(comp => criticalComponents.includes(comp));
+        const nonCritical = components.filter(comp => !criticalComponents.includes(comp));
         
-        return Promise.all(loadPromises);
+        // Load critical components immediately
+        const criticalPromises = critical.map(comp => loadComponent(comp).catch(() => {}));
+        
+        // Load non-critical components when idle
+        const loadNonCritical = () => {
+            const nonCriticalPromises = nonCritical.map(comp => loadComponent(comp).catch(() => {}));
+            return Promise.all(nonCriticalPromises);
+        };
+        
+        if (window.requestIdleCallback) {
+            requestIdleCallback(() => {
+                loadNonCritical().catch(() => {});
+            }, { timeout: 2000 });
+        } else {
+            // Fallback for browsers without requestIdleCallback
+            setTimeout(loadNonCritical, 100);
+        }
+        
+        return Promise.all(criticalPromises);
     }
 
     // Initialize on DOM ready
@@ -350,16 +439,39 @@ b-projects.projects-full-height, b-skillsets.skillsets-full-height { max-height:
         initializeComponents();
     }
 
-    // Watch for dynamically added components
+    // Watch for dynamically added components (throttled for performance)
+    let observerTimeout = null;
+    const pendingComponents = new Set();
+    
+    function processPendingComponents() {
+        if (pendingComponents.size === 0) return;
+        const components = Array.from(pendingComponents);
+        pendingComponents.clear();
+        components.forEach(comp => loadComponent(comp).catch(() => {}));
+    }
+    
     const observer = new MutationObserver(mutations => {
+        // Batch component discovery
         mutations.forEach(mutation => {
             mutation.addedNodes.forEach(node => {
                 if (node.nodeType === 1) { // Element node
                     const components = findComponents(node);
-                    components.forEach(comp => loadComponent(comp).catch(() => {}));
+                    components.forEach(comp => pendingComponents.add(comp));
                 }
             });
         });
+        
+        // Throttle component loading
+        if (observerTimeout) {
+            clearTimeout(observerTimeout);
+        }
+        observerTimeout = setTimeout(() => {
+            if (window.requestIdleCallback) {
+                requestIdleCallback(processPendingComponents, { timeout: 500 });
+            } else {
+                processPendingComponents();
+            }
+        }, 100);
     });
 
     observer.observe(document.body, {
@@ -1283,15 +1395,35 @@ b-projects.projects-full-height, b-skillsets.skillsets-full-height { max-height:
             Router.setScrollPosition(scrollY);
         });
 
-        // Set up link handlers and load initial content
+        // Set up link handlers and load initial content (defer non-critical router work)
+        function initRouter() {
+            setupLinkHandlers();
+            loadInitialContent();
+        }
+        
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
+                // Setup link handlers immediately (needed for navigation)
                 setupLinkHandlers();
-                loadInitialContent();
+                // Defer initial content loading until idle
+                if (window.requestIdleCallback) {
+                    requestIdleCallback(() => {
+                        loadInitialContent();
+                    }, { timeout: 1000 });
+                } else {
+                    // Fallback: small delay
+                    setTimeout(loadInitialContent, 50);
+                }
             });
         } else {
             setupLinkHandlers();
-            loadInitialContent();
+            if (window.requestIdleCallback) {
+                requestIdleCallback(() => {
+                    loadInitialContent();
+                }, { timeout: 1000 });
+            } else {
+                setTimeout(loadInitialContent, 50);
+            }
         }
 
         // Export Router for use elsewhere

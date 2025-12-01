@@ -21,11 +21,20 @@ class B3DScene extends HTMLElement {
         this.init();
     }
 
-    init() {
-    // Wait for Three.js to be available
+    async init() {
+    // Load Three.js if not available
     if (typeof THREE === 'undefined') {
-        console.error('Three.js is not loaded');
-        return;
+        if (window.loadThreeJs) {
+            try {
+                await window.loadThreeJs();
+            } catch (e) {
+                console.error('Failed to load Three.js:', e);
+                return;
+            }
+        } else {
+            console.error('Three.js is not loaded and loadThreeJs is not available');
+            return;
+        }
     }
 
     /*

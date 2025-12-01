@@ -13,12 +13,25 @@ class BXP extends HTMLElement {
         return ['level'];
     }
 
+    // Pre-computed lookup tables for better performance
+    static BRAILLE = ['⠁', '⠃', '⠇', '⠏', '⠟']; // levels 1-5
+    static LABELS = ['Novice', 'Moderate', 'Average', 'Expert', 'Master'];
+
+    constructor() {
+        super();
+        this._cachedLevel = null;
+    }
+
     connectedCallback() {
         this.render();
     }
 
     attributeChangedCallback() {
-        this.render();
+        // Only re-render if level actually changed
+        const newLevel = this.getLevel();
+        if (this._cachedLevel !== newLevel) {
+            this.render();
+        }
     }
 
     getLevel() {
@@ -29,41 +42,40 @@ class BXP extends HTMLElement {
         return n;
     }
 
-    getBrailleChar(level) {
-        // 1–5 dots, increasing density
-        switch (level) {
-            case 1: return '⠁'; // dot 1
-            case 2: return '⠃'; // dots 1-2
-            case 3: return '⠇'; // dots 1-2-3
-            case 4: return '⠏'; // dots 1-2-3-4
-            case 5: return '⠟'; // dots 1-2-3-4-5
-            default: return '⠁';
-        }
-    }
-
-    getLabel(level) {
-        switch (level) {
-            case 1: return 'Novice';
-            case 2: return 'Moderate';
-            case 3: return 'Average';
-            case 4: return 'Expert';
-            case 5: return 'Master';
-            default: return 'Novice';
-        }
-    }
-
     render() {
         const level = this.getLevel();
-        const braille = this.getBrailleChar(level);
-        const label = this.getLabel(level);
+        
+        // Skip if level hasn't changed and already rendered
+        if (this._cachedLevel === level && this.firstElementChild) {
+            return;
+        }
+        
+        this._cachedLevel = level;
+        const levelIndex = level - 1; // Convert to 0-based index
+        const braille = BXP.BRAILLE[levelIndex] || BXP.BRAILLE[0];
+        const label = BXP.LABELS[levelIndex] || BXP.LABELS[0];
+
+        // Use more efficient DOM manipulation
+        if (!this.firstElementChild) {
+            const charSpan = document.createElement('span');
+            charSpan.className = 'xp-char';
+            charSpan.setAttribute('aria-hidden', 'true');
+            charSpan.textContent = braille;
+            
+            const labelSpan = document.createElement('span');
+            labelSpan.className = 'sr-only';
+            labelSpan.textContent = label + ' ';
+            
+            this.appendChild(charSpan);
+            this.appendChild(labelSpan);
+        } else {
+            // Update existing elements
+            this.firstElementChild.textContent = braille;
+            this.lastElementChild.textContent = label + ' ';
+        }
 
         this.setAttribute('aria-hidden', 'false');
         this.setAttribute('title', label);
-
-        this.innerHTML = `
-            <span class="xp-char" aria-hidden="true">${braille}</span>
-            <span class="sr-only">${label} </span>
-        `;
     }
 }
 
