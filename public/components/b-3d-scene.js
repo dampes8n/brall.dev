@@ -798,6 +798,17 @@ class B3DScene extends HTMLElement {
                 
                 // Update texture scrolling
                 if (this.textures) {
+                    // Helper function to reset offset when it exceeds one repeat distance
+                    const normalizeOffset = (offset) => {
+                        // Reset to origin when offset exceeds one full repeat (1.0) in either direction
+                        if (offset >= 1.0) {
+                            return offset - Math.floor(offset);
+                        } else if (offset <= -1.0) {
+                            return offset - Math.ceil(offset);
+                        }
+                        return offset;
+                    };
+                    
                     // Check if we're using element-based scrolling
                     const hasElementScrolling = this.textureScrollXElement || this.textureScrollYElement;
                     
@@ -811,6 +822,8 @@ class B3DScene extends HTMLElement {
                                 // Use actual scroll position in pixels, scaled to texture offset
                                 // Negative to scroll down as we scroll down
                                 textureOffsetX = -scrollTopX * this.textureScrollXScale;
+                                // Normalize to prevent large accumulated values
+                                textureOffsetX = normalizeOffset(textureOffsetX);
                             }
                         }
                         
@@ -823,6 +836,8 @@ class B3DScene extends HTMLElement {
                                 // Use actual scroll position in pixels, scaled to texture offset
                                 // Negative to scroll down as we scroll down
                                 textureOffsetY = -scrollTopY * this.textureScrollYScale;
+                                // Normalize to prevent large accumulated values
+                                textureOffsetY = normalizeOffset(textureOffsetY);
                             }
                         }
                         
@@ -834,6 +849,8 @@ class B3DScene extends HTMLElement {
                                 } else if (this.textureScrollX !== 0) {
                                     // Fall back to time-based X scrolling if no element-based X
                                     tex.offset.x += this.textureScrollX * deltaTime;
+                                    // Normalize to prevent large accumulated values
+                                    tex.offset.x = normalizeOffset(tex.offset.x);
                                 }
                                 
                                 if (textureOffsetY !== null) {
@@ -841,6 +858,8 @@ class B3DScene extends HTMLElement {
                                 } else if (this.textureScrollY !== 0) {
                                     // Fall back to time-based Y scrolling if no element-based Y
                                     tex.offset.y += this.textureScrollY * deltaTime;
+                                    // Normalize to prevent large accumulated values
+                                    tex.offset.y = normalizeOffset(tex.offset.y);
                                 }
                             }
                         });
@@ -850,6 +869,9 @@ class B3DScene extends HTMLElement {
                             if (tex) {
                                 tex.offset.x += this.textureScrollX * deltaTime;
                                 tex.offset.y += this.textureScrollY * deltaTime;
+                                // Normalize to prevent large accumulated values
+                                tex.offset.x = normalizeOffset(tex.offset.x);
+                                tex.offset.y = normalizeOffset(tex.offset.y);
                             }
                         });
                     }
