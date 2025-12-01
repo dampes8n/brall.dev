@@ -365,6 +365,11 @@ class BFlavorSelector extends HTMLElement {
                 
                 // Add new layer with crossfading
                 await fgLayer.addLayer(html);
+            } else {
+                // Empty HTML - clear the layer
+                if (fgLayer) {
+                    fgLayer.clear();
+                }
             }
         } catch (e) {
             // No foreground file exists - clear old layer if it exists

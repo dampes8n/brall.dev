@@ -41,43 +41,53 @@ class BLayer extends HTMLElement {
     /**
      * Add a new layer with crossfading
      * @param {string} html - HTML content for the new layer
+     * @returns {Promise} Resolves when fade-in completes
      */
     async addLayer(html) {
-        // Fade out current layer if it exists
-        if (this.currentLayer) {
-            this.fadeOut(this.currentLayer);
-        }
+        return new Promise((resolve, reject) => {
+            try {
+                // Fade out current layer if it exists
+                if (this.currentLayer) {
+                    this.fadeOut(this.currentLayer);
+                }
 
-        // Create new layer
-        const newLayer = document.createElement('div');
-        newLayer.className = 'layer-content';
-        newLayer.style.opacity = '0';
-        newLayer.style.transition = `opacity ${this.fadeDuration}ms ease-in-out`;
-        newLayer.innerHTML = html;
+                // Create new layer
+                const newLayer = document.createElement('div');
+                newLayer.className = 'layer-content';
+                newLayer.style.opacity = '0';
+                newLayer.style.transition = `opacity ${this.fadeDuration}ms ease-in-out`;
+                newLayer.innerHTML = html;
 
-        // Add to DOM
-        this.appendChild(newLayer);
+                // Add to DOM
+                this.appendChild(newLayer);
 
-        // Pause videos if reduced motion is enabled (use setTimeout to ensure videos are in DOM)
-        setTimeout(() => {
-            this.pauseVideosIfReducedMotion(newLayer);
-        }, 0);
+                // Pause videos if reduced motion is enabled (use setTimeout to ensure videos are in DOM)
+                setTimeout(() => {
+                    this.pauseVideosIfReducedMotion(newLayer);
+                }, 0);
 
-        // Load any components in the new content
-        if (window.ComponentLoader) {
-            window.ComponentLoader.find(newLayer).forEach(comp => {
-                window.ComponentLoader.load(comp).catch(() => {});
-            });
-        }
+                // Load any components in the new content
+                if (window.ComponentLoader) {
+                    window.ComponentLoader.find(newLayer).forEach(comp => {
+                        window.ComponentLoader.load(comp).catch(() => {});
+                    });
+                }
 
-        // Start fade in immediately for crossfade effect
-        // Use requestAnimationFrame to ensure layout has happened
-        requestAnimationFrame(() => {
-            newLayer.style.opacity = '1';
+                // Start fade in immediately for crossfade effect
+                // Use requestAnimationFrame to ensure layout has happened
+                requestAnimationFrame(() => {
+                    newLayer.style.opacity = '1';
+                    
+                    // Resolve after fade-in completes
+                    setTimeout(() => {
+                        this.currentLayer = newLayer;
+                        resolve();
+                    }, this.fadeDuration);
+                });
+            } catch (error) {
+                reject(error);
+            }
         });
-
-        // Update current layer
-        this.currentLayer = newLayer;
     }
 
     /**
@@ -103,6 +113,16 @@ class BLayer extends HTMLElement {
      * Clear all layers
      */
     clear() {
+        // Stop all videos and media elements before clearing
+        const videos = this.querySelectorAll('video');
+        videos.forEach(video => {
+            video.pause();
+            video.currentTime = 0;
+            video.src = '';
+            video.load();
+        });
+        
+        // Remove all children
         while (this.firstChild) {
             this.removeChild(this.firstChild);
         }
