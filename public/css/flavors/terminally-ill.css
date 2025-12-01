@@ -683,7 +683,7 @@ b-flavor-selector select:focus {
 /* ============================================
    SCROLLBAR STYLING
    ============================================ */
- 
+
 *::-webkit-scrollbar {
     width: 12px;
     height: 12px;
