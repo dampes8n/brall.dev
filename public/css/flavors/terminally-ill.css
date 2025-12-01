@@ -724,6 +724,41 @@ img {
 }
 
 /* ============================================
+   LOGO RAINBOW ANIMATION
+   ============================================ */
+
+.blockquote-with-logo .resume-logo {
+    animation: rainbow-cycle 60s linear infinite;
+}
+
+@keyframes rainbow-cycle {
+    0% {
+        background-color: hsl(0, 100%, 50%);
+    }
+    14.285% {
+        background-color: hsl(51, 100%, 50%);
+    }
+    28.571% {
+        background-color: hsl(102, 100%, 50%);
+    }
+    42.857% {
+        background-color: hsl(153, 100%, 50%);
+    }
+    57.143% {
+        background-color: hsl(204, 100%, 50%);
+    }
+    71.429% {
+        background-color: hsl(255, 100%, 50%);
+    }
+    85.714% {
+        background-color: hsl(306, 100%, 50%);
+    }
+    100% {
+        background-color: hsl(360, 100%, 50%);
+    }
+}
+
+/* ============================================
    SKIP LINK
    ============================================ */
 
