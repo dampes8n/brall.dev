@@ -279,7 +279,15 @@ img {
    ============================================ */
 
 @media (max-width: 799px) {
+    #layout-wrapper {
+        mix-blend-mode: normal;
+    }
+    
     #main-content {
+        grid-column: 1;
+        height: calc(100vh - 1rem - var(--footer-height, 80px) - 1rem);
+        overflow-y: auto;
+        overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         touch-action: pan-y;
     }
