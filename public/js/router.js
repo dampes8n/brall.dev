@@ -240,9 +240,8 @@
                     ).join(' ');
                 }
                 
-                // Load timeline events
-                const timelineRes = await fetch('data/timeline-events.json');
-                const timelineEvents = await timelineRes.json();
+                // Load timeline events using JsonCache
+                const timelineEvents = window.JsonCache ? await window.JsonCache.fetch('data/timeline-events.json') : await fetch('data/timeline-events.json').then(r => r.json());
                 
                 // Filter events by subdomain
                 const filteredEvents = timelineEvents.filter(e => 
@@ -253,9 +252,8 @@
                 html = `<article>`;
                 html += `<h1>${this.escapeHtml(subdomainName)}</h1>`;
                 
-                // Load projects for this subdomain
-                const projectsRes = await fetch('data/projects.json');
-                const allProjects = await projectsRes.json();
+                // Load projects for this subdomain using JsonCache
+                const allProjects = window.JsonCache ? await window.JsonCache.fetch('data/projects.json') : await fetch('data/projects.json').then(r => r.json());
                 const filteredProjects = allProjects.filter(p => 
                     p.subdomain && p.subdomain === subdomainName
                 );
@@ -309,20 +307,28 @@
             }
             
             try {
-                // Load all data files including skillsets.json
-                const [skillsetsRes, skillsRes, projectsRes, timelineRes] = await Promise.all([
-                    fetch('data/skillsets.json'),
-                    fetch('data/skills.json'),
-                    fetch('data/projects.json'),
-                    fetch('data/timeline-events.json')
-                ]);
-                
-                const [skillsets, skills, projects, timelineEvents] = await Promise.all([
-                    skillsetsRes.json(),
-                    skillsRes.json(),
-                    projectsRes.json(),
-                    timelineRes.json()
-                ]);
+                // Load all data files including skillsets.json using JsonCache
+                if (window.JsonCache) {
+                    var [skillsets, skills, projects, timelineEvents] = await Promise.all([
+                        window.JsonCache.fetch('data/skillsets.json'),
+                        window.JsonCache.fetch('data/skills.json'),
+                        window.JsonCache.fetch('data/projects.json'),
+                        window.JsonCache.fetch('data/timeline-events.json')
+                    ]);
+                } else {
+                    const [skillsetsRes, skillsRes, projectsRes, timelineRes] = await Promise.all([
+                        fetch('data/skillsets.json'),
+                        fetch('data/skills.json'),
+                        fetch('data/projects.json'),
+                        fetch('data/timeline-events.json')
+                    ]);
+                    var [skillsets, skills, projects, timelineEvents] = await Promise.all([
+                        skillsetsRes.json(),
+                        skillsRes.json(),
+                        projectsRes.json(),
+                        timelineRes.json()
+                    ]);
+                }
                 
                 // Find the skillset by slug
                 const skillset = skillsets.find(s => s.slug === slug);
@@ -413,16 +419,24 @@
             }
             
             try {
-                // Load the JSON data
+                // Load the JSON data using JsonCache
                 const jsonPath = `data/${jsonFile}`;
-                const jsonResponse = await fetch(jsonPath);
-                
-                if (!jsonResponse.ok) {
-                    console.warn(`JSON file not found: ${jsonPath}`);
-                    return;
+                let items;
+                if (window.JsonCache) {
+                    try {
+                        items = await window.JsonCache.fetch(jsonPath);
+                    } catch (error) {
+                        console.warn(`JSON file not found: ${jsonPath}`);
+                        return;
+                    }
+                } else {
+                    const jsonResponse = await fetch(jsonPath);
+                    if (!jsonResponse.ok) {
+                        console.warn(`JSON file not found: ${jsonPath}`);
+                        return;
+                    }
+                    items = await jsonResponse.json();
                 }
-                
-                const items = await jsonResponse.json();
                 const item = items.find(i => i.slug === slug);
                 
                 if (!item) {
@@ -443,12 +457,20 @@
         }
 
         async renderDataItem(item, jsonFile) {
-            // Load all data for cross-linking
-            const [skills, projects, timelineEvents] = await Promise.all([
-                fetch('data/skills.json').then(r => r.json()).catch(() => []),
-                fetch('data/projects.json').then(r => r.json()).catch(() => []),
-                fetch('data/timeline-events.json').then(r => r.json()).catch(() => [])
-            ]);
+            // Load all data for cross-linking using JsonCache
+            if (window.JsonCache) {
+                var [skills, projects, timelineEvents] = await Promise.all([
+                    window.JsonCache.fetch('data/skills.json').catch(() => []),
+                    window.JsonCache.fetch('data/projects.json').catch(() => []),
+                    window.JsonCache.fetch('data/timeline-events.json').catch(() => [])
+                ]);
+            } else {
+                var [skills, projects, timelineEvents] = await Promise.all([
+                    fetch('data/skills.json').then(r => r.json()).catch(() => []),
+                    fetch('data/projects.json').then(r => r.json()).catch(() => []),
+                    fetch('data/timeline-events.json').then(r => r.json()).catch(() => [])
+                ]);
+            }
             
             // Wrap each item in an article
             let html = '<article>';

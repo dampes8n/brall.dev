@@ -22,12 +22,18 @@ class BJsonLoader extends HTMLElement {
             this._loading = true;
             this._error = null;
             
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Failed to load ${url}: ${response.status} ${response.statusText}`);
+            // Use JsonCache if available, otherwise fall back to direct fetch
+            let data;
+            if (window.JsonCache) {
+                data = await window.JsonCache.fetch(url);
+            } else {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${url}: ${response.status} ${response.statusText}`);
+                }
+                data = await response.json();
             }
             
-            const data = await response.json();
             this._data[key] = data;
             this._loading = false;
             
@@ -51,14 +57,20 @@ class BJsonLoader extends HTMLElement {
             this._error = null;
             
             const entries = Object.entries(files);
-            const fetchPromises = entries.map(([key, url]) => 
-                fetch(url).then(response => {
+            const fetchPromises = entries.map(async ([key, url]) => {
+                // Use JsonCache if available, otherwise fall back to direct fetch
+                let data;
+                if (window.JsonCache) {
+                    data = await window.JsonCache.fetch(url);
+                } else {
+                    const response = await fetch(url);
                     if (!response.ok) {
                         throw new Error(`Failed to load ${url}: ${response.status} ${response.statusText}`);
                     }
-                    return response.json();
-                }).then(data => ({ key, data }))
-            );
+                    data = await response.json();
+                }
+                return { key, data };
+            });
             
             const results = await Promise.all(fetchPromises);
             
