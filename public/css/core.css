@@ -301,11 +301,24 @@ img {
         height: 100%;
         z-index: 1000;
         display: none;
-        padding: var(--spacing-triple);
+        margin: 0;
+        padding: var(--spacing-triple) var(--spacing-triple) var(--spacing-triple) 0;
     }
     
     #main-menu.menu-open {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #main-menu.menu-open ul {
+        width: 100%;
+        align-items: center;
+    }
+    
+    #main-menu.menu-open a[href^="#!"] {
+        font-size: calc(var(--font-size-base) * 2);
     }
 }
 
