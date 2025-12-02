@@ -58,6 +58,10 @@
     --accent-visited: hsl(271, 68%, 20%);
 }
 
+body {
+    background-color: hsl(27, 65%, 3%);
+}
+
 /* Darken regular link colors */
 a {
     color: hsl(210, 100%, 20%);

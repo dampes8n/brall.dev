@@ -7,7 +7,7 @@
 :root {
     /* Background colors */
     --primary-bg: #ffffff;
-    --secondary-bg: #f8f9fa;
+    --secondary-bg: hsl(174, 11%, 18%);
     --text-primary: #202122;
     --logo-color: var(--text-primary);
     --text-secondary: #54595d;
