@@ -326,6 +326,13 @@ img {
     transition: all 0.2s ease;
 }
 
+/* Reserve space for Font Awesome icons to prevent layout shift */
+#main-menu a[href^="#!"] i {
+    width: 1em; /* Reserve space for icon */
+    display: inline-block;
+    text-align: center;
+}
+
 /* Active main nav link (current page) - styled like top aside item */
 #main-menu a[href^="#!"].active {
     font-weight: 600;
@@ -540,6 +547,7 @@ b-layer .layer-content {
     padding: var(--spacing-triple) var(--spacing-double-triple);
     container-type: inline-size;
     container-name: content;
+    min-height: 300px; /* Reserve minimum space to prevent layout shift during content load */
 }
 
 /* Sections */
@@ -843,7 +851,7 @@ p + .tags {
 .timeline-container {
     position: relative;
     padding: 0 calc(var(--spacing-double) + 2px) 0 0;
-    min-height: 200px;
+    min-height: 300px; /* Increased to better match loaded content height */
     max-height: max(50vh, 500px);
     overflow-y: auto;
     overflow-x: hidden;
@@ -1205,6 +1213,7 @@ article[data-domain] .timeline-domain,
     container-name: timeline;
     width: 100%;
     margin-top: var(--spacing-double);
+    min-height: 400px; /* Reserve space to prevent layout shift */
 }
 
 .timeline-content-area {

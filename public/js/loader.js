@@ -20,8 +20,12 @@
             return pendingLoads.get(componentName);
         }
 
-        // Check if script tag already exists in DOM
-        const existingScript = document.querySelector(`script[src="components/${componentName}.js"]`);
+        // Prefer minified version if available
+        const scriptSrc = `components/${componentName}.min.js`;
+        const fallbackSrc = `components/${componentName}.js`;
+        
+        // Check if script tag already exists in DOM (check both minified and non-minified)
+        const existingScript = document.querySelector(`script[src="${scriptSrc}"], script[src="${fallbackSrc}"]`);
         if (existingScript) {
             // Script exists but not in cache yet - wait for it to load
             const loadPromise = new Promise((resolve, reject) => {
@@ -39,19 +43,30 @@
             return loadPromise;
         }
 
-        // Create new load promise
+        // Create new load promise - try minified first, fallback to regular
         const loadPromise = new Promise((resolve, reject) => {
             const script = document.createElement('script');
-            script.src = `components/${componentName}.js`;
+            script.src = scriptSrc;
             script.onload = () => {
                 componentCache.set(componentName, true);
                 pendingLoads.delete(componentName);
                 resolve();
             };
             script.onerror = () => {
-                console.warn(`Failed to load component: ${componentName}`);
-                pendingLoads.delete(componentName);
-                reject(new Error(`Failed to load component: ${componentName}`));
+                // Try fallback if minified version fails
+                const fallbackScript = document.createElement('script');
+                fallbackScript.src = fallbackSrc;
+                fallbackScript.onload = () => {
+                    componentCache.set(componentName, true);
+                    pendingLoads.delete(componentName);
+                    resolve();
+                };
+                fallbackScript.onerror = () => {
+                    console.warn(`Failed to load component: ${componentName}`);
+                    pendingLoads.delete(componentName);
+                    reject(new Error(`Failed to load component: ${componentName}`));
+                };
+                document.head.appendChild(fallbackScript);
             };
             document.head.appendChild(script);
         });

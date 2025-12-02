@@ -38,28 +38,16 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
             this.classList.add('timeline-full-height');
         }
         
+        // Pre-render the structure immediately to reserve space and prevent layout shift
+        this.renderStructure();
+        
         this.loadEvents();
     }
-
-    async loadEvents() {
-        try {
-            this.events = await this.loadJson('data/timeline-events.json', 'events');
-            this.render();
-        } catch (e) {
-            this.showError('Error loading timeline events.');
-        }
-    }
-
-    render() {
-        if (this.events.length === 0) {
-            this.innerHTML = '<p>Loading timeline...</p>';
-            return;
-        }
-
-        // Check if we've already rendered the timeline structure
-        const existingWrapper = this.querySelector('.timeline-wrapper');
-        if (!existingWrapper) {
-            // First render - create the structure
+    
+    renderStructure() {
+        // Pre-render the timeline structure immediately to reserve space
+        // This prevents layout shift when data loads
+        if (!this.querySelector('.timeline-wrapper')) {
             this.innerHTML = `
                 <div class="timeline-wrapper">
                     <div class="timeline-filters">
@@ -82,23 +70,43 @@ class BTimeline extends (window.BJsonLoader || HTMLElement) {
                     </div>
                 </div>
             `;
-
-            // Attach filter listeners
+            
+            // Attach filter listeners immediately
             this.attachFilterListeners();
-
-            // Render all events once
-            this.renderTimeline(this.events).then(html => {
-                const container = this.querySelector('.timeline-container');
-                if (container) {
-                    container.innerHTML = html;
-                    this.updateVisibility();
-                }
-            });
-        } else {
-            // Just update visibility based on current filters
-            this.updateVisibility();
-            this.updateTimelineLineHeight();
         }
+    }
+
+    async loadEvents() {
+        try {
+            this.events = await this.loadJson('data/timeline-events.json', 'events');
+            this.render();
+        } catch (e) {
+            this.showError('Error loading timeline events.');
+        }
+    }
+
+    render() {
+        if (this.events.length === 0) {
+            // Ensure structure is rendered even if no events
+            this.renderStructure();
+            return;
+        }
+
+        // Check if we've already rendered the timeline structure
+        const existingWrapper = this.querySelector('.timeline-wrapper');
+        if (!existingWrapper) {
+            // Structure should already be rendered in connectedCallback, but if not, render it now
+            this.renderStructure();
+        }
+
+        // Render all events
+        this.renderTimeline(this.events).then(html => {
+            const container = this.querySelector('.timeline-container');
+            if (container) {
+                container.innerHTML = html;
+                this.updateVisibility();
+            }
+        });
     }
 
     parseDate(dateStr) {

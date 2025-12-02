@@ -19,7 +19,21 @@ except ImportError:
 JS_FILES = [
     'js/router.js',
     'js/loader.js',
-    'components/base/b-json-loader.js'
+    'components/base/b-json-loader.js',
+    # Component files that need minification
+    'components/b-3d-scene.js',
+    'components/b-flavor-selector.js',
+    'components/b-breadcrumbs.js',
+    'components/b-timeline.js',
+    'components/b-layer.js',
+    'components/b-date.js',
+    'components/b-skillsets.js',
+    'components/b-projects.js',
+    'components/b-subdomain-projects.js',
+    'components/b-xp.js',
+    'components/b-yt.js',
+    'components/b-hamburger.js',
+    'components/b-skip-link.js'
 ]
 
 PUBLIC_DIR = Path('public')
