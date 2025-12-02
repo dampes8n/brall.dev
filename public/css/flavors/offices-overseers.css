@@ -190,13 +190,15 @@ a:visited {
 #main-content {
     grid-row: 1;
     grid-column: 1;
-    margin: var(--spacing-double);
+    margin: var(--spacing-double) auto;
     margin-top: calc(58.46px + var(--spacing-single));
     border-radius: 4px;
     height: calc(100vh - 141.46px - var(--spacing-single));
     overflow-y: auto;
     overflow-x: hidden;
     position: static;
+    max-width: 900px;
+    width: 100%;
 }
 
 #situational-menu {
