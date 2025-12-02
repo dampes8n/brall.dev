@@ -19,6 +19,11 @@ class BSkillsets extends (window.BJsonLoader || HTMLElement) {
             this.classList.add('skillsets-full-height');
         }
         
+        // Pre-render placeholder structure to reserve space and prevent layout shift
+        if (this.innerHTML.trim() === '') {
+            this.innerHTML = '<p>Loading skillsets...</p>';
+        }
+        
         this.loadData();
     }
 

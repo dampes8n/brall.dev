@@ -863,18 +863,17 @@ b-timeline.timeline-full-height .timeline-container {
     overflow-y: visible;
 }
 
+/* Reserve space for timeline component to prevent layout shift */
+b-timeline {
+    display: block;
+    min-height: 400px; /* Reserve space to prevent layout shift during load */
+}
+
 /* ============================================
    UNIFIED MINIMAL SCROLLBAR STYLING (DRY)
    ============================================ */
 
-/* Add spacing between content and scrollbar */
-#main-menu ul {
-    padding-right: 5px;
-}
-
-#situational-menu nav {
-    padding-right: 5px;
-}
+/* Scrollbar padding moved to inline CSS in index.html */
 
 /* Universal scrollbar styling for all elements */
 * {
