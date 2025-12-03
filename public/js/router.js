@@ -803,33 +803,17 @@
             
             e.preventDefault();
             
-            // Save current scroll position before navigation
-            const scrollY = Router.getScrollPosition();
-            saveScrollPosition(currentPath, scrollY);
-            
-            // Update current page's history state with scroll position before navigating away
-            // This ensures the back button can restore the correct scroll position
-            const currentState = window.history.state || { path: currentPath };
-            window.history.replaceState(
-                { ...currentState, path: currentPath, scrollY },
-                '',
-                window.location.hash || window.location.href
-            );
-            
-            const router = new Router();
-            await router.loadContent(href, true);
+            // Use the same navigation logic as breadcrumbs and back button
+            const breadcrumbs = document.querySelector('b-breadcrumbs');
+            if (breadcrumbs && typeof breadcrumbs.navigateToPath === 'function') {
+                await breadcrumbs.navigateToPath(href);
+            } else {
+                // Fallback if breadcrumbs aren't available
+                const router = new Router();
+                await router.loadContent(href, true);
+            }
         });
     }
-
-        // Save scroll position for current path
-        function saveScrollPosition(path, scrollY) {
-            const breadcrumbs = document.querySelector('b-breadcrumbs');
-            if (breadcrumbs && typeof breadcrumbs.generateTitle === 'function' && typeof breadcrumbs.normalizePath === 'function') {
-                const normalizedPath = breadcrumbs.normalizePath(path);
-                const title = breadcrumbs.generateTitle(normalizedPath);
-                breadcrumbs.add(normalizedPath, title, scrollY);
-            }
-        }
 
     function getCurrentPath() {
         const hash = window.location.hash;
@@ -874,31 +858,22 @@
         }
     }
 
-    // Handle back/forward buttons
+    // Handle back/forward buttons - reuse breadcrumb navigation logic
     window.addEventListener('popstate', async (e) => {
         let path = e.state?.path || getCurrentPath();
         
         // Normalize path
         path = Router.normalizePath(path);
         
-        // Get scroll position from breadcrumbs (same as recently viewed links)
+        // Use the same navigation logic as breadcrumb buttons
         const breadcrumbs = document.querySelector('b-breadcrumbs');
-        const scrollY = breadcrumbs ? breadcrumbs.getScrollPosition(path) : 0;
-        
-        // Load content without scrolling (we'll restore scroll position)
-        const router = new Router();
-        await router.loadContent(path, false);
-        
-        // Wait for layout to complete before restoring scroll
-        await new Promise(resolve => {
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    resolve();
-                });
-            });
-        });
-        
-        Router.setScrollPosition(scrollY);
+        if (breadcrumbs && typeof breadcrumbs.navigateToPath === 'function') {
+            await breadcrumbs.navigateToPath(path);
+        } else {
+            // Fallback if breadcrumbs aren't available
+            const router = new Router();
+            await router.loadContent(path, true);
+        }
     });
 
     // Set up link handlers and load initial content (defer non-critical router work)

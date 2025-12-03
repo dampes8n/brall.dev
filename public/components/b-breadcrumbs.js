@@ -66,6 +66,71 @@ class BBreadcrumbs extends HTMLElement {
     }
 
     /**
+     * Navigate to a path and restore scroll position (used by all navigation: links, breadcrumbs, back button)
+     * @param {string} path - The path to navigate to
+     */
+    async navigateToPath(path) {
+        const normalizedPath = this.normalizePath(path);
+        
+        // Save current scroll position before navigation
+        const hash = window.location.hash;
+        const currentPath = hash.startsWith('#!') ? hash.substring(2) : 'Resume';
+        const currentScrollY = window.Router ? window.Router.getScrollPosition() : 0;
+        const currentBreadcrumb = this.breadcrumbs.find(b => 
+            this.normalizePath(b.path) === this.normalizePath(currentPath)
+        );
+        if (currentBreadcrumb) {
+            currentBreadcrumb.scrollY = currentScrollY;
+            this.saveToCookie();
+        }
+        
+        // Find or create the target breadcrumb
+        let breadcrumb = this.breadcrumbs.find(b => 
+            this.normalizePath(b.path) === normalizedPath
+        );
+        
+        if (!breadcrumb) {
+            // Create breadcrumb for new page (will be at top of list)
+            const title = this.generateTitle(normalizedPath);
+            this.add(normalizedPath, title, 0); // New pages start at scroll position 0
+            breadcrumb = this.breadcrumbs[0]; // It's now at the top
+        } else {
+            // Move existing breadcrumb to the top
+            this.breadcrumbs.splice(this.breadcrumbs.indexOf(breadcrumb), 1);
+            this.breadcrumbs.unshift(breadcrumb);
+            this.saveToCookie();
+            this.render();
+        }
+        
+        // Load the content
+        const scrollY = breadcrumb.scrollY;
+        const shouldScroll = scrollY === 0; // Only scroll to top if it's a new page (scrollY = 0)
+        await window.Router.loadContentFromPath(breadcrumb.path, shouldScroll);
+        
+        // If we have a saved scroll position, restore it after content loads
+        if (scrollY > 0) {
+            // Wait for layout to complete
+            await new Promise(resolve => {
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        resolve();
+                    });
+                });
+            });
+            window.Router.setScrollPosition(scrollY);
+            // Update breadcrumb with restored scroll position (loadContent may have set it to 0)
+            // Find breadcrumb again since loadContent may have recreated it
+            const updatedBreadcrumb = this.breadcrumbs.find(b => 
+                this.normalizePath(b.path) === normalizedPath
+            );
+            if (updatedBreadcrumb) {
+                updatedBreadcrumb.scrollY = scrollY;
+                this.saveToCookie();
+            }
+        }
+    }
+
+    /**
      * Normalize a path for comparison
      */
     normalizePath(path) {
@@ -179,39 +244,7 @@ class BBreadcrumbs extends HTMLElement {
             // Add click handler
             a.addEventListener('click', async (e) => {
                 e.preventDefault();
-                
-                // Save current scroll position before navigation
-                const hash = window.location.hash;
-                const currentPath = hash.startsWith('#!') ? hash.substring(2) : 'Resume'; // Path stays as 'Resume' to match filename
-                const currentScrollY = window.Router ? window.Router.getScrollPosition() : 0;
-                const currentBreadcrumb = this.breadcrumbs.find(b => 
-                    this.normalizePath(b.path) === this.normalizePath(currentPath)
-                );
-                if (currentBreadcrumb) {
-                    currentBreadcrumb.scrollY = currentScrollY;
-                    this.saveToCookie();
-                }
-                
-                // Move this breadcrumb to the top
-                this.breadcrumbs.splice(this.breadcrumbs.indexOf(breadcrumb), 1);
-                this.breadcrumbs.unshift(breadcrumb);
-                this.saveToCookie();
-                this.render();
-                
-                // Load the content and restore scroll position
-                const scrollY = breadcrumb.scrollY;
-                await window.Router.loadContentFromPath(breadcrumb.path, false);
-                
-                // Restore scroll position after content loads
-                // Wait for layout to complete
-                await new Promise(resolve => {
-                    requestAnimationFrame(() => {
-                        requestAnimationFrame(() => {
-                            resolve();
-                        });
-                    });
-                });
-                window.Router.setScrollPosition(scrollY);
+                await this.navigateToPath(breadcrumb.path);
             });
             
             li.appendChild(a);
