@@ -206,10 +206,10 @@
             const scrollY = Router.getScrollPosition();
             window.history.pushState({ path: targetPath, scrollY }, '', newUrl);
 
-            // Update breadcrumbs (add new breadcrumb with current scroll position)
-            // Note: scroll position will be 0 if first load (we scrolled to top)
-            const currentScrollY = Router.getScrollPosition();
-            if (breadcrumbs && typeof breadcrumbs.generateTitle === 'function') {
+            // Update breadcrumbs only on first load (new pages)
+            // When restoring scroll position, navigateToPath handles breadcrumb updates
+            if (isFirstLoad && breadcrumbs && typeof breadcrumbs.generateTitle === 'function') {
+                const currentScrollY = Router.getScrollPosition();
                 const title = breadcrumbs.generateTitle(targetPath);
                 breadcrumbs.add(targetPath, title, currentScrollY);
             }
