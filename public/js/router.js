@@ -807,6 +807,15 @@
             const scrollY = Router.getScrollPosition();
             saveScrollPosition(currentPath, scrollY);
             
+            // Update current page's history state with scroll position before navigating away
+            // This ensures the back button can restore the correct scroll position
+            const currentState = window.history.state || { path: currentPath };
+            window.history.replaceState(
+                { ...currentState, path: currentPath, scrollY },
+                '',
+                window.location.hash || window.location.href
+            );
+            
             const router = new Router();
             await router.loadContent(href, true);
         });
