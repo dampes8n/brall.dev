@@ -877,21 +877,17 @@
     // Handle back/forward buttons
     window.addEventListener('popstate', async (e) => {
         let path = e.state?.path || getCurrentPath();
-        const savedScrollY = e.state?.scrollY;
         
         // Normalize path
         path = Router.normalizePath(path);
         
+        // Get scroll position from breadcrumbs (same as recently viewed links)
+        const breadcrumbs = document.querySelector('b-breadcrumbs');
+        const scrollY = breadcrumbs ? breadcrumbs.getScrollPosition(path) : 0;
+        
         // Load content without scrolling (we'll restore scroll position)
         const router = new Router();
         await router.loadContent(path, false);
-        
-        // Restore scroll position from history state or breadcrumbs
-        const scrollY = savedScrollY !== undefined ? savedScrollY : 
-                      (() => {
-                          const breadcrumbs = document.querySelector('b-breadcrumbs');
-                          return breadcrumbs ? breadcrumbs.getScrollPosition(path) : 0;
-                      })();
         
         // Wait for layout to complete before restoring scroll
         await new Promise(resolve => {
