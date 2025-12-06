@@ -1,27 +1,5 @@
 /* LitRPG flavor styles - D&D 5E style fonts */
-/* Official 5E fonts: Bookmania (body), Mrs Eaves Small Caps (headings), FF Scala Sans (tables) */
-/* Using Solbera free versions: Bookinsanity, Mr Eaves Small Caps, Scaly Sans */
-/* Note: These fonts need to be downloaded from https://jonathonf.github.io/solbera-dnd-fonts/ and hosted locally */
-
-@font-face {
-    font-family: 'Bookinsanity';
-    src: url('fonts/Bookinsanity.woff2') format('woff2'),
-         url('fonts/Bookinsanity.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Mr Eaves Small Caps';
-    src: url('fonts/MrEavesSmallCaps.woff2') format('woff2'),
-         url('fonts/MrEavesSmallCaps.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Fallback to Google Fonts alternatives if Solbera fonts not available */
+/* Using Google Fonts alternatives: Crimson Text (body), Cinzel (headings) */
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;500;600;700&display=swap');
 
 :root {
@@ -38,8 +16,8 @@
     --logo-color: var(--text-primary);
     
     /* Font families */
-    --font-family-base: 'Bookinsanity', 'Crimson Text', 'Times New Roman', 'Times', serif;
-    --font-family-headings: 'Mr Eaves Small Caps', 'Cinzel', 'Times New Roman', serif;
+    --font-family-base: 'Crimson Text', 'Times New Roman', 'Times', serif;
+    --font-family-headings: 'Cinzel', 'Times New Roman', serif;
     --font-family-h1: var(--font-family-headings);
     
     /* Override heading colors for h1 and h2 only */

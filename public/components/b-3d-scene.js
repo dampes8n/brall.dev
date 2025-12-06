@@ -623,6 +623,10 @@ class B3DScene extends HTMLElement {
     this.textureScrollYElement = this.getAttribute('texture-scroll-y-element') || null;
     this.textureScrollYScale = parseFloat(this.getAttribute('texture-scroll-y-scale') || '0.0005'); // Scale factor for scroll pixels to texture offset
     
+    // Cache scroll elements for performance (will be set after DOM is ready)
+    this.cachedScrollElementX = null;
+    this.cachedScrollElementY = null;
+    
     // Parse texture scale from attribute (divisor for repeat value - higher scale = bigger texture)
     this.textureScale = parseFloat(this.getAttribute('texture-scale') || '1');
     this.baseRepeat = repeat;
@@ -1027,32 +1031,34 @@ class B3DScene extends HTMLElement {
                     const hasElementScrolling = this.textureScrollXElement || this.textureScrollYElement;
                     
                     if (hasElementScrolling) {
+                        // Cache scroll elements if not already cached
+                        if (this.textureScrollXElement && !this.cachedScrollElementX) {
+                            this.cachedScrollElementX = document.querySelector(this.textureScrollXElement);
+                        }
+                        if (this.textureScrollYElement && !this.cachedScrollElementY) {
+                            this.cachedScrollElementY = document.querySelector(this.textureScrollYElement);
+                        }
+                        
                         // Handle X element-based scrolling
                         let textureOffsetX = null;
-                        if (this.textureScrollXElement) {
-                            const scrollElementX = document.querySelector(this.textureScrollXElement);
-                            if (scrollElementX) {
-                                const scrollTopX = scrollElementX.scrollTop;
-                                // Use actual scroll position in pixels, scaled to texture offset
-                                // Negative to scroll down as we scroll down
-                                textureOffsetX = -scrollTopX * this.textureScrollXScale;
-                                // Normalize to prevent large accumulated values
-                                textureOffsetX = normalizeOffset(textureOffsetX);
-                            }
+                        if (this.cachedScrollElementX) {
+                            const scrollTopX = this.cachedScrollElementX.scrollTop;
+                            // Use actual scroll position in pixels, scaled to texture offset
+                            // Negative to scroll down as we scroll down
+                            textureOffsetX = -scrollTopX * this.textureScrollXScale;
+                            // Normalize to prevent large accumulated values
+                            textureOffsetX = normalizeOffset(textureOffsetX);
                         }
                         
                         // Handle Y element-based scrolling
                         let textureOffsetY = null;
-                        if (this.textureScrollYElement) {
-                            const scrollElementY = document.querySelector(this.textureScrollYElement);
-                            if (scrollElementY) {
-                                const scrollTopY = scrollElementY.scrollTop;
-                                // Use actual scroll position in pixels, scaled to texture offset
-                                // Negative to scroll down as we scroll down
-                                textureOffsetY = -scrollTopY * this.textureScrollYScale;
-                                // Normalize to prevent large accumulated values
-                                textureOffsetY = normalizeOffset(textureOffsetY);
-                            }
+                        if (this.cachedScrollElementY) {
+                            const scrollTopY = this.cachedScrollElementY.scrollTop;
+                            // Use actual scroll position in pixels, scaled to texture offset
+                            // Negative to scroll down as we scroll down
+                            textureOffsetY = -scrollTopY * this.textureScrollYScale;
+                            // Normalize to prevent large accumulated values
+                            textureOffsetY = normalizeOffset(textureOffsetY);
                         }
                         
                         // Apply scroll-based offsets
